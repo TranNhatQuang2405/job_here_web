@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "Assets/Images/logo.png";
+import logo from "Assets/Images/logo_no_text.png";
+import logo_title from "Assets/Images/title.png";
 import user_img from "Assets/Images/user.png";
 import "./Header.css";
 
@@ -11,15 +12,19 @@ const Header = (props) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand
+          href="#home"
+          className="d-flex flex-row align-items-center"
+        >
           <img
-            alt=""
+            alt="Job Here"
             src={logo}
             width="50"
             height="50"
             className="d-inline-block align-top"
+            style={{ marginRight: 10 }}
           />
-          <h4>Job Here</h4>
+          <img src={logo_title} alt="Job Here" height="24" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -42,19 +47,18 @@ const Header = (props) => {
           <Nav className="justify-content-end">
             <NavDropdown
               title={
-                <div>
+                <div className="d-flex flex-row align-items-center">
                   <img
                     alt=""
                     src={user_img}
                     width="30"
                     height="30"
-                    className="d-inline-block align-top"
+                    className="d-inline-block rounded-circle"
                   />
-                  Your Profile
+                  <p className="mb-0">Your Profile</p>
                 </div>
               }
               id="basic-nav-dropdown"
-              className="justify-content-end"
             >
               <NavDropdown.Item href="#action">
                 Edit Your Infomation

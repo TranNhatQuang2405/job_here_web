@@ -1,6 +1,6 @@
 import "./App.css";
-import Header from "Layout/Header/Header";
-import Footer from "Layout/Footer/Footer";
+import Header from "Layout/HeaderFooter/Header/Header";
+import Footer from "Layout/HeaderFooter/Footer/Footer";
 import { I18nextProvider } from "react-i18next";
 import i18n from './Translate/i18n';
 
