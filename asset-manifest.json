@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/job_here_web/static/css/main.f47d377a.css",
+    "main.js": "/job_here_web/static/js/main.6a7f5593.js",
+    "static/js/787.bc2ae5bb.chunk.js": "/job_here_web/static/js/787.bc2ae5bb.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/job_here_web/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
+    "static/media/bootstrap-icons.woff2?": "/job_here_web/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
+    "index.html": "/job_here_web/index.html",
+    "main.f47d377a.css.map": "/job_here_web/static/css/main.f47d377a.css.map",
+    "main.6a7f5593.js.map": "/job_here_web/static/js/main.6a7f5593.js.map",
+    "787.bc2ae5bb.chunk.js.map": "/job_here_web/static/js/787.bc2ae5bb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f47d377a.css",
+    "static/js/main.6a7f5593.js"
+  ]
+}
