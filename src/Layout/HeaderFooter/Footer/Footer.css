@@ -1,0 +1,30 @@
+.Footer__container {
+  background: #efefef;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.Footer__container .nav-link {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.Footer__group-text {
+  font-size: 15px;
+}
+
+.Footer__item-text {
+  font-size: 14px;
+  color: #222831;
+  margin-bottom: 5px
+}
+
+.Footer__container .nav-link:hover {
+  color: #E34C31;
+}
+
+.Footer__text-muted {
+  color: #999999;
+}
