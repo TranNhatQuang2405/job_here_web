@@ -1,15 +1,13 @@
 import "./App.css";
-import Header from "Layout/HeaderFooter/Header/Header";
-import Footer from "Layout/HeaderFooter/Footer/Footer";
+import SignUpPage from "Layout/Authentication/SignUpPage/SignUpPage";
 import { I18nextProvider } from "react-i18next";
-import i18n from './Translate/i18n';
+import i18n from "./Translate/i18n";
 
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
       <div className="App">
-        <Header />
-        <Footer />
+        <SignUpPage />
       </div>
     </I18nextProvider>
   );
