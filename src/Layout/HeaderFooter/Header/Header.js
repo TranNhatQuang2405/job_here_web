@@ -1,4 +1,3 @@
-// import ChangeLanguageButton from "Components/Button/ChangeLanguageButton";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,7 +9,7 @@ import "./Header.css";
 
 const Header = (props) => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="sticky-nav">
       <Container>
         <Navbar.Brand
           href="#home"

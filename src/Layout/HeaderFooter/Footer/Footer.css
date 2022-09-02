@@ -1,6 +1,6 @@
 .Footer__container {
   background: #efefef;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   padding: 20px;

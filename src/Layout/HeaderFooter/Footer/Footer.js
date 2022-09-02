@@ -24,7 +24,7 @@ const Footer = () => {
           <Nav className="flex-column">
             <Nav.Item>
               <p className="Footer__item-text">
-                <i class="bi bi-geo-alt-fill" style={{marginRight: 5}} />
+                <i className="bi bi-geo-alt-fill" style={{marginRight: 5}} />
                 01 Vo Van Ngan Street, Linh Chieu Ward, Thu Duc City, Ho Chi
                 Minh City, Viet Nam
               </p>
@@ -36,13 +36,13 @@ const Footer = () => {
             </Nav.Item>
             <Nav.Item>
               <p className="Footer__item-text Footer__text-muted">
-                <i class="bi bi-telephone-fill" style={{marginRight: 5}} />
+                <i className="bi bi-telephone-fill" style={{marginRight: 5}} />
                 037 999 9999
               </p>
             </Nav.Item>
             <Nav.Item>
               <p className="Footer__item-text Footer__text-muted">
-                <i class="bi bi-envelope-fill" style={{marginRight: 5}} />
+                <i className="bi bi-envelope-fill" style={{marginRight: 5}} />
                 contact@jobhere.com
               </p>
             </Nav.Item>
