@@ -9,10 +9,7 @@ function Logo() {
             <img
                 alt="Job Here"
                 src={logo}
-                width="50"
-                height="50"
-                className="d-inline-block align-top"
-                style={{ marginRight: 10 }}
+                className="Logo__image1"
             />
             <img src={logo_title} alt="Job Here" height="24" />
         </div>

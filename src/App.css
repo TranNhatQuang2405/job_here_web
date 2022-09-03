@@ -189,8 +189,8 @@
 }
 
 .fix_scroll::-webkit-scrollbar-thumb {
-  box-shadow: inset 0 0 0 10px;
   border-radius: 10px;
+  background: var(--bs-sidebar-menu-item-color);
 }
 
 
@@ -211,4 +211,6 @@
   }
 }
 
-
+.bg-app-dark{
+  background-color: #222831 !important;
+}

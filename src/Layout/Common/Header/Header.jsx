@@ -9,8 +9,8 @@ import { Row, Col } from "react-bootstrap";
 const Header = (props) => {
     return (
         <Row className="sticky-nav">
-            <Col className="bg-light">
-                <Navbar expand="lg" className="Header__layout">
+            <Col className="bg-app-dark">
+                <Navbar expand="lg" variant="dark" className="Header__layout">
                     <Navbar.Brand
                         href="#home"
                         className="d-flex flex-row align-items-center"
@@ -20,17 +20,17 @@ const Header = (props) => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <NavDropdown title="Jobs" id="basic-nav-dropdown">
+                            <NavDropdown title="Jobs" id="basic-nav-dropdown" menuVariant="dark">
                                 <NavDropdown.Item href="#action">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action">Jobs Applied</NavDropdown.Item>
                                 <NavDropdown.Item href="#action">Jobs Saved</NavDropdown.Item>
                                 <NavDropdown.Item href="#action">Jobs Matched</NavDropdown.Item>
                             </NavDropdown>
-                            <NavDropdown title="Profile & CV" id="basic-nav-dropdown">
+                            <NavDropdown title="Profile & CV" id="basic-nav-dropdown" menuVariant="dark">
                                 <NavDropdown.Item href="#action">CV Manage</NavDropdown.Item>
                                 <NavDropdown.Item href="#action">CV Template</NavDropdown.Item>
                             </NavDropdown>
-                            <NavDropdown title="Companies" id="basic-nav-dropdown">
+                            <NavDropdown title="Companies" id="basic-nav-dropdown" menuVariant="dark">
                                 <NavDropdown.Item href="#action">Company List</NavDropdown.Item>
                                 <NavDropdown.Item href="#action">Top Company</NavDropdown.Item>
                             </NavDropdown>
@@ -42,14 +42,15 @@ const Header = (props) => {
                                         <img
                                             alt=""
                                             src={user_img}
-                                            width="30"
-                                            height="30"
+                                            width="40"
+                                            height="40"
                                             className="d-inline-block rounded-circle"
                                         />
-                                        <p className="mb-0">Your Profile</p>
+                                        <p className="mb-0 ms-2 Header__layout-text">Your Profile</p>
                                     </div>
                                 }
                                 id="basic-nav-dropdown"
+                                menuVariant="dark"
                             >
                                 <NavDropdown.Item href="#action">
                                     Edit Your Infomation
