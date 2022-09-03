@@ -1,12 +1,10 @@
-.Footer__container {
+.Footer__layout {
   background: #efefef;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
+  padding: 8px 32px;
+  margin-top: auto;
 }
 
-.Footer__container .nav-link {
+.Footer__layout .nav-link {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -21,7 +19,7 @@
   margin-bottom: 5px
 }
 
-.Footer__container .nav-link:hover {
+.Footer__layout .nav-link:hover {
   color: #E34C31;
 }
 
