@@ -13,17 +13,23 @@ import {
   Alert,
 } from "react-bootstrap";
 import "./SignInPage.css";
+import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
+  const navigate = useNavigate();
   const [notify, setNotify] = useState(false);
   const [account, setAccount] = useState({
     email: "",
     password: "",
   });
 
-  const onSignIn = () => { };
+  const onSignIn = () => {
+    navigate("/MainPage");
+  };
 
-  const onSignUp = () => { };
+  const onSignUp = () => {
+    navigate("/SignUp");
+  };
 
   const onChangeValueEmail = (e) => {
     setAccount((prev) => ({ ...prev, email: e.target.value }));
@@ -33,7 +39,9 @@ const SignInPage = () => {
     setAccount((prev) => ({ ...prev, password: e.target.value }));
   };
 
-  const onResetPassword = () => { };
+  const onResetPassword = () => {
+    navigate("/ResetPassword");
+  };
 
   return (
     <div className="SignIn pt-3">
@@ -84,9 +92,7 @@ const SignInPage = () => {
                       Forgot password?
                     </div>
                   </div>
-                  <FormLabel className="SignIn__form-label">
-                    Password
-                  </FormLabel>
+                  <FormLabel className="SignIn__form-label">Password</FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
                       <i className="bi bi-lock-fill"></i>
