@@ -1,16 +1,16 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import { Footer, Header } from '..'
-import "./PageTenplate.css"
+import React from "react";
+import { Container } from "react-bootstrap";
+import { Footer, Header } from "..";
+import "./PageTenplate.css";
 
-function PageTemplate({ children }) {
-    return (
-        <Container fluid className='Page__body fix_scroll'>
-            <Header />
-            {children}
-            <Footer />
-        </Container>
-    )
-}
+const PageTemplate = ({ children }) => {
+  return (
+    <Container fluid className="Page__body fix_scroll">
+      <Header />
+      {children}
+      <Footer />
+    </Container>
+  );
+};
 
-export default PageTemplate
+export default PageTemplate;
