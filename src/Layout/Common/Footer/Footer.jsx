@@ -2,8 +2,11 @@ import React from "react";
 import { Nav, Col, Row } from "react-bootstrap";
 import { Logo } from "..";
 import "./Footer.css";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <Row className="Footer__layout">
       <Col md={3}>
@@ -14,8 +17,9 @@ const Footer = () => {
           <Nav.Item>
             <p className="Footer__item-text">
               <i className="bi bi-geo-alt-fill" style={{ marginRight: 5 }} />
-              01 Vo Van Ngan Street, Linh Chieu Ward, Thu Duc City, Ho Chi Minh
-              City, Viet Nam
+              {t(
+                "01 Vo Van Ngan Street, Linh Chieu Ward, Thu Duc City, Ho Chi Minh City, Viet Nam"
+              )}
             </p>
           </Nav.Item>
           <Nav.Item>
@@ -39,34 +43,34 @@ const Footer = () => {
       </Col>
       <Col md={{ offset: 1, span: 2 }}>
         <div className="text-uppercase fw-bold mb-2 Footer__group-text">
-          About Job Here
+          {t("About Job Here")}
         </div>
         <Nav className="flex-column">
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">
-              About Us
+              {t("About Us")}
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">
-              Terms of Service
+              {t("Terms of Service")}
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">
-              Privacy Policy
+              {t("Privacy Policy")}
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">
-              Help
+              {t("Help")}
             </Nav.Link>
           </Nav.Item>
         </Nav>
       </Col>
       <Col md={{ offset: 1, span: 2 }}>
         <div className="text-uppercase fw-bold mb-2 Footer__group-text">
-          Community
+          {t("Community")}
         </div>
         <Nav className="flex-column">
           <Nav.Item>
@@ -74,7 +78,7 @@ const Footer = () => {
               href="https://www.facebook.com/jobhere.tech"
               className="Footer__item-text"
             >
-              Facebook Fanpage
+              {t("Facebook Fanpage")}
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
@@ -82,7 +86,7 @@ const Footer = () => {
               href="https://www.youtube.com/channel/UCCSfeNxFPc5vUVI-KA9DMVw"
               className="Footer__item-text"
             >
-              Offical Youtube Channel
+              {t("Offical Youtube Channel")}
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
@@ -90,29 +94,29 @@ const Footer = () => {
               href="https://www.linkedin.com/"
               className="Footer__item-text"
             >
-              Linkedin
+              {t("Linkedin")}
             </Nav.Link>
           </Nav.Item>
         </Nav>
       </Col>
       <Col md={{ offset: 1, span: 2 }}>
         <div className="text-uppercase fw-bold mb-2 Footer__group-text">
-          Profile And CV
+          {t("Profile & CV")}
         </div>
         <Nav className="flex-column">
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">
-              Manage CV
+              {t("CV Manage")}
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">
-              CV Template
+              {t("CV Template")}
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">
-              Write CV Guide
+              {t("Write CV Guide")}
             </Nav.Link>
           </Nav.Item>
         </Nav>
