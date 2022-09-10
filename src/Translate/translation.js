@@ -45,6 +45,12 @@ export const en = {
     "By registering you agree to the Job Here's",
   "Already have an account?": "Already have an account?",
   "Signin now": "Signin now",
+  "Reset Password": "Reset Password",
+  "Reset Password For Your Account.": "Reset Password For Your Account.",
+  "Enter your Email and instructions will be sent to you!": "Enter your Email and instructions will be sent to you!",
+  "Reset password link have been sent to your email": "Reset password link have been sent to your email",
+  "Submited Email is wrong": "Submited Email is wrong",
+  "Remember It?": "Remember It?",
 };
 
 export const vn = {
@@ -94,4 +100,10 @@ export const vn = {
     "Bằng việc đăng ký bạn đã đồng ý với",
   "Already have an account?": "Bạn đã có tài khoản?",
   "Signin now": "Đăng nhập ngay",
+  "Reset Password": "Đặt Lại Mật Khẩu",
+  "Reset Password For Your Account.": "Đặt lại mật khẩu cho tài khoản của bạn.",
+  "Enter your Email and instructions will be sent to you!": "Nhập Email và hướng dẫn sẽ được gửi đến bạn!",
+  "Reset password link have been sent to your email": "Liên kết đặt lại mật khẩu đã được gửi vào email của bạn",
+  "Submited Email is wrong": "Email đã nhập không đúng!",
+  "Remember It?": "Nhớ tài khoản?",
 };
