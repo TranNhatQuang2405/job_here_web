@@ -1,19 +1,30 @@
 import { withTranslation } from "react-i18next";
+import vi from "Assets/Images/vi_icon.png";
+import en from "Assets/Images/en_icon.png";
 
 const ChangeLanguageButton = (props) => {
-  const { t, i18n } = props;
+  const { i18n } = props;
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
+  const changeLanguage = () => {
+    if (i18n.language === "en") {
+      i18n.changeLanguage("vn");
+    } else {
+      i18n.changeLanguage("en");
+    }
   };
 
   return (
-    <div>
-      Header
-      <h2>{t("English")}</h2>
-      <button onClick={() => changeLanguage("vn")}>vn</button>
-      <button onClick={() => changeLanguage("en")}>en</button>
-    </div>
+    <span
+      onClick={changeLanguage}
+      style={{ height: 20, width: 30 }}
+    >
+      <img
+        alt={i18n.language === "en" ? "Tiếng Việt" : "English"}
+        src={i18n.language === "en" ? vi : en}
+        className="d-inline-block"
+        style={{ height: "100%", width: "100%" }}
+      />
+    </span>
   );
 };
 

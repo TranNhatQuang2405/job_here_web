@@ -14,9 +14,11 @@ import {
 } from "react-bootstrap";
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SignInPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [notify, setNotify] = useState(false);
   const [account, setAccount] = useState({
     email: "",
@@ -48,8 +50,8 @@ const SignInPage = () => {
       <Row className="justify-content-center">
         <Col lg={4} xs={11}>
           <div className="text-center mb-4">
-            <h4 className="SignIn__title">Sign In</h4>
-            <p className="text-muted mb-4">Sign in to continue.</p>
+            <h4 className="SignIn__title">{t("Sign In")}</h4>
+            <p className="text-muted mb-4">{t("Sign in to continue.")}</p>
           </div>
 
           <Card className="SignIn__card">
@@ -59,7 +61,7 @@ const SignInPage = () => {
                 dismissible
                 onClose={() => setNotify(false)}
               >
-                Wrong email or password
+                {t("Wrong email or password")}
               </Alert>
             ) : (
               <></>
@@ -67,7 +69,7 @@ const SignInPage = () => {
             <Card.Body className="p-4">
               <Form onSubmit={onSignIn}>
                 <FormGroup className="mb-3">
-                  <FormLabel className="SignIn__form-label">Email</FormLabel>
+                  <FormLabel className="SignIn__form-label">{t("Email")}</FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
                       <i className="bi bi-person" />
@@ -75,7 +77,7 @@ const SignInPage = () => {
 
                     <FormControl
                       className="SignIn__form-control SignIn__form-control-lg SignIn__form SignIn__bg-soft-light"
-                      placeholder="Enter Email"
+                      placeholder={t("Enter Email")}
                       aria-label="Enter Email"
                       onChange={onChangeValueEmail}
                       value={account.email}
@@ -89,10 +91,10 @@ const SignInPage = () => {
                       className="text-muted font-size-13 cur-pointer"
                       onClick={onResetPassword}
                     >
-                      Forgot password?
+                      {t("Forgot password?")}
                     </div>
                   </div>
-                  <FormLabel className="SignIn__form-label">Password</FormLabel>
+                  <FormLabel className="SignIn__form-label">{t("Password")}</FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
                       <i className="bi bi-lock-fill"></i>
@@ -100,7 +102,7 @@ const SignInPage = () => {
 
                     <FormControl
                       className="SignIn__form-control SignIn__form-control-lg SignIn__form SignIn__bg-soft-light"
-                      placeholder="Enter Password"
+                      placeholder={t("Enter Password")}
                       aria-label="Enter Password"
                       type="password"
                       autoComplete="true"
@@ -114,7 +116,7 @@ const SignInPage = () => {
                   <FormCheck
                     className="SignIn__form-check"
                     type="checkbox"
-                    label="Remember Me"
+                    label={t("Remember Me")}
                   />
                 </Form.Group>
 
@@ -123,7 +125,7 @@ const SignInPage = () => {
                   type="submit"
                   className="SignIn__btn-signin w-100"
                 >
-                  Sign in
+                  {t("Sign In")}
                 </Button>
               </Form>
             </Card.Body>
@@ -131,12 +133,12 @@ const SignInPage = () => {
 
           <div className="SignIn__sign-up mt-3 text-center">
             <p>
-              Don't have an account?
+              {t("Don't have an account?")}
               <span
                 className="ms-1 text-primary cur-pointer"
                 onClick={onSignUp}
               >
-                Signup now
+                {t("Signup now")}
               </span>
             </p>
           </div>

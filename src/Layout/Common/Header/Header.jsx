@@ -1,14 +1,17 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import ChangeLanguageButton from "Components/Button/ChangeLanguageButton";
 import { useNavigate } from "react-router-dom";
 import user_img from "Assets/Images/user.png";
 import "./Header.css";
 import { Logo } from "..";
 import { Row, Col } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 const Header = (props) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const onLogout = () => {
     navigate("/SignIn");
@@ -28,33 +31,46 @@ const Header = (props) => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown
-                title="Jobs"
+                title={t("Jobs")}
                 id="basic-nav-dropdown"
                 menuVariant="dark"
               >
-                <NavDropdown.Item href="#action">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action">Jobs Applied</NavDropdown.Item>
-                <NavDropdown.Item href="#action">Jobs Saved</NavDropdown.Item>
-                <NavDropdown.Item href="#action">Jobs Matched</NavDropdown.Item>
+                <NavDropdown.Item href="#action">
+                  {t("Applied Jobs")}
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action">
+                  {t("Saved Jobs")}
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action">
+                  {t("Matched Jobs")}
+                </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown
-                title="Profile & CV"
+                title={t("Profile & CV")}
                 id="basic-nav-dropdown"
                 menuVariant="dark"
               >
-                <NavDropdown.Item href="#action">CV Manage</NavDropdown.Item>
-                <NavDropdown.Item href="#action">CV Template</NavDropdown.Item>
+                <NavDropdown.Item href="#action">
+                  {t("CV Manage")}
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action">
+                  {t("CV Template")}
+                </NavDropdown.Item>
               </NavDropdown>
               <NavDropdown
-                title="Companies"
+                title={t("Companies")}
                 id="basic-nav-dropdown"
                 menuVariant="dark"
               >
-                <NavDropdown.Item href="#action">Company List</NavDropdown.Item>
-                <NavDropdown.Item href="#action">Top Company</NavDropdown.Item>
+                <NavDropdown.Item href="#action">
+                  {t("Company List")}
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action">
+                  {t("Top Company")}
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Nav className="justify-content-end">
+            <Nav className="justify-content-end align-items-center">
               <NavDropdown
                 title={
                   <div className="d-flex flex-row align-items-center">
@@ -66,7 +82,7 @@ const Header = (props) => {
                       className="d-inline-block rounded-circle"
                     />
                     <p className="mb-0 ms-2 Header__layout-text">
-                      Your Profile
+                      {t("Your Profile")}
                     </p>
                   </div>
                 }
@@ -74,10 +90,13 @@ const Header = (props) => {
                 menuVariant="dark"
               >
                 <NavDropdown.Item href="#action">
-                  Edit Your Infomation
+                  {t("Edit Your Infomation")}
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={onLogout}>Logout</NavDropdown.Item>
+                <NavDropdown.Item onClick={onLogout}>
+                  {t("Logout")}
+                </NavDropdown.Item>
               </NavDropdown>
+              <ChangeLanguageButton />
             </Nav>
           </Navbar.Collapse>
         </Navbar>

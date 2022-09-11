@@ -13,9 +13,11 @@ import {
 } from "react-bootstrap";
 import "./SignUpPage.css";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [notify, setNotify] = useState("null");
   const [account, setAccount] = useState({
     email: "",
@@ -47,8 +49,10 @@ const SignUpPage = () => {
         <Row className="justify-content-center">
           <Col lg={4} xs={11}>
             <div className="text-center mb-4">
-              <h4 className="SignUp__title">Sign up</h4>
-              <p className="text-muted mb-4">Get your Chat account now.</p>
+              <h4 className="SignUp__title">{t("Sign Up")}</h4>
+              <p className="text-muted mb-4">
+                {t("Get your Job Here account now.")}
+              </p>
             </div>
 
             <Card className="SignUp__card">
@@ -58,7 +62,7 @@ const SignUpPage = () => {
                   dismissible
                   onClose={() => setNotify("null")}
                 >
-                  You have signed up success
+                  {t("You have signed up success!")}
                 </Alert>
               ) : notify === false ? (
                 <Alert
@@ -66,8 +70,9 @@ const SignUpPage = () => {
                   dismissible
                   onClose={() => setNotify("null")}
                 >
-                  Your email is wrong or is in use with another user or your
-                  password is not match
+                  {t(
+                    "Your email is wrong or is in use with another user or your password is not match!"
+                  )}
                 </Alert>
               ) : (
                 <></>
@@ -83,7 +88,7 @@ const SignUpPage = () => {
                       <FormControl
                         type="email"
                         className="signUp-text-color"
-                        placeholder="Enter Email"
+                        placeholder={t("Enter Email")}
                         aria-label="Enter Email"
                         value={account.email}
                         onChange={onChangeValueEmail}
@@ -94,7 +99,7 @@ const SignUpPage = () => {
 
                   <FormGroup className="mb-3">
                     <FormLabel className="SignUp__form-label">
-                      Display Name
+                      {t("Display Name")}
                     </FormLabel>
                     <InputGroup className="mb-3">
                       <InputGroup.Text className="bg-light text-muted-bg border-0">
@@ -103,7 +108,7 @@ const SignUpPage = () => {
                       <FormControl
                         type="text"
                         className="signUp-text-color"
-                        placeholder="Enter Username"
+                        placeholder={t("Enter Username")}
                         aria-label="Enter Username"
                         value={account.displayName}
                         onChange={onChangeValueDisplayName}
@@ -115,7 +120,7 @@ const SignUpPage = () => {
 
                   <FormGroup className="mb-4">
                     <FormLabel className="SignUp__form-label">
-                      Password
+                      {t("Password")}
                     </FormLabel>
                     <InputGroup className="mb-3">
                       <InputGroup.Text className="bg-light text-muted-bg border-0">
@@ -124,7 +129,7 @@ const SignUpPage = () => {
                       <FormControl
                         type="password"
                         className="signUp-text-color"
-                        placeholder="Enter Password"
+                        placeholder={t("Enter Password")}
                         aria-label="Enter Password"
                         value={account.password}
                         onChange={onChangeValuePassword}
@@ -135,14 +140,14 @@ const SignUpPage = () => {
                   </FormGroup>
 
                   <Button className="signUp__button w-100" type="submit">
-                    Sign up
+                    {t("Sign Up")}
                   </Button>
 
                   <div className="mt-3 mb-2 text-center">
                     <p className="text-muted mb-0">
-                      By registering you agree to the Job Here
+                      {t("By registering you agree to the Job Here's")}
                       <a href="/" className="signUp__textSignIn ms-2">
-                        Terms of Use
+                        {t("Terms of Service")}
                       </a>
                     </p>
                   </div>
@@ -152,12 +157,12 @@ const SignUpPage = () => {
 
             <div className="SignUp__sign-in text-center mt-1">
               <p>
-                Already have an account?
+                {t("Already have an account?")}
                 <span
                   className="cur-pointer ms-2 signUp__textSignIn"
                   onClick={onSignIn}
                 >
-                  Sign in
+                  {t("Signin now")}
                 </span>
               </p>
             </div>
