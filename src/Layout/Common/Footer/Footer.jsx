@@ -17,9 +17,7 @@ const Footer = () => {
           <Nav.Item>
             <p className="Footer__item-text">
               <i className="bi bi-geo-alt-fill" style={{ marginRight: 5 }} />
-              {t(
-                "01 Vo Van Ngan Street, Linh Chieu Ward, Thu Duc City, Ho Chi Minh City, Viet Nam"
-              )}
+              {t("jh-address")}
             </p>
           </Nav.Item>
           <Nav.Item>

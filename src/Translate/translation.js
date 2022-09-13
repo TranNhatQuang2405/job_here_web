@@ -14,7 +14,7 @@ export const en = {
   Companies: "Companies",
   "Company List": "Company List",
   "Top Company": "Top Company",
-  "01 Vo Van Ngan Street, Linh Chieu Ward, Thu Duc City, Ho Chi Minh City, Viet Nam":
+  "jh-address":
     "01 Vo Van Ngan Street, Linh Chieu Ward, Thu Duc City, Ho Chi Minh City, Viet Nam",
   "About Job Here": "About Job Here",
   "About Us": "About Us",
@@ -37,7 +37,7 @@ export const en = {
   "Sign Up": "Sign Up",
   "Get your Job Here account now.": "Get your Job Here account now.",
   "You have signed up success!": "You have signed up success!",
-  "Your email is wrong or is in use with another user or your password is not match!":
+  "jh-signup-fail":
     "Your email is wrong or is in use with another user or your password is not match!",
   "Display Name": "Display Name",
   "Enter Username": "Enter Username",
@@ -47,8 +47,10 @@ export const en = {
   "Signin now": "Signin now",
   "Reset Password": "Reset Password",
   "Reset Password For Your Account.": "Reset Password For Your Account.",
-  "Enter your Email and instructions will be sent to you!": "Enter your Email and instructions will be sent to you!",
-  "Reset password link have been sent to your email": "Reset password link have been sent to your email",
+  "Enter your Email and instructions will be sent to you!":
+    "Enter your Email and instructions will be sent to you!",
+  "Reset password link have been sent to your email":
+    "Reset password link have been sent to your email",
   "Submited Email is wrong": "Submited Email is wrong",
   "Remember It?": "Remember It?",
 };
@@ -69,7 +71,7 @@ export const vn = {
   Companies: "Công Ty",
   "Company List": "Danh Sách Công Ty",
   "Top Company": "Công Ty Hàng Đầu",
-  "01 Vo Van Ngan Street, Linh Chieu Ward, Thu Duc City, Ho Chi Minh City, Viet Nam":
+  "jh-address":
     "01 Võ Văn Ngân, Phường Linh Chiểu, Quận Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam",
   "About Job Here": "Về Job Here",
   "About Us": "Về Chúng Tôi",
@@ -92,7 +94,7 @@ export const vn = {
   "Sign Up": "Đăng Ký",
   "Get your Job Here account now.": "Đăng ký tài khoản Job Here ngay hôm nay.",
   "You have signed up success!": "Bạn đã đăng ký thành công!",
-  "Your email is wrong or is in use with another user or your password is not match!":
+  "jh-signup-fail":
     "Email của bạn bị sai hoặc đang được sử dụng bởi tài khoản khác hoặc mật khẩu của bạn không khớp!",
   "Display Name": "Tên Hiển Thị",
   "Enter Username": "Nhập Tên",
@@ -102,8 +104,10 @@ export const vn = {
   "Signin now": "Đăng nhập ngay",
   "Reset Password": "Đặt Lại Mật Khẩu",
   "Reset Password For Your Account.": "Đặt lại mật khẩu cho tài khoản của bạn.",
-  "Enter your Email and instructions will be sent to you!": "Nhập Email và hướng dẫn sẽ được gửi đến bạn!",
-  "Reset password link have been sent to your email": "Liên kết đặt lại mật khẩu đã được gửi vào email của bạn",
+  "Enter your Email and instructions will be sent to you!":
+    "Nhập Email và hướng dẫn sẽ được gửi đến bạn!",
+  "Reset password link have been sent to your email":
+    "Liên kết đặt lại mật khẩu đã được gửi vào email của bạn",
   "Submited Email is wrong": "Email đã nhập không đúng!",
   "Remember It?": "Nhớ tài khoản?",
 };

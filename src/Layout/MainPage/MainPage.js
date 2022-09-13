@@ -1,7 +1,12 @@
 import React from "react";
+import {JobList} from "../Common";
 
 const MainPage = () => {
-  return <div>MainPage</div>;
+  return (
+    <div>
+      <JobList />
+    </div>
+  );
 };
 
 export default MainPage;

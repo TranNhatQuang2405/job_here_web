@@ -70,9 +70,7 @@ const SignUpPage = () => {
                   dismissible
                   onClose={() => setNotify("null")}
                 >
-                  {t(
-                    "Your email is wrong or is in use with another user or your password is not match!"
-                  )}
+                  {t("jh-signup-fail")}
                 </Alert>
               ) : (
                 <></>
