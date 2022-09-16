@@ -3,7 +3,7 @@ import {JobList} from "../Common";
 
 const MainPage = () => {
   return (
-    <div>
+    <div style={{backgroundColor: '#f4f4f4', padding: 10}}>
       <JobList />
     </div>
   );
