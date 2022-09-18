@@ -53,6 +53,9 @@ export const en = {
     "Reset password link have been sent to your email",
   "Submited Email is wrong": "Submited Email is wrong",
   "Remember It?": "Remember It?",
+  "Date Of Birth": "Date Of Birth",
+  "Phone Number": "Phone Number",
+  "Enter Phone Number": "Enter Phone Number",
 };
 
 export const vn = {
@@ -110,4 +113,7 @@ export const vn = {
     "Liên kết đặt lại mật khẩu đã được gửi vào email của bạn",
   "Submited Email is wrong": "Email đã nhập không đúng!",
   "Remember It?": "Nhớ tài khoản?",
+  "Date Of Birth": "Ngày Sinh",
+  "Phone Number": "Số Điện Thoại",
+  "Enter Phone Number": "Nhập Số Điện Thoại",
 };

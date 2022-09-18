@@ -1,4 +1,3 @@
-
 .SignIn__title {
   font-size: calc(1.25625rem + 0.075vw);
   font-weight: 600;
@@ -9,35 +8,20 @@
   background-color: var(--bs-card-bg) !important;
 }
 
-.SignIn__form-control {
-  border-color: #e6ebf5 !important;
-  background-color: rgba(230, 235, 245, 0.25) !important;
-}
-
 .SignIn__input-text {
   background-color: var(--bs-input-group-addon-bg) !important;
   padding: 5px 15px !important;
   color: var(--bs-text-muted) !important;
 }
 
-.SignIn__form:focus {
-  color: var(--bs-body-color);
-  background-color: var(--bs-input-bg);
-  outline: 0;
-  box-shadow: none !important;
-}
-
-.SignIn__form-control-lg {
+.SignIn__form-control {
   min-height: calc(1.5em + calc(1rem + 6px)) !important;
   padding: 0.5rem 1rem !important;
   font-size: 0.875rem !important;
   border-radius: 0.4rem !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-  color: var(--bs-text-muted) !important;
-}
-
-.SignIn__bg-soft-light {
+  color: #000 !important;
   background-color: var(--bs-input-card-bg) !important;
 }
 
@@ -52,9 +36,6 @@
   color: var(--bs-input-placeholder-color);
 }
 
-.mb-4 {
-  margin-bottom: 1.5rem !important;
-}
 .SignIn__form-check {
   display: block;
   min-height: 1.40625rem;

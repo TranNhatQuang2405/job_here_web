@@ -80,11 +80,11 @@ const SignInPage = () => {
                   </FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
-                      <i className="bi bi-person" />
+                      <i className="bi bi-person-fill" />
                     </InputGroup.Text>
 
                     <FormControl
-                      className="SignIn__form-control SignIn__form-control-lg SignIn__form SignIn__bg-soft-light"
+                      className="SignIn__form-control"
                       placeholder={t("Enter Email")}
                       aria-label="Enter Email"
                       onChange={onChangeValueEmail}
@@ -111,7 +111,7 @@ const SignInPage = () => {
                     </InputGroup.Text>
 
                     <FormControl
-                      className="SignIn__form-control SignIn__form-control-lg SignIn__form SignIn__bg-soft-light"
+                      className="SignIn__form-control"
                       placeholder={t("Enter Password")}
                       aria-label="Enter Password"
                       type="password"

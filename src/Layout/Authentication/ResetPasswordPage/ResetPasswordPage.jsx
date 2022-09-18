@@ -79,12 +79,12 @@ const ResetPasswordPage = () => {
                         {t("Email")}
                       </FormLabel>
                       <InputGroup className="mb-3">
-                        <InputGroup.Text className="bg-light text-muted-bg border-0">
-                          <i className="bi bi-envelope" />
+                        <InputGroup.Text className="ResetPassword__input-text">
+                          <i className="bi bi-envelope-fill" />
                         </InputGroup.Text>
                         <FormControl
                           type="email"
-                          className="resetPass-text-color"
+                          className="ResetPassword__form-control"
                           placeholder={t("Enter Email")}
                           aria-label="Enter Email"
                           required
