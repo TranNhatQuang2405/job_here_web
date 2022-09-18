@@ -8,12 +8,16 @@ import "./Header.css";
 import { Logo } from "..";
 import { Row, Col } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { change } from "Config/Redux/Slice/CurrentPageSlice";
 
 const Header = (props) => {
     const navigate = useNavigate();
+    const dispatch=useDispatch()
     const { t } = useTranslation();
 
     const onLogout = () => {
+        dispatch(change(1))
         navigate("/SignIn");
     };
 

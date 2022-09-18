@@ -13,10 +13,13 @@ import {
 } from "react-bootstrap";
 import "./SignUpPage.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { change } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const [notify, setNotify] = useState("null");
   const [account, setAccount] = useState({
@@ -26,6 +29,7 @@ const SignUpPage = () => {
   });
 
   const onSignIn = () => {
+    dispatch(change(1));
     navigate("/SignIn");
   };
 
