@@ -14,10 +14,13 @@ import {
 } from "react-bootstrap";
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { change } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 
 const SignInPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const [notify, setNotify] = useState(false);
   const [account, setAccount] = useState({
@@ -26,10 +29,12 @@ const SignInPage = () => {
   });
 
   const onSignIn = () => {
+    dispatch(change(4));//Test
     navigate("/MainPage");
   };
 
   const onSignUp = () => {
+    dispatch(change(2));
     navigate("/SignUp");
   };
 
@@ -42,6 +47,7 @@ const SignInPage = () => {
   };
 
   const onResetPassword = () => {
+    dispatch(change(3));
     navigate("/ResetPassword");
   };
 
@@ -69,14 +75,16 @@ const SignInPage = () => {
             <Card.Body className="p-4">
               <Form onSubmit={onSignIn}>
                 <FormGroup className="mb-3">
-                  <FormLabel className="SignIn__form-label">{t("Email")}</FormLabel>
+                  <FormLabel className="SignIn__form-label">
+                    {t("Email")}
+                  </FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
-                      <i className="bi bi-person" />
+                      <i className="bi bi-person-fill" />
                     </InputGroup.Text>
 
                     <FormControl
-                      className="SignIn__form-control SignIn__form-control-lg SignIn__form SignIn__bg-soft-light"
+                      className="SignIn__form-control"
                       placeholder={t("Enter Email")}
                       aria-label="Enter Email"
                       onChange={onChangeValueEmail}
@@ -94,14 +102,16 @@ const SignInPage = () => {
                       {t("Forgot password?")}
                     </div>
                   </div>
-                  <FormLabel className="SignIn__form-label">{t("Password")}</FormLabel>
+                  <FormLabel className="SignIn__form-label">
+                    {t("Password")}
+                  </FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
                       <i className="bi bi-lock-fill"></i>
                     </InputGroup.Text>
 
                     <FormControl
-                      className="SignIn__form-control SignIn__form-control-lg SignIn__form SignIn__bg-soft-light"
+                      className="SignIn__form-control"
                       placeholder={t("Enter Password")}
                       aria-label="Enter Password"
                       type="password"

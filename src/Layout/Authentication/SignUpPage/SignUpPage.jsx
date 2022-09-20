@@ -13,23 +13,31 @@ import {
 } from "react-bootstrap";
 import "./SignUpPage.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { change } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const [notify, setNotify] = useState("null");
   const [account, setAccount] = useState({
     email: "",
     displayName: "",
     password: "",
+    dateOfBirth: "",
+    phone: "",
   });
 
   const onSignIn = () => {
+    dispatch(change(1));
     navigate("/SignIn");
   };
 
-  const onSignUp = () => {};
+  const onSignUp = () => {
+    console.log(account)
+  };
 
   const onChangeValueEmail = (e) => {
     setAccount((prev) => ({ ...prev, email: e.target.value }));
@@ -41,6 +49,14 @@ const SignUpPage = () => {
 
   const onChangeValuePassword = (e) => {
     setAccount((prev) => ({ ...prev, password: e.target.value }));
+  };
+
+  const onChangeValueDateOfBirth = (e) => {
+    setAccount((prev) => ({ ...prev, dateOfBirth: e.target.value }));
+  };
+
+  const onChangeValuePhoneNumber = (e) => {
+    setAccount((prev) => ({ ...prev, phone: e.target.value }));
   };
 
   return (
@@ -80,12 +96,12 @@ const SignUpPage = () => {
                   <FormGroup className="mb-3">
                     <FormLabel className="SignUp__form-label">Email</FormLabel>
                     <InputGroup className="mb-3">
-                      <InputGroup.Text className="bg-light text-muted-bg border-0">
-                        <i className="bi bi-envelope" />
+                      <InputGroup.Text className="SignUp__input-text">
+                        <i className="bi bi-envelope-fill" />
                       </InputGroup.Text>
                       <FormControl
                         type="email"
-                        className="signUp-text-color"
+                        className="SignUp__form-control"
                         placeholder={t("Enter Email")}
                         aria-label="Enter Email"
                         value={account.email}
@@ -100,12 +116,12 @@ const SignUpPage = () => {
                       {t("Display Name")}
                     </FormLabel>
                     <InputGroup className="mb-3">
-                      <InputGroup.Text className="bg-light text-muted-bg border-0">
-                        <i className="bi bi-person" />
+                      <InputGroup.Text className="SignUp__input-text">
+                        <i className="bi bi-person-fill" />
                       </InputGroup.Text>
                       <FormControl
                         type="text"
-                        className="signUp-text-color"
+                        className="SignUp__form-control"
                         placeholder={t("Enter Username")}
                         aria-label="Enter Username"
                         value={account.displayName}
@@ -121,12 +137,12 @@ const SignUpPage = () => {
                       {t("Password")}
                     </FormLabel>
                     <InputGroup className="mb-3">
-                      <InputGroup.Text className="bg-light text-muted-bg border-0">
-                        <i className="bi bi-lock" />
+                      <InputGroup.Text className="SignUp__input-text">
+                        <i className="bi bi-lock-fill" />
                       </InputGroup.Text>
                       <FormControl
                         type="password"
-                        className="signUp-text-color"
+                        className="SignUp__form-control"
                         placeholder={t("Enter Password")}
                         aria-label="Enter Password"
                         value={account.password}
@@ -137,7 +153,46 @@ const SignUpPage = () => {
                     </InputGroup>
                   </FormGroup>
 
-                  <Button className="signUp__button w-100" type="submit">
+                  <FormGroup className="mb-3">
+                    <FormLabel className="SignUp__form-label">
+                      {t("Date Of Birth")}
+                    </FormLabel>
+                    <InputGroup className="mb-3">
+                      <InputGroup.Text className="SignUp__input-text">
+                        <i className="bi bi-calendar-date-fill" />
+                      </InputGroup.Text>
+                      <FormControl
+                        type="date"
+                        className="SignUp__form-control"
+                        value={account.dateOfBirth}
+                        onChange={onChangeValueDateOfBirth}
+                        required
+                      />
+                    </InputGroup>
+                  </FormGroup>
+
+                  <FormGroup className="mb-3">
+                    <FormLabel className="SignUp__form-label">
+                      {t("Phone Number")}
+                    </FormLabel>
+                    <InputGroup className="mb-3">
+                      <InputGroup.Text className="SignUp__input-text">
+                        <i className="bi bi-telephone-fill" />
+                      </InputGroup.Text>
+                      <FormControl
+                        type="text"
+                        className="SignUp__form-control"
+                        placeholder={t("Enter Phone Number")}
+                        aria-label="Enter Phone Number"
+                        value={account.phone}
+                        onChange={onChangeValuePhoneNumber}
+                        minLength={10}
+                        required
+                      />
+                    </InputGroup>
+                  </FormGroup>
+
+                  <Button className="SignUp__button w-100" type="submit">
                     {t("Sign Up")}
                   </Button>
 
