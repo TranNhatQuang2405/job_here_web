@@ -56,6 +56,15 @@ export const en = {
   "Date Of Birth": "Date Of Birth",
   "Phone Number": "Phone Number",
   "Enter Phone Number": "Enter Phone Number",
+  "Authentication Code": "Authentication Code",
+  "Final step to treate your account.": "Final step to treate your account.",
+  "Your authentication code is invalid!":
+    "Your authentication code is invalid!",
+  "Enter Code": "Enter Code",
+  Submit: "Submit",
+  "Didn't receiver authentication code?":
+    "Didn't receiver authentication code?",
+  Resend: "Resend",
 };
 
 export const vn = {
@@ -116,4 +125,12 @@ export const vn = {
   "Date Of Birth": "Ngày Sinh",
   "Phone Number": "Số Điện Thoại",
   "Enter Phone Number": "Nhập Số Điện Thoại",
+  "Authentication Code": "Mã Xác Thực",
+  "Final step to treate your account.":
+    "Bước cuối cùng để tạo tài khoản của bạn.",
+  "Your authentication code is invalid!": "Mã xác thực của bạn không hợp lệ!",
+  "Enter Code": "Nhập Mã",
+  Submit: "Xác Nhận",
+  "Didn't receiver authentication code?": "Bạn không nhận được mã xác thực?",
+  Resend: "Gửi lại",
 };

@@ -6,6 +6,7 @@ import {
   SignInPage,
   SignUpPage,
   ResetPasswordPage,
+  AuthCodePage,
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -23,6 +24,7 @@ function App() {
               path="/ResetPassword"
               element={<ResetPasswordPage />}
             ></Route>
+            <Route path="/AuthCode" element={<AuthCodePage />}></Route>
             <Route path="/MainPage" element={<MainPage />}></Route>
             <Route path="*" element={<Navigate to="/SignIn" />} />
           </Routes>

@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { change } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
+import authBusiness from "Business/AuthBusiness.js";
 
 const SignInPage = () => {
   const navigate = useNavigate();
@@ -28,9 +29,20 @@ const SignInPage = () => {
     password: "",
   });
 
-  const onSignIn = () => {
-    dispatch(change(4));//Test
+  const onSignIn = async (e) => {
+    e.preventDefault();
+    dispatch(change(10));
     navigate("/MainPage");
+    // console.log("Pressed");
+    // let signIn = await authBusiness.SignIn(account.email, account.password);
+    // console.log(signIn)
+    // if (signIn.status === "success") {
+    //   dispatch(change(10));
+    //   navigate("/MainPage");
+    // } else {
+    //   setNotify(true);
+    //   setAccount({ email: account.email, password: "" });
+    // }
   };
 
   const onSignUp = () => {
