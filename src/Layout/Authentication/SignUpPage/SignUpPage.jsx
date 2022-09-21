@@ -36,7 +36,8 @@ const SignUpPage = () => {
   };
 
   const onSignUp = () => {
-    console.log(account)
+    dispatch(change(4));
+    navigate("/AuthCode");
   };
 
   const onChangeValueEmail = (e) => {

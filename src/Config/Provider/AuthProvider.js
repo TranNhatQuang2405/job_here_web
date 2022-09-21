@@ -5,12 +5,13 @@ function AuthProvider({ children }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.CurrentPage.page);
-  
+
   useLayoutEffect(() => {
     const unsubscribed = () => {
       if (currentPage === 1) navigate("/SignIn");
       else if (currentPage === 2) navigate("/SignUp");
       else if (currentPage === 3) navigate("/ResetPassword");
+      else if (currentPage === 4) navigate("/AuthCode");
       // else navigate("/SignIn");
       else navigate("/MainPage");
     };
