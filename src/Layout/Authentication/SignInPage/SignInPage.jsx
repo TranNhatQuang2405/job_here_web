@@ -31,14 +31,12 @@ const SignInPage = () => {
 
   const onSignIn = async (e) => {
     e.preventDefault();
-    dispatch(change(10));
-    navigate("/MainPage");
-    console.log("Pressed");
     let signIn = await authBusiness.SignIn(account.email, account.password);
-    console.log(signIn)
+    console.log(signIn);
     if (signIn.status === "success") {
-      dispatch(change(10));
-      navigate("/MainPage");
+      // dispatch(change(10));
+      // navigate("/MainPage");
+      console.log("------SignIn Success");
     } else {
       setNotify(true);
       setAccount({ email: account.email, password: "" });
@@ -79,7 +77,7 @@ const SignInPage = () => {
                 dismissible
                 onClose={() => setNotify(false)}
               >
-                {t("Wrong email or password")}
+                {t("Wrong email or password!")}
               </Alert>
             ) : (
               <></>
