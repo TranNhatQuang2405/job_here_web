@@ -33,16 +33,16 @@ const SignInPage = () => {
     e.preventDefault();
     dispatch(change(10));
     navigate("/MainPage");
-    // console.log("Pressed");
-    // let signIn = await authBusiness.SignIn(account.email, account.password);
-    // console.log(signIn)
-    // if (signIn.status === "success") {
-    //   dispatch(change(10));
-    //   navigate("/MainPage");
-    // } else {
-    //   setNotify(true);
-    //   setAccount({ email: account.email, password: "" });
-    // }
+    console.log("Pressed");
+    let signIn = await authBusiness.SignIn(account.email, account.password);
+    console.log(signIn)
+    if (signIn.status === "success") {
+      dispatch(change(10));
+      navigate("/MainPage");
+    } else {
+      setNotify(true);
+      setAccount({ email: account.email, password: "" });
+    }
   };
 
   const onSignUp = () => {
