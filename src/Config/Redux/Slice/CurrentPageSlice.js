@@ -7,12 +7,12 @@ export const CurrentPageSlice = createSlice({
   name: "CurrentPage",
   initialState,
   reducers: {
-    change: (state, action) => {
+    changeCurrentPage: (state, action) => {
       state.page = action.payload;
     },
   },
 });
 
-export const { change } = CurrentPageSlice.actions;
+export const { changeCurrentPage } = CurrentPageSlice.actions;
 
 export default CurrentPageSlice.reducer;

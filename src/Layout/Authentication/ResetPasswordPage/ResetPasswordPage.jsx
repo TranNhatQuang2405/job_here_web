@@ -13,7 +13,7 @@ import {
 import "./ResetPasswordPage.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { change } from "Config/Redux/Slice/CurrentPageSlice";
+import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 
 const ResetPasswordPage = () => {
@@ -28,7 +28,7 @@ const ResetPasswordPage = () => {
   };
 
   const onSignIn = () => {
-    dispatch(change(1));
+    dispatch(changeCurrentPage(1));
     navigate("/SignIn");
   };
 
