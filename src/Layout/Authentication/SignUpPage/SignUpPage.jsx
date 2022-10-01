@@ -14,6 +14,7 @@ import {
 import "./SignUpPage.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { changeXAuthToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
@@ -77,6 +78,8 @@ const SignUpPage = () => {
         phone
       );
       if (signUp.data.httpCode === 200) {
+        var xAuthToken = signUp.headers["x-auth-token"];
+        dispatch(changeXAuthToken(xAuthToken));
         dispatch(changeCurrentPage(4));
         navigate("/AuthCode");
       } else {

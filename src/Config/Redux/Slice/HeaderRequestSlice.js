@@ -24,8 +24,14 @@ export const HeaderRequestSlice = createSlice({
   name: "HeaderRequest",
   initialState,
   reducers: {
+    changeXAuthToken: (state, action) => {
+      state.headers = { ...state.headers, "X-Auth-Token": action.payload };
+      localStorage.setItem("header", JSON.stringify({ ...state.headers }));
+
+    },
     changeAcceptLanguage: (state, action) => {
       state.headers = { ...state.headers, "Accept-Language": action.payload };
+      localStorage.setItem("header", JSON.stringify({ ...state.headers }));
     },
     changeToken: (state, action) => {
       state.headers["Authorization"] = "Bearer " + action.payload;
@@ -34,6 +40,6 @@ export const HeaderRequestSlice = createSlice({
   },
 });
 
-export const { changeAcceptLanguage, changeToken } = HeaderRequestSlice.actions;
+export const { changeAcceptLanguage, changeToken, changeXAuthToken } = HeaderRequestSlice.actions;
 
 export default HeaderRequestSlice.reducer;
