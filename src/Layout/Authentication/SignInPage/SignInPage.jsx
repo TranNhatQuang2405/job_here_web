@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Col,
   Row,
@@ -15,38 +15,39 @@ import {
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { change } from "Config/Redux/Slice/CurrentPageSlice";
+import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
+import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { useTranslation } from "react-i18next";
-import authBusiness from "Business/AuthBusiness.js";
+import { authBusiness } from "Business";
+import { WarningModal } from "Components/Modal";
 
 const SignInPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const [notify, setNotify] = useState(false);
   const [account, setAccount] = useState({
     email: "",
     password: "",
   });
+  const modalRef = useRef();
 
   const onSignIn = async (e) => {
     e.preventDefault();
-    dispatch(change(10));
-    navigate("/MainPage");
-    // console.log("Pressed");
-    // let signIn = await authBusiness.SignIn(account.email, account.password);
-    // console.log(signIn)
-    // if (signIn.status === "success") {
-    //   dispatch(change(10));
-    //   navigate("/MainPage");
-    // } else {
-    //   setNotify(true);
-    //   setAccount({ email: account.email, password: "" });
-    // }
+    let signIn = await authBusiness.SignIn(account.email, account.password);
+    if (signIn.data.httpCode === 200) {
+      if (signIn.data.token) {
+        dispatch(changeToken(signIn.data.token));
+      }
+      navigate("/MainPage")
+    } else {
+      modalRef.current.setMessage("Wrong Email or Password!");
+      modalRef.current.onToggleModal();
+      setAccount({ email: account.email, password: "" });
+    }
   };
 
   const onSignUp = () => {
-    dispatch(change(2));
+    dispatch(changeCurrentPage(2));
     navigate("/SignUp");
   };
 
@@ -59,12 +60,13 @@ const SignInPage = () => {
   };
 
   const onResetPassword = () => {
-    dispatch(change(3));
+    dispatch(changeCurrentPage(3));
     navigate("/ResetPassword");
   };
 
   return (
     <div className="SignIn pt-3">
+      <WarningModal ref={modalRef} />
       <Row className="justify-content-center">
         <Col lg={4} xs={11}>
           <div className="text-center mb-4">
@@ -73,17 +75,6 @@ const SignInPage = () => {
           </div>
 
           <Card className="SignIn__card">
-            {notify ? (
-              <Alert
-                variant="danger"
-                dismissible
-                onClose={() => setNotify(false)}
-              >
-                {t("Wrong email or password")}
-              </Alert>
-            ) : (
-              <></>
-            )}
             <Card.Body className="p-4">
               <Form onSubmit={onSignIn}>
                 <FormGroup className="mb-3">

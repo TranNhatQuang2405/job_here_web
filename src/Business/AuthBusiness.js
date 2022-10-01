@@ -1,15 +1,19 @@
 import Service from "Config/Api/Service";
-import { signInURL } from "Config/Api/ConfigURL";
+import { signInURL, getSessionURL } from "Config/Api/ConfigURL";
 
 class AuthBusiness extends Service {
-  SignIn = (email, password) => {
-    return new Promise((resolve, reject) => {
-      let params = {
-        email: email,
-        password: password,
-      };
-      this.post(params, signInURL).then(resolve).catch(reject);
-    });
+  SignIn = async (email, password) => {
+    let params = {
+      email: email,
+      password: password,
+    };
+    let result = await this.post(signInURL, params);
+    return result;
+  };
+
+  GetSession = async () => {
+    let result = await this.get(getSessionURL);
+    return result;
   };
 }
 
