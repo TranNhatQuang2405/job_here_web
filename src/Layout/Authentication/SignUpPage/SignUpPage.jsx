@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Col,
   Row,
@@ -14,8 +14,17 @@ import {
 import "./SignUpPage.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { change } from "Config/Redux/Slice/CurrentPageSlice";
+import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
+import { authBusiness } from "Business";
+import { WarningModal } from "Components/Modal";
+import {
+  ValidateEmail,
+  ValidateUTF8Name,
+  ValidatePassword,
+  ValidateDateOfBirth,
+  ValidatePhone,
+} from "Config/Validate";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -29,15 +38,53 @@ const SignUpPage = () => {
     dateOfBirth: "",
     phone: "",
   });
+  const modalRef = useRef();
 
   const onSignIn = () => {
-    dispatch(change(1));
+    dispatch(changeCurrentPage(1));
     navigate("/SignIn");
   };
 
-  const onSignUp = () => {
-    dispatch(change(4));
-    navigate("/AuthCode");
+  const onSignUp = async (e) => {
+    e.preventDefault();
+    if (!ValidateEmail(account.email)) {
+      modalRef.current.setMessage("Invalid Email!");
+      modalRef.current.onToggleModal();
+      // setAccount({ ...account, password: "" });
+    } else if (!ValidateUTF8Name(account.displayName)) {
+      modalRef.current.setMessage("Invalid Display Name!");
+      modalRef.current.onToggleModal();
+      // setAccount({ ...account, password: "" });
+    } else if (!ValidatePassword(account.password)) {
+      modalRef.current.setMessage("Password must at least 8 characters!");
+      modalRef.current.onToggleModal();
+      // setAccount({ ...account, password: "" });
+    } else if (!ValidateDateOfBirth(account.dateOfBirth)) {
+      modalRef.current.setMessage("Invalid Date Of Birth!");
+      modalRef.current.onToggleModal();
+      // setAccount({ ...account, password: "" });
+    } else if (!ValidatePhone(account.phone)) {
+      modalRef.current.setMessage("Invalid Phone Number!");
+      modalRef.current.onToggleModal();
+      // setAccount({ ...account, password: "" });
+    } else {
+      let { email, password, dateOfBirth, displayName, phone } = account;
+      let signUp = await authBusiness.SignUp(
+        email,
+        password,
+        displayName,
+        account.dateOfBirth.replaceAll("-", "/"),
+        phone
+      );
+      if (signUp.data.httpCode === 200) {
+        dispatch(changeCurrentPage(4));
+        navigate("/AuthCode");
+      } else {
+        modalRef.current.setMessage("Some thing went wrong! Please try again!");
+        modalRef.current.onToggleModal();
+        // setAccount({ ...account, password: "" });
+      }
+    }
   };
 
   const onChangeValueEmail = (e) => {
@@ -62,6 +109,7 @@ const SignUpPage = () => {
 
   return (
     <div className="SignUp">
+      <WarningModal ref={modalRef} />
       <div className="SignUp__account-pages pt-3">
         <Row className="justify-content-center">
           <Col lg={4} xs={11}>

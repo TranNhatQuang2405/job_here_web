@@ -10,7 +10,7 @@ import {
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
-import AuthProvider from "Config/Provider/AuthProvider.js";
+import { AuthProvider } from "Config/Provider";
 
 function App() {
   return (

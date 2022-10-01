@@ -2,21 +2,29 @@ import axios from "axios";
 import host from "./Host";
 
 class Service {
-    post = async (params, suburl) => {
-        let url = host + suburl;
-        let result = await axios.post(url, { params: params });
-        if (result.data.httpCode === 200) {
-            return {
-                status: "success",
-                data: result.data,
-            };
-        } else {
-            return {
-                status: "error",
-                data: result.data.message,
-            };
-        };
-    };
+  post = async (suburl, params = {}, header = {}) => {
+    let url = host + suburl;
+    var headerStorage = localStorage.getItem("header");
+    headerStorage = headerStorage ? JSON.parse(headerStorage) : {};
+    let result = await axios.post(url, params, {
+      headers: {
+        ...headerStorage,
+      },
+    });
+    return result;
+  };
+
+  get = async (suburl, params = {}, header = {}) => {
+    let url = host + suburl;
+    var headerStorage = localStorage.getItem("header");
+    headerStorage = headerStorage ? JSON.parse(headerStorage) : {};
+    let result = await axios.get(url, {
+      headers: {
+        ...headerStorage,
+      },
+    });
+    return result;
+  };
 }
 
 export default Service;
