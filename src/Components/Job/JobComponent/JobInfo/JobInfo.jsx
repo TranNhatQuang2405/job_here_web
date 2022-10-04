@@ -55,8 +55,8 @@ const JobInfo = ({ isSave, onApply, onSave }) => {
       <div className="JobInfo__box-info">
         <p>Thông tin chung</p>
         <div className="JobInfo__box-main">
-          {_.map(boxData, (item) => (
-            <div className="JobInfo__box-item">
+          {_.map(boxData, (item, index) => (
+            <div key={index} className="JobInfo__box-item">
               <IconCircle
                 name={item.icon}
                 style={{ marginRight: "16px", marginTop: "5px" }}

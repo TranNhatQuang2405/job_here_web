@@ -16,7 +16,7 @@ const JobShare = ({
       <div className="JobShare__box-copy">
         <div className="JobShare__url-copy">{url}</div>
         <div className="JobShare__btn-copy">
-          <button className="" onclick={copyURLToClipboard}>
+          <button className="" onClick={copyURLToClipboard}>
             <i className="bi bi-clipboard-check" />
           </button>
         </div>
