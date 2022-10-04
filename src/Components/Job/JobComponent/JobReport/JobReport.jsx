@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./JobReport.css";
 import { ButtonPrimary } from "Components/Button";
-import Carousel from "react-bootstrap/Carousel";
-import { Slide1, Slide2, Slide3, Slide4 } from "Assets/Images/JobReport";
 
 const JobReport = () => {
   const [index, setIndex] = useState(0);
