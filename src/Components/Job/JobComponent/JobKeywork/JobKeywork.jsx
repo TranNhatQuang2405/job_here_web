@@ -1,56 +1,34 @@
 import React from "react";
+import { TagList } from "Components/Tag";
+import "./JobKeywork.css";
 
 const JobKeywork = () => {
+  let jobTypeData = [
+    {
+      label: "Marketing / Truyền thông / Quảng cáo",
+      link: "https://www.topcv.vn/tim-viec-lam-marketing-truyen-thong-quang-cao-c10029",
+    },
+    {
+      label: "Báo chí / Truyền hình",
+      link: "https://www.topcv.vn/tim-viec-lam-bao-chi-truyen-hinh-c10004",
+    },
+  ];
+
+  let areaData = [
+    {
+      label: "Hồ Chí Minh",
+    },
+    {
+      label: "Quận 7",
+    },
+  ];
+
   return (
-    <div className="box-keyword-job">
+    <div className="JobKeywork__container">
       <h3>Ngành nghề</h3>
-      <div className="keyword">
-        <span>
-          <a
-            href="https://www.topcv.vn/tim-viec-lam-marketing-truyen-thong-quang-cao-c10029"
-            className="btn btn-sm btn-default text-dark-gray"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Marketing / Truyền thông / Quảng cáo
-          </a>
-        </span>
-        <span>
-          <a
-            href="https://www.topcv.vn/tim-viec-lam-bao-chi-truyen-hinh-c10004"
-            className="btn btn-sm btn-default text-dark-gray"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Báo chí / Truyền hình
-          </a>
-        </span>
-      </div>
+      <TagList tagData={jobTypeData} />
       <h3>Khu vực</h3>
-      <div className="area">
-        <span>
-          <a
-            className="btn btn-sm btn-default text-dark-gray"
-            href="https://www.topcv.vn/tim-viec-lam-nhan-vien-marketing-tai-ho-chi-minh-kl2"
-            target="_blank"
-            rel="noreferrer"
-            title="Tìm việc làm nhân viên marketing tại Hồ Chí Minh"
-          >
-            Hồ Chí Minh
-          </a>
-        </span>
-        <span>
-          <a
-            className="btn btn-sm btn-default text-dark-gray"
-            href="https://www.topcv.vn/tim-viec-lam-nhan-vien-marketing"
-            target="_blank"
-            rel="noreferrer"
-            title="Tìm việc làm nhân viên marketing tại Quận 7"
-          >
-            Quận 7
-          </a>
-        </span>
-      </div>
+      <TagList tagData={areaData} />
     </div>
   );
 };
