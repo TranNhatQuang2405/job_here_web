@@ -9,7 +9,6 @@ import {
   FormLabel,
   FormGroup,
   Button,
-  Alert,
 } from "react-bootstrap";
 import "./SignUpPage.css";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +30,6 @@ const SignUpPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const [notify, setNotify] = useState("null");
   const [account, setAccount] = useState({
     email: "",
     displayName: "",
@@ -74,7 +72,7 @@ const SignUpPage = () => {
         email,
         password,
         displayName,
-        account.dateOfBirth.replaceAll("-", "/"),
+        dateOfBirth.replaceAll("-", "/"),
         phone
       );
       if (signUp.data.httpCode === 200) {
@@ -118,31 +116,9 @@ const SignUpPage = () => {
           <Col lg={4} xs={11}>
             <div className="text-center mb-4">
               <h4 className="SignUp__title">{t("Sign Up")}</h4>
-              <p className="text-muted mb-4">
-                {t("Get your Job Here account now.")}
-              </p>
+              <p className="text-muted mb-4">{t("Get your Job Here account now.")}</p>
             </div>
-
             <Card className="SignUp__card">
-              {notify === true ? (
-                <Alert
-                  variant="success"
-                  dismissible
-                  onClose={() => setNotify("null")}
-                >
-                  {t("You have signed up success!")}
-                </Alert>
-              ) : notify === false ? (
-                <Alert
-                  variant="danger"
-                  dismissible
-                  onClose={() => setNotify("null")}
-                >
-                  {t("jh-signup-fail")}
-                </Alert>
-              ) : (
-                <></>
-              )}
               <Card.Body className="p-4 pb-1">
                 <Form onSubmit={onSignUp}>
                   <FormGroup className="mb-3">
@@ -185,9 +161,7 @@ const SignUpPage = () => {
                   </FormGroup>
 
                   <FormGroup className="mb-4">
-                    <FormLabel className="SignUp__form-label">
-                      {t("Password")}
-                    </FormLabel>
+                    <FormLabel className="SignUp__form-label">{t("Password")}</FormLabel>
                     <InputGroup className="mb-3">
                       <InputGroup.Text className="SignUp__input-text">
                         <i className="bi bi-lock-fill" />
@@ -263,10 +237,7 @@ const SignUpPage = () => {
             <div className="SignUp__sign-in text-center mt-1">
               <p>
                 {t("Already have an account?")}
-                <span
-                  className="cur-pointer ms-2 signUp__textSignIn"
-                  onClick={onSignIn}
-                >
+                <span className="cur-pointer ms-2 signUp__textSignIn" onClick={onSignIn}>
                   {t("Signin now")}
                 </span>
               </p>

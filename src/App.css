@@ -1,4 +1,11 @@
 :root {
+  --jh-primary-color: #00b14f;
+  --jh-secondary-color: #ffffff;
+  --jh-black-color: #000000;
+  --jh-primary-color-hover: #3ba769;
+  --jh-item-background: #ffffff;
+  --jh-box-background: #00b14f0d;
+  --jh-page-background: #e5e5e5;
   --bs-sidebar-bg: #ffffff;
   --bs-sidebar-menu-item-color: #878a92;
   --bs-sidebar-menu-item-active-color: #7269ef;
