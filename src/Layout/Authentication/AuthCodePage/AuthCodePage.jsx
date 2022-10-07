@@ -13,16 +13,15 @@ import {
   Spinner,
 } from "react-bootstrap";
 import "./AuthCodePage.css";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
 import { WarningModal } from "Components/Modal";
 import { ValidateAuthCode } from "Config/Validate";
+import { SetIsPending } from "Config/Redux/Slice/UserSlice";
 
 const AuthCodePage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [code, setCode] = useState("");
@@ -45,6 +44,7 @@ const AuthCodePage = () => {
       let authCode = await authBusiness.AuthCode(parseInt(code));
       setLoading(false);
       if (authCode.data.httpCode === 200) {
+        dispatch(SetIsPending());
         dispatch(changeCurrentPage(1));
       } else {
         modalRef.current.setMessage(
@@ -56,7 +56,7 @@ const AuthCodePage = () => {
     }
   };
 
-  const onResend = () => {};
+  const onResend = () => { };
 
   return (
     <div className="AuthCode">

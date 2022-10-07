@@ -11,13 +11,12 @@ import {
   Button,
 } from "react-bootstrap";
 import "./ResetPasswordPage.css";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
+import { SetIsPending } from "Config/Redux/Slice/UserSlice";
 
 const ResetPasswordPage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
@@ -28,10 +27,11 @@ const ResetPasswordPage = () => {
   };
 
   const onSignIn = () => {
+    dispatch(SetIsPending());
     dispatch(changeCurrentPage(1));
   };
 
-  const onResetPassword = () => {};
+  const onResetPassword = () => { };
 
   return (
     <div className="ResetPassword">

@@ -9,8 +9,6 @@ import { store } from "Config/Redux/store";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 
-console.log(process.env.REACT_APP_SERVER_URL);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

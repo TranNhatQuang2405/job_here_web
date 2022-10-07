@@ -52,6 +52,7 @@ const SignInPage = () => {
   };
 
   const onSignUp = () => {
+    dispatch(SetIsPending());
     dispatch(changeCurrentPage(2));
   };
 
@@ -64,6 +65,7 @@ const SignInPage = () => {
   };
 
   const onResetPassword = () => {
+    dispatch(SetIsPending());
     dispatch(changeCurrentPage(3));
   };
 
