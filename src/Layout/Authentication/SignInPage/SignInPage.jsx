@@ -10,7 +10,7 @@ import {
   FormCheck,
   FormGroup,
   Button,
-  Alert,
+  Spinner
 } from "react-bootstrap";
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,7 @@ import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
 import { WarningModal } from "Components/Modal";
+import { SetIsPending } from "Config/Redux/Slice/UserSlice";
 
 const SignInPage = () => {
   const navigate = useNavigate();
@@ -29,16 +30,20 @@ const SignInPage = () => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const modalRef = useRef();
 
   const onSignIn = async (e) => {
     e.preventDefault();
+    setLoading(true);
     let signIn = await authBusiness.SignIn(account.email, account.password);
+    setLoading(false);
     if (signIn.data.httpCode === 200) {
       if (signIn.data.token) {
         dispatch(changeToken(signIn.data.token));
       }
-      navigate("/MainPage")
+      dispatch(SetIsPending());
+      navigate("/Home");
     } else {
       modalRef.current.setMessage("Wrong Email or Password!");
       modalRef.current.onToggleModal();
@@ -48,7 +53,6 @@ const SignInPage = () => {
 
   const onSignUp = () => {
     dispatch(changeCurrentPage(2));
-    navigate("/SignUp");
   };
 
   const onChangeValueEmail = (e) => {
@@ -61,7 +65,6 @@ const SignInPage = () => {
 
   const onResetPassword = () => {
     dispatch(changeCurrentPage(3));
-    navigate("/ResetPassword");
   };
 
   return (
@@ -78,9 +81,7 @@ const SignInPage = () => {
             <Card.Body className="p-4">
               <Form onSubmit={onSignIn}>
                 <FormGroup className="mb-3">
-                  <FormLabel className="SignIn__form-label">
-                    {t("Email")}
-                  </FormLabel>
+                  <FormLabel className="SignIn__form-label">{t("Email")}</FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
                       <i className="bi bi-person-fill" />
@@ -105,9 +106,7 @@ const SignInPage = () => {
                       {t("Forgot password?")}
                     </div>
                   </div>
-                  <FormLabel className="SignIn__form-label">
-                    {t("Password")}
-                  </FormLabel>
+                  <FormLabel className="SignIn__form-label">{t("Password")}</FormLabel>
                   <InputGroup className="mb-3">
                     <InputGroup.Text className="SignIn__input-text">
                       <i className="bi bi-lock-fill"></i>
@@ -138,7 +137,11 @@ const SignInPage = () => {
                   type="submit"
                   className="SignIn__btn-signin w-100"
                 >
-                  {t("Sign In")}
+                  {loading ? (
+                    <Spinner animation="border" variant="light" />
+                  ) : (
+                    t("Sign In")
+                  )}
                 </Button>
               </Form>
             </Card.Body>
@@ -147,10 +150,7 @@ const SignInPage = () => {
           <div className="SignIn__sign-up mt-3 text-center">
             <p>
               {t("Don't have an account?")}
-              <span
-                className="ms-1 text-primary cur-pointer"
-                onClick={onSignUp}
-              >
+              <span className="ms-1 text-primary cur-pointer" onClick={onSignUp}>
                 {t("Signup now")}
               </span>
             </p>

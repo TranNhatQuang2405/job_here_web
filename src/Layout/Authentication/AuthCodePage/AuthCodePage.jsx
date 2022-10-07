@@ -10,6 +10,7 @@ import {
   FormGroup,
   Button,
   Alert,
+  Spinner,
 } from "react-bootstrap";
 import "./AuthCodePage.css";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +27,7 @@ const AuthCodePage = () => {
   const { t } = useTranslation();
   const [code, setCode] = useState("");
   const [alert, setAlert] = useState(false);
+  const [loading, setLoading] = useState(false);
   const modalRef = useRef();
 
   const onChangeCode = (e) => {
@@ -39,10 +41,11 @@ const AuthCodePage = () => {
       modalRef.current.onToggleModal();
       // setCode("")
     } else {
+      setLoading(true);
       let authCode = await authBusiness.AuthCode(parseInt(code));
+      setLoading(false);
       if (authCode.data.httpCode === 200) {
         dispatch(changeCurrentPage(1));
-        navigate("/SignIn");
       } else {
         modalRef.current.setMessage(
           authCode.data.message || "Some thing went wrong! Please try again!"
@@ -73,11 +76,7 @@ const AuthCodePage = () => {
               <Card.Body className="p-4">
                 <div className="p-3">
                   {alert ? (
-                    <Alert
-                      variant="danger"
-                      dismissible
-                      onClose={() => setAlert(false)}
-                    >
+                    <Alert variant="danger" dismissible onClose={() => setAlert(false)}>
                       {t("Your authentication code is invalid!")}
                     </Alert>
                   ) : (
@@ -107,7 +106,11 @@ const AuthCodePage = () => {
 
                     <div className="d-grid">
                       <Button className="authCode__button " type="submit">
-                        {t("Submit")}
+                        {loading ? (
+                          <Spinner animation="border" variant="light" />
+                        ) : (
+                          t("Submit")
+                        )}
                       </Button>
                     </div>
                   </Form>

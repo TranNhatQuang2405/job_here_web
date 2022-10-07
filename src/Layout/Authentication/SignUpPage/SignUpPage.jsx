@@ -9,6 +9,7 @@ import {
   FormLabel,
   FormGroup,
   Button,
+  Spinner,
 } from "react-bootstrap";
 import "./SignUpPage.css";
 import { useNavigate } from "react-router-dom";
@@ -37,11 +38,11 @@ const SignUpPage = () => {
     dateOfBirth: "",
     phone: "",
   });
+  const [loading, setLoading] = useState(false);
   const modalRef = useRef();
 
   const onSignIn = () => {
     dispatch(changeCurrentPage(1));
-    navigate("/SignIn");
   };
 
   const onSignUp = async (e) => {
@@ -68,6 +69,7 @@ const SignUpPage = () => {
       // setAccount({ ...account, password: "" });
     } else {
       let { email, password, dateOfBirth, displayName, phone } = account;
+      setLoading(true);
       let signUp = await authBusiness.SignUp(
         email,
         password,
@@ -75,11 +77,11 @@ const SignUpPage = () => {
         dateOfBirth.replaceAll("-", "/"),
         phone
       );
+      setLoading(false);
       if (signUp.data.httpCode === 200) {
         var xAuthToken = signUp.headers["x-auth-token"];
         dispatch(changeXAuthToken(xAuthToken));
         dispatch(changeCurrentPage(4));
-        navigate("/AuthCode");
       } else {
         modalRef.current.setMessage("Some thing went wrong! Please try again!");
         modalRef.current.onToggleModal();
@@ -219,7 +221,11 @@ const SignUpPage = () => {
                   </FormGroup>
 
                   <Button className="SignUp__button w-100" type="submit">
-                    {t("Sign Up")}
+                    {loading ? (
+                      <Spinner animation="border" variant="light" />
+                    ) : (
+                      t("Sign Up")
+                    )}
                   </Button>
 
                   <div className="mt-3 mb-2 text-center">

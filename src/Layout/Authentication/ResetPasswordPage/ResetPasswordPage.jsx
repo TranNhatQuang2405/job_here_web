@@ -29,7 +29,6 @@ const ResetPasswordPage = () => {
 
   const onSignIn = () => {
     dispatch(changeCurrentPage(1));
-    navigate("/SignIn");
   };
 
   const onResetPassword = () => {};
