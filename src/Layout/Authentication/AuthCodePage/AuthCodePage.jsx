@@ -56,7 +56,7 @@ const AuthCodePage = () => {
     }
   };
 
-  const onResend = () => { };
+  const onResend = () => {};
 
   return (
     <div className="AuthCode">

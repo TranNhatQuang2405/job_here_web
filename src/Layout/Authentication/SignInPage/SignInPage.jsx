@@ -10,7 +10,7 @@ import {
   FormCheck,
   FormGroup,
   Button,
-  Spinner
+  Spinner,
 } from "react-bootstrap";
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";

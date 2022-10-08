@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./JobPage.css";
+import { Row, Col } from "react-bootstrap";
 import { JobItem } from "Components/Job";
 import {
   JobCompanyInfo,
@@ -24,7 +25,7 @@ const JobPage = () => {
 
   return (
     <div className="JobPage__container">
-      <div className="JobPage__header JobPage__item-container">
+      <div className="JobPage__header jh-container">
         <div className="JobPage__header-detail">
           <a
             href="https://www.topcv.vn/viec-lam"
@@ -118,7 +119,7 @@ const JobPage = () => {
           </div>
         </div>
       </div>
-      <div className="JobPage__tab-company JobPage__item-container mt-2 mb-2">
+      <div className="JobPage__tab-company jh-container mt-2 mb-2">
         <ul className="JobPage__tab-company-nav">
           <li className="JobPage__tab-company-nav-active">
             <a href="#tab-info" data-toggle="tab">
@@ -133,25 +134,25 @@ const JobPage = () => {
           </li>
         </ul>
       </div>
-      <div className="JobPage__job-info JobPage__item-container ms-auto me-auto">
+      <div className="JobPage__job-info jh-container">
         <div className="JobPage__box-job-info">
           <h2 className="JobPage__job-info-title">Chi tiết tin tuyển dụng</h2>
-          <div className="row">
-            <div className="col-md-8 ms-0">
+          <Row>
+            <Col md={8}>
               <JobInfo isSave={isSave} onApply={onApply} onSave={onSave} />
-            </div>
-            <div className="col-md-4 col-box-right">
+            </Col>
+            <Col md={4}>
               <JobShare />
               <JobReport />
               <JobKeywork />
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
       </div>
-      <div className="JobPage__company-info JobPage__item-container mt-4 ms-auto me-auto">
+      <div className="JobPage__company-info jh-container mt-4">
         <JobCompanyInfo />
       </div>
-      <div className="JobPage__job-tab JobPage__item-container mt-4 ms-auto me-auto">
+      <div className="JobPage__job-tab jh-container mt-4">
         <div className="JobPage__box-job-similar box-white">
           <h2 className="box-title mb-3">Việc làm liên quan</h2>
           <JobItem />
