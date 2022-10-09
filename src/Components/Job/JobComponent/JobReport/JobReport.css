@@ -1,0 +1,18 @@
+.JobReport__container {
+  background: var(--jh-item-background);
+  border: 1px solid #eee;
+  border-radius: 3px;
+  color: #333;
+  margin-bottom: 24px;
+  padding: 16px;
+}
+
+.JobReport__container > h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.JobReport__container p {
+  font-size: 14px;
+}

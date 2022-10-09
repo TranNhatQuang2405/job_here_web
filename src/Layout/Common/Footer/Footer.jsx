@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <Row className="Footer__layout">
-      <Col md={3}>
+      <Col md={4}>
         <div className="align-items-center justify-content-center mb-1">
           <Logo />
         </div>
@@ -19,12 +19,7 @@ const Footer = () => {
               <i className="bi bi-geo-alt-fill" style={{ marginRight: 5 }} />
               {t("jh-address")}
             </p>
-          </Nav.Item>
-          <Nav.Item>
-            <p className="Footer__item-text Footer__text-muted">
-              © Copyright JOB HERE COMPANY
-            </p>
-          </Nav.Item>
+          </Nav.Item>   
           <Nav.Item>
             <p className="Footer__item-text Footer__text-muted">
               <i className="bi bi-telephone-fill" style={{ marginRight: 5 }} />
@@ -37,9 +32,14 @@ const Footer = () => {
               contact@jobhere.com
             </p>
           </Nav.Item>
+          <Nav.Item>
+            <p className="Footer__item-text Footer__text-muted">
+              © Copyright JOB HERE COMPANY
+            </p>
+          </Nav.Item>
         </Nav>
       </Col>
-      <Col md={{ offset: 1, span: 2 }}>
+      <Col md={2}>
         <div className="text-uppercase fw-bold mb-2 Footer__group-text">
           {t("About Job Here")}
         </div>

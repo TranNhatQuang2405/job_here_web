@@ -12,7 +12,7 @@ import MainPage from "Layout/MainPage/MainPage.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 
-function App() {
+const App = () => {
   return (
     <I18nextProvider i18n={i18n}>
       <AuthProvider>
@@ -20,18 +20,15 @@ function App() {
           <Routes>
             <Route path="/SignUp" element={<SignUpPage />}></Route>
             <Route path="/SignIn" element={<SignInPage />}></Route>
-            <Route
-              path="/ResetPassword"
-              element={<ResetPasswordPage />}
-            ></Route>
+            <Route path="/ResetPassword" element={<ResetPasswordPage />}></Route>
             <Route path="/AuthCode" element={<AuthCodePage />}></Route>
-            <Route path="/MainPage" element={<MainPage />}></Route>
+            <Route path="/Home" element={<MainPage />}></Route>
             <Route path="*" element={<Navigate to="/SignIn" />} />
           </Routes>
         </PageTemplate>
       </AuthProvider>
     </I18nextProvider>
   );
-}
+};
 
 export default App;

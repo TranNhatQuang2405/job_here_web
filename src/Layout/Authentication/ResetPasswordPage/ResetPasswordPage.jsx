@@ -11,13 +11,12 @@ import {
   Button,
 } from "react-bootstrap";
 import "./ResetPasswordPage.css";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
+import { SetIsPending } from "Config/Redux/Slice/UserSlice";
 
 const ResetPasswordPage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
@@ -28,8 +27,8 @@ const ResetPasswordPage = () => {
   };
 
   const onSignIn = () => {
+    dispatch(SetIsPending());
     dispatch(changeCurrentPage(1));
-    navigate("/SignIn");
   };
 
   const onResetPassword = () => {};
@@ -41,34 +40,21 @@ const ResetPasswordPage = () => {
           <Col lg={4} xs={11}>
             <div className="text-center">
               <h4 className="ResetPassword__title">{t("Reset Password")}</h4>
-              <p className="text-muted mb-1">
-                {t("Reset Password For Your Account.")}
-              </p>
+              <p className="text-muted mb-1">{t("Reset Password For Your Account.")}</p>
             </div>
             <Card className="ResetPassword__card mt-2">
               <Card.Body className="p-4">
                 <div className="p-3">
                   {alert === null ? (
-                    <div
-                      className="alert alert-success text-center mb-4"
-                      role="alert"
-                    >
-                      {t(
-                        "Enter your Email and instructions will be sent to you!"
-                      )}
+                    <div className="alert alert-success text-center mb-4" role="alert">
+                      {t("Enter your Email and instructions will be sent to you!")}
                     </div>
                   ) : alert === true ? (
-                    <div
-                      className="alert alert-success text-center mb-4"
-                      role="alert"
-                    >
+                    <div className="alert alert-success text-center mb-4" role="alert">
                       {t("Reset password link have been sent to your email")}
                     </div>
                   ) : (
-                    <div
-                      className="alert alert-danger text-center mb-4"
-                      role="alert"
-                    >
+                    <div className="alert alert-danger text-center mb-4" role="alert">
                       {t("Submited Email is wrong")}
                     </div>
                   )}

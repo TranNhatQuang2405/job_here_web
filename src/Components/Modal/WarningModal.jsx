@@ -18,7 +18,7 @@ const WarningModal = forwardRef(({ title }, ref) => {
   };
 
   return (
-    <Modal show={show} onHide={onHide} dialogClassName="modal-90w">
+    <Modal centered show={show} onHide={onHide} dialogClassName="modal-90w">
       <Modal.Header closeButton>
         <Modal.Title>{title || t("Warning")}</Modal.Title>
       </Modal.Header>
