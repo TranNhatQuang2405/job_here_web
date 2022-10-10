@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./JobItem.css";
+import { TagList } from "Components/Tag";
+import { CompanyLogo } from "Components/Company";
+import { ButtonPrimary } from "Components/Button";
 
 const JobItem = ({ id }) => {
-  let isSave = false;
+  const [isSave, setIsSave] = useState(false);
+  let tagData = [
+    {
+      label: "Trên 5 triệu",
+    },
+    {
+      label: "Hồ Chí Minh",
+    },
+    {
+      label: "Cập nhật 3 ngày trước",
+    },
+  ];
 
-  const onSaveJob = () => {};
+  const onSaveJob = () => {
+    setIsSave(!isSave);
+  };
 
   return (
     <div className="JobItem__container d-flex">
@@ -53,14 +69,16 @@ const JobItem = ({ id }) => {
         </div>
         <div className="d-flex">
           <div className="JobItem__label-content me-auto">
-            <label className="JobItem__salary">Trên 5 triệu</label>
-            <label className="JobItem__address">Hồ Chí Minh</label>
-            <label className="JobItem__time">Cập nhật 3 ngày trước</label>
+            <TagList tagData={tagData} />
           </div>
           <div className="JobItem__save-job ms-auto mt-0 text-center">
-            <a onClick={onSaveJob}>
+            <ButtonPrimary
+              onClick={onSaveJob}
+              secondary
+              style={{ padding: "4px", height: "26px", overflow: "hidden" }}
+            >
               <i className={isSave ? "bi bi-heart-fill" : "bi bi-heart"} />
-            </a>
+            </ButtonPrimary>
           </div>
         </div>
       </div>
