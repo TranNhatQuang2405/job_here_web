@@ -8,7 +8,12 @@ const TagList = ({ tagData = [] }) => {
       {_.map(tagData, (item, index) => {
         return (
           <div key={index} className="TagList__item">
-            <a href={item?.link ?? "#"} className="" target="_blank" rel="noreferrer">
+            <a
+              href={item?.link ?? "#"}
+              className={item.link ? "" : "TagList__item-no-link"}
+              target="_blank"
+              rel="noreferrer"
+            >
               {item.label}
             </a>
           </div>
