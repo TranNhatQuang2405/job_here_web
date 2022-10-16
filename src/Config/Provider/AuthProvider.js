@@ -15,8 +15,8 @@ const AuthProvider = ({ children }) => {
     let isSubscribed = true;
     const unsubscribed = async () => {
       let session = await authBusiness.GetSession();
-      if (session.data && session.data.httpCode !== 401 && session.data.email) {
-        dispatch(changeSession(session.data));
+      if (session.data && session.data.httpCode !== 401 && session.data.objectData && session.data.objectData.email) {
+        dispatch(changeSession(session.data.objectData));
         navigate("/Home");
       } else {
         dispatch(LogOut());
