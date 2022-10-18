@@ -1,8 +1,8 @@
 import React from "react";
 import _ from "underscore";
-import $ from "jquery";
 import "./JobHot.css";
 import { JobListSmall } from "Components/Job";
+import { SliderKeyword } from "Components/Slider";
 
 const JobHot = () => {
   const locationData = [
@@ -108,12 +108,6 @@ const JobHot = () => {
     },
   ];
 
-  const scrollLocation = (direction) => () => {
-    let far = ($(".JobHot__list-location").width() / 6) * direction;
-    let pos = $(".JobHot__list-location").scrollLeft() + far;
-    $(".JobHot__list-location").animate({ scrollLeft: pos }, 500);
-  };
-
   return (
     <div className="JobHot__container jh-container mt-3">
       <div className="JobHot__box-smart-box">
@@ -126,44 +120,10 @@ const JobHot = () => {
       </div>
       <div className="JobHot__box-header d-flex">
         <h2>Tin tuyển dụng, việc làm tốt nhất</h2>
-        <span class="pull-right feature-job-link">
-          <a
-            href="https://www.topcv.vn/viec-lam-tot-nhat"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Xem tất cả <i className="bi bi-arrow-right" />
-          </a>
-        </span>
       </div>
       <div className="JobHot__box-smart-filter">
         <div className="JobHot__box-smart-location d-flex align-items-center">
-          <div className="JobHot__prev-location me-2">
-            <a onClick={scrollLocation(-1)}>
-              <i className="bi bi-chevron-left" />
-            </a>
-          </div>
-          <div className="JobHot__list-location">
-            {_.map(locationData, (item, index) => {
-              return (
-                <div
-                  key={index}
-                  className={
-                    item.isActive
-                      ? "JobHot__item-location-active"
-                      : "JobHot__item-location"
-                  }
-                >
-                  {item.city}
-                </div>
-              );
-            })}
-          </div>
-          <div className="JobHot__next-location ms-2">
-            <a onClick={scrollLocation(1)}>
-              <i className="bi bi-chevron-right" />
-            </a>
-          </div>
+          <SliderKeyword data={locationData} />
         </div>
       </div>
       <div className="JobHot__list-job">

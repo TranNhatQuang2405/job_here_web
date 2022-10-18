@@ -9,13 +9,14 @@ import App from "./App";
 import { store } from "Config/Redux/store";
 import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
-import { InputText } from "./Components/Modal"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<BrowserRouter>
-				<InputText isShow={true} title="Lợi ích công việc" />
 				<App />
 			</BrowserRouter>
 		</Provider>

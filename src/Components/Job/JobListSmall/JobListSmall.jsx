@@ -8,9 +8,15 @@ const JobListSmall = () => {
   return (
     <div className="JobListSmall__container">
       <Row className="JobListSmall__grid">
-        {_.map([1, 2, 3, 4, 5, 6], (item, index) => {
-          return <JobItemSmall key={index} />;
-        })}
+        {_.map(
+          [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8,
+            9, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+          ],
+          (item, index) => {
+            return <JobItemSmall key={index} />;
+          }
+        )}
       </Row>
     </div>
   );

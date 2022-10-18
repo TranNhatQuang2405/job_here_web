@@ -2,6 +2,8 @@
   background: #efefef;
   padding: 8px 48px;
   margin-top: auto;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .Footer__layout .nav-link {

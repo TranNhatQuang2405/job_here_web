@@ -26,7 +26,7 @@ const Header = (props) => {
   };
 
   return (
-    <Row className="sticky-nav">
+    <Row className="sticky-nav Header__container">
       <Col className="bg-app-dark">
         <Navbar expand="lg" variant="dark" className="Header__layout">
           <Navbar.Brand href="#home" className="d-flex flex-row align-items-center">

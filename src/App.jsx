@@ -19,7 +19,7 @@ const App = () => {
         <PageTemplate>
           <Routes>
             <Route path="/SignUp" element={<SignUpPage />}></Route>
-            <Route path="/SignIn" element={<SignInPage />}></Route>
+            <Route path="/SignIn" element={<MainPage />}></Route>
             <Route path="/ResetPassword" element={<ResetPasswordPage />}></Route>
             <Route path="/AuthCode" element={<AuthCodePage />}></Route>
             <Route path="/Home" element={<MainPage />}></Route>
