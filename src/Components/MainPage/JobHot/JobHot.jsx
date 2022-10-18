@@ -1,8 +1,6 @@
 import React from "react";
-import _ from "underscore";
 import "./JobHot.css";
-import { JobListSmall } from "Components/Job";
-import { SliderKeyword } from "Components/Slider";
+import { SliderJobList, SliderKeyword } from "Components/Slider";
 
 const JobHot = () => {
   const locationData = [
@@ -112,10 +110,10 @@ const JobHot = () => {
     <div className="JobHot__container jh-container mt-3">
       <div className="JobHot__box-smart-box">
         <div className="JobHot__box-label">
-          <p>
+          <div>
             <div className="JobHot__dot" />
             Đề xuất bởi JobHere AI
-          </p>
+          </div>
         </div>
       </div>
       <div className="JobHot__box-header d-flex">
@@ -127,7 +125,7 @@ const JobHot = () => {
         </div>
       </div>
       <div className="JobHot__list-job">
-        <JobListSmall />
+        <SliderJobList />
       </div>
     </div>
   );
