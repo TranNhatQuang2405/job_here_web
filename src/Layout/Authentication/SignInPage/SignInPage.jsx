@@ -39,9 +39,7 @@ const SignInPage = () => {
     let signIn = await authBusiness.SignIn(account.email, account.password);
     setLoading(false);
     if (signIn.data.httpCode === 200) {
-      if (signIn.data.token) {
-        dispatch(changeToken(signIn.data.token));
-      }
+      dispatch(changeToken(signIn.data.objectData.token));
       dispatch(SetIsPending());
       navigate("/Home");
     } else {
