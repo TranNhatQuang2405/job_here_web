@@ -20,15 +20,16 @@ const SliderJobList = ({ data = [] }) => {
 
   const settings = {
     dots: true,
-    centerMode: true,
     infinite: false,
     speed: 500,
     swipe: false,
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
 
   return (
-    <div className="SliderJobList_container">
-      <Slider {...settings} className="SliderJobList_slick-slider">
+    <div>
+      <Slider {...settings}>
         {_.map(jobData, (item, index) => {
           return <JobListSmall key={index} data={item} />;
         })}
