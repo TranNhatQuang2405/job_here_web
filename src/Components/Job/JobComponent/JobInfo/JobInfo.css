@@ -8,7 +8,7 @@
 
 .JobInfo__box-info > p,
 .JobInfo__box-address > p {
-  color: #333;
+  color: var(--jh-primary-text-color);
   font-weight: 700;
   margin-bottom: 16px;
   text-decoration-line: underline;
@@ -25,15 +25,15 @@
 }
 
 .JobInfo__box-item strong {
-  color: #333;
+  color: var(--jh-primary-text-color);
 }
 
 .JobInfo__job-data h3 {
-  color: #000;
+  color: var(--jh-black-color);
   font-size: 18px;
   font-weight: 700;
 }
 
-.JobInfo__job-data p{
+.JobInfo__job-data p {
   font-size: 15px;
 }

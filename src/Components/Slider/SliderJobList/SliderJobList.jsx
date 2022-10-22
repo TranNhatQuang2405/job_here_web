@@ -20,11 +20,12 @@ const SliderJobList = ({ data = [] }) => {
 
   const settings = {
     dots: true,
+    lazyLoad: true,
     infinite: false,
     speed: 500,
     swipe: false,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
 
   return (

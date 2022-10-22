@@ -5,7 +5,7 @@
 }
 
 .JobList__header {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--jh-primary-border-color);
   padding: 0 16px 20px;
 }
 
@@ -26,7 +26,7 @@
 
 .JobList__pagination li:first-child,
 .JobList__pagination li:last-child {
-  background: #eee 0 0 no-repeat padding-box;
+  background: var(--jh-primary-border-color) 0 0 no-repeat padding-box;
 }
 
 .JobList__pagination li {

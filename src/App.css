@@ -1,11 +1,19 @@
 :root {
+  /* Job Here Color */
   --jh-primary-color: #00b14f;
   --jh-secondary-color: #ffffff;
   --jh-black-color: #000000;
+  /* Hover Color */
   --jh-primary-color-hover: #3ba769;
-  --jh-item-background: #ffffff;
+  /* Text Color */
+  --jh-primary-text-color: #333333;
+  /* Background Color */
+  --jh-white-background: #ffffff;
   --jh-box-background: #00b14f0d;
   --jh-page-background: #e5e5e5;
+  /* Border Color */
+  --jh-primary-border-color: #eeeeee;
+
   --bs-sidebar-bg: #ffffff;
   --bs-sidebar-menu-item-color: #878a92;
   --bs-sidebar-menu-item-active-color: #7269ef;

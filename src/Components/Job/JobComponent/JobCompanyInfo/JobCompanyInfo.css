@@ -1,7 +1,7 @@
 .JobCompanyInfo__container {
   border-radius: 3px;
   padding: 16px;
-  background-color: var(--jh-item-background);
+  background-color: var(--jh-white-background);
 }
 
 .JobCompanyInfo__box-title {
@@ -13,7 +13,7 @@
 
 .JobCompanyInfo__box-title h2 {
   border-left: 7px solid var(--jh-primary-color);
-  color: #333;
+  color: var(--jh-primary-text-color);
   font-size: 22px;
   font-weight: 700;
   margin: 0;

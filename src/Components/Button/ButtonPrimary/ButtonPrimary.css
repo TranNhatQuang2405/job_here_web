@@ -56,6 +56,6 @@
 
 .jh-btn-secondary,
 .jh-btn-secondary i {
-  background: var(--jh-item-background);
+  background: var(--jh-white-background);
   color: var(--jh-primary-color);
 }
