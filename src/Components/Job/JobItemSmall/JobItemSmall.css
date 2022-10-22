@@ -39,5 +39,5 @@
 }
 
 .JobItemSmall__company {
-  color: #999;
+  color: var(--jh-dark-gray-color);
 }

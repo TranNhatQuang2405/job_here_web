@@ -1,7 +1,8 @@
 :root {
   /* Job Here Color */
-  --jh-primary-color: #00b14f;
-  --jh-secondary-color: #ffffff;
+  --jh-primary-color: #f55742;
+  --jh-white-color: #ffffff;
+  --jh-dark-gray-color: #999999;
   --jh-black-color: #000000;
   /* Hover Color */
   --jh-primary-color-hover: #3ba769;
@@ -242,7 +243,6 @@ a {
 
 @media (min-width: 768px) {
   .jh-container {
-    min-width: 750px;
     padding-left: 0;
     padding-right: 0;
     width: 96%;

@@ -2,17 +2,17 @@ import React from "react";
 import "./JobListSmall.css";
 import _ from "underscore";
 import { JobItemSmall } from "Components/Job";
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 const JobListSmall = ({ data = [] }) => {
   return (
-    <Container>
+    <div className="jh-container">
       <Row>
         {_.map(data, (item, index) => {
           return <JobItemSmall key={index} />;
         })}
       </Row>
-    </Container>
+    </div>
   );
 };
 

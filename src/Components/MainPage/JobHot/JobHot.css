@@ -105,7 +105,7 @@
   background: #f4f4f4;
   border: 1px solid var(--jh-primary-border-color);
   border-radius: 20px;
-  color: #999;
+  color: var(--jh-dark-gray-color);
   cursor: pointer;
   display: inline-block;
   font-size: 15px;

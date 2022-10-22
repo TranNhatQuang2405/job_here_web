@@ -8,27 +8,27 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <Row className="Footer__layout">
+    <Row className="Footer__layout bg-app-dark">
       <Col md={4}>
         <div className="align-items-center justify-content-center mb-1">
-          <Logo />
+          <Logo isDark />
         </div>
         <Nav className="flex-column">
           <Nav.Item>
             <p className="Footer__item-text">
-              <i className="bi bi-geo-alt-fill" style={{ marginRight: 5 }} />
+              <i className="bi bi-geo-alt-fill Footer__text-muted" style={{ marginRight: 5 }} />
               {t("jh-address")}
             </p>
           </Nav.Item>   
           <Nav.Item>
             <p className="Footer__item-text Footer__text-muted">
-              <i className="bi bi-telephone-fill" style={{ marginRight: 5 }} />
+              <i className="bi bi-telephone-fill Footer__text-muted" style={{ marginRight: 5 }} />
               037 999 9999
             </p>
           </Nav.Item>
           <Nav.Item>
             <p className="Footer__item-text Footer__text-muted">
-              <i className="bi bi-envelope-fill" style={{ marginRight: 5 }} />
+              <i className="bi bi-envelope-fill Footer__text-muted" style={{ marginRight: 5 }} />
               contact@jobhere.com
             </p>
           </Nav.Item>

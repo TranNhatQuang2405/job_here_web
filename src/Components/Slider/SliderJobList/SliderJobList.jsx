@@ -16,7 +16,6 @@ const SliderJobList = ({ data = [] }) => {
     const chunk = testData.slice(i, i + chunkSize);
     jobData.push(chunk);
   }
-  console.log("JobData", jobData);
 
   const settings = {
     dots: true,
@@ -29,7 +28,7 @@ const SliderJobList = ({ data = [] }) => {
   };
 
   return (
-    <div>
+    <div className="pb-4">
       <Slider {...settings}>
         {_.map(jobData, (item, index) => {
           return <JobListSmall key={index} data={item} />;
