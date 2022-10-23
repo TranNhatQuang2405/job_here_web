@@ -28,7 +28,7 @@ const SliderJobList = ({ data = [] }) => {
   };
 
   return (
-    <div className="pb-4">
+    <div className="SliderJobList__container pb-4">
       <Slider {...settings}>
         {_.map(jobData, (item, index) => {
           return <JobListSmall key={index} data={item} />;

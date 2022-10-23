@@ -12,7 +12,7 @@ const SliderKeyword = ({ data = [] }) => {
   };
 
   return (
-    <div className="px-3 w-100">
+    <div className="SliderKeyword__container px-3 w-100">
       <Slider {...settings} className="sliderKeyword__bound">
         {_.map(data, (item, index) => {
           return (

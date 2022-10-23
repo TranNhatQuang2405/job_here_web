@@ -1,0 +1,69 @@
+.JobSearchList__container {
+  background-color: var(--jh-white-background);
+}
+
+.JobSearchList__header {
+  border-bottom: 1px solid var(--jh-primary-border-color);
+  padding: 20px 16px;
+}
+
+.JobSearchList__text-highlight {
+  color: var(--jh-primary-color);
+}
+
+.JobSearchList__show-important {
+  border-bottom: 1px solid var(--jh-primary-border-color);
+  display: flex;
+  padding: 20px 16px;
+}
+
+.JobSearchList__show-important > span {
+  color: var(--jh-dark-gray-color);
+  font-size: 14px;
+  margin-right: 30px;
+}
+
+.JobSearchList__option-item-sort {
+  margin-right: 50px;
+}
+
+.JobSearchList__result {
+  padding-bottom: 30px;
+}
+
+.JobSearchList__result .slick-dots {
+  display: flex;
+  justify-content: center;
+}
+
+.JobSearchList__result .slick-dots li {
+  width: 32px;
+  height: 32px;
+  border-radius: 10%;
+  overflow: hidden;
+}
+
+.JobSearchList__result .slick-dots li button:before {
+  display: none;
+}
+
+.JobSearchList__result .slick-dots li button {
+  font-size: 14px;
+  color: var(--jh-black-color);
+  width: 100%;
+  height: 100%;
+  background-color: var(--jh-white-color-hover);
+}
+
+.JobSearchList__result .slick-dots li button:hover {
+  background-color: var(--jh-white-color-hover);
+}
+
+.JobSearchList__result .slick-dots li.slick-active button {
+  color: var(--jh-white-color);
+  background-color: var(--jh-primary-color);
+}
+
+.JobSearchList__result .slick-dots li.slick-active button:hover {
+  background-color: var(--jh-primary-color-hover);
+}
