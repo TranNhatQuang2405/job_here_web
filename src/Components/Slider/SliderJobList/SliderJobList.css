@@ -2,6 +2,10 @@
   font-size: 10px !important;
 }
 
+.SliderJobList__container .slick-dots li button:hover:before {
+  color: var(--jh-primary-color);
+}
+
 .SliderJobList__container .slick-dots li.slick-active button:before {
   color: var(--jh-primary-color) !important;
 }
