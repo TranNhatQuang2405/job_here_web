@@ -55,7 +55,7 @@ const JobSearchBar = () => {
                   value={searchData.text}
                   onChange={onChangeTextSearch}
                   placeholder="Tên công việc, vị trí bạn muốn ứng tuyển ..."
-                  autocomplete="off"
+                  autoComplete="off"
                 />
               </div>
               <div className="JobSearchBar__input-data JobSearchBar__search-select">

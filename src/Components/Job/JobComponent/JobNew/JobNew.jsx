@@ -1,7 +1,7 @@
 import React from "react";
 import "./JobNew.css";
 import _ from "underscore";
-import { JobHeader } from "Components/Job/JobComponent";
+import { JobHeader } from "Components/Job";
 import Slider from "react-slick";
 
 const JobNew = () => {

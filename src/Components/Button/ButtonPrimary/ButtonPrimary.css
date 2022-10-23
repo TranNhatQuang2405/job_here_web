@@ -24,7 +24,8 @@
   border-radius: 4px;
 }
 
-.jh-btn-primary:hover {
+.jh-btn-primary:hover,
+.jh-btn-primary:hover i {
   background-color: var(--jh-primary-color-hover);
   color: var(--jh-white-color) !important;
 }

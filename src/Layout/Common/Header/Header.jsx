@@ -1,7 +1,7 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { ChangeLanguageButton } from "Components/Button";
+import { ButtonChangeLanguage } from "Components/Button";
 import { useNavigate } from "react-router-dom";
 import user_img from "Assets/Images/user.png";
 import "./Header.css";
@@ -79,7 +79,7 @@ const Header = (props) => {
                 </NavDropdown.Item>
                 <NavDropdown.Item onClick={onLogout}>{t("Logout")}</NavDropdown.Item>
               </NavDropdown>
-              <ChangeLanguageButton />
+              <ButtonChangeLanguage />
             </Nav>
           </Navbar.Collapse>
         </Navbar>

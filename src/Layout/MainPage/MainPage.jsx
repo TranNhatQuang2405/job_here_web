@@ -1,6 +1,7 @@
 import React from "react";
 import { JobPage } from "Components/Job";
-import { JobHot, JobNew, JobSearchBar, JobSearchList } from "Components/MainPage";
+import { CompanyPage } from "Components/Company";
+import { JobHot, JobNew, JobSearchBar, JobSearchList } from "Components/Job";
 
 const MainPage = () => {
   return (
@@ -10,6 +11,7 @@ const MainPage = () => {
       <JobNew />
       <JobHot />
       <JobPage />
+      <CompanyPage />
     </div>
   );
 };

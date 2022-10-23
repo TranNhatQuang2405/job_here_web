@@ -64,7 +64,7 @@ const JobSearchList = () => {
           với yêu cầu của bạn.
         </span>
       </div>
-      <div onChange={onChangeSort} className="JobSearchList__show-important">
+      <div className="JobSearchList__show-important">
         <span>Ưu tiên hiển thị:</span>
         {_.map(sortList, (item) => {
           return (
@@ -72,6 +72,7 @@ const JobSearchList = () => {
               <input
                 type="radio"
                 value={item.value}
+                onChange={onChangeSort}
                 name="sort"
                 checked={sort === item.value}
               />

@@ -9,7 +9,7 @@ import {
   JobKeywork,
   JobReport,
   JobShare,
-} from "Components/Job/JobComponent";
+} from "Components/Job";
 
 const JobPage = () => {
   const [isApply, setIsApply] = useState(false);
