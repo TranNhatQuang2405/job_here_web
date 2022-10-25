@@ -1,5 +1,5 @@
 .JobHot__container {
-  background-color: var(--jh-item-background);
+  background-color: var(--jh-white-background);
 }
 
 .JobHot__box-smart-box {
@@ -12,7 +12,7 @@
   padding: 16px 17px 0;
 }
 
-.JobHot__box-label > p {
+.JobHot__box-label > div {
   align-items: center;
   background: #e5f7ed;
   border-radius: 16px;
@@ -103,9 +103,9 @@
 
 .JobHot__item-location {
   background: #f4f4f4;
-  border: 1px solid #eee;
+  border: 1px solid var(--jh-primary-border-color);
   border-radius: 20px;
-  color: #999;
+  color: var(--jh-dark-gray-color);
   cursor: pointer;
   display: inline-block;
   font-size: 15px;
@@ -114,5 +114,5 @@
 }
 
 .JobHot__list-job {
-  padding: 16px 17px 10px;
+  padding: 16px 10px 10px;
 }

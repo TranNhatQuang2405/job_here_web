@@ -1,0 +1,59 @@
+.JobSearchBar__container {
+  padding: 20px;
+  background-color: var(--jh-white-background);
+}
+
+.JobSearchBar__input-data {
+  position: relative;
+}
+
+.JobSearchBar__search-input {
+  width: 28%;
+}
+
+.JobSearchBar__search-select {
+  width: 19%;
+}
+
+.JobSearchBar__search-select-company {
+  width: 20%;
+}
+
+.JobSearchBar__input {
+  border: 1px solid var(--jh-primary-border-color);
+  border-radius: 5px;
+  transition: 0.4s;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 26px;
+  padding-right: 0;
+}
+
+.JobSearchBar__input:hover {
+  border-color: var(--jh-primary-color);
+}
+
+.JobSearchBar__input:focus {
+  border-color: var(--jh-primary-border-color);
+  box-shadow: none;
+}
+
+.JobSearchBar__search-input .JobSearchBar__input {
+  background: var(--jh-white-background);
+  box-shadow: none;
+  color: var(--jh-primary-text-color);
+  line-height: 24px;
+  padding: 11px 0 11px 16px;
+}
+
+.JobSearchBar__input-icon {
+  position: absolute;
+  padding: 9px;
+  z-index: 1;
+}
+
+.JobSearchBar__input-icon > i {
+  color: var(--jh-primary-color);
+  font-size: 14px;
+}

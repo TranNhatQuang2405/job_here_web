@@ -1,7 +1,7 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { ChangeLanguageButton } from "Components/Button";
+import { ButtonChangeLanguage } from "Components/Button";
 import { useNavigate } from "react-router-dom";
 import user_img from "Assets/Images/user.png";
 import "./Header.css";
@@ -26,7 +26,7 @@ const Header = (props) => {
   };
 
   return (
-    <Row className="sticky-nav">
+    <Row className="sticky-nav Header__container">
       <Col className="bg-app-dark">
         <Navbar expand="lg" variant="dark" className="Header__layout">
           <Navbar.Brand href="#home" className="d-flex flex-row align-items-center">
@@ -79,7 +79,7 @@ const Header = (props) => {
                 </NavDropdown.Item>
                 <NavDropdown.Item onClick={onLogout}>{t("Logout")}</NavDropdown.Item>
               </NavDropdown>
-              <ChangeLanguageButton />
+              <ButtonChangeLanguage />
             </Nav>
           </Navbar.Collapse>
         </Navbar>

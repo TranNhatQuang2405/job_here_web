@@ -1,12 +1,17 @@
 import React from "react";
 import { JobPage } from "Components/Job";
-import { JobHot } from "Components/MainPage";
+import { CompanyPage } from "Components/Company";
+import { JobHot, JobNew, JobSearchBar, JobSearchList } from "Components/Job";
 
 const MainPage = () => {
   return (
     <div style={{ backgroundColor: "#f4f4f4" }}>
-      <JobHot />
-      <JobPage />
+      {/* <JobSearchBar />
+      <JobSearchList />
+      <JobNew />
+      <JobHot /> */}
+      {/* <JobPage /> */}
+      <CompanyPage />
     </div>
   );
 };

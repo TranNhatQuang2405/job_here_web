@@ -61,7 +61,7 @@
 }
 
 .JobItem__deadline {
-  color: #333;
+  color: var(--jh-primary-text-color);
   font-size: 15px;
   line-height: 1;
   margin-bottom: 5px;

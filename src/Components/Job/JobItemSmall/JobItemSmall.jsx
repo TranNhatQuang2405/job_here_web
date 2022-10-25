@@ -42,7 +42,7 @@ const JobItemSmall = () => {
               rel="noreferrer"
               className="JobItemSmall__title d-block w-100"
             >
-              <strong class="transform-job-title underline-box-job highlight">
+              <strong className="transform-job-title underline-box-job highlight">
                 Nhân Viên Hành Chính Văn Phòng
               </strong>
             </a>
@@ -55,7 +55,7 @@ const JobItemSmall = () => {
               CÔNG TY TNHH KINH DOANH PHÁT TRIỂN THƯƠNG MẠI VÀ DỊCH VỤ LỘC PHÁT
             </a>
           </div>
-          <div class="JobItemSmall__col-like">
+          <div className="JobItemSmall__col-like">
             <ButtonPrimary
               onClick={onSaveJob}
               secondary
@@ -65,7 +65,7 @@ const JobItemSmall = () => {
             </ButtonPrimary>
           </div>
         </div>
-        <div class="col-job-info">
+        <div className="col-job-info">
           <TagList tagData={tagData} />
         </div>
       </div>

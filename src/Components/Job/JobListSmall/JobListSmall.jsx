@@ -4,11 +4,11 @@ import _ from "underscore";
 import { JobItemSmall } from "Components/Job";
 import { Row } from "react-bootstrap";
 
-const JobListSmall = () => {
+const JobListSmall = ({ data = [] }) => {
   return (
-    <div className="JobListSmall__container">
-      <Row className="JobListSmall__grid">
-        {_.map([1, 2, 3, 4, 5, 6], (item, index) => {
+    <div className="jh-container">
+      <Row>
+        {_.map(data, (item, index) => {
           return <JobItemSmall key={index} />;
         })}
       </Row>

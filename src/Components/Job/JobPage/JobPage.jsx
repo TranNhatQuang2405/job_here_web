@@ -4,12 +4,12 @@ import { Row, Col } from "react-bootstrap";
 import { JobItem } from "Components/Job";
 import {
   JobCompanyInfo,
+  JobHeader,
   JobInfo,
   JobKeywork,
   JobReport,
   JobShare,
-} from "Components/Job/JobComponent";
-import { ButtonPrimary } from "Components/Button";
+} from "Components/Job";
 
 const JobPage = () => {
   const [isApply, setIsApply] = useState(false);
@@ -43,81 +43,7 @@ const JobPage = () => {
           <i className="bi bi-chevron-right" />
           <span className="text-dark-blue">Tuyển Nhân Viên Marketing Tại Q7-HCM</span>
         </div>
-        <div className="JobPage__header-job">
-          <div className="JobPage__header-job-box-header d-flex align-items-center">
-            <a
-              href="https://www.topcv.vn/cong-ty/cong-ty-tnhh-giao-duc-quoc-te-masterkid/39472.html"
-              title="Công Ty TNHH Giáo Dục Quốc Tế MasterKid"
-              className="JobPage__header-job-company-logo"
-            >
-              <div className="JobPage__header-box-company-logo d-flex align-items-center justify-content-center">
-                <img
-                  src="https://cdn.topcv.vn/80/company_logos/cong-ty-tnhh-giao-duc-quoc-te-masterkid-625675732dc19.jpg"
-                  alt="Công Ty TNHH Giáo Dục Quốc Tế MasterKid"
-                  className="img-responsive"
-                />
-              </div>
-            </a>
-            <div className="JobPage__header-box-info-job flex-grow-1">
-              <h1 className="JobPage__header-job-title JobPage__text-highlight">
-                Nhân Viên Marketing Tại Q7-HCM
-              </h1>
-              <div className="JobPage__header-company-title">
-                <a
-                  href="https://www.topcv.vn/cong-ty/cong-ty-tnhh-giao-duc-quoc-te-masterkid/39472.html"
-                  className="text-dark-blue"
-                >
-                  Công Ty TNHH Giáo Dục Quốc Tế MasterKid
-                </a>
-              </div>
-
-              <div className="JobPage__header-job-deadline">
-                <i className="bi bi-clock" /> Hạn nộp hồ sơ: 30/10/2022
-              </div>
-            </div>
-            <div className="JobPage__header-box-apply">
-              <div className="text-center">
-                {!isApply ? (
-                  <>
-                    <p>
-                      <ButtonPrimary onClick={onApply}>
-                        <i className="bi bi-send" /> ỨNG TUYỂN NGAY
-                      </ButtonPrimary>
-                    </p>
-                    <div>
-                      {!isSave ? (
-                        <ButtonPrimary
-                          secondary
-                          onClick={onSave}
-                          style={{ width: "100%" }}
-                        >
-                          <i className="bi bi-heart" /> LƯU TIN
-                        </ButtonPrimary>
-                      ) : (
-                        <ButtonPrimary onClick={onSave} style={{ width: "100%" }}>
-                          <i className="bi bi-heart-fill" /> ĐÃ LƯU
-                        </ButtonPrimary>
-                      )}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <p>
-                      <ButtonPrimary onClick={onApply} style={{ width: "100%" }}>
-                        <i className="bi bi-arrow-counterclockwise" /> ỨNG TUYỂN LẠI
-                      </ButtonPrimary>
-                    </p>
-                    <div>
-                      <ButtonPrimary secondary style={{ width: "100%" }}>
-                        <i className="bi bi-chat-left-dots" /> NHẮN TIN
-                      </ButtonPrimary>
-                    </div>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
+        <JobHeader />
       </div>
       <div className="JobPage__tab-company jh-container mt-2 mb-2">
         <ul className="JobPage__tab-company-nav">

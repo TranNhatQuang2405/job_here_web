@@ -1,0 +1,21 @@
+.JobNew__container {
+  background-color: var(--jh-white-background);
+}
+
+.JobNew__container .slick-dots li button:before {
+  font-size: 10px !important;
+}
+
+.JobNew__container .slick-dots li button:hover:before {
+  color: var(--jh-primary-color);
+}
+
+.JobNew__container .slick-dots li.slick-active button:before {
+  color: var(--jh-primary-color) !important;
+}
+
+.JobNew__container .slick-prev:before,
+.JobNew__container .slick-next:before {
+  font-size: 30px !important;
+  color: var(--jh-dark-gray-color) !important;
+}

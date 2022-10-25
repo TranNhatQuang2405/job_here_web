@@ -1,11 +1,21 @@
 :root {
-  --jh-primary-color: #00b14f;
-  --jh-secondary-color: #ffffff;
+  /* Job Here Color */
+  --jh-primary-color: #f55742;
+  --jh-white-color: #ffffff;
+  --jh-dark-gray-color: #999999;
   --jh-black-color: #000000;
-  --jh-primary-color-hover: #3ba769;
-  --jh-item-background: #ffffff;
+  /* Hover Color */
+  --jh-primary-color-hover: #eb5541;
+  --jh-white-color-hover: #dbdbdb;
+  /* Text Color */
+  --jh-primary-text-color: #333333;
+  /* Background Color */
+  --jh-white-background: #ffffff;
   --jh-box-background: #00b14f0d;
   --jh-page-background: #e5e5e5;
+  /* Border Color */
+  --jh-primary-border-color: #eeeeee;
+
   --bs-sidebar-bg: #ffffff;
   --bs-sidebar-menu-item-color: #878a92;
   --bs-sidebar-menu-item-active-color: #7269ef;
@@ -207,10 +217,6 @@
   animation: rotate 1.5s linear infinite;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -238,7 +244,6 @@ a {
 
 @media (min-width: 768px) {
   .jh-container {
-    min-width: 750px;
     padding-left: 0;
     padding-right: 0;
     width: 96%;
@@ -254,4 +259,10 @@ a {
 .jh-container {
   margin-right: auto;
   margin-left: auto;
+}
+
+.jh-box-item {
+  background-color: var(--jh-white-background);
+  border: 1px solid var(--jh-primary-border-color);
+  border-radius: 5px;
 }
