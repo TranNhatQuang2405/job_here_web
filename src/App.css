@@ -260,3 +260,9 @@ a {
   margin-right: auto;
   margin-left: auto;
 }
+
+.jh-box-item {
+  background-color: var(--jh-white-background);
+  border: 1px solid var(--jh-primary-border-color);
+  border-radius: 5px;
+}

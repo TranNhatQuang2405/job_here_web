@@ -7,13 +7,13 @@ const CompanyLogo = ({ src, alt, style = {}, size = 44 }) => {
         ...style,
         width: `${size}px`,
         height: `${size}px`,
+        border: '1px solid var(--jh-primary-border-color)',
         borderRadius: `${size / 8}px`,
-        borderWidth: "0.5px",
-        borderColor: "#f7f7f7",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
+        backgroundColor: 'var(--jh-white-background)'
       }}
     >
       <img src={src} alt={alt || ""} className="w-100" />

@@ -3,15 +3,16 @@ import "./JobShare.css";
 import { IconSquare } from "Components/Icon";
 
 const JobShare = ({
-  url = "https://www.topcv.vn/viec-lam/nhan-vien-marketing-tai-q7-hcm/827799.html",
+  url = "https://www.jobhere.tech",
+  company = false,
 }) => {
   const copyURLToClipboard = () => {
     navigator.clipboard.writeText(url);
   };
 
   return (
-    <div className="JobShare__container">
-      <h3>Chia sẻ tin tuyển dụng</h3>
+    <div className="JobShare__container jh-box-item">
+      <h3>{company ? "Chia sẻ công ty" : "Chia sẻ tin tuyển dụng"}</h3>
       <p>Sao chép đường dẫn</p>
       <div className="JobShare__box-copy">
         <div className="JobShare__url-copy">{url}</div>

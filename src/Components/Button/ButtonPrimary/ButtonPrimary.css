@@ -25,13 +25,15 @@
 }
 
 .jh-btn-primary:hover,
-.jh-btn-primary:hover i {
+.jh-btn-primary:hover i,
+.jh-btn-primary:hover a {
   background-color: var(--jh-primary-color-hover);
   color: var(--jh-white-color) !important;
 }
 
 .jh-btn-primary,
-.jh-btn-primary i {
+.jh-btn-primary i,
+.jh-btn-primary a {
   background-color: var(--jh-primary-color);
   color: var(--jh-white-color) !important;
 }
@@ -51,12 +53,14 @@
 }
 
 .jh-btn-secondary:hover,
-.jh-btn-secondary:hover i {
+.jh-btn-secondary:hover i,
+.jh-btn-secondary:hover a {
   background-color: rgba(229, 247, 237, 0.5);
 }
 
 .jh-btn-secondary,
-.jh-btn-secondary i {
+.jh-btn-secondary i,
+.jh-btn-secondary a {
   background: var(--jh-white-background);
   color: var(--jh-primary-color);
 }
