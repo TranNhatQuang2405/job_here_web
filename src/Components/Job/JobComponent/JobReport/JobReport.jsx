@@ -4,7 +4,7 @@ import { ButtonPrimary } from "Components/Button";
 
 const JobReport = () => {
   return (
-    <div className="JobReport__container mt-3">
+    <div className="JobReport__container jh-box-item mt-3">
       <h3>Báo cáo tin tuyển dụng</h3>
       <p>
         Nếu bạn thấy rằng tin tuyển dụng này không đúng hoặc có một trong các dấu hiệu lừa

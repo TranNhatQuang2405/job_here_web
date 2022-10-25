@@ -61,7 +61,7 @@ const JobPage = () => {
         </ul>
       </div>
       <div className="JobPage__job-info jh-container">
-        <div className="JobPage__box-job-info">
+        <div className="JobPage__box-job-info jh-box-item">
           <h2 className="JobPage__job-info-title">Chi tiết tin tuyển dụng</h2>
           <Row>
             <Col md={8}>
@@ -79,7 +79,7 @@ const JobPage = () => {
         <JobCompanyInfo />
       </div>
       <div className="JobPage__job-tab jh-container mt-4">
-        <div className="JobPage__box-job-similar box-white">
+        <div className="JobPage__box-job-similar jh-box-item">
           <h2 className="box-title mb-3">Việc làm liên quan</h2>
           <JobItem />
           <JobItem />

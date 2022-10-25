@@ -10,7 +10,7 @@ const MainPage = () => {
       <JobSearchList />
       <JobNew />
       <JobHot /> */}
-      {/* <JobPage /> */}
+      <JobPage />
       <CompanyPage />
     </div>
   );

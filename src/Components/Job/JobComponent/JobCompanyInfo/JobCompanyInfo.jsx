@@ -5,7 +5,7 @@ import { IconCircle } from "Components/Icon";
 
 const JobCompanyInfo = () => {
   return (
-    <div className="JobCompanyInfo__container">
+    <div className="JobCompanyInfo__container jh-box-item">
       <div className="JobCompanyInfo__box-title">
         <h2 className="box-name">Thông tin Công Ty TNHH Giáo Dục Quốc Tế MasterKid</h2>
         <a
