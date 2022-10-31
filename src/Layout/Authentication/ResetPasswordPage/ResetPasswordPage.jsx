@@ -70,7 +70,7 @@ const ResetPasswordPage = () => {
                         </InputGroup.Text>
                         <FormControl
                           type="email"
-                          className="ResetPassword__form-control"
+                          className="ResetPassword__form-control jh-box-input"
                           placeholder={t("Enter Email")}
                           aria-label="Enter Email"
                           required

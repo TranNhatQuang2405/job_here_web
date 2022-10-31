@@ -21,8 +21,13 @@
   border-radius: 0.4rem !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-  color: #000 !important;
+  border-color: var(--jh-secondary-border-color);
+  color: var(--jh-black-color) !important;
   background-color: var(--bs-input-card-bg) !important;
+}
+
+.SignUp__form-control:focus {
+  border-color: var(--jh-secondary-border-color);
 }
 
 .SignUp__form-label {

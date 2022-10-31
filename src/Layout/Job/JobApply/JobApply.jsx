@@ -20,6 +20,18 @@ const JobApply = () => {
   });
   let cv_ref = createRef();
 
+  const onChangeName = (e) => {
+    setInfo((prev) => ({ ...prev, name: e.target.value }));
+  };
+
+  const onChangeEmail = (e) => {
+    setInfo((prev) => ({ ...prev, email: e.target.value }));
+  };
+
+  const onChangePhone = (e) => {
+    setInfo((prev) => ({ ...prev, phone: e.target.value }));
+  };
+
   const onBack = () => {};
 
   const onApply = () => {};
@@ -74,7 +86,8 @@ const JobApply = () => {
             </label>
             <input
               type="text"
-              value=""
+              value={info.name}
+              onChange={onChangeName}
               placeholder="Họ tên hiển thị với Nhà tuyển dụng"
               name="fullname"
               className="form-control jh-box-input"
@@ -88,7 +101,8 @@ const JobApply = () => {
                 </label>
                 <input
                   type="text"
-                  value=""
+                  value={info.email}
+                  onChange={onChangeEmail}
                   placeholder="Email hiển thị với Nhà tuyển dụng"
                   name="email"
                   className="form-control jh-box-input"
@@ -102,7 +116,8 @@ const JobApply = () => {
                 </label>
                 <input
                   type="text"
-                  value=""
+                  value={info.phone}
+                  onChange={onChangePhone}
                   placeholder="Số điện thoại hiển thị với Nhà tuyển dụng"
                   name="phone"
                   className="form-control jh-box-input"

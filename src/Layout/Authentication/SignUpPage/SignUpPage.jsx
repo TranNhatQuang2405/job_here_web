@@ -131,7 +131,7 @@ const SignUpPage = () => {
                       </InputGroup.Text>
                       <FormControl
                         type="email"
-                        className="SignUp__form-control"
+                        className="SignUp__form-control jh-box-input"
                         placeholder={t("Enter Email")}
                         aria-label="Enter Email"
                         value={account.email}
@@ -151,7 +151,7 @@ const SignUpPage = () => {
                       </InputGroup.Text>
                       <FormControl
                         type="text"
-                        className="SignUp__form-control"
+                        className="SignUp__form-control jh-box-input"
                         placeholder={t("Enter Username")}
                         aria-label="Enter Username"
                         value={account.displayName}
@@ -170,7 +170,7 @@ const SignUpPage = () => {
                       </InputGroup.Text>
                       <FormControl
                         type="password"
-                        className="SignUp__form-control"
+                        className="SignUp__form-control jh-box-input"
                         placeholder={t("Enter Password")}
                         aria-label="Enter Password"
                         value={account.password}
@@ -191,7 +191,7 @@ const SignUpPage = () => {
                       </InputGroup.Text>
                       <FormControl
                         type="date"
-                        className="SignUp__form-control"
+                        className="SignUp__form-control jh-box-input"
                         value={account.dateOfBirth}
                         onChange={onChangeValueDateOfBirth}
                         required
@@ -209,7 +209,7 @@ const SignUpPage = () => {
                       </InputGroup.Text>
                       <FormControl
                         type="text"
-                        className="SignUp__form-control"
+                        className="SignUp__form-control jh-box-input"
                         placeholder={t("Enter Phone Number")}
                         aria-label="Enter Phone Number"
                         value={account.phone}
