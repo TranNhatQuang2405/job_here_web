@@ -1,6 +1,6 @@
 import React from "react";
-import { JobPage } from "Components/Job";
-import { CompanyPage } from "Components/Company";
+import { JobPage,JobApply } from "Layout/Job";
+import { CompanyPage } from "Layout/Company";
 import { JobHot, JobNew, JobSearchBar, JobSearchList } from "Components/Job";
 
 const MainPage = () => {
@@ -10,8 +10,8 @@ const MainPage = () => {
       <JobSearchList />
       <JobNew />
       <JobHot /> */}
-      <JobPage />
-      <CompanyPage />
+      <JobApply />
+      {/* <CompanyPage /> */}
     </div>
   );
 };

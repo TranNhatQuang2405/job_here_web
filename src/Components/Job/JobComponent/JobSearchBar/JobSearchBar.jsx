@@ -51,7 +51,7 @@ const JobSearchBar = () => {
             <div className="d-flex justify-content-between">
               <div className="JobSearchBar__input-data JobSearchBar__search-input">
                 <input
-                  className="form-control JobSearchBar__input"
+                  className="form-control JobSearchBar__input jh-box-input"
                   value={searchData.text}
                   onChange={onChangeTextSearch}
                   placeholder="Tên công việc, vị trí bạn muốn ứng tuyển ..."
@@ -64,7 +64,7 @@ const JobSearchBar = () => {
                 </span>
                 <select
                   id="category"
-                  className="form-control JobSearchBar__input"
+                  className="form-control JobSearchBar__input jh-box-input"
                   tabIndex="-1"
                   aria-hidden="true"
                   aria-controls="joketypes"
@@ -148,7 +148,7 @@ const JobSearchBar = () => {
                 </span>
                 <select
                   id="company-field-advanced"
-                  className="form-control JobSearchBar__input"
+                  className="form-control JobSearchBar__input jh-box-input"
                   value={searchData.companyField}
                   onChange={onChangeCompanyField}
                   tabIndex="-1"
@@ -202,7 +202,7 @@ const JobSearchBar = () => {
                   <i className="bi bi-geo-alt-fill" />
                 </span>
                 <select
-                  className="form-control JobSearchBar__input"
+                  className="form-control JobSearchBar__input jh-box-input"
                   id="city"
                   value={searchData.locationField}
                   onChange={onChangeLocationField}

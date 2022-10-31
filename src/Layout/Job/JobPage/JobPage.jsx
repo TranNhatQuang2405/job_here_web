@@ -41,7 +41,7 @@ const JobPage = () => {
             Tìm việc làm nhân viên marketing
           </a>
           <i className="bi bi-chevron-right" />
-          <span className="text-dark-blue">Tuyển Nhân Viên Marketing Tại Q7-HCM</span>
+          <span className="">Tuyển Nhân Viên Marketing Tại Q7-HCM</span>
         </div>
         <JobHeader />
       </div>
