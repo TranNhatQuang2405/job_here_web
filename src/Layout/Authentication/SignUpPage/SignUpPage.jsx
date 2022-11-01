@@ -162,7 +162,7 @@ const SignUpPage = () => {
                     </InputGroup>
                   </FormGroup>
 
-                  <FormGroup className="mb-4">
+                  <FormGroup className="mb-3">
                     <FormLabel className="SignUp__form-label">{t("Password")}</FormLabel>
                     <InputGroup className="mb-3">
                       <InputGroup.Text className="SignUp__input-text">

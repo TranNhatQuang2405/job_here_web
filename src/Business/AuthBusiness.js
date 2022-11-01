@@ -4,6 +4,7 @@ import {
   getSessionURL,
   signUpURL,
   authCodeURL,
+  updateUserInfoURL,
 } from "Config/Api/ConfigURL";
 
 class AuthBusiness extends Service {
@@ -36,6 +37,18 @@ class AuthBusiness extends Service {
   AuthCode = async (code) => {
     let params = { code: code };
     let result = await this.post(authCodeURL, params);
+    return result;
+  };
+
+  UpdateUserInfo = async (fullname, address, dateOfBirth, phone, gender) => {
+    let params = {
+      fullname: fullname,
+      address: address,
+      dateOfBirth: dateOfBirth,
+      phone: phone,
+      gender: gender,
+    };
+    let result = await this.post(updateUserInfoURL, params);
     return result;
   };
 }

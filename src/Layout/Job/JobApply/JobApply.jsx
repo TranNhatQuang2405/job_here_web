@@ -1,15 +1,6 @@
 import React, { useState, createRef } from "react";
 import "./JobApply.css";
-import { Row, Col } from "react-bootstrap";
-import {
-  JobCompanyInfo,
-  JobHeader,
-  JobInfo,
-  JobKeywork,
-  JobReport,
-  JobShare,
-  JobSearchBar,
-} from "Components/Job";
+import { JobSearchBar } from "Components/Job";
 import { ButtonPrimary } from "Components/Button";
 
 const JobApply = () => {

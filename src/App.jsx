@@ -9,6 +9,7 @@ import {
   AuthCodePage,
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
+import { EditUserInfo } from "Layout/User";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/ResetPassword" element={<ResetPasswordPage />}></Route>
             <Route path="/AuthCode" element={<AuthCodePage />}></Route>
             <Route path="/Home" element={<MainPage />}></Route>
+            <Route path="/EditInfomation" element={<EditUserInfo />}></Route>
             <Route path="*" element={<Navigate to="/SignIn" />} />
           </Routes>
         </PageTemplate>

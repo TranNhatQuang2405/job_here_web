@@ -30,7 +30,7 @@ const Header = (props) => {
     <Row className="sticky-nav Header__container">
       <Col className="bg-app-dark">
         <Navbar expand="lg" variant="dark" className="Header__layout">
-          <Navbar.Brand href="#home" className="d-flex flex-row align-items-center">
+          <Navbar.Brand href="/Home" className="d-flex flex-row align-items-center">
             <Logo isDark />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -61,9 +61,8 @@ const Header = (props) => {
                 </NavDropdown>
               </Nav>
             )}
-
-            <Nav className="justify-content-end">
-              {!!sessionInfo && (
+            {!!sessionInfo && (
+              <Nav className="justify-content-end">
                 <NavDropdown
                   title={
                     <div className="d-flex flex-row align-items-center">
@@ -82,12 +81,14 @@ const Header = (props) => {
                   id="basic-nav-dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item href="#action">
+                  <NavDropdown.Item href="/EditInfomation">
                     {t("Edit Your Infomation")}
                   </NavDropdown.Item>
                   <NavDropdown.Item onClick={onLogout}>{t("Logout")}</NavDropdown.Item>
                 </NavDropdown>
-              )}
+              </Nav>
+            )}
+            <Nav className="justify-content-end">
               <ButtonChangeLanguage />
             </Nav>
           </Navbar.Collapse>
