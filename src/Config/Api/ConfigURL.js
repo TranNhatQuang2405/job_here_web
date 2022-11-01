@@ -7,3 +7,6 @@ export const updateUserInfoURL = "/user/updateInfo";
 
 // Dropdown
 export const genderDropdownURL = "/dropdown/gender";
+export const industryDropdownURL = "/dropdown/industry";
+export const skillDropdownURL = "/dropdown/skill";
+export const cityDropdownURL = "/dropdown/city";

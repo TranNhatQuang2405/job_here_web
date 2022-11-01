@@ -58,13 +58,20 @@ export const en = {
   "Enter Phone Number": "Enter Phone Number",
   "Authentication Code": "Authentication Code",
   "Final step to treate your account.": "Final step to treate your account.",
-  "Your authentication code is invalid!":
-    "Your authentication code is invalid!",
+  "Your authentication code is invalid!": "Your authentication code is invalid!",
   "Enter Code": "Enter Code",
   Submit: "Submit",
-  "Didn't receiver authentication code?":
-    "Didn't receiver authentication code?",
+  "Didn't receiver authentication code?": "Didn't receiver authentication code?",
   Resend: "Resend",
+  Address: "Address",
+  "Enter Address": "Enter Address",
+  "Update Infomation": "Update Infomation",
+  "Edit Your Information": "Edit Your Information",
+  "Job, Position Name ...": "Job, Position Name ...",
+  "All industry": "All industry",
+  "All skill": "All skill",
+  "All location": "All location",
+  Gender: "Gender",
 };
 
 export const vn = {
@@ -110,8 +117,7 @@ export const vn = {
     "Email của bạn bị sai hoặc đang được sử dụng bởi tài khoản khác hoặc mật khẩu của bạn không khớp!",
   "Display Name": "Tên Hiển Thị",
   "Enter Username": "Nhập Tên",
-  "By registering you agree to the Job Here's":
-    "Bằng việc đăng ký bạn đã đồng ý với",
+  "By registering you agree to the Job Here's": "Bằng việc đăng ký bạn đã đồng ý với",
   "Already have an account?": "Bạn đã có tài khoản?",
   "Signin now": "Đăng nhập ngay",
   "Reset Password": "Đặt Lại Mật Khẩu",
@@ -126,11 +132,19 @@ export const vn = {
   "Phone Number": "Số Điện Thoại",
   "Enter Phone Number": "Nhập Số Điện Thoại",
   "Authentication Code": "Mã Xác Thực",
-  "Final step to treate your account.":
-    "Bước cuối cùng để tạo tài khoản của bạn.",
+  "Final step to treate your account.": "Bước cuối cùng để tạo tài khoản của bạn.",
   "Your authentication code is invalid!": "Mã xác thực của bạn không hợp lệ!",
   "Enter Code": "Nhập Mã",
   Submit: "Xác Nhận",
   "Didn't receiver authentication code?": "Bạn không nhận được mã xác thực?",
   Resend: "Gửi lại",
+  Address: "Địa chỉ",
+  "Enter Address": "Nhập địa chỉ",
+  "Update Infomation": "Cập nhật thông tin",
+  "Edit Your Information": "Chỉnh Sửa Thông Tin Của Bạn",
+  "Job, Position Name ...": "Tên công việc, vị trí bạn muốn ứng tuyển ...",
+  "All industry": "Tất cả lĩnh vực",
+  "All skill": "Tất cả kỹ năng",
+  "All location": "Tất cả địa điểm",
+  Gender: "Giới tính",
 };

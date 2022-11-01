@@ -113,7 +113,6 @@ const EditUserInfo = () => {
         gender
       );
       if (updateUserInfo.data.httpCode === 200) {
-        modalRef.current.setMessage("Update Infomation Successfully!");
         modalRef.current.onToggleModal();
       } else {
         modalRef.current.setMessage("Some thing went wrong! Please try again!");
@@ -153,7 +152,7 @@ const EditUserInfo = () => {
                       aria-label="Enter Email"
                       value={sessionInfo?.email ?? ""}
                       onChange={() => {}}
-                      required
+                      disabled
                     />
                   </InputGroup>
                 </FormGroup>
