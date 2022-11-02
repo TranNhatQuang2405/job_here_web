@@ -39,7 +39,9 @@ const Header = (props) => {
             {!!sessionInfo && (
               <Nav className="me-auto">
                 <NavDropdown title={t("Jobs")} id="basic-nav-dropdown" menuVariant="dark">
-                  <NavDropdown.Item href="#action">{t("Applied Jobs")}</NavDropdown.Item>
+                  <NavDropdown.Item href="/AppliedJob">
+                    {t("Applied Jobs")}
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="#action">{t("Saved Jobs")}</NavDropdown.Item>
                   <NavDropdown.Item href="#action">{t("Matched Jobs")}</NavDropdown.Item>
                 </NavDropdown>

@@ -16,12 +16,7 @@ import { useTranslation } from "react-i18next";
 import user_img from "Assets/Images/user.png";
 import { useSelector } from "react-redux";
 import { authBusiness, dropdownBusiness } from "Business";
-import {
-  ValidateEmail,
-  ValidateUTF8Name,
-  ValidateDateOfBirth,
-  ValidatePhone,
-} from "Config/Validate";
+import { ValidateUTF8Name, ValidateDateOfBirth, ValidatePhone } from "Config/Validate";
 import { WarningModal } from "Components/Modal";
 import { LoadingPage } from "Layout/Common";
 
