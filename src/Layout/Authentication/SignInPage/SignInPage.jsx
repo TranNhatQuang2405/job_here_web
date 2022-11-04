@@ -88,7 +88,7 @@ const SignInPage = () => {
                     </InputGroup.Text>
 
                     <FormControl
-                      className="SignIn__form-control"
+                      className="SignIn__form-control jh-box-input"
                       placeholder={t("Enter Email")}
                       aria-label="Enter Email"
                       onChange={onChangeValueEmail}
@@ -113,7 +113,7 @@ const SignInPage = () => {
                     </InputGroup.Text>
 
                     <FormControl
-                      className="SignIn__form-control"
+                      className="SignIn__form-control jh-box-input"
                       placeholder={t("Enter Password")}
                       aria-label="Enter Password"
                       type="password"

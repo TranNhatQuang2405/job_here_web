@@ -41,7 +41,7 @@ const JobPage = () => {
             Tìm việc làm nhân viên marketing
           </a>
           <i className="bi bi-chevron-right" />
-          <span className="text-dark-blue">Tuyển Nhân Viên Marketing Tại Q7-HCM</span>
+          <span className="">Tuyển Nhân Viên Marketing Tại Q7-HCM</span>
         </div>
         <JobHeader />
       </div>
@@ -60,8 +60,8 @@ const JobPage = () => {
           </li>
         </ul>
       </div>
-      <div className="JobPage__job-info jh-container">
-        <div className="JobPage__box-job-info">
+      <div className="JobPage__job-info jh-container mb-3">
+        <div className="JobPage__box-job-info jh-box-item">
           <h2 className="JobPage__job-info-title">Chi tiết tin tuyển dụng</h2>
           <Row>
             <Col md={8}>
@@ -75,17 +75,14 @@ const JobPage = () => {
           </Row>
         </div>
       </div>
-      <div className="JobPage__company-info jh-container mt-4">
-        <JobCompanyInfo />
-      </div>
-      <div className="JobPage__job-tab jh-container mt-4">
-        <div className="JobPage__box-job-similar box-white">
+      {/* <div className="JobPage__job-tab jh-container mt-4">
+        <div className="JobPage__box-job-similar jh-box-item">
           <h2 className="box-title mb-3">Việc làm liên quan</h2>
           <JobItem />
           <JobItem />
           <JobItem />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

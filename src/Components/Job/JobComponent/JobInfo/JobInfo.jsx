@@ -4,7 +4,7 @@ import "./JobInfo.css";
 import { IconCircle } from "Components/Icon";
 import { ButtonPrimary } from "Components/Button";
 
-const JobInfo = ({ isSave, onApply, onSave }) => {
+const JobInfo = () => {
   let boxData = [
     {
       label: "Mức lương",
@@ -37,18 +37,6 @@ const JobInfo = ({ isSave, onApply, onSave }) => {
       icon: "experience",
     },
   ];
-
-  const _onApply = () => {
-    if (typeof onApply === "function") {
-      onApply();
-    }
-  };
-
-  const _onSave = () => {
-    if (typeof onSave === "function") {
-      onSave();
-    }
-  };
 
   return (
     <div className="JobInfo__container">
@@ -152,38 +140,6 @@ const JobInfo = ({ isSave, onApply, onSave }) => {
           <p></p>
           <p></p>
           <p></p>
-        </div>
-        <h3>Cách thức ứng tuyển</h3>
-        <div className="JobInfo__box-how-to-apply">
-          <p>
-            Ứng viên nộp hồ sơ trực tuyến bằng cách bấm{" "}
-            <strong className="JobPage__text-highlight">Ứng tuyển ngay</strong> dưới đây.
-          </p>
-          <div className="">
-            <div className="d-flex flex-wrap mb-2">
-              <div className="me-3 mb-2">
-                <ButtonPrimary onClick={_onApply} style={{ padding: "10px 20px" }}>
-                  <i className="bi bi-send" /> ỨNG TUYỂN NGAY
-                </ButtonPrimary>
-              </div>
-              <div className="mb-2">
-                {!isSave ? (
-                  <ButtonPrimary
-                    secondary
-                    onClick={_onSave}
-                    style={{ padding: "10px 20px" }}
-                  >
-                    <i className="bi bi-heart" /> LƯU TIN
-                  </ButtonPrimary>
-                ) : (
-                  <ButtonPrimary onClick={_onSave} style={{ padding: "10px 20px" }}>
-                    <i className="bi bi-heart-fill" /> ĐÃ LƯU
-                  </ButtonPrimary>
-                )}
-              </div>
-            </div>
-            <p>Hạn nộp hồ sơ: 30/10/2022</p>
-          </div>
         </div>
       </div>
     </div>

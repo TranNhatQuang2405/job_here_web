@@ -20,27 +20,12 @@
 }
 
 .JobSearchBar__input {
-  border: 1px solid var(--jh-primary-border-color);
-  border-radius: 5px;
-  transition: 0.4s;
   height: 40px;
-  font-size: 14px;
-  font-weight: 400;
   padding-left: 26px;
   padding-right: 0;
 }
 
-.JobSearchBar__input:hover {
-  border-color: var(--jh-primary-color);
-}
-
-.JobSearchBar__input:focus {
-  border-color: var(--jh-primary-border-color);
-  box-shadow: none;
-}
-
 .JobSearchBar__search-input .JobSearchBar__input {
-  background: var(--jh-white-background);
   box-shadow: none;
   color: var(--jh-primary-text-color);
   line-height: 24px;

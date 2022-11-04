@@ -1,7 +1,5 @@
 .JobCompanyInfo__container {
-  border-radius: 3px;
   padding: 16px;
-  background-color: var(--jh-white-background);
 }
 
 .JobCompanyInfo__box-title {

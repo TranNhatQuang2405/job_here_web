@@ -1,0 +1,31 @@
+.JobApply__body label {
+  font-size: 15px;
+}
+
+.JobApply__header-detail {
+  padding: 16px 0;
+}
+
+.JobApply__header-detail i {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.JobApply__text-highlight {
+  color: var(--jh-primary-color) !important;
+  text-decoration: none;
+}
+
+.JobApply__text-highlight:hover {
+  color: var(--jh-primary-color);
+}
+
+@media (min-width: 588px) {
+  .JobApply__input {
+    min-width: 500px;
+  }
+}
+
+.JobApply__description {
+  min-height: calc(1.5em + 0.75rem + 2px) !important;
+}

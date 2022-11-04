@@ -1,25 +1,20 @@
-.AuthCode__account-pages {
-  font-family: "Public Sans", sans-serif !important;
-  background-color: var(--bs-body-bg);
-}
-
-.AuthCode__title {
+.EditUserInfo__title {
   font-size: calc(1.25625rem + 0.075vw);
   font-weight: 600;
 }
 
-.AuthCode__card {
+.EditUserInfo__card {
   border: none !important;
   background-color: var(--bs-card-bg) !important;
 }
 
-.AuthCode__input-text {
+.EditUserInfo__input-text {
   background-color: var(--bs-input-group-addon-bg) !important;
   padding: 5px 15px !important;
   color: var(--bs-text-muted) !important;
 }
 
-.AuthCode__form-control {
+.EditUserInfo__form-control {
   min-height: calc(1.5em + calc(1rem + 6px)) !important;
   padding: 0.5rem 1rem !important;
   font-size: 0.875rem !important;
@@ -31,42 +26,47 @@
   background-color: var(--bs-input-card-bg) !important;
 }
 
-.AuthCode__form-control:focus {
+.EditUserInfo__form-control:focus {
   border-color: var(--jh-secondary-border-color);
 }
 
-.AuthCode__form-label {
+.EditUserInfo__form-label {
   font-size: 0.9375rem;
   font-weight: 500;
   color: var(--bs-input-placeholder-color);
 }
 
-.AuthCode__text-primary {
+.SignIn__btn-signin-fb {
+  margin-bottom: 0.5rem;
+  padding: initial 10px;
+}
+
+.EditUserInfo__sign-in {
+  font-size: 0.9375rem;
+  color: var(--bs-body-color);
+}
+
+.EditUserInfo__text-primary {
   font-weight: 500 !important;
   text-decoration: none;
 }
 
-.authCode-text-color {
+.EditUserInfo-text-color {
   font-weight: 400;
   color: var(--bs-body-color) !important;
   background-color: var(--bs-input-bg) !important;
   line-height: 2 !important;
 }
 
-.authCode-text-color::placeholder {
+.EditUserInfo-text-color::placeholder {
   color: var(--bs-body-color) !important;
 }
 
-.authCode-text-color:focus {
+.EditUserInfo-text-color:focus {
   box-shadow: none !important;
 }
 
-.authCode__button {
+.EditUserInfo__button {
   background-color: var(--bs-sidebar-menu-item-active-color) !important;
   border-color: var(--bs-sidebar-menu-item-active-color) !important;
-}
-
-.authCode__textSignIn {
-  color: var(--bs-sidebar-menu-item-active-color) !important;
-  text-decoration: none;
 }

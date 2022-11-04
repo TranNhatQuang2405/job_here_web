@@ -15,6 +15,7 @@
   --jh-page-background: #e5e5e5;
   /* Border Color */
   --jh-primary-border-color: #eeeeee;
+  --jh-secondary-border-color: #ced4da;
 
   --bs-sidebar-bg: #ffffff;
   --bs-sidebar-menu-item-color: #878a92;
@@ -265,4 +266,22 @@ a {
   background-color: var(--jh-white-background);
   border: 1px solid var(--jh-primary-border-color);
   border-radius: 5px;
+}
+
+.jh-box-input {
+  background: var(--jh-white-background);
+  border: 1px solid var(--jh-primary-border-color);
+  border-radius: 5px;
+  transition: 0.4s;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.jh-box-input:hover {
+  border-color: var(--jh-primary-color);
+}
+
+.jh-box-input:focus {
+  border-color: var(--jh-primary-border-color);
+  box-shadow: none;
 }

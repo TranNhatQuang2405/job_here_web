@@ -17,7 +17,6 @@ const AuthProvider = ({ children }) => {
       let session = await authBusiness.GetSession();
       if (session.data && session.data.httpCode !== 401 && session.data.objectData && session.data.objectData.email) {
         dispatch(changeSession(session.data.objectData));
-        navigate("/Home");
       } else {
         dispatch(LogOut());
         if (currentPage === 1) navigate("/SignIn");

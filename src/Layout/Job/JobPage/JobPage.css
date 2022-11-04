@@ -51,9 +51,7 @@
 }
 
 .JobPage__box-job-info {
-  border-radius: 3px;
   padding: 16px;
-  background-color: var(--jh-white-background);
 }
 
 .JobPage__job-info-title {
@@ -66,10 +64,8 @@
 }
 
 .JobPage__box-job-similar {
-  background-color: var(--jh-white-background);
   justify-content: space-between;
   margin: 0 0 16px;
-  border-radius: 3px;
   padding: 16px;
 }
 

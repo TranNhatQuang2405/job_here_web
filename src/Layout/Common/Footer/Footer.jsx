@@ -16,20 +16,29 @@ const Footer = () => {
         <Nav className="flex-column">
           <Nav.Item>
             <p className="Footer__item-text">
-              <i className="bi bi-geo-alt-fill Footer__text-muted" style={{ marginRight: 5 }} />
+              <i
+                className="bi bi-geo-alt-fill Footer__text-muted"
+                style={{ marginRight: 5 }}
+              />
               {t("jh-address")}
             </p>
-          </Nav.Item>   
+          </Nav.Item>
           <Nav.Item>
             <p className="Footer__item-text Footer__text-muted">
-              <i className="bi bi-telephone-fill Footer__text-muted" style={{ marginRight: 5 }} />
+              <i
+                className="bi bi-telephone-fill Footer__text-muted"
+                style={{ marginRight: 5 }}
+              />
               037 999 9999
             </p>
           </Nav.Item>
           <Nav.Item>
             <p className="Footer__item-text Footer__text-muted">
-              <i className="bi bi-envelope-fill Footer__text-muted" style={{ marginRight: 5 }} />
-              contact@jobhere.com
+              <i
+                className="bi bi-envelope-fill Footer__text-muted"
+                style={{ marginRight: 5 }}
+              />
+              jobhere.contact@gmail.com
             </p>
           </Nav.Item>
           <Nav.Item>
@@ -88,10 +97,7 @@ const Footer = () => {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link
-              href="https://www.linkedin.com/"
-              className="Footer__item-text"
-            >
+            <Nav.Link href="https://www.linkedin.com/" className="Footer__item-text">
               {t("Linkedin")}
             </Nav.Link>
           </Nav.Item>

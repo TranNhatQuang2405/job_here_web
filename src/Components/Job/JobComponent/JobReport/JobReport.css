@@ -1,7 +1,5 @@
 .JobReport__container {
-  background: var(--jh-white-background);
   border: 1px solid var(--jh-primary-border-color);
-  border-radius: 3px;
   color: var(--jh-primary-text-color);
   margin-bottom: 24px;
   padding: 16px;

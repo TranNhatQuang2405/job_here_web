@@ -94,7 +94,7 @@ const AuthCodePage = () => {
                         </InputGroup.Text>
                         <FormControl
                           type="text"
-                          className="AuthCode__form-control"
+                          className="AuthCode__form-control jh-box-input"
                           placeholder={t("Enter Code")}
                           aria-label="Enter Code"
                           required
@@ -105,7 +105,7 @@ const AuthCodePage = () => {
                     </FormGroup>
 
                     <div className="d-grid">
-                      <Button className="authCode__button " type="submit">
+                      <Button className="authCode__button" type="submit">
                         {loading ? (
                           <Spinner animation="border" variant="light" />
                         ) : (
