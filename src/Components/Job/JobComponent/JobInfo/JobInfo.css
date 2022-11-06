@@ -19,6 +19,12 @@
   grid-template-columns: 50% 50%;
 }
 
+@media (max-width: 480px) {
+  .JobInfo__box-main {
+    grid-template-columns: 100%;
+  }
+}
+
 .JobInfo__box-item {
   display: flex;
   margin-bottom: 16px;

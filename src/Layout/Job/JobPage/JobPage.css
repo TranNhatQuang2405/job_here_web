@@ -7,19 +7,6 @@
   color: var(--jh-primary-color);
 }
 
-.JobPage__bold {
-  font-weight: 600;
-}
-
-.JobPage__header-detail {
-  padding: 16px 0;
-}
-
-.JobPage__header-detail i {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
 .JobPage__tab-company-nav {
   padding-left: 0;
   margin-bottom: 0;

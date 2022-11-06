@@ -10,7 +10,7 @@ import {
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
 import { EditUserInfo } from "Layout/User";
-import { JobAppliedPage } from "Layout/Job";
+import { JobAppliedPage, JobPage } from "Layout/Job";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 
@@ -25,6 +25,8 @@ const App = () => {
             <Route path="/ResetPassword" element={<ResetPasswordPage />}></Route>
             <Route path="/AuthCode" element={<AuthCodePage />}></Route>
             <Route path="/Home" element={<MainPage />}></Route>
+            <Route path="/Job" element={<MainPage />}></Route>
+            <Route path="/Job/:id" element={<JobPage />}></Route>
             <Route path="/AppliedJob" element={<JobAppliedPage />}></Route>
             <Route path="/EditInfomation" element={<EditUserInfo />}></Route>
             <Route path="*" element={<Navigate to="/SignIn" />} />

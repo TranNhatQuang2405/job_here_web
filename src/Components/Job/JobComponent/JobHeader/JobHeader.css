@@ -1,9 +1,4 @@
-.JobHeader__container {
-  background-color: var(--jh-white-background);
-}
-
 .JobHeader_job-box-header {
-  border-radius: 3px;
   padding: 16px;
 }
 
