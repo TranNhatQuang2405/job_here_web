@@ -28,8 +28,9 @@ const JobHeader = ({ jobData = {} }) => {
         >
           <div className="JobHeader_box-company-logo d-flex align-items-center justify-content-center">
             <img
-              src={company_default_img}
+              src={jobData?.avatar ?? company_default_img}
               alt={jobData?.companyName ?? ""}
+              className="w-100"
             />
           </div>
         </a>

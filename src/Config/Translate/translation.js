@@ -98,6 +98,13 @@ export const en = {
   "Job detail": "Job detail",
   "Home Page": "Home Page",
   Job: "Job",
+  "jh-job-item-date-left-1": "",
+  "jh-job-item-date-left-2": " days left to apply",
+  "List All Company": "List All Company",
+  Company: "Company",
+  "Company introduction": "Company introduction",
+  Recruit: "Recruit",
+  "Company address": "Company address",
 };
 
 export const vn = {
@@ -199,4 +206,11 @@ export const vn = {
   "Job detail": "Chi tiết công việc",
   "Home Page": "Trang chủ",
   Job: "Việc làm",
+  "jh-job-item-date-left-1": "Còn ",
+  "jh-job-item-date-left-2": " ngày để ứng tuyển",
+  "List All Company": "Danh Sách Tất Cả Công Ty",
+  Company: "Công ty",
+  "Company introduction": "Giới thiệu công ty",
+  Recruit: "Tuyển dụng",
+  "Company address": "Địa chỉ công ty",
 };

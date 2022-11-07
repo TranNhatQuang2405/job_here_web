@@ -11,6 +11,7 @@ import {
 import MainPage from "Layout/MainPage/MainPage.jsx";
 import { EditUserInfo } from "Layout/User";
 import { JobAppliedPage, JobPage } from "Layout/Job";
+import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 
@@ -28,6 +29,8 @@ const App = () => {
             <Route path="/Job" element={<MainPage />}></Route>
             <Route path="/Job/:id" element={<JobPage />}></Route>
             <Route path="/AppliedJob" element={<JobAppliedPage />}></Route>
+            <Route path="/Company" element={<CompanyListPage />}></Route>
+            <Route path="/Company/:id" element={<CompanyPage />}></Route>
             <Route path="/EditInfomation" element={<EditUserInfo />}></Route>
             <Route path="*" element={<Navigate to="/SignIn" />} />
           </Routes>

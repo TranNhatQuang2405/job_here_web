@@ -61,7 +61,9 @@ const Header = (props) => {
                   id="basic-nav-dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item>{t("Company List")}</NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavLink to="/Company">{t("Company List")}</NavLink>
+                  </NavDropdown.Item>
                   <NavDropdown.Item>{t("Top Company")}</NavDropdown.Item>
                 </NavDropdown>
               </Nav>

@@ -1,5 +1,5 @@
 import React, { useState, createRef } from "react";
-import "./JobApply.css";
+import "./JobApplyPage.css";
 import { JobSearchBar } from "Components/Job";
 import { ButtonPrimary } from "Components/Button";
 

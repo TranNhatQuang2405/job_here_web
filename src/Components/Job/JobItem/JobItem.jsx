@@ -3,15 +3,22 @@ import "./JobItem.css";
 import { TagList } from "Components/Tag";
 import { CompanyLogo } from "Components/Company";
 import { ButtonPrimary } from "Components/Button";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-const JobItem = ({ id }) => {
+const JobItem = ({ jobData }) => {
+  const { t } = useTranslation();
   const [isSave, setIsSave] = useState(false);
   let tagData = [
     {
-      label: "Trên 5 triệu",
+      label: `${
+        jobData.salaryMin === jobData.salaryMax
+          ? jobData.salaryMin
+          : `${jobData.salaryMin} - ${jobData.salaryMax}`
+      }`,
     },
     {
-      label: "Hồ Chí Minh",
+      label: jobData.city.cityName,
     },
     {
       label: "Cập nhật 3 ngày trước",
@@ -25,45 +32,41 @@ const JobItem = ({ id }) => {
   return (
     <div className="JobItem__container d-flex">
       <div className="JobItem__company-logo-wrapper">
-        <a
+        <Link
           target="_blank"
           rel="noreferrer"
-          href="https://www.topcv.vn/viec-lam/production-internship/805020.html?ta_source=JobSearchList"
+          to={`/Job/${jobData.jobId}`}
           className="JobItem__company-logo d-block overflow-hidden"
         >
-          <img
-            src="https://cdn.topcv.vn/80/company_logos/Y8fRFkG1cjdKCPOO5TdGUvseZfpNoESp_1662608920____1060a368c105a808be891a52e8aaf521.png"
-            className="w-100"
-            alt="company"
-          />
-        </a>
+          <img src={jobData.avatarUrl} className="w-100" alt="company" />
+        </Link>
       </div>
       <div className="JobItem__body d-flex flex-column w-100">
         <div className="JobItem__content d-flex w-100">
           <div className="me-auto">
             <h3 className="JobItem__title mt-0 mb-0">
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.topcv.vn/viec-lam/production-internship/805020.html?ta_source=JobSearchList"
-              >
-                Production Internship
-              </a>
+              <Link target="_blank" rel="noreferrer" to={`/Job/${jobData.jobId}`}>
+                {jobData?.jobName ?? ""}
+              </Link>
             </h3>
             <p className="JobItem__company">
-              <a
-                href="https://www.topcv.vn/cong-ty/general-electric-viet-nam/118203.html"
+              <Link
+                to="https://www.topcv.vn/cong-ty/general-electric-viet-nam/118203.html"
                 target="_blank"
                 className="text-uppercase text-decoration-none"
                 rel="nooppener noreferrer"
               >
                 General Electric Viet Nam
-              </a>
+              </Link>
             </p>
           </div>
           <div className="ms-auto text-right">
             <p className="JobItem__deadline">
-              Còn <strong>50</strong> ngày để ứng tuyển
+              {t("jh-job-item-date-left-1")}
+              <strong>
+                {parseInt((new Date(jobData?.endDate ?? null) - new Date()) / 86400000)}
+              </strong>
+              {t("jh-job-item-date-left-2")}
             </p>
           </div>
         </div>
