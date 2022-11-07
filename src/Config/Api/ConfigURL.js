@@ -17,6 +17,7 @@ export const experienceDropdownURL = "/dropdown/experience";
 
 // Job
 export const getJobInfoURL = "/job/getJobInfo";
+export const getNewJobURL = "/job/getListNewJob";
 
 //Company
 export const getListCompanyURL = "/user/company/getListCompany";

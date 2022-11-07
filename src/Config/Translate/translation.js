@@ -105,6 +105,7 @@ export const en = {
   "Company introduction": "Company introduction",
   Recruit: "Recruit",
   "Company address": "Company address",
+  "New Job": "New Job",
 };
 
 export const vn = {
@@ -213,4 +214,5 @@ export const vn = {
   "Company introduction": "Giới thiệu công ty",
   Recruit: "Tuyển dụng",
   "Company address": "Địa chỉ công ty",
+  "New Job": "Việc làm mới đăng",
 };
