@@ -120,6 +120,8 @@ export const en = {
   "New password": "New password",
   "Re-enter new password": "Re-enter new password",
   "Please re-enter correct password!": "Please re-enter correct password!",
+  Update: "Update",
+  "days ago": "days ago",
 };
 
 export const vn = {
@@ -243,4 +245,6 @@ export const vn = {
   "New password": "Mật khẩu mới",
   "Re-enter new password": "Nhập lại mật khẩu mới",
   "Please re-enter correct password!": "Vui lòng nhập lại đúng mật khẩu!",
+  Update: "Cập nhật",
+  "days ago": "ngày trước",
 };

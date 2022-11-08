@@ -1,27 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./JobItem.css";
 import { TagList } from "Components/Tag";
 import { CompanyLogo } from "Components/Company";
 import { ButtonPrimary } from "Components/Button";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { dropdownBusiness } from "Business";
 
 const JobItem = ({ jobData }) => {
   const { t } = useTranslation();
+  const [localData, setLocalData] = useState({});
   const [isSave, setIsSave] = useState(false);
+
+  useEffect(() => {
+    const getData = async () => {
+      let result = await dropdownBusiness.UnitDropdown();
+      if (result.data.httpCode === 200) {
+        let u = result.data.objectData.find((x) => x.unit === jobData.unit);
+        if (u) localData.unitName = u.unitName;
+      }
+    };
+    getData();
+  }, []);
+
   let tagData = [
     {
       label: `${
         jobData.salaryMin === jobData.salaryMax
           ? jobData.salaryMin
           : `${jobData.salaryMin} - ${jobData.salaryMax}`
-      }`,
+      } ${localData.unitName}`,
     },
     {
       label: jobData.city.cityName,
     },
     {
-      label: "Cập nhật 3 ngày trước",
+      label: `${t("Update")} ${parseInt((new Date() - new Date(jobData?.startDate ?? null)) / 86400000)} ${t("days ago")}`,
     },
   ];
 
@@ -51,12 +65,12 @@ const JobItem = ({ jobData }) => {
             </h3>
             <p className="JobItem__company">
               <Link
-                to="https://www.topcv.vn/cong-ty/general-electric-viet-nam/118203.html"
+                to={`/Company/${jobData.companyId}`}
                 target="_blank"
                 className="text-uppercase text-decoration-none"
                 rel="nooppener noreferrer"
               >
-                General Electric Viet Nam
+                {jobData.companyName}
               </Link>
             </p>
           </div>
