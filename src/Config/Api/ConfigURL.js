@@ -3,7 +3,10 @@ export const getSessionURL = "/user/getSession";
 export const signInURL = "/auth/login";
 export const signUpURL = "/auth/register";
 export const authCodeURL = "/auth/authenticateCode";
+
+// User
 export const updateUserInfoURL = "/user/updateInfo";
+export const changePasswordURL = "/user/changePassword";
 
 // Dropdown
 export const genderDropdownURL = "/dropdown/gender";

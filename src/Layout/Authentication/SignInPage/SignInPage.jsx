@@ -69,7 +69,7 @@ const SignInPage = () => {
 
   return (
     <div className="SignIn pt-3">
-      <WarningModal ref={modalRef} />
+      <WarningModal ref={modalRef} title={t("Sign In")} />
       <Row className="justify-content-center">
         <Col lg={4} xs={11}>
           <div className="text-center mb-4">

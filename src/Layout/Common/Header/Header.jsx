@@ -91,6 +91,9 @@ const Header = (props) => {
                   <NavDropdown.Item>
                     <NavLink to="/EditInfomation">{t("Edit Your Infomation")}</NavLink>
                   </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavLink to="/ChangePassword">{t("Change Password")}</NavLink>
+                  </NavDropdown.Item>
                   <NavDropdown.Item onClick={onLogout}>{t("Logout")}</NavDropdown.Item>
                 </NavDropdown>
               </Nav>

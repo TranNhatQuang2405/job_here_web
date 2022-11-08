@@ -48,23 +48,23 @@ const SignUpPage = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (!ValidateEmail(account.email)) {
-      modalRef.current.setMessage("Invalid Email!");
+      modalRef.current.setMessage(t("Invalid Email!"));
       modalRef.current.onToggleModal();
       // setAccount({ ...account, password: "" });
     } else if (!ValidateUTF8Name(account.displayName)) {
-      modalRef.current.setMessage("Invalid Display Name!");
+      modalRef.current.setMessage(t("Invalid Display Name!"));
       modalRef.current.onToggleModal();
       // setAccount({ ...account, password: "" });
     } else if (!ValidatePassword(account.password)) {
-      modalRef.current.setMessage("Password must at least 8 characters!");
+      modalRef.current.setMessage(t("jh-invalid-password"));
       modalRef.current.onToggleModal();
       // setAccount({ ...account, password: "" });
     } else if (!ValidateDateOfBirth(account.dateOfBirth)) {
-      modalRef.current.setMessage("Invalid Date Of Birth!");
+      modalRef.current.setMessage(t("Invalid Date Of Birth!"));
       modalRef.current.onToggleModal();
       // setAccount({ ...account, password: "" });
     } else if (!ValidatePhone(account.phone)) {
-      modalRef.current.setMessage("Invalid Phone Number!");
+      modalRef.current.setMessage(t("Invalid Phone Number!"));
       modalRef.current.onToggleModal();
       // setAccount({ ...account, password: "" });
     } else {
@@ -112,7 +112,7 @@ const SignUpPage = () => {
 
   return (
     <div className="SignUp">
-      <WarningModal ref={modalRef} />
+      <WarningModal ref={modalRef} title={t("Sign Up")} />
       <div className="SignUp__account-pages pt-3">
         <Row className="justify-content-center">
           <Col lg={4} xs={11}>

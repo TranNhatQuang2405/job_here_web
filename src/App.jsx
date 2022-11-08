@@ -9,7 +9,7 @@ import {
   AuthCodePage,
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
-import { EditUserInfo } from "Layout/User";
+import { ChangePasswordPage, EditUserInfo } from "Layout/User";
 import { JobAppliedPage, JobPage } from "Layout/Job";
 import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -32,6 +32,7 @@ const App = () => {
             <Route path="/Company" element={<CompanyListPage />}></Route>
             <Route path="/Company/:id" element={<CompanyPage />}></Route>
             <Route path="/EditInfomation" element={<EditUserInfo />}></Route>
+            <Route path="/ChangePassword" element={<ChangePasswordPage />}></Route>
             <Route path="*" element={<Navigate to="/SignIn" />} />
           </Routes>
         </PageTemplate>

@@ -25,6 +25,8 @@ const JobNew = () => {
     lazyLoad: true,
     speed: 500,
     swipe: false,
+    nextArrow: <></>,
+    prevArrow: <></>,
     slidesToShow: 1,
     slidesToScroll: 1,
   };

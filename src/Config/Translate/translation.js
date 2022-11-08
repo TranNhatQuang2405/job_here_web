@@ -106,6 +106,20 @@ export const en = {
   Recruit: "Recruit",
   "Company address": "Company address",
   "New Job": "New Job",
+  "Change Password": "Change Password",
+  Warning: "Warning",
+  "jh-invalid-password":
+    "Passwords must have at least 8 characters and contain uppercase letters, lowercase letters, numbers, symbols!",
+  "Invalid Email!": "Invalid Email!",
+  "Invalid Display Name!": "Invalid Display Name!",
+  "Invalid Date Of Birth!": "Invalid Date Of Birth!",
+  "Invalid Phone Number!": "Invalid Phone Number!",
+  "Enter old password": "Enter old password",
+  "Enter new password": "Enter new password",
+  "Old password": "Old password",
+  "New password": "New password",
+  "Re-enter new password": "Re-enter new password",
+  "Please re-enter correct password!": "Please re-enter correct password!",
 };
 
 export const vn = {
@@ -215,4 +229,18 @@ export const vn = {
   Recruit: "Tuyển dụng",
   "Company address": "Địa chỉ công ty",
   "New Job": "Việc làm mới đăng",
+  "Change Password": "Đổi mật khẩu",
+  Warning: "Cảnh báo",
+  "jh-invalid-password":
+    "Mật khẩu phải có ít nhất 8 ký tự và chứa chữ cái hoa, chữ cái thường, số, ký hiệu!",
+  "Invalid Email!": "Email không hợp lệ!",
+  "Invalid Display Name!": "Tên hiển thị không hợp lệ!",
+  "Invalid Date Of Birth!": "Ngày sinh không hợp lệ!",
+  "Invalid Phone Number!": "Số điện thoại không hợp lệ!",
+  "Enter old password": "Nhập mật khẩu cũ",
+  "Enter new password": "Nhập mật khẩu mới",
+  "Old password": "Mật khẩu cũ",
+  "New password": "Mật khẩu mới",
+  "Re-enter new password": "Nhập lại mật khẩu mới",
+  "Please re-enter correct password!": "Vui lòng nhập lại đúng mật khẩu!",
 };
