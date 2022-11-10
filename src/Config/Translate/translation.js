@@ -122,6 +122,9 @@ export const en = {
   "Please re-enter correct password!": "Please re-enter correct password!",
   Update: "Update",
   "days ago": "days ago",
+  "Jobs you have applied": "Jobs you have applied",
+  "Pick Time": "Pick Time",
+  "There is no applied job in this time!": "There is no applied job in this time!",
 };
 
 export const vn = {
@@ -247,4 +250,8 @@ export const vn = {
   "Please re-enter correct password!": "Vui lòng nhập lại đúng mật khẩu!",
   Update: "Cập nhật",
   "days ago": "ngày trước",
+  "Jobs you have applied": "Việc làm mà bạn đã ứng tuyển",
+  "Pick Time": "Chọn thời gian",
+  "There is no applied job in this time!":
+    "Không có việc làm đã ứng tuyển vào thời gian này!",
 };

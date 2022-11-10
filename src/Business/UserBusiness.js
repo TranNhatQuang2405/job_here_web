@@ -1,5 +1,9 @@
 import Service from "Config/Api/Service";
-import { updateUserInfoURL, changePasswordURL } from "Config/Api/ConfigURL";
+import {
+  updateUserInfoURL,
+  changePasswordURL,
+  getAppliedJobURL,
+} from "Config/Api/ConfigURL";
 
 class UserBusiness extends Service {
   UpdateUserInfo = async (fullname, address, dateOfBirth, phone, gender) => {
@@ -20,6 +24,11 @@ class UserBusiness extends Service {
       newPassword: newPassword,
     };
     let result = await this.post(changePasswordURL, params);
+    return result;
+  };
+
+  GetAppliedJob = async (month, year) => {
+    let result = await this.get(`${getAppliedJobURL}?month=${year}-${month}`);
     return result;
   };
 }

@@ -7,6 +7,7 @@ export const authCodeURL = "/auth/authenticateCode";
 // User
 export const updateUserInfoURL = "/user/updateInfo";
 export const changePasswordURL = "/user/changePassword";
+export const getAppliedJobURL = "/user/getListApplicationHistory";
 
 // Dropdown
 export const genderDropdownURL = "/dropdown/gender";

@@ -285,3 +285,7 @@ a {
   border-color: var(--jh-primary-border-color);
   box-shadow: none;
 }
+
+.primary-color {
+  color: var(--jh-primary-color);
+}

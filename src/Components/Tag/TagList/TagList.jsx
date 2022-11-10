@@ -6,6 +6,7 @@ const TagList = ({ tagData = [] }) => {
   return (
     <div className="TagList__container">
       {_.map(tagData, (item, index) => {
+        if (!item.label) return null;
         return (
           <div key={index} className="TagList__item">
             <a
