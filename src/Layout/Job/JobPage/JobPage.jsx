@@ -5,12 +5,13 @@ import { JobHeader, JobInfo, JobKeywork, JobReport, JobShare } from "Components/
 import { PathTree } from "Components/Path";
 import { LoadingPage } from "Layout/Common";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { dropdownBusiness, jobBusiness } from "Business";
 
 const JobPage = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const [jobData, setJobData] = useState({});
   const [loading, setLoading] = useState(true);
   const [isApply, setIsApply] = useState(false);
@@ -74,7 +75,7 @@ const JobPage = () => {
   }, [location.pathname]);
 
   const onApply = () => {
-    setIsApply(!isApply);
+    // setIsApply(!isApply);
   };
 
   const onSave = () => {

@@ -29,7 +29,7 @@ const JobItem = ({ jobData, applied = false }) => {
         jobData.salaryMin === jobData.salaryMax
           ? jobData.salaryMin
           : `${jobData.salaryMin} - ${jobData.salaryMax}`
-      } ${localData.unitName}`,
+      } ${localData?.unitName ?? ""}`,
     },
     {
       label: jobData?.city?.cityName ?? "",
@@ -54,7 +54,7 @@ const JobItem = ({ jobData, applied = false }) => {
           to={`/Job/${jobData?.jobId ?? 0}`}
           className="JobItem__company-logo d-block overflow-hidden"
         >
-          <img src={jobData?.avatarUrl ?? null} className="w-100" alt="company" />
+          <CompanyLogo src={jobData?.avatarUrl ?? null} size={80} />
         </Link>
       </div>
       <div className="JobItem__body d-flex flex-column w-100">

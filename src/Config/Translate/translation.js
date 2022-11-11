@@ -125,6 +125,8 @@ export const en = {
   "Jobs you have applied": "Jobs you have applied",
   "Pick Time": "Pick Time",
   "There is no applied job in this time!": "There is no applied job in this time!",
+  Skills: "Skills",
+  Region: "Region",
 };
 
 export const vn = {
@@ -254,4 +256,6 @@ export const vn = {
   "Pick Time": "Chọn thời gian",
   "There is no applied job in this time!":
     "Không có việc làm đã ứng tuyển vào thời gian này!",
+  Skills: "Kỹ năng",
+  Region: "Khu vực",
 };

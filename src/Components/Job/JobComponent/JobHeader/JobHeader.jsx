@@ -3,15 +3,19 @@ import "./JobHeader.css";
 import { ButtonPrimary } from "Components/Button";
 import company_default_img from "Assets/Images/company_default_img.webp";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Moment from "moment";
 
 const JobHeader = ({ jobData = {} }) => {
   const [isApply, setIsApply] = useState(false);
   const [isSave, setIsSave] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const onApply = () => {
     setIsApply(!isApply);
+    navigate(`/JobApply/${jobData?.jobId}`);
   };
 
   const onSave = () => {
@@ -21,8 +25,8 @@ const JobHeader = ({ jobData = {} }) => {
   return (
     <div className="JobHeader__container jh-box-item">
       <div className="JobHeader_job-box-header d-flex align-items-center">
-        <a
-          href="#"
+        <Link
+          to={`/Company/${jobData?.companyId ?? 0}`}
           title={jobData?.companyName ?? ""}
           className="JobHeader_job-company-logo"
         >
@@ -33,13 +37,17 @@ const JobHeader = ({ jobData = {} }) => {
               className="w-100"
             />
           </div>
-        </a>
+        </Link>
         <div className="JobHeader_box-info-job flex-grow-1">
-          <h1 className="JobHeader_job-title JobPage__text-highlight">
-            {jobData?.jobName ?? "Job Name"}
-          </h1>
+          <Link to={`/Job/${jobData?.jobId ?? 0}`}>
+            <h1 className="JobHeader_job-title JobPage__text-highlight">
+              {jobData?.jobName ?? "Job Name"}
+            </h1>
+          </Link>
           <div className="JobHeader_company-title">
-            <a href="#">{jobData?.companyName ?? "Company Name"}</a>
+            <Link to={`/Company/${jobData?.companyId ?? 0}`}>
+              {jobData?.companyName ?? "Company Name"}
+            </Link>
           </div>
 
           <div className="JobHeader_job-deadline">

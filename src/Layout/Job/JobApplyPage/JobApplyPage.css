@@ -2,15 +2,6 @@
   font-size: 15px;
 }
 
-.JobApply__header-detail {
-  padding: 16px 0;
-}
-
-.JobApply__header-detail i {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
 .JobApply__text-highlight {
   color: var(--jh-primary-color) !important;
   text-decoration: none;

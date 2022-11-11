@@ -5,9 +5,11 @@ import { IconCircle } from "Components/Icon";
 import { ButtonPrimary } from "Components/Button";
 import { Row, Col } from "react-bootstrap/";
 import { useTranslation } from "react-i18next";
+import { TagList } from "Components/Tag";
 
 const JobInfo = ({ jobData = {} }) => {
   const { t } = useTranslation();
+  console.log("-----", jobData);
 
   return (
     <div className="JobInfo__container">
@@ -57,9 +59,11 @@ const JobInfo = ({ jobData = {} }) => {
               </div>
               <div>
                 <strong>{t("Job Type")} </strong> <br />
-                <span>
-                  {_.map(jobData.jobTypeNames, (item) => item.jobTypeName).join(", ")}
-                </span>
+                <TagList
+                  tagData={_.map(jobData.jobTypeNames, (item) => ({
+                    label: item.jobTypeName,
+                  }))}
+                />
               </div>
             </div>
           )}
@@ -102,11 +106,45 @@ const JobInfo = ({ jobData = {} }) => {
               <div>
                 <strong>{t("Experience")} </strong>
                 <br />
-                <span>
-                  {_.map(jobData.experienceNames, (item) => item.experienceName).join(
-                    ", "
-                  )}
-                </span>
+                <TagList
+                  tagData={_.map(jobData.experienceNames, (item) => ({
+                    label: item.experienceName,
+                  }))}
+                />
+              </div>
+            </div>
+          )}
+          {!!jobData.jobSkills && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"suitcase"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Skills")} </strong>
+                <br />
+                <TagList
+                  tagData={_.map(jobData.jobSkills, (item) => ({
+                    label: item.skillName,
+                  }))}
+                />
+              </div>
+            </div>
+          )}
+          {!!jobData.cityName && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"map"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Region")} </strong>
+                <br />
+                <span>{jobData.cityName}</span>
               </div>
             </div>
           )}

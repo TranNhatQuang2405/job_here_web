@@ -1,9 +1,12 @@
-import React, { useState, createRef } from "react";
+import React, { useState, createRef, useEffect } from "react";
 import "./JobApplyPage.css";
 import { JobSearchBar } from "Components/Job";
 import { ButtonPrimary } from "Components/Button";
+import { PathTree } from "Components/Path";
+import { useTranslation } from "react-i18next";
 
-const JobApply = () => {
+const JobApply = ({ jobData = {} }) => {
+  const { t } = useTranslation();
   const [info, setInfo] = useState({
     name: "",
     email: "",
@@ -29,24 +32,7 @@ const JobApply = () => {
 
   return (
     <div className="JobApply__container jh-container">
-      <JobSearchBar />
-      <div className="JobApply__header-detail">
-        <a
-          href="https://www.topcv.vn/viec-lam"
-          className="JobApply__text-highlight JobApply__bold"
-        >
-          Trang chủ
-        </a>
-        <i className="bi bi-chevron-right" />
-        <a
-          href="https://www.topcv.vn/tim-viec-lam-nhan-vien-marketing"
-          className="JobApply__text-highlight JobApply__bold"
-        >
-          Tìm việc làm nhân viên marketing
-        </a>
-        <i className="bi bi-chevron-right" />
-        <span className="">Tuyển Nhân Viên Marketing Tại Q7-HCM</span>
-      </div>
+      <PathTree />
       <div className="JobApply__body p-4 jh-box-item">
         <div>
           <div className="form-group">

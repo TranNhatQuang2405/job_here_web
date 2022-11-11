@@ -4,7 +4,7 @@ import _ from "underscore";
 import { useLocation, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const PathTree = ({ lastPath }) => {
+const PathTree = ({ lastPath = "" }) => {
   const location = useLocation();
   const [paths, setPaths] = useState([]);
   const { t } = useTranslation();
@@ -20,8 +20,11 @@ const PathTree = ({ lastPath }) => {
       let isNumeric =
         typeof lastVar === "number" ||
         (typeof lastVar === "string" && lastVar.trim() !== "" && !isNaN(lastVar));
-      if (isNumeric)
+      if (isNumeric && lastPath) {
         tmpPath[tmpPath.length - 1].pathName = lastPath || tmpPath[tmpPath.length - 1];
+      } else {
+        tmpPath.pop();
+      }
     }
     setPaths(tmpPath);
   }, [lastPath, location.pathname]);
@@ -47,7 +50,9 @@ const PathTree = ({ lastPath }) => {
       {_.map(paths, (ele, index) => (
         <div
           key={index}
-          className={index === paths.length - 1 ? "PathTree__last-path" : "PathTree__path"}
+          className={
+            index === paths.length - 1 ? "PathTree__last-path" : "PathTree__path"
+          }
         >
           <i className="bi bi-chevron-right" />
           <Link to={creatUrl(ele)} className="">

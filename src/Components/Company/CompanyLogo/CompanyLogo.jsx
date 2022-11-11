@@ -1,7 +1,7 @@
 import React from "react";
 import company_default_img from "Assets/Images/company_default_img.webp";
 
-const CompanyLogo = ({ src = company_default_img, alt = "", style = {}, size = 44 }) => {
+const CompanyLogo = ({ src, alt = "", style = {}, size = 44 }) => {
   return (
     <div
       style={{
@@ -17,7 +17,7 @@ const CompanyLogo = ({ src = company_default_img, alt = "", style = {}, size = 4
         backgroundColor: "var(--jh-white-background)",
       }}
     >
-      <img src={src} alt={alt} className="img-fluid" />
+      <img src={src || company_default_img} alt={alt} className="img-fluid" />
     </div>
   );
 };
