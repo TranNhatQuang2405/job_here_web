@@ -9,7 +9,6 @@ import { TagList } from "Components/Tag";
 
 const JobInfo = ({ jobData = {} }) => {
   const { t } = useTranslation();
-  console.log("-----", jobData);
 
   return (
     <div className="JobInfo__container">

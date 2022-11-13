@@ -8,6 +8,14 @@ const CVItem = ({ cvData = {} }) => {
 
   return (
     <div className="CVItem__container jh-box-item p-2">
+      <div>
+        <object data={cvData.cvUrl} type="application/pdf" className="w-100">
+          <p>
+            Alternative text - include a link{" "}
+            <a href="http://africau.edu/images/default/sample.pdf">to the PDF!</a>
+          </p>
+        </object>
+      </div>
       <a className="CVItem__cv-name" href={cvData.cvUrl} target="_blank" rel="noreferrer">
         {cvData.cvName}
       </a>

@@ -133,6 +133,8 @@ export const en = {
   "All your CV": "All your CV",
   "You have no CV": "You have no CV",
   "Create Date": "Create Date",
+  "jh-apply-note": "Summary",
+  "jh-no-cv-warning": "You have no CV. To continue apply this job, please add CV in ",
 };
 
 export const vn = {
@@ -270,4 +272,7 @@ export const vn = {
   "All your CV": "Tất cả CV của bạn",
   "You have no CV": "Bạn chưa có CV nào",
   "Create Date": "Ngày tạo",
+  "jh-apply-note": "Giới thiệu bản thân",
+  "jh-no-cv-warning":
+    "Bạn chưa có CV nào. Để tiếp tục ứng tuyển công việc này, vui lòng thêm CV của bạn tại ",
 };

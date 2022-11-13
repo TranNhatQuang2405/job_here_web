@@ -9,6 +9,7 @@ export const updateUserInfoURL = "/user/updateInfo";
 export const changePasswordURL = "/user/changePassword";
 export const getAppliedJobURL = "/user/getListApplicationHistory";
 export const saveCVURL = "/user/uploadCV";
+export const applyJobURL = "/user/applyJob";
 
 // Dropdown
 export const genderDropdownURL = "/dropdown/gender";

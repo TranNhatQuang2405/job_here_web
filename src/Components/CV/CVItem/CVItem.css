@@ -1,6 +1,5 @@
 .CVItem__container {
   box-shadow: -1px 1px 4px rgb(0 0 0 / 5%);
-  max-height: 400px;
   margin-bottom: 24px;
   overflow: hidden;
   transition: all 0.3s;
@@ -29,3 +28,4 @@
   color: green;
   font-size: 14px;
 }
+

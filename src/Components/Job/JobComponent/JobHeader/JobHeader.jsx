@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./JobHeader.css";
 import { ButtonPrimary } from "Components/Button";
+import { ModalApplyJob } from "Components/Modal";
 import company_default_img from "Assets/Images/company_default_img.webp";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -12,18 +13,19 @@ const JobHeader = ({ jobData = {} }) => {
   const [isSave, setIsSave] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const applyJobRef = useRef();
 
   const onApply = () => {
-    setIsApply(!isApply);
-    navigate(`/JobApply/${jobData?.jobId}`);
+    applyJobRef?.current?.onToggleModal?.();
   };
 
   const onSave = () => {
-    setIsSave(!isSave);
+    // setIsSave(!isSave);
   };
 
   return (
     <div className="JobHeader__container jh-box-item">
+      <ModalApplyJob ref={applyJobRef} jobData={jobData} />
       <div className="JobHeader_job-box-header d-flex align-items-center">
         <Link
           to={`/Company/${jobData?.companyId ?? 0}`}
