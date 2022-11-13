@@ -8,6 +8,7 @@ export const authCodeURL = "/auth/authenticateCode";
 export const updateUserInfoURL = "/user/updateInfo";
 export const changePasswordURL = "/user/changePassword";
 export const getAppliedJobURL = "/user/getListApplicationHistory";
+export const saveCVURL = "/user/uploadCV";
 
 // Dropdown
 export const genderDropdownURL = "/dropdown/gender";
@@ -22,6 +23,12 @@ export const experienceDropdownURL = "/dropdown/experience";
 // Job
 export const getJobInfoURL = "/job/getJobInfo";
 export const getNewJobURL = "/job/getListNewJob";
+
+// CV
+export const getListCVURL = "/cv/getListOwnerCV";
+
+// Upload
+export const uploadCVURL = "/user/upload/uploadCV";
 
 //Company
 export const getListCompanyURL = "/user/company/getListCompany";

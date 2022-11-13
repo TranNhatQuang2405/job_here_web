@@ -45,16 +45,18 @@ const Header = (props) => {
                   <NavDropdown.Item>
                     <NavLink to="/AppliedJob">{t("Applied Jobs")}</NavLink>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>{t("Saved Jobs")}</NavDropdown.Item>
-                  <NavDropdown.Item>{t("Matched Jobs")}</NavDropdown.Item>
+                  {/* <NavDropdown.Item>{t("Saved Jobs")}</NavDropdown.Item>
+                  <NavDropdown.Item>{t("Matched Jobs")}</NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown
                   title={t("Profile & CV")}
                   id="basic-nav-dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item>{t("CV Manage")}</NavDropdown.Item>
-                  <NavDropdown.Item>{t("CV Template")}</NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavLink to="/CVManage">{t("CV Manage")}</NavLink>
+                  </NavDropdown.Item>
+                  {/* <NavDropdown.Item>{t("CV Template")}</NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown
                   title={t("Companies")}
@@ -64,7 +66,7 @@ const Header = (props) => {
                   <NavDropdown.Item>
                     <NavLink to="/Company">{t("Company List")}</NavLink>
                   </NavDropdown.Item>
-                  <NavDropdown.Item>{t("Top Company")}</NavDropdown.Item>
+                  {/* <NavDropdown.Item>{t("Top Company")}</NavDropdown.Item> */}
                 </NavDropdown>
               </Nav>
             )}

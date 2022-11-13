@@ -127,6 +127,12 @@ export const en = {
   "There is no applied job in this time!": "There is no applied job in this time!",
   Skills: "Skills",
   Region: "Region",
+  CVManage: "CV Manage",
+  "Enter CV Name": "Enter CV Name",
+  "Choose CV File (Pdf)": "Choose CV File (Pdf)",
+  "All your CV": "All your CV",
+  "You have no CV": "You have no CV",
+  "Create Date": "Create Date",
 };
 
 export const vn = {
@@ -258,4 +264,10 @@ export const vn = {
     "Không có việc làm đã ứng tuyển vào thời gian này!",
   Skills: "Kỹ năng",
   Region: "Khu vực",
+  CVManage: "Quản lý CV",
+  "Enter CV Name": "Nhập tên CV",
+  "Choose CV File (Pdf)": "Chọn file CV (Pdf)",
+  "All your CV": "Tất cả CV của bạn",
+  "You have no CV": "Bạn chưa có CV nào",
+  "Create Date": "Ngày tạo",
 };

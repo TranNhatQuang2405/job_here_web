@@ -43,7 +43,7 @@ const SignInPage = () => {
       dispatch(SetIsPending());
       navigate("/Home");
     } else {
-      modalRef.current.setMessage("Wrong Email or Password!");
+      modalRef.current.setMessage(signIn?.data?.message ?? "");
       modalRef.current.onToggleModal();
       setAccount({ email: account.email, password: "" });
     }

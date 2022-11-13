@@ -278,7 +278,7 @@ a {
 }
 
 .jh-box-input:hover {
-  border-color: var(--jh-primary-color);
+  border-color: var(--jh-primary-color) !important;
 }
 
 .jh-box-input:focus {

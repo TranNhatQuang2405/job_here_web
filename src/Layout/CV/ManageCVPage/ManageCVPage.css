@@ -1,0 +1,12 @@
+.ManageCVPage__form-data {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.4rem;
+  border-color: var(--jh-secondary-border-color) !important;
+  color: var(--jh-black-color);
+  background-color: var(--bs-input-card-bg);
+}
+
+.ManageCVPage__form-data:focus {
+  border-color: var(--jh-secondary-border-color) !important;
+}

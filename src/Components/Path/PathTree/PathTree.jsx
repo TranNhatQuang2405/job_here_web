@@ -20,10 +20,8 @@ const PathTree = ({ lastPath = "" }) => {
       let isNumeric =
         typeof lastVar === "number" ||
         (typeof lastVar === "string" && lastVar.trim() !== "" && !isNaN(lastVar));
-      if (isNumeric && lastPath) {
+      if (isNumeric) {
         tmpPath[tmpPath.length - 1].pathName = lastPath || tmpPath[tmpPath.length - 1];
-      } else {
-        tmpPath.pop();
       }
     }
     setPaths(tmpPath);

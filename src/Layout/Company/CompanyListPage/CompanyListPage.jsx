@@ -43,7 +43,7 @@ const CompanyList = () => {
 
   return (
     <div className="jh-container align-items-center">
-      <PathTree lastPath={t("Company")} />
+      <PathTree />
       <div className="jh-box-item mt-3 mb-3 p-3">
         <h4>{t("List All Company")}</h4>
         <div>

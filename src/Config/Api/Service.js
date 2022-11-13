@@ -26,6 +26,19 @@ class Service {
     });
     return result;
   };
+
+  upload = async (suburl, params = {}, header = {}) => {
+    let url = host + suburl;
+    var headerStorage = localStorage.getItem("header");
+    headerStorage = headerStorage ? JSON.parse(headerStorage) : {};
+    let result = await axios.post(url, params, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        ...headerStorage,
+      },
+    });
+    return result;
+  };
 }
 
 export default Service;

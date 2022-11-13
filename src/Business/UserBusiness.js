@@ -3,6 +3,7 @@ import {
   updateUserInfoURL,
   changePasswordURL,
   getAppliedJobURL,
+  saveCVURL,
 } from "Config/Api/ConfigURL";
 
 class UserBusiness extends Service {
@@ -29,6 +30,15 @@ class UserBusiness extends Service {
 
   GetAppliedJob = async (month, year) => {
     let result = await this.get(`${getAppliedJobURL}?month=${year}-${month}`);
+    return result;
+  };
+
+  SaveCV = async (cvUrl, cvName) => {
+    let params = {
+      cvUrl: cvUrl,
+      cvName: cvName,
+    };
+    let result = await this.post(saveCVURL, params);
     return result;
   };
 }

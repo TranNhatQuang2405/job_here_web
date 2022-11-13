@@ -1,0 +1,31 @@
+.CVItem__container {
+  box-shadow: -1px 1px 4px rgb(0 0 0 / 5%);
+  max-height: 400px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.CVItem__container:hover {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.07) !important;
+}
+
+.CVItem__cv-name {
+  font-size: 18px;
+}
+
+.CVItem__cv-name:hover {
+  color: var(--jh-primary-color);
+}
+
+.CVItem__cv-create-date {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.CVItem__cv-type {
+  margin: 0;
+  color: green;
+  font-size: 14px;
+}

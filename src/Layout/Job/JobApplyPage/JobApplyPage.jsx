@@ -64,8 +64,7 @@ const JobApply = ({ jobData = {} }) => {
             <input
               type="text"
               value={info.name}
-              onChange={onChangeName}
-              placeholder="Họ tên hiển thị với Nhà tuyển dụng"
+              onChange={() => {}}
               name="fullname"
               className="form-control jh-box-input"
             />
@@ -79,24 +78,8 @@ const JobApply = ({ jobData = {} }) => {
                 <input
                   type="text"
                   value={info.email}
-                  onChange={onChangeEmail}
-                  placeholder="Email hiển thị với Nhà tuyển dụng"
+                  onChange={() => {}}
                   name="email"
-                  className="form-control jh-box-input"
-                />
-              </div>
-            </div>
-            <div className="JobApply__input mt-3">
-              <div className="form-group">
-                <label>
-                  Số điện thoại<span className="text-danger">*</span> :
-                </label>
-                <input
-                  type="text"
-                  value={info.phone}
-                  onChange={onChangePhone}
-                  placeholder="Số điện thoại hiển thị với Nhà tuyển dụng"
-                  name="phone"
                   className="form-control jh-box-input"
                 />
               </div>
