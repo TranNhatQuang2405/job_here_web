@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
-import "./JobSearchBar.css";
+import "./JobSearch.css";
 import _ from "underscore";
 import { ButtonPrimary } from "Components/Button";
-import { dropdownBusiness } from "Business";
+import { JobList } from "Components/Job";
+import { dropdownBusiness, userBusiness } from "Business";
 import { useTranslation } from "react-i18next";
+import Pagination from "react-bootstrap/Pagination";
 
-const JobSearchBar = () => {
+const JobSearch = () => {
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPage, setTotalPage] = useState(0);
   const [searchData, setSearchData] = useState({
     text: "",
     industryField: "",
@@ -18,6 +23,7 @@ const JobSearchBar = () => {
     city: [],
   });
   const { t } = useTranslation();
+  const size = 8;
 
   useEffect(() => {
     let isSubscribed = true;
@@ -40,6 +46,33 @@ const JobSearchBar = () => {
       isSubscribed = false;
     };
   }, []);
+
+  useEffect(() => {
+    setCurrentPage(0);
+    getData();
+  }, [currentPage]);
+
+  const getData = async () => {
+    let { text, industryField, skillField, cityField } = searchData;
+    if (!!text || !!industryField || !!skillField || !!cityField) {
+      let result = await userBusiness.FindJob(
+        currentPage,
+        size,
+        text,
+        skillField,
+        cityField,
+        industryField
+      );
+      if (result.data.httpCode === 200) {
+        let _data = result.data?.objectData?.pageData ?? [];
+        if (totalPage !== result.data.objectData.totalPage) {
+          let newTotalPage = result.data.objectData.totalPage;
+          setTotalPage(newTotalPage);
+        }
+        setData(_data);
+      }
+    }
+  };
 
   const onChangeTextSearch = (e) => {
     setSearchData({
@@ -71,31 +104,37 @@ const JobSearchBar = () => {
 
   const onSearch = (e) => {
     e.preventDefault();
-    console.log("-----searchData", searchData);
+    getData();
+  };
+
+  const onChangePage = (page) => () => {
+    if (page >= 0 && page < totalPage) {
+      currentPage(page);
+    }
   };
 
   return (
-    <div className="JobSearchBar__container">
+    <div className="JobSearch__container">
       <div className="jh-container">
         <div className="p-0 m-0">
           <form method="get" onSubmit={onSearch}>
             <div className="d-flex justify-content-between">
-              <div className="JobSearchBar__input-data JobSearchBar__search-input">
+              <div className="JobSearch__input-data JobSearch__search-input">
                 <input
-                  className="form-control JobSearchBar__input jh-box-input"
+                  className="form-control JobSearch__input jh-box-input"
                   value={searchData.text}
                   onChange={onChangeTextSearch}
                   placeholder={t("Job, Position Name ...")}
                   autoComplete="off"
                 />
               </div>
-              <div className="JobSearchBar__input-data JobSearchBar__search-select">
-                <span className="JobSearchBar__input-icon">
+              <div className="JobSearch__input-data JobSearch__search-select">
+                <span className="JobSearch__input-icon">
                   <i className="bi bi-briefcase-fill" />
                 </span>
                 <select
                   id="category"
-                  className="form-control JobSearchBar__input jh-box-input"
+                  className="form-control JobSearch__input jh-box-input"
                   tabIndex="-1"
                   aria-hidden="true"
                   aria-controls="joketypes"
@@ -111,13 +150,13 @@ const JobSearchBar = () => {
                   ))}
                 </select>
               </div>
-              <div className="JobSearchBar__input-data JobSearchBar__search-select-company">
-                <span className="JobSearchBar__input-icon">
+              <div className="JobSearch__input-data JobSearch__search-select-company">
+                <span className="JobSearch__input-icon">
                   <i className="bi bi-building" />
                 </span>
                 <select
                   id="company-field-advanced"
-                  className="form-control JobSearchBar__input jh-box-input"
+                  className="form-control JobSearch__input jh-box-input"
                   value={searchData.skillField}
                   onChange={onChangeSkillField}
                   tabIndex="-1"
@@ -131,12 +170,12 @@ const JobSearchBar = () => {
                   ))}
                 </select>
               </div>
-              <div className="JobSearchBar__input-data JobSearchBar__search-select">
-                <span className="JobSearchBar__input-icon">
+              <div className="JobSearch__input-data JobSearch__search-select">
+                <span className="JobSearch__input-icon">
                   <i className="bi bi-geo-alt-fill" />
                 </span>
                 <select
-                  className="form-control JobSearchBar__input jh-box-input"
+                  className="form-control JobSearch__input jh-box-input"
                   id="city"
                   value={searchData.cityField}
                   onChange={onChangeCityField}
@@ -151,7 +190,7 @@ const JobSearchBar = () => {
                   ))}
                 </select>
               </div>
-              <div className="JobSearchBar__input-data search-submit">
+              <div className="JobSearch__input-data search-submit">
                 <ButtonPrimary style={{ paddingLeft: "20px", paddingRight: "20px" }}>
                   <i className="bi bi-search" /> Tìm kiếm
                 </ButtonPrimary>
@@ -160,8 +199,30 @@ const JobSearchBar = () => {
           </form>
         </div>
       </div>
+      <div className="jh-container">
+        <JobList data={data} />
+        <div className="d-flex justify-content-center align-items-center">
+          {totalPage > 0 && (
+            <Pagination>
+              <Pagination.First onClick={onChangePage(0)} />
+              <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
+              {_.map([...Array(totalPage)], (item, index) => (
+                <Pagination.Item
+                  key={index}
+                  active={index === currentPage}
+                  onClick={onChangePage(index)}
+                >
+                  {index + 1}
+                </Pagination.Item>
+              ))}
+              <Pagination.Next onClick={onChangePage(currentPage + 1)} />
+              <Pagination.Last onClick={onChangePage(totalPage - 1)} />
+            </Pagination>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 
-export default JobSearchBar;
+export default JobSearch;

@@ -5,6 +5,7 @@ import {
   getAppliedJobURL,
   saveCVURL,
   applyJobURL,
+  findJobURL,
 } from "Config/Api/ConfigURL";
 
 class UserBusiness extends Service {
@@ -50,6 +51,13 @@ class UserBusiness extends Service {
       note: note,
     };
     let result = await this.post(applyJobURL, params);
+    return result;
+  };
+
+  FindJob = async (page, size, keySearch, skillId, cityId, industryId) => {
+    let result = await this.get(
+      `${findJobURL}?page=${page}&size=${size}&keySearch=${keySearch}&skillId=${skillId}&cityId=${cityId}&industryId=${industryId}`
+    );
     return result;
   };
 }

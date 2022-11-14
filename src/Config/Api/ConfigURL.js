@@ -10,6 +10,7 @@ export const changePasswordURL = "/user/changePassword";
 export const getAppliedJobURL = "/user/getListApplicationHistory";
 export const saveCVURL = "/user/uploadCV";
 export const applyJobURL = "/user/applyJob";
+export const findJobURL = "/job/findJob";
 
 // Dropdown
 export const genderDropdownURL = "/dropdown/gender";
@@ -24,6 +25,7 @@ export const experienceDropdownURL = "/dropdown/experience";
 // Job
 export const getJobInfoURL = "/job/getJobInfo";
 export const getNewJobURL = "/job/getListNewJob";
+export const getListJobInterestingURL = "/job/getListJobInteresting";
 
 // CV
 export const getListCVURL = "/cv/getListOwnerCV";
