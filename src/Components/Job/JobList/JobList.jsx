@@ -6,8 +6,8 @@ import "./JobList.css";
 const JobList = ({ data = [] }) => {
   return (
     <div className="JobList__container">
-      {_.map(data, (item, index) => {
-        return <JobItem key={index} />;
+      {_.map(data, (item) => {
+        return <JobItem key={item.jobId} jobData={item} />;
       })}
     </div>
   );

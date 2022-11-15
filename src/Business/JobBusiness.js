@@ -1,5 +1,9 @@
 import Service from "Config/Api/Service";
-import { getJobInfoURL, getNewJobURL } from "Config/Api/ConfigURL";
+import {
+  getJobInfoURL,
+  getNewJobURL,
+  getListJobInterestingURL,
+} from "Config/Api/ConfigURL";
 
 class JobBusiness extends Service {
   GetJobInfo = async (jobId) => {
@@ -9,6 +13,11 @@ class JobBusiness extends Service {
 
   GetNewJob = async () => {
     let result = await this.get(getNewJobURL);
+    return result;
+  };
+
+  GetListJobInteresting = async (page, size) => {
+    let result = await this.get(`${getListJobInterestingURL}?page=${page}&size=${size}`);
     return result;
   };
 }
