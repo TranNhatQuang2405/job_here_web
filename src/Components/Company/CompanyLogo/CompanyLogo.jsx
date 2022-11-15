@@ -1,5 +1,5 @@
 import React from "react";
-import company_default_img from "Assets/Images/company_default_img.webp";
+import company_default_img from "Assets/Images/company_default_img.jpg";
 
 const CompanyLogo = ({ src, alt = "", style = {}, size = 44 }) => {
   return (

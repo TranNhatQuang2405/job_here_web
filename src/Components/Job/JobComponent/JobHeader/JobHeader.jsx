@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "./JobHeader.css";
 import { ButtonPrimary } from "Components/Button";
 import { ModalApplyJob } from "Components/Modal";
-import company_default_img from "Assets/Images/company_default_img.webp";
+import company_default_img from "Assets/Images/company_default_img.jpg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
