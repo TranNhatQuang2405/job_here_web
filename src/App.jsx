@@ -35,7 +35,7 @@ const App = () => {
             <Route path="/Company/:id" element={<CompanyPage />} />
             <Route path="/EditInfomation" element={<EditUserInfo />} />
             <Route path="/ChangePassword" element={<ChangePasswordPage />} />
-            <Route path="*" element={<Navigate to="/SignIn" />} />
+            <Route path="*" element={<Navigate to="/Home" />} />
           </Routes>
         </PageTemplate>
       </AuthProvider>
