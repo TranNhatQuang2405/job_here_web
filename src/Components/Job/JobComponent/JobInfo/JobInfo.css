@@ -43,3 +43,7 @@
 .JobInfo__job-data p {
   font-size: 15px;
 }
+
+.JobInfo__html {
+  text-align: justify;
+}

@@ -154,18 +154,45 @@ const JobInfo = ({ jobData = {} }) => {
         <div>{jobData.address}</div>
       </div>
       <div className="JobInfo__job-data">
-        <h3>{t("Job description")}</h3>
-        <div className="JobInfo__content-tab">
-          <p>{jobData.description}</p>
-        </div>
-        <h3>{t("Require")}</h3>
-        <div className="JobInfo__content-tab">
-          <p>{jobData.require}</p>
-        </div>
-        <h3>{t("Benefit")}</h3>
-        <div className="JobInfo__content-tab">
-          <p>{jobData.benefit}</p>
-        </div>
+        {!!jobData.description && (
+          <div>
+            <h3>{t("Job description")}</h3>
+            <div className="JobInfo__content-tab">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: jobData.description || "",
+                }}
+                className="JobInfo__html"
+              />
+            </div>
+          </div>
+        )}
+        {!!jobData.require && (
+          <div>
+            <h3>{t("Require")}</h3>
+            <div className="JobInfo__content-tab">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: jobData.require || "",
+                }}
+                className="JobInfo__html"
+              />
+            </div>
+          </div>
+        )}
+        {!!jobData.benefit && (
+          <div>
+            <h3>{t("Benefit")}</h3>
+            <div className="JobInfo__content-tab">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: jobData.benefit || "",
+                }}
+                className="JobInfo__html"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
