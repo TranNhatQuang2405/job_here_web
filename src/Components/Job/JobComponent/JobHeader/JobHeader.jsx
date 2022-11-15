@@ -28,13 +28,13 @@ const JobHeader = ({ jobData = {} }) => {
       <ModalApplyJob ref={applyJobRef} jobData={jobData} />
       <div className="JobHeader_job-box-header d-flex align-items-center">
         <Link
-          to={`/Company/${jobData?.companyId ?? 0}`}
+          to={`/Company/${jobData?.companyId ?? ""}`}
           title={jobData?.companyName ?? ""}
           className="JobHeader_job-company-logo"
         >
           <div className="JobHeader_box-company-logo d-flex align-items-center justify-content-center">
             <img
-              src={jobData?.avatar ?? company_default_img}
+              src={jobData.avatar || company_default_img}
               alt={jobData?.companyName ?? ""}
               className="w-100"
             />
@@ -47,7 +47,7 @@ const JobHeader = ({ jobData = {} }) => {
             </h1>
           </Link>
           <div className="JobHeader_company-title">
-            <Link to={`/Company/${jobData?.companyId ?? 0}`}>
+            <Link to={`/Company/${jobData?.companyId ?? ""}`}>
               {jobData?.companyName ?? "Company Name"}
             </Link>
           </div>

@@ -135,6 +135,8 @@ export const en = {
   "Create Date": "Create Date",
   "jh-apply-note": "Summary",
   "jh-no-cv-warning": "You have no CV. To continue apply this job, please add CV in ",
+  "Recommended by JobHere AI": "Recommended by JobHere AI",
+  "Interesting Job": "Interesting Job",
 };
 
 export const vn = {
@@ -275,4 +277,6 @@ export const vn = {
   "jh-apply-note": "Giới thiệu bản thân",
   "jh-no-cv-warning":
     "Bạn chưa có CV nào. Để tiếp tục ứng tuyển công việc này, vui lòng thêm CV của bạn tại ",
+  "Recommended by JobHere AI": "Được đề xuất bởi JobHere AI",
+  "Interesting Job": "Việc làm hấp dẫn",
 };

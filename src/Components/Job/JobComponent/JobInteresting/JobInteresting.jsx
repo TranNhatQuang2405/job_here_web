@@ -38,16 +38,16 @@ const JobInteresting = () => {
 
   return (
     <div className="JobInteresting__container jh-container jh-box-item mt-3 mb-3 p-3">
-      <div className="JobHot__box-smart-box">
-        <div className="JobHot__box-label">
+      <div className="JobInteresting__box-smart-box">
+        <div className="JobInteresting__box-label">
           <div>
-            <div className="JobHot__dot" />
-            Đề xuất bởi JobHere AI
+            <div className="JobInteresting__dot" />
+            {t("Recommended by JobHere AI")}
           </div>
         </div>
       </div>
-      <div className="JobHot__box-header d-flex">
-        <h2>Tin tuyển dụng, việc làm tốt nhất</h2>
+      <div className="JobInteresting__box-header d-flex">
+        <h2>{t("Interesting Job")}</h2>
       </div>
       <div>
         <JobListSmall data={data} />
