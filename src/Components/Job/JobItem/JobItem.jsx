@@ -36,7 +36,7 @@ const JobItem = ({ jobData = {}, applied = false }) => {
     },
     {
       label: `${t("Update")} ${parseInt(
-        (new Date() - new Date(jobData?.createDate ?? null)) / 86400000
+        (new Date() - new Date(jobData?.createdDate ?? null)) / 86400000
       )} ${t("days ago")}`,
     },
   ];
