@@ -17,7 +17,7 @@ const JobItem = ({ jobData = {}, applied = false }) => {
       let result = await dropdownBusiness.UnitDropdown();
       if (result.data.httpCode === 200) {
         let u = result.data.objectData.find((x) => x.unit === jobData.unit);
-        if (u) localData.unitName = u.unitName;
+        if (u) setLocalData({ unitName: u.unitName });
       }
     };
     getData();
