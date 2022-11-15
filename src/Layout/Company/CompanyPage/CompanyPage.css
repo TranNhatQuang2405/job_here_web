@@ -105,3 +105,7 @@
 .CompanyPage__box-address i {
   color: var(--jh-primary-color);
 }
+
+.CompanyPage__description{
+  text-align: justify;
+}

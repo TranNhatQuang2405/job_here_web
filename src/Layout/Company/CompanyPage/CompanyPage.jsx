@@ -104,6 +104,7 @@ const CompanyPage = () => {
                   dangerouslySetInnerHTML={{
                     __html: companyData.description || t("No Desription"),
                   }}
+                  className='CompanyPage__description'
                 />
               </div>
             </div>
