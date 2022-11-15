@@ -3,143 +3,168 @@ import _ from "underscore";
 import "./JobInfo.css";
 import { IconCircle } from "Components/Icon";
 import { ButtonPrimary } from "Components/Button";
+import { Row, Col } from "react-bootstrap/";
+import { useTranslation } from "react-i18next";
+import { TagList } from "Components/Tag";
 
-const JobInfo = () => {
-  let boxData = [
-    {
-      label: "Mức lương",
-      value: "8-15 triệu",
-      icon: "salary",
-    },
-    {
-      label: "Số lượng tuyển",
-      value: "2 người",
-      icon: "group",
-    },
-    {
-      label: "Hình thức làm việc",
-      value: "Fulltime",
-      icon: "work",
-    },
-    {
-      label: "Cấp bậc",
-      value: "Nhân viên",
-      icon: "level",
-    },
-    {
-      label: "Giới tính",
-      value: "Không yêu cầu",
-      icon: "gender",
-    },
-    {
-      label: "Kinh nghiệm",
-      value: "1 năm",
-      icon: "experience",
-    },
-  ];
+const JobInfo = ({ jobData = {} }) => {
+  const { t } = useTranslation();
 
   return (
     <div className="JobInfo__container">
       <div className="JobInfo__box-info">
-        <p>Thông tin chung</p>
+        <p>{t("Common infomation")}</p>
         <div className="JobInfo__box-main">
-          {_.map(boxData, (item, index) => (
-            <div key={index} className="JobInfo__box-item">
-              <IconCircle
-                name={item.icon}
-                style={{ marginRight: "16px", marginTop: "5px" }}
-              />
+          {(!!jobData.salaryMin || !!jobData.salaryMax) && (
+            <div className="JobInfo__box-item">
               <div>
-                <strong>{item.label} </strong> <br />
-                <span>{item.value}</span>
+                <IconCircle
+                  name={"salary"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Salary")} </strong> <br />
+                <span>
+                  {jobData.salaryMin === jobData.salaryMax
+                    ? jobData.salaryMin
+                    : `${jobData.salaryMin} - ${jobData.salaryMax}`}{" "}
+                  {jobData.unitName}
+                </span>
               </div>
             </div>
-          ))}
+          )}
+          {!!jobData.amount && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"group"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Amount")} </strong> <br />
+                <span>{jobData.amount}</span>
+              </div>
+            </div>
+          )}
+          {!!jobData.jobTypeNames && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"work"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Job Type")} </strong> <br />
+                <TagList
+                  tagData={_.map(jobData.jobTypeNames, (item) => ({
+                    label: item.jobTypeName,
+                  }))}
+                />
+              </div>
+            </div>
+          )}
+          {!!jobData.titleName && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"level"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Level")} </strong> <br />
+                <span>{jobData.titleName}</span>
+              </div>
+            </div>
+          )}
+          {!!jobData.genderName && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"gender"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Gender")} </strong> <br />
+                <span>{jobData.genderName}</span>
+              </div>
+            </div>
+          )}
+          {!!jobData.experienceNames && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"experience"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Experience")} </strong>
+                <br />
+                <TagList
+                  tagData={_.map(jobData.experienceNames, (item) => ({
+                    label: item.experienceName,
+                  }))}
+                />
+              </div>
+            </div>
+          )}
+          {!!jobData.jobSkills && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"suitcase"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Skills")} </strong>
+                <br />
+                <TagList
+                  tagData={_.map(jobData.jobSkills, (item) => ({
+                    label: item.skillName,
+                  }))}
+                />
+              </div>
+            </div>
+          )}
+          {!!jobData.cityName && (
+            <div className="JobInfo__box-item">
+              <div>
+                <IconCircle
+                  name={"map"}
+                  style={{ marginRight: "16px", marginTop: "5px" }}
+                />
+              </div>
+              <div>
+                <strong>{t("Region")} </strong>
+                <br />
+                <span>{jobData.cityName}</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="JobInfo__box-address">
-        <p>Địa điểm làm việc</p>
-        <div>
-          <div>- Hồ Chí Minh: 31 Lê Văn Thiêm, Phường Tân Phong, Quận 7</div>
-        </div>
+        <p>{t("Work address")}</p>
+        <div>{jobData.address}</div>
       </div>
       <div className="JobInfo__job-data">
-        <h3>Mô tả công việc</h3>
+        <h3>{t("Job description")}</h3>
         <div className="JobInfo__content-tab">
-          <p>
-            - Yêu cầu nội dung và duyệt các thiết kế từ nhân viên viên thiết kế đồ họa.
-          </p>
-          <p>
-            - Đề xuất, viết nội dung và đăng trên website, fanpage của công ty (Nếu được
-            giám đốc yêu cầu do cty có đối tác về content, quảng cáo facbook riêng)
-          </p>
-          <p>
-            -Chăm sóc và đẩy mạnh quảng bá trên các kênh truyền thông, xây dựng hình ảnh
-            thương hiệu trên thị trường.
-          </p>
-          <p>
-            -Chăm sóc khách hàng và đối tác nhượng quyền hiện tại (Hotline, page facebook)
-            , giải đáp thắc mắc và xử lý tình huống (nếu có) và chuyển thông tin về cho
-            admin các chi nhánh chăm sóc.
-          </p>
-          <p>
-            - Lên ý tưởng, tổ chức và tham gia các event của công ty ở các Mall, trung tâm
-            thương mại hoặc các cuộc thi do cty tổ chức
-          </p>
-          <p>- Các công việc khác từ cấp trên giao</p>
-          <p>
-            <b>
-              Địa chỉ làm việc : 31 Lê Văn Thiêm, Phường Tân Phong, Quận 7, TP Hồ Chí Minh
-            </b>
-          </p>
-          <p>
-            <b>
-              Thời gian: Thứ 3 đến chủ nhật 8h00-17h00 (Nghỉ trưa 12h-14h, nghỉ thứ 2 và
-              các ngày lễ)
-            </b>
-          </p>
+          <p>{jobData.description}</p>
         </div>
-        <h3>Yêu cầu ứng viên</h3>
+        <h3>{t("Require")}</h3>
         <div className="JobInfo__content-tab">
-          <p>- Ưu tiên Nam/Nữ</p>
-          <p>
-            - Ứng viên đã tốt nghiệp ngành Marketing, Quản trị kinh doanh,.. các ngành
-            kinh tế ở các trường Trung cấp, CĐ, ĐH.
-          </p>
-          <p>
-            - Kinh nghiệm: 1-2 năm trở lên trong ngành giáo dục/ nhượng quyền thương hiệu/
-            marketing/tổ chức sự kiện
-          </p>
-          <p>- Đam mê nghệ thuật, yêu trẻ em.</p>
-          <p>
-            - Có tinh thần hợp tác, cầu tiến và định hướng gắn bó lâu dài trong công việc.
-          </p>
-          <p>-Có kỹ năng giao tiếp tốt, kỹ năng vi tính văn phòng</p>
+          <p>{jobData.require}</p>
         </div>
-        <h3>Quyền lợi</h3>
+        <h3>{t("Benefit")}</h3>
         <div className="JobInfo__content-tab">
-          <p>
-            <b>
-              - Thu nhập 8.000.000đ - 15.000.000đ hoặc cao hơn: Lương cơ bản + phụ cấp +
-              thưởng
-            </b>
-          </p>
-          <p>- Chế độ lương, thưởng tương xứng với hiệu quả công việc</p>
-          <p>
-            - Được làm việc trong môi trường năng động, sáng tạo và chuyên nghiệp (Được
-            đào tạo, học hỏi trong lĩnh vực marketing, truyền thông, tổ chức sự kiện...)
-          </p>
-          <p>
-            - Được tham gia đầy đủ chế độ bảo hiểm, hoạt động vui chơi, du lịch của công
-            ty,...
-          </p>
-          <p>- Công việc lâu dài, ổn định và phát triển.</p>
-          <p>- Định kỳ tăng lương vào tháng 3 hàng năm</p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>{jobData.benefit}</p>
         </div>
       </div>
     </div>

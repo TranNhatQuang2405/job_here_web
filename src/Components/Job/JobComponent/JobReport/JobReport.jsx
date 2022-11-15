@@ -1,18 +1,17 @@
 import React from "react";
 import "./JobReport.css";
 import { ButtonPrimary } from "Components/Button";
+import { useTranslation } from "react-i18next";
 
 const JobReport = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="JobReport__container jh-box-item mt-3">
-      <h3>Báo cáo tin tuyển dụng</h3>
-      <p>
-        Nếu bạn thấy rằng tin tuyển dụng này không đúng hoặc có một trong các dấu hiệu lừa
-        đảo như: thông tin thiếu minh bạch, yêu cầu đặt cọc trước... hãy phản ánh với
-        chúng tôi.
-      </p>
+      <h3>{t("Report job")}</h3>
+      <p>{t("jh-report-job")}</p>
       <ButtonPrimary secondary style={{ width: "100%", paddingLeft: 0, paddingRight: 0 }}>
-        Báo cáo tin tuyển dụng
+        {t("Report job")}
       </ButtonPrimary>
     </div>
   );

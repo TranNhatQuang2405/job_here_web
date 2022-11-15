@@ -43,7 +43,7 @@ const SignInPage = () => {
       dispatch(SetIsPending());
       navigate("/Home");
     } else {
-      modalRef.current.setMessage("Wrong Email or Password!");
+      modalRef.current.setMessage(signIn?.data?.message ?? "");
       modalRef.current.onToggleModal();
       setAccount({ email: account.email, password: "" });
     }
@@ -69,7 +69,7 @@ const SignInPage = () => {
 
   return (
     <div className="SignIn pt-3">
-      <WarningModal ref={modalRef} />
+      <WarningModal ref={modalRef} title={t("Sign In")} />
       <Row className="justify-content-center">
         <Col lg={4} xs={11}>
           <div className="text-center mb-4">
@@ -99,12 +99,12 @@ const SignInPage = () => {
                 </FormGroup>
                 <FormGroup className="mb-3">
                   <div className="float-end">
-                    <div
+                    {/* <div
                       className="text-muted font-size-13 cur-pointer"
                       onClick={onResetPassword}
                     >
                       {t("Forgot password?")}
-                    </div>
+                    </div> */}
                   </div>
                   <FormLabel className="SignIn__form-label">{t("Password")}</FormLabel>
                   <InputGroup className="mb-3">

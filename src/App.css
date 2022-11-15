@@ -278,10 +278,14 @@ a {
 }
 
 .jh-box-input:hover {
-  border-color: var(--jh-primary-color);
+  border-color: var(--jh-primary-color) !important;
 }
 
 .jh-box-input:focus {
   border-color: var(--jh-primary-border-color);
   box-shadow: none;
+}
+
+.primary-color {
+  color: var(--jh-primary-color);
 }

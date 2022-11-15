@@ -60,7 +60,7 @@ const AuthCodePage = () => {
 
   return (
     <div className="AuthCode">
-      <WarningModal ref={modalRef} />
+      <WarningModal ref={modalRef} title={t("Authentication Code")} />
       <div className="AuthCode__account-pages pt-5">
         <Row className="justify-content-center">
           <Col lg={4} xs={11}>

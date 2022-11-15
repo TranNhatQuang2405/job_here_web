@@ -1,6 +1,7 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { NavLink } from "react-router-dom";
 import { ButtonChangeLanguage } from "Components/Button";
 import { useNavigate } from "react-router-dom";
 import user_img from "Assets/Images/user.png";
@@ -30,8 +31,10 @@ const Header = (props) => {
     <Row className="sticky-nav Header__container">
       <Col className="bg-app-dark">
         <Navbar expand="lg" variant="dark" className="Header__layout">
-          <Navbar.Brand href="/Home" className="d-flex flex-row align-items-center">
-            <Logo isDark />
+          <Navbar.Brand className="d-flex flex-row align-items-center">
+            <NavLink to="/Home">
+              <Logo isDark />
+            </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
@@ -39,27 +42,31 @@ const Header = (props) => {
             {!!sessionInfo && (
               <Nav className="me-auto">
                 <NavDropdown title={t("Jobs")} id="basic-nav-dropdown" menuVariant="dark">
-                  <NavDropdown.Item href="/AppliedJob">
-                    {t("Applied Jobs")}
+                  <NavDropdown.Item>
+                    <NavLink to="/AppliedJob">{t("Applied Jobs")}</NavLink>
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action">{t("Saved Jobs")}</NavDropdown.Item>
-                  <NavDropdown.Item href="#action">{t("Matched Jobs")}</NavDropdown.Item>
+                  {/* <NavDropdown.Item>{t("Saved Jobs")}</NavDropdown.Item>
+                  <NavDropdown.Item>{t("Matched Jobs")}</NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown
                   title={t("Profile & CV")}
                   id="basic-nav-dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item href="#action">{t("CV Manage")}</NavDropdown.Item>
-                  <NavDropdown.Item href="#action">{t("CV Template")}</NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavLink to="/CVManage">{t("CV Manage")}</NavLink>
+                  </NavDropdown.Item>
+                  {/* <NavDropdown.Item>{t("CV Template")}</NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown
                   title={t("Companies")}
                   id="basic-nav-dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item href="#action">{t("Company List")}</NavDropdown.Item>
-                  <NavDropdown.Item href="#action">{t("Top Company")}</NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavLink to="/Company">{t("Company List")}</NavLink>
+                  </NavDropdown.Item>
+                  {/* <NavDropdown.Item>{t("Top Company")}</NavDropdown.Item> */}
                 </NavDropdown>
               </Nav>
             )}
@@ -83,8 +90,11 @@ const Header = (props) => {
                   id="basic-nav-dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item href="/EditInfomation">
-                    {t("Edit Your Infomation")}
+                  <NavDropdown.Item>
+                    <NavLink to="/EditInfomation">{t("Edit Your Infomation")}</NavLink>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <NavLink to="/ChangePassword">{t("Change Password")}</NavLink>
                   </NavDropdown.Item>
                   <NavDropdown.Item onClick={onLogout}>{t("Logout")}</NavDropdown.Item>
                 </NavDropdown>

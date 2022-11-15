@@ -4,6 +4,10 @@ import {
   industryDropdownURL,
   skillDropdownURL,
   cityDropdownURL,
+  titleDropdownURL,
+  jobtypeDropdownURL,
+  unitDropdownURL,
+  experienceDropdownURL,
 } from "Config/Api/ConfigURL";
 
 class DropdownBusiness extends Service {
@@ -24,6 +28,31 @@ class DropdownBusiness extends Service {
 
   CityDropdown = async () => {
     let result = await this.get(cityDropdownURL);
+    return result;
+  };
+
+  TitleDropdown = async () => {
+    let result = await this.get(titleDropdownURL);
+    return result;
+  };
+
+  JobtypeDropdown = async () => {
+    let result = await this.get(jobtypeDropdownURL);
+    return result;
+  };
+
+  SkillDropdown = async (skillId) => {
+    let result = await this.get(`${skillDropdownURL}/${skillId}`);
+    return result;
+  };
+
+  UnitDropdown = async () => {
+    let result = await this.get(unitDropdownURL);
+    return result;
+  };
+
+  ExperienceDropdown = async () => {
+    let result = await this.get(experienceDropdownURL);
     return result;
   };
 }

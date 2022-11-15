@@ -1,7 +1,3 @@
-.CompanyPage__breadcrumb {
-  padding: 16px 0;
-}
-
 .CompanyPage__breadcrumb a,
 .CompanyPage__breadcrumb li {
   color: var(--jh-primary-text-color);
@@ -54,7 +50,8 @@
   margin-top: 0;
 }
 
-.CompanyPage__website {
+.CompanyPage__website,
+.CompanyPage__company-size {
   padding-right: 40px;
   margin: 0 0 10px;
 }
@@ -107,4 +104,8 @@
 
 .CompanyPage__box-address i {
   color: var(--jh-primary-color);
+}
+
+.CompanyPage__description{
+  text-align: justify;
 }

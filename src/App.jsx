@@ -9,8 +9,10 @@ import {
   AuthCodePage,
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
-import { EditUserInfo } from "Layout/User";
-import { JobAppliedPage } from "Layout/Job";
+import { ChangePasswordPage, EditUserInfo } from "Layout/User";
+import { JobAppliedPage, JobPage } from "Layout/Job";
+import { ManageCVPage } from "Layout/CV";
+import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 
@@ -20,14 +22,20 @@ const App = () => {
       <AuthProvider>
         <PageTemplate>
           <Routes>
-            <Route path="/SignUp" element={<SignUpPage />}></Route>
-            <Route path="/SignIn" element={<SignInPage />}></Route>
-            <Route path="/ResetPassword" element={<ResetPasswordPage />}></Route>
-            <Route path="/AuthCode" element={<AuthCodePage />}></Route>
-            <Route path="/Home" element={<MainPage />}></Route>
-            <Route path="/AppliedJob" element={<JobAppliedPage />}></Route>
-            <Route path="/EditInfomation" element={<EditUserInfo />}></Route>
-            <Route path="*" element={<Navigate to="/SignIn" />} />
+            <Route path="/SignUp" element={<SignUpPage />} />
+            <Route path="/SignIn" element={<SignInPage />} />
+            <Route path="/ResetPassword" element={<ResetPasswordPage />} />
+            <Route path="/AuthCode" element={<AuthCodePage />} />
+            <Route path="/Home" element={<MainPage />} />
+            <Route path="/Job" element={<MainPage />} />
+            <Route path="/Job/:id" element={<JobPage />} />
+            <Route path="/AppliedJob" element={<JobAppliedPage />} />
+            <Route path="/CVManage" element={<ManageCVPage />} />
+            <Route path="/Company" element={<CompanyListPage />} />
+            <Route path="/Company/:id" element={<CompanyPage />} />
+            <Route path="/EditInfomation" element={<EditUserInfo />} />
+            <Route path="/ChangePassword" element={<ChangePasswordPage />} />
+            <Route path="*" element={<Navigate to="/Home" />} />
           </Routes>
         </PageTemplate>
       </AuthProvider>

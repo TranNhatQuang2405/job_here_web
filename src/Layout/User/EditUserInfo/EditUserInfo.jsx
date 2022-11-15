@@ -15,7 +15,7 @@ import {
 import { useTranslation } from "react-i18next";
 import user_img from "Assets/Images/user.png";
 import { useSelector } from "react-redux";
-import { authBusiness, dropdownBusiness } from "Business";
+import { userBusiness, dropdownBusiness } from "Business";
 import { ValidateUTF8Name, ValidateDateOfBirth, ValidatePhone } from "Config/Validate";
 import { WarningModal } from "Components/Modal";
 import { LoadingPage } from "Layout/Common";
@@ -37,8 +37,7 @@ const EditUserInfo = () => {
   const [modalRef, setModalRef] = useState(useRef());
 
   useEffect(() => {
-    let isSubscribed = true;
-    const first = async () => {
+    const getData = async () => {
       let prepare = [];
       prepare.push(dropdownBusiness.GenderDropdown());
       let results = await Promise.all(prepare);
@@ -49,10 +48,7 @@ const EditUserInfo = () => {
       }
       setLoading(false);
     };
-    if (isSubscribed) first();
-    return () => {
-      isSubscribed = false;
-    };
+    getData();
   }, []);
 
   useEffect(() => {
@@ -100,25 +96,21 @@ const EditUserInfo = () => {
       modalRef.current.onToggleModal();
     } else {
       let { address, dateOfBirth, displayName, phone, gender } = account;
-      let updateUserInfo = await authBusiness.UpdateUserInfo(
+      let updateUserInfo = await userBusiness.UpdateUserInfo(
         displayName,
         address,
         dateOfBirth.replaceAll("-", "/"),
         phone,
         gender
       );
-      if (updateUserInfo.data.httpCode === 200) {
-        modalRef.current.onToggleModal();
-      } else {
-        modalRef.current.setMessage("Some thing went wrong! Please try again!");
-        modalRef.current.onToggleModal();
-      }
+      modalRef.current.setMessage(updateUserInfo.data?.message ?? "");
+      modalRef.current.onToggleModal();
     }
   };
 
   return (
     <div className="EditUserInfo__container pt-3 pb-3">
-      <WarningModal ref={modalRef} />
+      <WarningModal ref={modalRef} title={t("Edit Your Information")} />
       <Row className="justify-content-center">
         <Col lg={6} xs={12}>
           <div className="d-flex justify-content-between align-items-center mb-4 ps-3 pe-3">
