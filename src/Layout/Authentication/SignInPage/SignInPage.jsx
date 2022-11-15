@@ -99,12 +99,12 @@ const SignInPage = () => {
                 </FormGroup>
                 <FormGroup className="mb-3">
                   <div className="float-end">
-                    <div
+                    {/* <div
                       className="text-muted font-size-13 cur-pointer"
                       onClick={onResetPassword}
                     >
                       {t("Forgot password?")}
-                    </div>
+                    </div> */}
                   </div>
                   <FormLabel className="SignIn__form-label">{t("Password")}</FormLabel>
                   <InputGroup className="mb-3">
