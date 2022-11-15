@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { dropdownBusiness } from "Business";
 
-const JobItem = ({ jobData, applied = false }) => {
+const JobItem = ({ jobData = {}, applied = false }) => {
   const { t } = useTranslation();
   const [localData, setLocalData] = useState({});
   const [isSave, setIsSave] = useState(false);
@@ -42,7 +42,7 @@ const JobItem = ({ jobData, applied = false }) => {
   ];
 
   const onSaveJob = () => {
-    setIsSave(!isSave);
+    // setIsSave(!isSave);
   };
 
   return (

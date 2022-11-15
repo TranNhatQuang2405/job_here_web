@@ -1,59 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./JobItemSmall.css";
 import { Col } from "react-bootstrap";
 import { TagList } from "Components/Tag";
 import { CompanyLogo } from "Components/Company";
 import { ButtonPrimary } from "Components/Button";
+import { Link } from "react-router-dom";
+import { dropdownBusiness } from "Business";
 
-const JobItemSmall = () => {
+const JobItemSmall = ({ jobData = {} }) => {
   const [isSave, setIsSave] = useState(false);
+  const [localData, setLocalData] = useState({});
+
+  useEffect(() => {
+    const getData = async () => {
+      let result = await dropdownBusiness.UnitDropdown();
+      if (result.data.httpCode === 200) {
+        let u = result.data.objectData.find((x) => x.unit === jobData.unit);
+        if (u) setLocalData({ unitName: u.unitName });
+      }
+    };
+    getData();
+  }, []);
 
   let tagData = [
     {
-      label: "15-22 Triệu",
+      label: `${
+        jobData.salaryMin === jobData.salaryMax
+          ? jobData.salaryMin
+          : `${jobData.salaryMin} - ${jobData.salaryMax}`
+      } ${localData?.unitName ?? ""}`,
     },
     {
-      label: "Hồ Chí Minh",
+      label: jobData?.city?.cityName ?? "",
     },
   ];
 
   const onSaveJob = () => {
-    setIsSave(!isSave);
+    // setIsSave(!isSave);
   };
 
   return (
     <Col md={4} sm={6} className="JobItemSmall__container">
       <div className="JobItemSmall__feature-job-item">
         <div className="d-flex">
-          <a
-            href="https://www.topcv.vn/viec-lam/nhan-vien-hanh-chinh-van-phong/829306.html?ta_source=BoxFeatureJob"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <CompanyLogo
-              src="https://www.topcv.vn/v4/image/topcv-logo-company-default.png"
-              alt="CÔNG TY TNHH KINH DOANH PHÁT TRIỂN THƯƠNG MẠI VÀ DỊCH VỤ LỘC PHÁT"
-            />
-          </a>
+          <Link to={`/Job/${jobData?.jobId ?? 0}`} target="_blank" rel="noreferrer">
+            <CompanyLogo src={jobData?.avatarUrl ?? null} />
+          </Link>
           <div className="JobItemSmall__col-title flex-grow-1">
-            <a
-              href="https://www.topcv.vn/viec-lam/nhan-vien-hanh-chinh-van-phong/829306.html?ta_source=BoxFeatureJob"
+            <Link
+              to={`/Job/${jobData?.jobId ?? 0}`}
               target="_blank"
               rel="noreferrer"
               className="JobItemSmall__title d-block w-100"
             >
               <strong className="transform-job-title underline-box-job highlight">
-                Nhân Viên Hành Chính Văn Phòng
+                {jobData?.jobName ?? ""}
               </strong>
-            </a>
-            <a
-              href="https://www.topcv.vn/cong-ty/cong-ty-tnhh-kinh-doanh-phat-trien-thuong-mai-va-dich-vu-loc-phat/121342.html"
+            </Link>
+            <Link
+              to={`/Company/${jobData?.companyId ?? 0}`}
               target="_blank"
               rel="noreferrer"
               className="JobItemSmall__company d-block w-100"
             >
-              CÔNG TY TNHH KINH DOANH PHÁT TRIỂN THƯƠNG MẠI VÀ DỊCH VỤ LỘC PHÁT
-            </a>
+              {jobData?.companyName ?? ""}
+            </Link>
           </div>
           <div className="JobItemSmall__col-like">
             <ButtonPrimary

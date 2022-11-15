@@ -8,8 +8,8 @@ const JobListSmall = ({ data = [] }) => {
   return (
     <div className="jh-container">
       <Row>
-        {_.map(data, (item, index) => {
-          return <JobItemSmall key={index} />;
+        {_.map(data, (item) => {
+          return <JobItemSmall key={item.jobId} jobData={item} />;
         })}
       </Row>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { JobPage, JobApply } from "Layout/Job";
 import { CompanyPage } from "Layout/Company";
-import { JobHot, JobNew, JobSearch } from "Components/Job";
+import { JobInteresting, JobNew, JobSearch } from "Components/Job";
 import { EditUserInfo } from "Layout/User";
 
 const MainPage = () => {
@@ -9,7 +9,7 @@ const MainPage = () => {
     <div style={{ backgroundColor: "#f4f4f4" }}>
       <JobSearch />
       <JobNew />
-      {/* <JobHot /> */}
+      <JobInteresting />
     </div>
   );
 };

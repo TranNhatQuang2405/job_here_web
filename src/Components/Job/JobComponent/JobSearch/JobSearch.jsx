@@ -26,8 +26,7 @@ const JobSearch = () => {
   const size = 8;
 
   useEffect(() => {
-    let isSubscribed = true;
-    const first = async () => {
+    const getDropdownData = async () => {
       let prepare = [];
       prepare.push(dropdownBusiness.IndustryDropdown());
       prepare.push(dropdownBusiness.AllSkillDropdown());
@@ -41,10 +40,7 @@ const JobSearch = () => {
         setDropdownData({ industry: industry, skill: skill, city: city });
       }
     };
-    if (isSubscribed) first();
-    return () => {
-      isSubscribed = false;
-    };
+    getDropdownData();
   }, []);
 
   useEffect(() => {
@@ -109,7 +105,7 @@ const JobSearch = () => {
 
   const onChangePage = (page) => () => {
     if (page >= 0 && page < totalPage) {
-      currentPage(page);
+      setCurrentPage(page);
     }
   };
 
