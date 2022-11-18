@@ -289,3 +289,14 @@ a {
 .primary-color {
   color: var(--jh-primary-color);
 }
+
+/* Pagination */
+.pagination .page-item > .page-link {
+  color: var(--jh-primary-color) !important;
+}
+
+.pagination .page-item.active > .page-link {
+  color: var(--jh-white-color) !important;
+  background-color: var(--jh-primary-color) !important;
+  border-color: var(--jh-primary-color) !important;
+}

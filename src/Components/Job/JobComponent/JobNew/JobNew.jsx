@@ -22,9 +22,7 @@ const JobNew = () => {
 
   const settings = {
     dots: true,
-    lazyLoad: true,
     speed: 500,
-    swipe: false,
     nextArrow: <></>,
     prevArrow: <></>,
     slidesToShow: 1,

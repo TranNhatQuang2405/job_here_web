@@ -45,8 +45,10 @@ const Header = (props) => {
                   <NavDropdown.Item>
                     <NavLink to="/AppliedJob">{t("Applied Jobs")}</NavLink>
                   </NavDropdown.Item>
-                  {/* <NavDropdown.Item>{t("Saved Jobs")}</NavDropdown.Item>
-                  <NavDropdown.Item>{t("Matched Jobs")}</NavDropdown.Item> */}
+                  <NavDropdown.Item>
+                    <NavLink to="/SavedJob">{t("Saved Jobs")}</NavLink>
+                  </NavDropdown.Item>
+                  {/* <NavDropdown.Item>{t("Matched Jobs")}</NavDropdown.Item> */}
                 </NavDropdown>
                 <NavDropdown
                   title={t("Profile & CV")}
