@@ -5,6 +5,7 @@
   border-color: var(--jh-secondary-border-color) !important;
   color: var(--jh-black-color);
   background-color: var(--bs-input-card-bg);
+  width: 100%;
 }
 
 .ManageCVPage__form-data:focus {
