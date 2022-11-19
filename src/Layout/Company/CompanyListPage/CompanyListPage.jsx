@@ -4,7 +4,7 @@ import _ from "underscore";
 import { Row, Col } from "react-bootstrap";
 import { CompanyItem } from "Components/Company";
 import { PathTree } from "Components/Path";
-import { LoadingPage } from "Layout/Common";
+import { LoadingSpinner } from "Components/Loading";
 import { useTranslation } from "react-i18next";
 import { companyBusiness } from "Business";
 import Pagination from "react-bootstrap/Pagination";
@@ -39,41 +39,46 @@ const CompanyList = () => {
     }
   };
 
-  if (loading) return <LoadingPage />;
-
   return (
     <div className="jh-container align-items-center">
       <PathTree />
+
       <div className="jh-box-item mt-3 mb-3 p-3">
         <h4>{t("List All Company")}</h4>
-        <div>
-          <Row>
-            {_.map(companyList, (companyItem) => (
-              <Col md={4} sm={6} key={companyItem.companyId}>
-                <CompanyItem companyData={companyItem} />
-              </Col>
-            ))}
-          </Row>
-        </div>
-        <div className="d-flex justify-content-center align-items-center">
-          {totalPage > 0 && (
-            <Pagination>
-              <Pagination.First onClick={onChangePage(0)} />
-              <Pagination.Prev onClick={onChangePage(activePage - 1)} />
-              {_.map([...Array(totalPage)], (item, index) => (
-                <Pagination.Item
-                  key={index}
-                  active={index === activePage}
-                  onClick={onChangePage(index)}
-                >
-                  {index + 1}
-                </Pagination.Item>
-              ))}
-              <Pagination.Next onClick={onChangePage(activePage + 1)} />
-              <Pagination.Last onClick={onChangePage(totalPage - 1)} />
-            </Pagination>
-          )}
-        </div>
+        {loading ? (
+          <LoadingSpinner />
+        ) : (
+          <div>
+            <div>
+              <Row>
+                {_.map(companyList, (companyItem) => (
+                  <Col md={4} sm={6} key={companyItem.companyId}>
+                    <CompanyItem companyData={companyItem} />
+                  </Col>
+                ))}
+              </Row>
+            </div>
+            <div className="d-flex justify-content-center align-items-center">
+              {totalPage > 0 && (
+                <Pagination>
+                  <Pagination.First onClick={onChangePage(0)} />
+                  <Pagination.Prev onClick={onChangePage(activePage - 1)} />
+                  {_.map([...Array(totalPage)], (item, index) => (
+                    <Pagination.Item
+                      key={index}
+                      active={index === activePage}
+                      onClick={onChangePage(index)}
+                    >
+                      {index + 1}
+                    </Pagination.Item>
+                  ))}
+                  <Pagination.Next onClick={onChangePage(activePage + 1)} />
+                  <Pagination.Last onClick={onChangePage(totalPage - 1)} />
+                </Pagination>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

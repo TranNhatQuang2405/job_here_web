@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./JobPage.css";
 import { Row, Col } from "react-bootstrap";
-import { JobHeader, JobInfo, JobKeywork, JobReport, JobShare } from "Components/Job";
+import { JobHeader, JobInfo, JobReport, JobShare } from "Components/Job";
 import { PathTree } from "Components/Path";
-import { LoadingPage } from "Layout/Common";
+import { LoadingSpinner } from "Components/Loading";
 import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { dropdownBusiness, jobBusiness } from "Business";
 
 const JobPage = () => {
   const { t } = useTranslation();
   const location = useLocation();
-  const navigate = useNavigate();
   const [jobData, setJobData] = useState({});
   const [loading, setLoading] = useState(true);
-  const [isApply, setIsApply] = useState(false);
-  const [isSave, setIsSave] = useState(false);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -74,37 +71,34 @@ const JobPage = () => {
     };
   }, [location.pathname]);
 
-  const onApply = () => {
-    // setIsApply(!isApply);
-  };
-
-  const onSave = () => {
-    setIsSave(!isSave);
-  };
-
-  if (loading) return <LoadingPage />;
-
   return (
     <div className="JobPage__container">
       <div className="JobPage__header jh-container">
-        <PathTree lastPath={jobData.jobName} />
-        <JobHeader jobData={jobData} />
+        <PathTree lastPath={jobData.jobName || t("Job detail")} />
       </div>
-      <div className="JobPage__job-info jh-container mt-3 mb-3">
-        <div className="JobPage__box-job-info jh-box-item">
-          <h2 className="JobPage__job-info-title">{t("Job detail")}</h2>
-          <Row>
-            <Col md={8}>
-              <JobInfo jobData={jobData} />
-            </Col>
-            <Col md={4}>
-              <JobShare path={location.pathname} />
-              <JobReport />
-              {/* <JobKeywork /> */}
-            </Col>
-          </Row>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <div>
+          <div className="JobPage__header jh-container">
+            <JobHeader jobData={jobData} />
+          </div>
+          <div className="JobPage__job-info jh-container mt-3 mb-3">
+            <div className="JobPage__box-job-info jh-box-item">
+              <h2 className="JobPage__job-info-title">{t("Job detail")}</h2>
+              <Row>
+                <Col md={8}>
+                  <JobInfo jobData={jobData} />
+                </Col>
+                <Col md={4}>
+                  <JobShare path={location.pathname} />
+                  <JobReport />
+                </Col>
+              </Row>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
       {/* <div className="JobPage__job-tab jh-container mt-4">
         <div className="JobPage__box-job-similar jh-box-item">
           <h2 className="box-title mb-3">Việc làm liên quan</h2>

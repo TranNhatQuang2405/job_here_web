@@ -41,7 +41,7 @@ const JobHeader = ({ jobData = {} }) => {
           </div>
         </Link>
         <div className="JobHeader_box-info-job flex-grow-1">
-          <Link to={`/Job/${jobData?.jobId ?? 0}`}>
+          <Link to={`/Job/${jobData?.jobId ?? ""}`}>
             <h1 className="JobHeader_job-title JobPage__text-highlight">
               {jobData?.jobName ?? "Job Name"}
             </h1>

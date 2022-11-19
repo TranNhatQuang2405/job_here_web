@@ -5,11 +5,13 @@ import { JobListSmall } from "Components/Job";
 import { jobBusiness } from "Business";
 import { useTranslation } from "react-i18next";
 import Pagination from "react-bootstrap/Pagination";
+import { LoadingSpinner } from "Components/Loading";
 
 const JobInteresting = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
+  const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
   const size = 6;
 
@@ -18,6 +20,7 @@ const JobInteresting = () => {
   }, [currentPage]);
 
   const getData = async () => {
+    setLoading(true);
     let result = await jobBusiness.GetListJobInteresting(currentPage, size);
     if (result.data.httpCode === 200) {
       if (totalPage !== result.data.objectData.totalPage) {
@@ -26,6 +29,7 @@ const JobInteresting = () => {
       }
       setData(result?.data?.objectData?.pageData ?? []);
     }
+    setLoading(false);
   };
 
   const onChangePage = (page) => () => {
@@ -49,28 +53,32 @@ const JobInteresting = () => {
       <div className="JobInteresting__box-header d-flex">
         <h2>{t("Interesting Job")}</h2>
       </div>
-      <div>
-        <JobListSmall data={data} />
-        <div className="d-flex justify-content-center align-items-center">
-          {totalPage > 0 && (
-            <Pagination>
-              <Pagination.First onClick={onChangePage(0)} />
-              <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
-              {_.map([...Array(totalPage)], (item, index) => (
-                <Pagination.Item
-                  key={index}
-                  active={index === currentPage}
-                  onClick={onChangePage(index)}
-                >
-                  {index + 1}
-                </Pagination.Item>
-              ))}
-              <Pagination.Next onClick={onChangePage(currentPage + 1)} />
-              <Pagination.Last onClick={onChangePage(totalPage - 1)} />
-            </Pagination>
-          )}
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <div>
+          <JobListSmall data={data} />
+          <div className="d-flex justify-content-center align-items-center">
+            {totalPage > 0 && (
+              <Pagination>
+                <Pagination.First onClick={onChangePage(0)} />
+                <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
+                {_.map([...Array(totalPage)], (item, index) => (
+                  <Pagination.Item
+                    key={index}
+                    active={index === currentPage}
+                    onClick={onChangePage(index)}
+                  >
+                    {index + 1}
+                  </Pagination.Item>
+                ))}
+                <Pagination.Next onClick={onChangePage(currentPage + 1)} />
+                <Pagination.Last onClick={onChangePage(totalPage - 1)} />
+              </Pagination>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

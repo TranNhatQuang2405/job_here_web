@@ -6,6 +6,7 @@ import { JobList } from "Components/Job";
 import { dropdownBusiness, userBusiness } from "Business";
 import { useTranslation } from "react-i18next";
 import Pagination from "react-bootstrap/Pagination";
+import { LoadingSpinner } from "Components/Loading";
 
 const JobSearch = () => {
   const [data, setData] = useState([]);
@@ -22,6 +23,7 @@ const JobSearch = () => {
     skill: [],
     city: [],
   });
+  const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
   const size = 8;
 
@@ -44,11 +46,11 @@ const JobSearch = () => {
   }, []);
 
   useEffect(() => {
-    setCurrentPage(0);
     getData();
   }, [currentPage]);
 
   const getData = async () => {
+    setLoading(true);
     let { text, industryField, skillField, cityField } = searchData;
     let result = await userBusiness.FindJob(
       currentPage,
@@ -66,6 +68,7 @@ const JobSearch = () => {
       }
       setData(_data);
     }
+    setLoading(false);
   };
 
   const onChangeTextSearch = (e) => {
@@ -194,26 +197,36 @@ const JobSearch = () => {
         </div>
       </div>
       <div className="jh-container">
-        <JobList data={data} />
-        <div className="d-flex justify-content-center align-items-center">
-          {totalPage > 0 && (
-            <Pagination>
-              <Pagination.First onClick={onChangePage(0)} />
-              <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
-              {_.map([...Array(totalPage)], (item, index) => (
-                <Pagination.Item
-                  key={index}
-                  active={index === currentPage}
-                  onClick={onChangePage(index)}
-                >
-                  {index + 1}
-                </Pagination.Item>
-              ))}
-              <Pagination.Next onClick={onChangePage(currentPage + 1)} />
-              <Pagination.Last onClick={onChangePage(totalPage - 1)} />
-            </Pagination>
-          )}
-        </div>
+        {loading ? (
+          <LoadingSpinner />
+        ) : data.length === 0 ? (
+          <div className="pt-3 d-flex justify-content-center">
+            <p>{t("No result")}!</p>
+          </div>
+        ) : (
+          <div>
+            <JobList data={data} />
+            <div className="d-flex justify-content-center align-items-center">
+              {totalPage > 0 && (
+                <Pagination>
+                  <Pagination.First onClick={onChangePage(0)} />
+                  <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
+                  {_.map([...Array(totalPage)], (item, index) => (
+                    <Pagination.Item
+                      key={index}
+                      active={index === currentPage}
+                      onClick={onChangePage(index)}
+                    >
+                      {index + 1}
+                    </Pagination.Item>
+                  ))}
+                  <Pagination.Next onClick={onChangePage(currentPage + 1)} />
+                  <Pagination.Last onClick={onChangePage(totalPage - 1)} />
+                </Pagination>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

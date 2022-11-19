@@ -4,6 +4,7 @@ import _ from "underscore";
 import { JobItem } from "Components/Job";
 import { useTranslation } from "react-i18next";
 import { userBusiness } from "Business";
+import { LoadingSpinner } from "Components/Loading";
 
 const JobAppliedPage = () => {
   const { t } = useTranslation();
@@ -12,16 +13,19 @@ const JobAppliedPage = () => {
     year: new Date().getFullYear(),
     month: new Date().getMonth() + 1,
   });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getData();
   }, [timePicker]);
 
   const getData = async () => {
+    setLoading(true);
     let result = await userBusiness.GetAppliedJob(timePicker.month, timePicker.year);
     if (result.data.httpCode === 200) {
       setData(result?.data?.objectData ?? []);
     }
+    setLoading(false);
   };
 
   const onChangeMonth = async (e) => {
@@ -70,7 +74,9 @@ const JobAppliedPage = () => {
           ))}
         </select>
       </div>
-      {data.length === 0 ? (
+      {loading ? (
+        <LoadingSpinner />
+      ) : data.length === 0 ? (
         <p>{t("There is no applied job in this time!")}</p>
       ) : (
         _.map(data, (item) => <JobItem key={item.jobId} jobData={item} applied />)

@@ -5,10 +5,12 @@ import { JobHeader } from "Components/Job";
 import Slider from "react-slick";
 import { useTranslation } from "react-i18next";
 import { jobBusiness } from "Business";
+import { LoadingSpinner } from "Components/Loading";
 
 const JobNew = () => {
   const { t } = useTranslation();
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -16,6 +18,7 @@ const JobNew = () => {
       if (result.data.httpCode === 200) {
         setData(result?.data?.objectData ?? []);
       }
+      setLoading(false);
     };
     getData();
   }, []);
@@ -34,11 +37,15 @@ const JobNew = () => {
   return (
     <div className="JobNew__container jh-container mt-3 pt-2 pb-4">
       <h4 className="ps-3">{t("New Job")}</h4>
-      <Slider {...settings}>
-        {_.map(data, (item) => {
-          return <JobHeader key={item.jobId} jobData={item} />;
-        })}
-      </Slider>
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <Slider {...settings}>
+          {_.map(data, (item) => {
+            return <JobHeader key={item.jobId} jobData={item} />;
+          })}
+        </Slider>
+      )}
     </div>
   );
 };

@@ -137,7 +137,9 @@ export const en = {
   "jh-no-cv-warning": "You have no CV. To continue apply this job, please add CV in ",
   "Recommended by JobHere AI": "Recommended by JobHere AI",
   "Interesting Job": "Interesting Job",
-  'jh-job-item-viewed': "Viewed by Recruiter",
+  "jh-job-item-viewed": "Viewed by Recruiter",
+  "jh-loading": "Loading...",
+  "No result": "No result",
 };
 
 export const vn = {
@@ -280,5 +282,7 @@ export const vn = {
     "Bạn chưa có CV nào. Để tiếp tục ứng tuyển công việc này, vui lòng thêm CV của bạn tại ",
   "Recommended by JobHere AI": "Được đề xuất bởi JobHere AI",
   "Interesting Job": "Việc làm hấp dẫn",
-  'jh-job-item-viewed': "Nhà tuyển dụng đã xem",
+  "jh-job-item-viewed": "Nhà tuyển dụng đã xem",
+  "jh-loading": "Đang tải...",
+  "No result": "Không có kết quả",
 };
