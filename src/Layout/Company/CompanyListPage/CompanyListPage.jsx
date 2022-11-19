@@ -19,6 +19,7 @@ const CompanyList = () => {
 
   useEffect(() => {
     async function getData() {
+      setLoading(true)
       let results = await companyBusiness.GetListCompany(activePage, pageSize);
       if (results.data.httpCode === 200) {
         let companyListData = results.data?.objectData?.pageData ?? [];

@@ -11,6 +11,7 @@ import {
   FormGroup,
   Button,
   Spinner,
+  Container,
 } from "react-bootstrap";
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
@@ -62,16 +63,16 @@ const SignInPage = () => {
     setAccount((prev) => ({ ...prev, password: e.target.value }));
   };
 
-  const onResetPassword = () => {
-    dispatch(SetIsPending());
-    dispatch(changeCurrentPage(3));
-  };
+  // const onResetPassword = () => {
+  //   dispatch(SetIsPending());
+  //   dispatch(changeCurrentPage(3));
+  // };
 
   return (
-    <div className="SignIn pt-3">
+    <Container className="SignIn pt-3">
       <WarningModal ref={modalRef} title={t("Sign In")} />
       <Row className="justify-content-center">
-        <Col lg={4} xs={11}>
+        <Col lg={6} xs={11}>
           <div className="text-center mb-4">
             <h4 className="SignIn__title">{t("Sign In")}</h4>
             <p className="text-muted mb-4">{t("Sign in to continue.")}</p>
@@ -157,7 +158,7 @@ const SignInPage = () => {
           </div>
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 };
 

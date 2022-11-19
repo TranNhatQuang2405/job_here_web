@@ -35,7 +35,6 @@ const JobAppliedPage = () => {
   const onChangeYear = async (e) => {
     setTimePicker({ ...timePicker, year: e.target.value });
   };
-
   return (
     <div className="jh-container jh-box-item p-3 pb-0 mt-3 mb-3">
       <h4 className="mb-2">{t("Jobs you have applied")}</h4>
