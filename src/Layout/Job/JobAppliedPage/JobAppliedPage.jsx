@@ -4,6 +4,7 @@ import _ from "underscore";
 import { JobItem } from "Components/Job";
 import { useTranslation } from "react-i18next";
 import { userBusiness } from "Business";
+import { LoadingPage } from "Layout/Common";
 
 const JobAppliedPage = () => {
   const { t } = useTranslation();
@@ -13,15 +14,19 @@ const JobAppliedPage = () => {
     month: new Date().getMonth() + 1,
   });
 
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     getData();
   }, [timePicker]);
 
   const getData = async () => {
+    setLoading(true)
     let result = await userBusiness.GetAppliedJob(timePicker.month, timePicker.year);
     if (result.data.httpCode === 200) {
       setData(result?.data?.objectData ?? []);
     }
+    setLoading(false)
   };
 
   const onChangeMonth = async (e) => {
@@ -31,7 +36,6 @@ const JobAppliedPage = () => {
   const onChangeYear = async (e) => {
     setTimePicker({ ...timePicker, year: e.target.value });
   };
-
   return (
     <div className="jh-container jh-box-item p-3 pb-0 mt-3 mb-3">
       <h4 className="mb-2">{t("Jobs you have applied")}</h4>
@@ -70,11 +74,13 @@ const JobAppliedPage = () => {
           ))}
         </select>
       </div>
-      {data.length === 0 ? (
-        <p>{t("There is no applied job in this time!")}</p>
-      ) : (
-        _.map(data, (item) => <JobItem key={item.jobId} jobData={item} applied />)
-      )}
+      {loading ?
+        <LoadingPage /> :
+        data.length === 0 ? (
+          <p>{t("There is no applied job in this time!")}</p>
+        ) : (
+          _.map(data, (item) => <JobItem key={item.jobId} jobData={item} applied />)
+        )}
     </div>
   );
 };

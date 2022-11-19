@@ -18,6 +18,7 @@ const ManageCVPage = () => {
 		cv: false,
 	});
 	const modalRef = useRef();
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		getCVData();
@@ -28,10 +29,12 @@ const ManageCVPage = () => {
 	};
 
 	const getCVData = async () => {
+		setLoading(true)
 		let result = await cvBusiness.GetListCV();
 		if (result.data.httpCode === 200) {
 			setListCV(result.data.objectData);
 		}
+		setLoading(false)
 	};
 
 	const onChangeCurrentCV = async (e) => {
@@ -105,19 +108,24 @@ const ManageCVPage = () => {
 				</div>
 				<div className="mt-3">
 					<h6>{t("All your CV")}</h6>
-					{listCV.length === 0 ? (
-						<p>{t("You have no CV")}</p>
-					) : (
-						<div>
-							<Row>
-								{_.map(listCV, (item) => (
-									<Col md={4} sm={6} key={item.cvId} className="mb-3">
-										<CVItem cvData={item} />
-									</Col>
-								))}
-							</Row>
+					{loading ? (
+						<div className="w-100 text-center">
+							<Spinner animation="border" />
 						</div>
-					)}
+					) :
+						listCV.length === 0 ? (
+							<p>{t("You have no CV")}</p>
+						) : (
+							<div>
+								<Row>
+									{_.map(listCV, (item) => (
+										<Col md={4} sm={6} key={item.cvId} className="mb-3">
+											<CVItem cvData={item} />
+										</Col>
+									))}
+								</Row>
+							</div>
+						)}
 				</div>
 			</div>
 		</div>
