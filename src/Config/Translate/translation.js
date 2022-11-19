@@ -140,6 +140,7 @@ export const en = {
   "jh-job-item-viewed": "Viewed by Recruiter",
   "jh-loading": "Loading...",
   "No result": "No result",
+  "Popular Keyword": "Popular Keyword",
 };
 
 export const vn = {
@@ -285,4 +286,5 @@ export const vn = {
   "jh-job-item-viewed": "Nhà tuyển dụng đã xem",
   "jh-loading": "Đang tải...",
   "No result": "Không có kết quả",
+  "Popular Keyword": "Từ khoá phổ biến",
 };

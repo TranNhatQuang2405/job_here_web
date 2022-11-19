@@ -1,15 +1,14 @@
 import React from "react";
-import { JobPage, JobApply } from "Layout/Job";
-import { CompanyPage } from "Layout/Company";
 import { JobInteresting, JobNew, JobSearch } from "Components/Job";
-import { EditUserInfo } from "Layout/User";
+import { Keyword } from "Components/Keyword";
 
 const MainPage = () => {
   return (
-    <div style={{ backgroundColor: "#f4f4f4" }}>
+    <div>
       <JobSearch />
       <JobNew />
       <JobInteresting />
+      <Keyword />
     </div>
   );
 };
