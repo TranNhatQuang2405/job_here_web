@@ -79,8 +79,9 @@ const JobItem = ({ jobData = {}, applied = false }) => {
           <div className="ms-auto text-right">
             {applied ? (
               jobData.viewed && (
-                <div>
-                  <i className="bi bi-check-circle-fill primary-color" />
+                <div className="d-flex">
+                  <i className="bi bi-check-circle-fill primary-color" />{" "}
+                  <p className="ps-1">{t("jh-job-item-viewed")}</p>
                 </div>
               )
             ) : (

@@ -11,7 +11,7 @@ const JobInteresting = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
   const { t } = useTranslation();
-  const size = 3;
+  const size = 6;
 
   useEffect(() => {
     getData();

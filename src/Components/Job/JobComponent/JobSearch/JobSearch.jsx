@@ -50,23 +50,21 @@ const JobSearch = () => {
 
   const getData = async () => {
     let { text, industryField, skillField, cityField } = searchData;
-    if (!!text || !!industryField || !!skillField || !!cityField) {
-      let result = await userBusiness.FindJob(
-        currentPage,
-        size,
-        text,
-        skillField,
-        cityField,
-        industryField
-      );
-      if (result.data.httpCode === 200) {
-        let _data = result.data?.objectData?.pageData ?? [];
-        if (totalPage !== result.data.objectData.totalPage) {
-          let newTotalPage = result.data.objectData.totalPage;
-          setTotalPage(newTotalPage);
-        }
-        setData(_data);
+    let result = await userBusiness.FindJob(
+      currentPage,
+      size,
+      text,
+      skillField,
+      cityField,
+      industryField
+    );
+    if (result.data.httpCode === 200) {
+      let _data = result.data?.objectData?.pageData ?? [];
+      if (totalPage !== result.data.objectData.totalPage) {
+        let newTotalPage = result.data.objectData.totalPage;
+        setTotalPage(newTotalPage);
       }
+      setData(_data);
     }
   };
 

@@ -10,7 +10,7 @@ import {
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
 import { ChangePasswordPage, EditUserInfo } from "Layout/User";
-import { JobAppliedPage, JobPage } from "Layout/Job";
+import { JobAppliedPage, JobPage, JobSavedPage } from "Layout/Job";
 import { ManageCVPage } from "Layout/CV";
 import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -30,6 +30,7 @@ const App = () => {
             <Route path="/Job" element={<MainPage />} />
             <Route path="/Job/:id" element={<JobPage />} />
             <Route path="/AppliedJob" element={<JobAppliedPage />} />
+            <Route path="/SavedJob" element={<JobSavedPage />} />
             <Route path="/CVManage" element={<ManageCVPage />} />
             <Route path="/Company" element={<CompanyListPage />} />
             <Route path="/Company/:id" element={<CompanyPage />} />

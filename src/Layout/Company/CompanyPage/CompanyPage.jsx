@@ -32,6 +32,7 @@ const CompanyPage = () => {
       if (!results.find((x) => x.data.httpCode !== 200)) {
         let _companyData = results[0].data.objectData;
         _companyData.companyJobs = results[1].data.objectData;
+        _companyData.valid_urlCompany = getValidUrl(_companyData.urlCompany);
         setCompanyData(_companyData);
       }
       setLoading(false);
@@ -41,6 +42,20 @@ const CompanyPage = () => {
       isSubscribed = false;
     };
   }, [location.pathname]);
+
+  const getValidUrl = (url = "") => {
+    let newUrl = window.decodeURIComponent(url);
+    newUrl = newUrl.trim().replace(/\s/g, "");
+
+    if (/^(:\/\/)/.test(newUrl)) {
+      return `https${newUrl}`;
+    }
+    if (!/^(f|ht)tps?:\/\//i.test(newUrl)) {
+      return `https://${newUrl}`;
+    }
+
+    return newUrl;
+  };
 
   const onFollowCompany = () => {
     setFollow(!follow);
@@ -77,7 +92,7 @@ const CompanyPage = () => {
             <div className="d-flex">
               <p className="CompanyPage__website">
                 <i className="bi bi-house-door-fill" />{" "}
-                <a href={companyData.urlCompany} target="_blank" rel="noreferrer">
+                <a href={companyData.valid_urlCompany} target="_blank" rel="noreferrer">
                   {companyData.urlCompany}
                 </a>
               </p>
@@ -104,7 +119,7 @@ const CompanyPage = () => {
                   dangerouslySetInnerHTML={{
                     __html: companyData.description || t("No Desription"),
                   }}
-                  className='CompanyPage__description'
+                  className="CompanyPage__description"
                 />
               </div>
             </div>
