@@ -222,6 +222,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -236,6 +237,7 @@ a {
   color: var(--jh-black-color);
 }
 
+/* 
 @media (max-width: 768px) {
   .jh-container {
     padding-left: 15px;
@@ -260,7 +262,7 @@ a {
 .jh-container {
   margin-right: auto;
   margin-left: auto;
-}
+} */
 
 .jh-box-item {
   background-color: var(--jh-white-background);
@@ -291,11 +293,11 @@ a {
 }
 
 /* Pagination */
-.pagination .page-item > .page-link {
+.pagination .page-item>.page-link {
   color: var(--jh-primary-color) !important;
 }
 
-.pagination .page-item.active > .page-link {
+.pagination .page-item.active>.page-link {
   color: var(--jh-white-color) !important;
   background-color: var(--jh-primary-color) !important;
   border-color: var(--jh-primary-color) !important;

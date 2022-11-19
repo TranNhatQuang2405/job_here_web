@@ -19,6 +19,7 @@ const CompanyList = () => {
 
   useEffect(() => {
     async function getData() {
+      setLoading(true)
       let results = await companyBusiness.GetListCompany(activePage, pageSize);
       if (results.data.httpCode === 200) {
         let companyListData = results.data?.objectData?.pageData ?? [];
@@ -38,9 +39,8 @@ const CompanyList = () => {
       setActivePage(page);
     }
   };
-
-  if (loading) return <LoadingPage />;
-
+  if (loading)
+    return <LoadingPage />
   return (
     <div className="jh-container align-items-center">
       <PathTree />
@@ -48,11 +48,13 @@ const CompanyList = () => {
         <h4>{t("List All Company")}</h4>
         <div>
           <Row>
-            {_.map(companyList, (companyItem) => (
-              <Col md={4} sm={6} key={companyItem.companyId}>
-                <CompanyItem companyData={companyItem} />
-              </Col>
-            ))}
+            {
+              _.map(companyList, (companyItem) => (
+                <Col md={4} sm={6} key={companyItem.companyId}>
+                  <CompanyItem companyData={companyItem} />
+                </Col>
+              ))
+            }
           </Row>
         </div>
         <div className="d-flex justify-content-center align-items-center">
