@@ -3,6 +3,8 @@ import {
   getJobInfoURL,
   getNewJobURL,
   getListJobInterestingURL,
+  saveJobURL,
+  getSavedJobURL,
 } from "Config/Api/ConfigURL";
 
 class JobBusiness extends Service {
@@ -18,6 +20,16 @@ class JobBusiness extends Service {
 
   GetListJobInteresting = async (page, size) => {
     let result = await this.get(`${getListJobInterestingURL}?page=${page}&size=${size}`);
+    return result;
+  };
+
+  SaveJob = async (jobId) => {
+    let result = await this.post(`${saveJobURL}/${jobId}`);
+    return result;
+  };
+
+  GetSavedJob = async (page, size) => {
+    let result = await this.get(`${getSavedJobURL}?page=${page}&size=${size}`);
     return result;
   };
 }

@@ -26,6 +26,8 @@ export const experienceDropdownURL = "/dropdown/experience";
 export const getJobInfoURL = "/job/getJobInfo";
 export const getNewJobURL = "/job/getListNewJob";
 export const getListJobInterestingURL = "/job/getListJobInteresting";
+export const saveJobURL = "/user/saveJob";
+export const getSavedJobURL = "/user/getSavedJob";
 
 // CV
 export const getListCVURL = "/cv/getListOwnerCV";
