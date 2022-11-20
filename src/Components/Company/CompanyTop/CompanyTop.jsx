@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./CompanyTop.css";
 import _ from "underscore";
 import { Row, Col } from "react-bootstrap";
-import { CompanyItem } from "Components/Company";
 import { LoadingSpinner } from "Components/Loading";
 import { useTranslation } from "react-i18next";
 import { companyBusiness } from "Business";
 import Pagination from "react-bootstrap/Pagination";
+import { Link } from "react-router-dom";
 
 const CompanyTop = () => {
   const { t } = useTranslation();
-  const [companyList, setCompanyList] = useState([]);
+  const [companyList, setCompanyList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [loading, setLoading] = useState(true);
   const [activePage, setActivePage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
@@ -40,8 +40,18 @@ const CompanyTop = () => {
           <div>
             <Row>
               {_.map(companyList, (companyItem) => (
-                <Col md={4} sm={6} key={companyItem.companyId}>
-                  <CompanyItem companyData={companyItem} />
+                <Col md={3} sm={6} key={companyItem.companyId}>
+                  <div className="CompanyTop__item mb-3">
+                    <Link to="/Home" target="_blank">
+                      <div className="CompanyTop__item-logo">
+                        <img
+                          src="https://static.topcv.vn/company_logos/cong-ty-cp-dau-tu-va-dich-vu-dat-xanh-mien-nam-60d3e4afd0fb7.jpg"
+                          className="lazy img-responsive h-100"
+                          alt=""
+                        />
+                      </div>
+                    </Link>
+                  </div>
                 </Col>
               ))}
             </Row>

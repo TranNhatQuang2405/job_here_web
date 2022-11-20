@@ -1,0 +1,17 @@
+.CompanyTop__item {
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid var(--jh-secondary-border-color);
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.CompanyTop__item:hover {
+  border-color: var(--jh-primary-color);
+}
+
+.CompanyTop__item-logo {
+  height: 100%;
+  text-align: center;
+}
