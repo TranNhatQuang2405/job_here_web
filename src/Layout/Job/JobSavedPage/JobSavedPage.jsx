@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./JobSavedPage.css";
 import _ from "underscore";
 import { useTranslation } from "react-i18next";
-import { jobBusiness } from "Business";
+import { dropdownBusiness, jobBusiness } from "Business";
 import Pagination from "react-bootstrap/Pagination";
 import { JobList } from "Components/Job";
 import { LoadingSpinner } from "Components/Loading";
@@ -30,7 +30,16 @@ const JobSavedPage = () => {
         let newTotalPage = result.data.objectData.totalPage;
         setTotalPage(newTotalPage);
       }
-      setData(result?.data?.objectData?.pageData ?? []);
+      let listJob = result?.data?.objectData?.pageData ?? [];
+      let _unitname = await dropdownBusiness.UnitDropdown();
+      if (_unitname.data.httpCode === 200) {
+        for (let i = 0; i < listJob.length; i++) {
+          listJob[i].unitName = _unitname.data.objectData.find(
+            (x) => x.unit === listJob[i].unit
+          ).unitName;
+        }
+      }
+      setData(listJob);
     }
     setLoading(false);
   };
