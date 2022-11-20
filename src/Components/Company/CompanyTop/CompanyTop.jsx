@@ -39,8 +39,8 @@ const CompanyTop = () => {
         <div>
           <div>
             <Row>
-              {_.map(companyList, (companyItem) => (
-                <Col md={3} sm={6} key={companyItem.companyId}>
+              {_.map(companyList, (companyItem, index) => (
+                <Col md={3} sm={6} key={index}>
                   <div className="CompanyTop__item mb-3">
                     <Link to="/Home" target="_blank">
                       <div className="CompanyTop__item-logo">

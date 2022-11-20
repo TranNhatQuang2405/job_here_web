@@ -5,19 +5,22 @@ import { CompanyLogo } from "Components/Company";
 import { ButtonPrimary } from "Components/Button";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { dropdownBusiness } from "Business";
+import { dropdownBusiness, jobBusiness } from "Business";
+import { useSelector, useDispatch } from "react-redux";
+import { GetAllSavedJob } from "Config/Redux/Slice/SavedJobSlice";
 
 const JobItem = ({ jobData = {}, applied = false }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const [localData, setLocalData] = useState({});
-  const [isSave, setIsSave] = useState(false);
+  let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
 
   useEffect(() => {
     const getData = async () => {
       let result = await dropdownBusiness.UnitDropdown();
       if (result.data.httpCode === 200) {
         let u = result.data.objectData.find((x) => x.unit === jobData.unit);
-        if (u) setLocalData({ unitName: u.unitName });
+        if (u) setLocalData((prev) => ({ ...prev, unitName: u.unitName }));
       }
     };
     getData();
@@ -41,8 +44,16 @@ const JobItem = ({ jobData = {}, applied = false }) => {
     },
   ];
 
-  const onSaveJob = () => {
-    // setIsSave(!isSave);
+  const onSaveJob = async () => {
+    let result = null;
+    if (savedJobList.includes(jobData.jobId)) {
+      result = await jobBusiness.UnsaveJob(jobData.jobId);
+    } else {
+      result = await jobBusiness.SaveJob(jobData.jobId);
+    }
+    if (result.data.httpCode === 200) {
+      dispatch(GetAllSavedJob());
+    }
   };
 
   return (
@@ -105,7 +116,13 @@ const JobItem = ({ jobData = {}, applied = false }) => {
               secondary
               style={{ padding: "4px", height: "26px", overflow: "hidden" }}
             >
-              <i className={isSave ? "bi bi-heart-fill" : "bi bi-heart"} />
+              <i
+                className={
+                  savedJobList.includes(jobData.jobId)
+                    ? "bi bi-heart-fill"
+                    : "bi bi-heart"
+                }
+              />
             </ButtonPrimary>
           </div>
         </div>

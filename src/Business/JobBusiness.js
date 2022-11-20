@@ -4,7 +4,9 @@ import {
   getNewJobURL,
   getListJobInterestingURL,
   saveJobURL,
+  unsavedJobURL,
   getSavedJobURL,
+  getAllSavedJobId,
 } from "Config/Api/ConfigURL";
 
 class JobBusiness extends Service {
@@ -28,8 +30,18 @@ class JobBusiness extends Service {
     return result;
   };
 
+  UnsaveJob = async (jobId) => {
+    let result = await this.post(`${unsavedJobURL}/${jobId}`);
+    return result;
+  };
+
   GetSavedJob = async (page, size) => {
     let result = await this.get(`${getSavedJobURL}?page=${page}&size=${size}`);
+    return result;
+  };
+
+  GetAllSavedJobId = async () => {
+    let result = await this.get(getAllSavedJobId);
     return result;
   };
 }

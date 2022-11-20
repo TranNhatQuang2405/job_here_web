@@ -7,6 +7,7 @@ import Pagination from "react-bootstrap/Pagination";
 import { JobList } from "Components/Job";
 import { LoadingSpinner } from "Components/Loading";
 import { PathTree } from "Components/Path";
+import { useSelector } from "react-redux";
 
 const JobSavedPage = () => {
   const [data, setData] = useState([]);
@@ -15,10 +16,11 @@ const JobSavedPage = () => {
   const [totalPage, setTotalPage] = useState(0);
   const { t } = useTranslation();
   const size = 8;
+  let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
 
   useEffect(() => {
     getData();
-  }, [currentPage]);
+  }, [currentPage, savedJobList]);
 
   const getData = async () => {
     setLoading(true);
@@ -48,26 +50,32 @@ const JobSavedPage = () => {
           <LoadingSpinner />
         ) : (
           <div>
-            <JobList data={data} />
-            <div className="d-flex justify-content-center align-items-center">
-              {totalPage > 0 && (
-                <Pagination>
-                  <Pagination.First onClick={onChangePage(0)} />
-                  <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
-                  {_.map([...Array(totalPage)], (item, index) => (
-                    <Pagination.Item
-                      key={index}
-                      active={index === currentPage}
-                      onClick={onChangePage(index)}
-                    >
-                      {index + 1}
-                    </Pagination.Item>
-                  ))}
-                  <Pagination.Next onClick={onChangePage(currentPage + 1)} />
-                  <Pagination.Last onClick={onChangePage(totalPage - 1)} />
-                </Pagination>
-              )}
-            </div>
+            {data.length === 0 ? (
+              <p>{t("jh-saved-job-page-no-job")}</p>
+            ) : (
+              <div>
+                <JobList data={data} />
+                <div className="d-flex justify-content-center align-items-center">
+                  {totalPage > 0 && (
+                    <Pagination>
+                      <Pagination.First onClick={onChangePage(0)} />
+                      <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
+                      {_.map([...Array(totalPage)], (item, index) => (
+                        <Pagination.Item
+                          key={index}
+                          active={index === currentPage}
+                          onClick={onChangePage(index)}
+                        >
+                          {index + 1}
+                        </Pagination.Item>
+                      ))}
+                      <Pagination.Next onClick={onChangePage(currentPage + 1)} />
+                      <Pagination.Last onClick={onChangePage(totalPage - 1)} />
+                    </Pagination>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

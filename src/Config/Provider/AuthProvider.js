@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authBusiness } from "Business";
 import { changeSession, LogOut } from "Config/Redux/Slice/UserSlice";
+import { GetAllSavedJob } from "Config/Redux/Slice/SavedJobSlice";
 import { LoadingPage } from "Layout/Common";
 const listAuthPath = ["/SignIn", "/SignUp", "/ResetPassword", "/AuthCode"];
 
@@ -24,6 +25,7 @@ const AuthProvider = ({ children }) => {
         session.data.objectData.email
       ) {
         dispatch(changeSession(session.data.objectData));
+        dispatch(GetAllSavedJob());
         let path = location.pathname;
         if (listAuthPath.find((x) => x === path)) navigate("/Home");
       } else {

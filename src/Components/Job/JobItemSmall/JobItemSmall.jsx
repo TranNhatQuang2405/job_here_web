@@ -5,11 +5,14 @@ import { TagList } from "Components/Tag";
 import { CompanyLogo } from "Components/Company";
 import { ButtonPrimary } from "Components/Button";
 import { Link } from "react-router-dom";
-import { dropdownBusiness } from "Business";
+import { dropdownBusiness, jobBusiness } from "Business";
+import { useSelector, useDispatch } from "react-redux";
+import { GetAllSavedJob } from "Config/Redux/Slice/SavedJobSlice";
 
 const JobItemSmall = ({ jobData = {} }) => {
-  const [isSave, setIsSave] = useState(false);
   const [localData, setLocalData] = useState({});
+  const dispatch = useDispatch();
+  let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
 
   useEffect(() => {
     const getData = async () => {
@@ -35,8 +38,16 @@ const JobItemSmall = ({ jobData = {} }) => {
     },
   ];
 
-  const onSaveJob = () => {
-    // setIsSave(!isSave);
+  const onSaveJob = async () => {
+    let result = null;
+    if (savedJobList.includes(jobData.jobId)) {
+      result = await jobBusiness.UnsaveJob(jobData.jobId);
+    } else {
+      result = await jobBusiness.SaveJob(jobData.jobId);
+    }
+    if (result.data.httpCode === 200) {
+      dispatch(GetAllSavedJob());
+    }
   };
 
   return (
@@ -72,7 +83,13 @@ const JobItemSmall = ({ jobData = {} }) => {
               secondary
               style={{ padding: "4px", height: "25px", overflow: "hidden" }}
             >
-              <i className={isSave ? "bi bi-heart-fill" : "bi bi-heart"} />
+              <i
+                className={
+                  savedJobList.includes(jobData.jobId)
+                    ? "bi bi-heart-fill"
+                    : "bi bi-heart"
+                }
+              />
             </ButtonPrimary>
           </div>
         </div>

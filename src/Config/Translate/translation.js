@@ -6,7 +6,7 @@ export const en = {
   Logout: "Logout",
   Jobs: "Jobs",
   "Applied Jobs": "Applied Jobs",
-  "SavedJob": "Saved Jobs",
+  SavedJob: "Saved Jobs",
   "Matched Jobs": "Matched Jobs",
   "Profile & CV": "Profile & CV",
   "CV Manage": "CV Manage",
@@ -141,6 +141,7 @@ export const en = {
   "jh-loading": "Loading...",
   "No result": "No result",
   "Popular Keyword": "Popular Keyword",
+  "jh-saved-job-page-no-job": "You have no saved job!",
 };
 
 export const vn = {
@@ -151,7 +152,7 @@ export const vn = {
   Logout: "Đăng Xuất",
   Jobs: "Việc Làm",
   "Applied Jobs": "Việc Làm Đã Ứng Tuyển",
-  "SavedJob": "Việc Làm Đã Lưu",
+  SavedJob: "Việc Làm Đã Lưu",
   "Matched Jobs": "Việc Làm Phù Hợp",
   "Profile & CV": "Hồ Sơ & CV",
   "CV Manage": "Quản Lý CV",
@@ -287,4 +288,5 @@ export const vn = {
   "jh-loading": "Đang tải...",
   "No result": "Không có kết quả",
   "Popular Keyword": "Từ khoá phổ biến",
+  "jh-saved-job-page-no-job": "Bạn chưa có việc làm đã lưu nào!",
 };

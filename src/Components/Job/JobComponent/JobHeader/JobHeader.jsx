@@ -1,26 +1,35 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import "./JobHeader.css";
 import { ButtonPrimary } from "Components/Button";
 import { ModalApplyJob } from "Components/Modal";
 import company_default_img from "Assets/Images/company_default_img.jpg";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import Moment from "moment";
+import { jobBusiness } from "Business";
+import { useSelector, useDispatch } from "react-redux";
+import { GetAllSavedJob } from "Config/Redux/Slice/SavedJobSlice";
 
 const JobHeader = ({ jobData = {} }) => {
-  const [isApply, setIsApply] = useState(false);
-  const [isSave, setIsSave] = useState(false);
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const applyJobRef = useRef();
+  const dispatch = useDispatch();
+  let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
 
   const onApply = () => {
     applyJobRef?.current?.onToggleModal?.();
   };
 
-  const onSave = () => {
-    // setIsSave(!isSave);
+  const onSave = async () => {
+    let result = null;
+    if (savedJobList.includes(jobData.jobId)) {
+      result = await jobBusiness.UnsaveJob(jobData.jobId);
+    } else {
+      result = await jobBusiness.SaveJob(jobData.jobId);
+    }
+    if (result.data.httpCode === 200) {
+      dispatch(GetAllSavedJob());
+    }
   };
 
   return (
@@ -60,39 +69,22 @@ const JobHeader = ({ jobData = {} }) => {
         </div>
         <div className="JobHeader_box-apply">
           <div className="text-center">
-            {!isApply ? (
-              <>
-                <p>
-                  <ButtonPrimary onClick={onApply}>
-                    <i className="bi bi-send" /> {t("APPLY NOW")}
-                  </ButtonPrimary>
-                </p>
-                <div>
-                  {!isSave ? (
-                    <ButtonPrimary secondary onClick={onSave} style={{ width: "100%" }}>
-                      <i className="bi bi-heart" /> {t("SAVE JOB")}
-                    </ButtonPrimary>
-                  ) : (
-                    <ButtonPrimary onClick={onSave} style={{ width: "100%" }}>
-                      <i className="bi bi-heart-fill" /> {t("SAVED")}
-                    </ButtonPrimary>
-                  )}
-                </div>
-              </>
-            ) : (
-              <>
-                <p>
-                  <ButtonPrimary onClick={onApply} style={{ width: "100%" }}>
-                    <i className="bi bi-arrow-counterclockwise" /> {t("RE-APPLY")}
-                  </ButtonPrimary>
-                </p>
-                <div>
-                  <ButtonPrimary secondary style={{ width: "100%" }}>
-                    <i className="bi bi-chat-left-dots" /> {t("MESSAGE")}
-                  </ButtonPrimary>
-                </div>
-              </>
-            )}
+            <p>
+              <ButtonPrimary onClick={onApply}>
+                <i className="bi bi-send" /> {t("APPLY NOW")}
+              </ButtonPrimary>
+            </p>
+            <div>
+              {!savedJobList.includes(jobData.jobId) ? (
+                <ButtonPrimary secondary onClick={onSave} style={{ width: "100%" }}>
+                  <i className="bi bi-heart" /> {t("SAVE JOB")}
+                </ButtonPrimary>
+              ) : (
+                <ButtonPrimary onClick={onSave} style={{ width: "100%" }}>
+                  <i className="bi bi-heart-fill" /> {t("SAVED")}
+                </ButtonPrimary>
+              )}
+            </div>
           </div>
         </div>
       </div>
