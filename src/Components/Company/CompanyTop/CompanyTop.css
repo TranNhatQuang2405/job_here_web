@@ -3,8 +3,8 @@
   overflow: hidden;
   border: 1px solid var(--jh-secondary-border-color);
   border-radius: 5px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .CompanyTop__item:hover {
@@ -14,4 +14,12 @@
 .CompanyTop__item-logo {
   height: 100%;
   text-align: center;
+}
+
+.CompanyTop__item-logo img {
+  height: 70%;
+}
+
+.CompanyTop__item-logo p {
+  font-size: 13px;
 }
