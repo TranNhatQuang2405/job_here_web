@@ -77,7 +77,7 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
 
   return (
     <Modal centered show={show} onHide={onHide} dialogClassName="modal-90w">
-      <WarningModal ref={messRef} />
+      <WarningModal ref={messRef} title={t("Apply Job")} />
       <Modal.Header closeButton>
         <Modal.Title>{jobData.jobName || t("Apply Job")}</Modal.Title>
       </Modal.Header>
