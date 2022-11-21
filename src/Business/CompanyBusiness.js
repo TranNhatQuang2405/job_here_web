@@ -3,6 +3,7 @@ import {
   getListCompanyURL,
   getCompanyInfoURL,
   getJobOfCompanyURL,
+  getTopCompanyURL,
 } from "Config/Api/ConfigURL";
 
 class CompanyBusiness extends Service {
@@ -22,6 +23,11 @@ class CompanyBusiness extends Service {
 
   GetJobOfCompany = async (companyId) => {
     let result = await this.get(`${getJobOfCompanyURL}/${companyId}`);
+    return result;
+  };
+
+  GetListTopCompany = async () => {
+    let result = await this.get(getTopCompanyURL);
     return result;
   };
 }

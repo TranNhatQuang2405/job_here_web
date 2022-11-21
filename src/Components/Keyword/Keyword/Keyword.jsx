@@ -34,7 +34,7 @@ const testData = [
 ];
 
 const Keyword = () => {
-  const [data, setData] = useState(testData);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { t } = useTranslation();
 
@@ -45,6 +45,8 @@ const Keyword = () => {
   const getData = () => {
     setLoading(false);
   };
+
+  return null
 
   return (
     <div className="jh-box-item p-3">

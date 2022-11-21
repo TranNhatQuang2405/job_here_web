@@ -1,29 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./JobItemSmall.css";
 import { Col } from "react-bootstrap";
 import { TagList } from "Components/Tag";
 import { CompanyLogo } from "Components/Company";
 import { ButtonPrimary } from "Components/Button";
 import { Link } from "react-router-dom";
-import { dropdownBusiness, jobBusiness } from "Business";
+import { jobBusiness } from "Business";
 import { useSelector, useDispatch } from "react-redux";
 import { GetAllSavedJob } from "Config/Redux/Slice/SavedJobSlice";
 
 const JobItemSmall = ({ jobData = {} }) => {
-  const [localData, setLocalData] = useState({});
   const dispatch = useDispatch();
   let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
-
-  useEffect(() => {
-    const getData = async () => {
-      let result = await dropdownBusiness.UnitDropdown();
-      if (result.data.httpCode === 200) {
-        let u = result.data.objectData.find((x) => x.unit === jobData.unit);
-        if (u) setLocalData({ unitName: u.unitName });
-      }
-    };
-    getData();
-  }, []);
 
   let tagData = [
     {
@@ -31,7 +19,7 @@ const JobItemSmall = ({ jobData = {} }) => {
         jobData.salaryMin === jobData.salaryMax
           ? jobData.salaryMin
           : `${jobData.salaryMin} - ${jobData.salaryMax}`
-      } ${localData?.unitName ?? ""}`,
+      } ${jobData?.unitName ?? ""}`,
     },
     {
       label: jobData?.city?.cityName ?? "",

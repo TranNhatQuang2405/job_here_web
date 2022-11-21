@@ -41,3 +41,4 @@ export const uploadCVURL = "/user/upload/uploadCV";
 export const getListCompanyURL = "/user/company/getListCompany";
 export const getCompanyInfoURL = "/user/company/getCompanyInfo";
 export const getJobOfCompanyURL = "/user/company/getAllJobOfCompany";
+export const getTopCompanyURL = "/user/company/getListTopCompanyHome";

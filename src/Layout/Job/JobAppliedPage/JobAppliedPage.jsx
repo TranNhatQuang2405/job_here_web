@@ -3,7 +3,7 @@ import "./JobAppliedPage.css";
 import _ from "underscore";
 import { JobItem } from "Components/Job";
 import { useTranslation } from "react-i18next";
-import { userBusiness } from "Business";
+import { dropdownBusiness, userBusiness } from "Business";
 import { LoadingSpinner } from "Components/Loading";
 
 const JobAppliedPage = () => {
@@ -23,7 +23,16 @@ const JobAppliedPage = () => {
     setLoading(true);
     let result = await userBusiness.GetAppliedJob(timePicker.month, timePicker.year);
     if (result.data.httpCode === 200) {
-      setData(result?.data?.objectData ?? []);
+      let listJob = result?.data?.objectData ?? [];
+      let _unitname = await dropdownBusiness.UnitDropdown();
+      if (_unitname.data.httpCode === 200) {
+        for (let i = 0; i < listJob.length; i++) {
+          listJob[i].unitName = _unitname.data.objectData.find(
+            (x) => x.unit === listJob[i].unit
+          ).unitName;
+        }
+      }
+      setData(listJob);
     }
     setLoading(false);
   };

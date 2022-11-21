@@ -61,12 +61,20 @@ const JobSearch = () => {
       industryField
     );
     if (result.data.httpCode === 200) {
-      let _data = result.data?.objectData?.pageData ?? [];
       if (totalPage !== result.data.objectData.totalPage) {
         let newTotalPage = result.data.objectData.totalPage;
         setTotalPage(newTotalPage);
       }
-      setData(_data);
+      let listJob = result.data?.objectData?.pageData ?? [];
+      let _unitname = await dropdownBusiness.UnitDropdown();
+      if (_unitname.data.httpCode === 200) {
+        for (let i = 0; i < listJob.length; i++) {
+          listJob[i].unitName = _unitname.data.objectData.find(
+            (x) => x.unit === listJob[i].unit
+          ).unitName;
+        }
+      }
+      setData(listJob);
     }
     setLoading(false);
   };
