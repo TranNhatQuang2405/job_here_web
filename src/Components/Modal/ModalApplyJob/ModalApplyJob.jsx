@@ -62,7 +62,6 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
   };
 
   const onApply = async () => {
-    console.log(info.cv);
     if (info.cv) {
       let result = await userBusiness.ApplyJob(info.cv, jobData.jobId, info.note);
       messRef?.current?.setMessage?.(result?.data?.message ?? "");

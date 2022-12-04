@@ -70,3 +70,29 @@
   background-color: var(--bs-sidebar-menu-item-active-color) !important;
   border-color: var(--bs-sidebar-menu-item-active-color) !important;
 }
+
+.EditUserInfo__lableAvatar {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  cursor: pointer;
+  background-color: aliceblue;
+  padding: 4px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.EditUserInfo__loadingAvatar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.EditUserInfo__loadingAvatar-child {
+  width: 50%;
+  height: 50%;
+}
