@@ -36,6 +36,7 @@ export const getListCVURL = "/cv/getListOwnerCV";
 
 // Upload
 export const uploadCVURL = "/user/upload/uploadCV";
+export const uploadImageURL = "/user/upload/uploadImage";
 
 //Company
 export const getListCompanyURL = "/user/company/getListCompany";

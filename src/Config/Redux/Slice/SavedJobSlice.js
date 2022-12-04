@@ -15,7 +15,6 @@ export const SavedJobSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(GetAllSavedJob.fulfilled, (state, action) => {
-      console.log(action.payload?.data?.objectData?.map((item) => item.jobId))
       state.listSavedJob = action.payload?.data?.objectData?.map((item) => item.jobId);
     });
   },

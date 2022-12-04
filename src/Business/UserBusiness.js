@@ -9,13 +9,14 @@ import {
 } from "Config/Api/ConfigURL";
 
 class UserBusiness extends Service {
-  UpdateUserInfo = async (fullname, address, dateOfBirth, phone, gender) => {
+  UpdateUserInfo = async (fullname, address, dateOfBirth, phone, gender, imageUrl) => {
     let params = {
       fullname: fullname,
       address: address,
       dateOfBirth: dateOfBirth,
       phone: phone,
       gender: gender,
+      imageUrl: imageUrl,
     };
     let result = await this.post(updateUserInfoURL, params);
     return result;
