@@ -38,7 +38,7 @@ const Header = (props) => {
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-					<Navbar.Collapse id="basic-navbar-nav">
+					<Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
 						{!!sessionInfo && (
 							<Nav className="me-auto">
 								<NavDropdown title={t("Jobs")} id="basic-nav-dropdown" menuVariant="dark">

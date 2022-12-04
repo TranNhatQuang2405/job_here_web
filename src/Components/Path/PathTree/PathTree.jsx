@@ -53,7 +53,7 @@ const PathTree = ({ lastPath = "" }) => {
           }
         >
           <i className="bi bi-chevron-right" />
-          <Link to={creatUrl(ele)} className="">
+          <Link to={creatUrl(ele)} disabled={index === paths.length - 1}>
             {t(ele.pathName)}
           </Link>
         </div>
