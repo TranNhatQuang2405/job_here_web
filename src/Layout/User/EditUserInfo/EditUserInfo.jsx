@@ -27,7 +27,6 @@ const EditUserInfo = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   let sessionInfo = useSelector((state) => state.User.sessionInfo);
-  console.log(sessionInfo);
   const [account, setAccount] = useState({
     displayName: sessionInfo?.fullname ?? "",
     address: sessionInfo?.address ?? "",
@@ -67,6 +66,7 @@ const EditUserInfo = () => {
       dateOfBirth: sessionInfo?.dateOfBirth ?? "",
       gender: sessionInfo?.gender ?? "MALE",
       phone: sessionInfo?.phone ?? "",
+      imageUrl: sessionInfo?.imageUrl ?? null,
     });
   }, [sessionInfo]);
 
