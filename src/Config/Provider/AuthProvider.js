@@ -43,6 +43,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       isSubscribed = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, dispatch, navigate]);
   if (isLoading === true) return <LoadingPage />;
   return <>{children}</>;

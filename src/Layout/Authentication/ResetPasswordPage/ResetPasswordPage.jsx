@@ -20,6 +20,7 @@ const ResetPasswordPage = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [alert, setAlert] = useState(null);
 
   const onChangeEmail = (e) => {
@@ -31,7 +32,7 @@ const ResetPasswordPage = () => {
     dispatch(changeCurrentPage(1));
   };
 
-  const onResetPassword = () => {};
+  const onResetPassword = () => { };
 
   return (
     <div className="ResetPassword">

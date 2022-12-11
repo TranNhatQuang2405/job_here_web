@@ -2,8 +2,6 @@ import React from "react";
 import _ from "underscore";
 import "./JobInfo.css";
 import { IconCircle } from "Components/Icon";
-import { ButtonPrimary } from "Components/Button";
-import { Row, Col } from "react-bootstrap/";
 import { useTranslation } from "react-i18next";
 import { TagList } from "Components/Tag";
 

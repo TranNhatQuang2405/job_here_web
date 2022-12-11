@@ -31,6 +31,7 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
 
   useEffect(() => {
     getCVData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getCVData = async () => {
@@ -53,9 +54,9 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
     setInfo((prev) => ({ ...prev, cv: e.target.value }));
   };
 
-  const onChangeNote = (e) => {
-    setInfo((prev) => ({ ...prev, note: e.target.value }));
-  };
+  // const onChangeNote = (e) => {
+  //   setInfo((prev) => ({ ...prev, note: e.target.value }));
+  // };
 
   const onHide = () => {
     setShow(false);

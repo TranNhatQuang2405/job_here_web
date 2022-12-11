@@ -17,6 +17,7 @@ const JobAppliedPage = () => {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timePicker]);
 
   const getData = async () => {

@@ -17,6 +17,7 @@ const JobInteresting = () => {
 
   useEffect(() => {
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   const getData = async () => {

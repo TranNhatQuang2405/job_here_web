@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import {
   Col,
   Row,
-  Card,
   Form,
   InputGroup,
   FormControl,
@@ -25,6 +24,7 @@ const ChangePasswordPage = () => {
     newPass: "",
     newPass2: "",
   });
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
 
   const onChangeOldPass = (e) => {

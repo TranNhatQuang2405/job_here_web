@@ -42,6 +42,7 @@ const EditUserInfo = () => {
     avatar: false,
   });
   const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [modalRef, setModalRef] = useState(useRef());
 
   useEffect(() => {
@@ -204,7 +205,7 @@ const EditUserInfo = () => {
                       placeholder={t("Enter Email")}
                       aria-label="Enter Email"
                       value={sessionInfo?.email ?? ""}
-                      onChange={() => {}}
+                      onChange={() => { }}
                       disabled
                     />
                   </InputGroup>

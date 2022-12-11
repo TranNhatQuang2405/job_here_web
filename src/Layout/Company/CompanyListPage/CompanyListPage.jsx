@@ -32,6 +32,7 @@ const CompanyList = () => {
       setLoading(false);
     }
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activePage]);
 
   const onChangePage = (page) => () => {
