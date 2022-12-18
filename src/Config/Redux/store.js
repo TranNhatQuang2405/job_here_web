@@ -3,6 +3,7 @@ import CurrentPageSlice from "./Slice/CurrentPageSlice";
 import HeaderRequestSlice from "./Slice/HeaderRequestSlice";
 import SavedJobSlice from "./Slice/SavedJobSlice";
 import UserSlice from "./Slice/UserSlice";
+import CurrentPathSlice from "./Slice/CurrentPathSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     HeaderRequest: HeaderRequestSlice,
     SavedJob: SavedJobSlice,
     User: UserSlice,
+    CurrentPath: CurrentPathSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

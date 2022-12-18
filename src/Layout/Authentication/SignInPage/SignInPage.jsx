@@ -14,12 +14,13 @@ import {
 } from "react-bootstrap";
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
 import { WarningModal } from "Components/Modal";
 import { SetIsPending } from "Config/Redux/Slice/UserSlice";
+import { finishLogin } from "Config/Redux/Slice/CurrentPathSlice";
 
 const SignInPage = () => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ const SignInPage = () => {
   });
   const [loading, setLoading] = useState(false);
   const modalRef = useRef();
+  const path = useSelector((state) => state.CurrentPath.path) || "/Home";
 
   const onSignIn = async (e) => {
     e.preventDefault();
@@ -39,8 +41,9 @@ const SignInPage = () => {
     setLoading(false);
     if (signIn.data.httpCode === 200) {
       dispatch(changeToken(signIn.data.objectData.token));
+      dispatch(finishLogin())
       dispatch(SetIsPending());
-      navigate("/Home");
+      navigate(path);
     } else {
       modalRef.current.setMessage(signIn?.data?.message ?? "");
       modalRef.current.onToggleModal();

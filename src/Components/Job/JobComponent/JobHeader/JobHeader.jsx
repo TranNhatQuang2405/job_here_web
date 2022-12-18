@@ -4,21 +4,28 @@ import { ButtonPrimary } from "Components/Button";
 import { ModalApplyJob } from "Components/Modal";
 import company_default_img from "Assets/Images/company_default_img.jpg";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Moment from "moment";
 import { jobBusiness } from "Business";
 import { useSelector, useDispatch } from "react-redux";
 import { GetAllSavedJob, SaveTemporary, UnSaveTemporary } from "Config/Redux/Slice/SavedJobSlice";
+import { changeCurrentPath } from "Config/Redux/Slice/CurrentPathSlice";
 
 const JobHeader = ({ jobData = {} }) => {
     const { t } = useTranslation();
     const applyJobRef = useRef();
     const dispatch = useDispatch();
-    let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
-
+    const savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
+    const sessionInfo = useSelector((state) => state.User.sessionInfo);
+    const location = useLocation();
     const onApply = () => {
         applyJobRef?.current?.onToggleModal?.();
     };
+
+    const goToSignIn = () => {
+        let path = location.pathname
+        dispatch(changeCurrentPath(path))
+    }
 
     const onSave = async () => {
         let result = null;
@@ -71,20 +78,32 @@ const JobHeader = ({ jobData = {} }) => {
                 </div>
                 <div className="JobHeader_box-apply">
                     <div className="text-center">
-                        <p>
-                            <ButtonPrimary onClick={onApply}>
-                                <i className="bi bi-send" /> {t("APPLY NOW")}
-                            </ButtonPrimary>
-                        </p>
-                        <div>
-                            {!savedJobList.includes(jobData.jobId) ? (
-                                <ButtonPrimary secondary onClick={onSave} style={{ width: "100%" }}>
-                                    <i className="bi bi-heart" /> {t("SAVE JOB")}
+                        <div className="mb-3">
+                            {!sessionInfo ? (
+                                <ButtonPrimary onClick={goToSignIn}>
+                                    <i className="bi bi-send" /> {t("aplly.nologin")}
                                 </ButtonPrimary>
                             ) : (
-                                <ButtonPrimary onClick={onSave} style={{ width: "100%" }}>
-                                    <i className="bi bi-heart-fill" /> {t("SAVED")}
+                                <ButtonPrimary onClick={onApply}>
+                                    <i className="bi bi-send" /> {t("APPLY NOW")}
                                 </ButtonPrimary>
+                            )}
+                        </div>
+                        <div>
+                            {!sessionInfo ? (
+                                <ButtonPrimary secondary onClick={goToSignIn} style={{ width: "100%" }}>
+                                    {t("saveJob.nologin")}
+                                </ButtonPrimary>
+                            ) : (
+                                !savedJobList.includes(jobData.jobId) ? (
+                                    <ButtonPrimary secondary onClick={onSave} style={{ width: "100%" }}>
+                                        <i className="bi bi-heart" /> {t("SAVE JOB")}
+                                    </ButtonPrimary>
+                                ) : (
+                                    <ButtonPrimary onClick={onSave} style={{ width: "100%" }}>
+                                        <i className="bi bi-heart-fill" /> {t("SAVED")}
+                                    </ButtonPrimary>
+                                )
                             )}
                         </div>
                     </div>

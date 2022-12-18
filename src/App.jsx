@@ -15,30 +15,33 @@ import { ManageCVPage } from "Layout/CV";
 import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
+import PathProvider from "Config/Provider/PathProvider";
 
 const App = () => {
   return (
     <I18nextProvider i18n={i18n}>
       <AuthProvider>
-        <PageTemplate>
-          <Routes>
-            <Route path="/SignUp" element={<SignUpPage />} />
-            <Route path="/SignIn" element={<SignInPage />} />
-            <Route path="/ResetPassword" element={<ResetPasswordPage />} />
-            <Route path="/AuthCode" element={<AuthCodePage />} />
-            <Route path="/Home" element={<MainPage />} />
-            <Route path="/Job" element={<MainPage />} />
-            <Route path="/Job/:id" element={<JobPage />} />
-            <Route path="/AppliedJob" element={<JobAppliedPage />} />
-            <Route path="/SavedJob" element={<JobSavedPage />} />
-            <Route path="/CVManage" element={<ManageCVPage />} />
-            <Route path="/Company" element={<CompanyListPage />} />
-            <Route path="/Company/:id" element={<CompanyPage />} />
-            <Route path="/EditInfomation" element={<EditUserInfo />} />
-            <Route path="/ChangePassword" element={<ChangePasswordPage />} />
-            <Route path="*" element={<Navigate to="/Home" />} />
-          </Routes>
-        </PageTemplate>
+        <PathProvider>
+          <PageTemplate>
+            <Routes>
+              <Route path="/SignUp" element={<SignUpPage />} />
+              <Route path="/SignIn" element={<SignInPage />} />
+              <Route path="/ResetPassword" element={<ResetPasswordPage />} />
+              <Route path="/AuthCode" element={<AuthCodePage />} />
+              <Route path="/Home" element={<MainPage />} />
+              <Route path="/Job" element={<MainPage />} />
+              <Route path="/Job/:id" element={<JobPage />} />
+              <Route path="/AppliedJob" element={<JobAppliedPage />} />
+              <Route path="/SavedJob" element={<JobSavedPage />} />
+              <Route path="/CVManage" element={<ManageCVPage />} />
+              <Route path="/Company" element={<CompanyListPage />} />
+              <Route path="/Company/:id" element={<CompanyPage />} />
+              <Route path="/EditInfomation" element={<EditUserInfo />} />
+              <Route path="/ChangePassword" element={<ChangePasswordPage />} />
+              <Route path="*" element={<Navigate to="/Home" />} />
+            </Routes>
+          </PageTemplate>
+        </PathProvider>
       </AuthProvider>
     </I18nextProvider>
   );
