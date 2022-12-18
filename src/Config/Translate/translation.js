@@ -142,6 +142,7 @@ export const en = {
   "No result": "No result",
   "Popular Keyword": "Popular Keyword",
   "jh-saved-job-page-no-job": "You have no saved job!",
+  "apply.placeholder": "Viết giới thiệu ngắn gọn về bản thân (điểm mạnh, điểm yếu) và nêu rõ mong muốn, lý do làm việc tại công ty này. Đây là cách gây ấn tượng với nhà tuyển dụng nếu bạn có chưa có kinh nghiệm làm việc (hoặc CV không tốt)."
 };
 
 export const vn = {
@@ -223,7 +224,7 @@ export const vn = {
   "Share by social media": "Chia sẻ qua mạng xã hội",
   "Report job": "Báo cáo tin tuyển dụng",
   "jh-report-job":
-    "Nếu bạn thấy rằng tin tuyển dụng này không đúng hoặc có một trong các dấu hiệu lừa đảo như: thông tin thiếu minh bạch, yêu cầu đặt cọc trước... hãy phản ánh với chúng tôi.",
+    "If you find that this job posting is incorrect or has one of the signs of a scam such as: lack of transparency, reservation request...please respond to us.",
   Deadline: "Ngày đến hạn",
   "APPLY NOW": "ỨNG TUYỂN NGAY",
   "SAVE JOB": "LƯU VIỆC LÀM",
@@ -289,4 +290,5 @@ export const vn = {
   "No result": "Không có kết quả",
   "Popular Keyword": "Từ khoá phổ biến",
   "jh-saved-job-page-no-job": "Bạn chưa có việc làm đã lưu nào!",
+  "apply.placeholder": "Viết giới thiệu ngắn gọn về bản thân (điểm mạnh, điểm yếu) và nêu rõ mong muốn, lý do làm việc tại công ty này. Đây là cách gây ấn tượng với nhà tuyển dụng nếu bạn có chưa có kinh nghiệm làm việc (hoặc CV không tốt)."
 };

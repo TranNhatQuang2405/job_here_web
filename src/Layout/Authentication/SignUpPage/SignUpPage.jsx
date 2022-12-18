@@ -26,10 +26,13 @@ import {
   ValidatePhone,
 } from "Config/Validate";
 import { SetIsPending } from "Config/Redux/Slice/UserSlice";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
+
   const [account, setAccount] = useState({
     email: "",
     displayName: "",
@@ -42,7 +45,7 @@ const SignUpPage = () => {
 
   const onSignIn = () => {
     dispatch(SetIsPending());
-    dispatch(changeCurrentPage(1));
+    navigate("/SignIn")
   };
 
   const onSignUp = async (e) => {
@@ -50,23 +53,18 @@ const SignUpPage = () => {
     if (!ValidateEmail(account.email)) {
       modalRef.current.setMessage(t("Invalid Email!"));
       modalRef.current.onToggleModal();
-      // setAccount({ ...account, password: "" });
     } else if (!ValidateUTF8Name(account.displayName)) {
       modalRef.current.setMessage(t("Invalid Display Name!"));
       modalRef.current.onToggleModal();
-      // setAccount({ ...account, password: "" });
     } else if (!ValidatePassword(account.password)) {
       modalRef.current.setMessage(t("jh-invalid-password"));
       modalRef.current.onToggleModal();
-      // setAccount({ ...account, password: "" });
     } else if (!ValidateDateOfBirth(account.dateOfBirth)) {
       modalRef.current.setMessage(t("Invalid Date Of Birth!"));
       modalRef.current.onToggleModal();
-      // setAccount({ ...account, password: "" });
     } else if (!ValidatePhone(account.phone)) {
       modalRef.current.setMessage(t("Invalid Phone Number!"));
       modalRef.current.onToggleModal();
-      // setAccount({ ...account, password: "" });
     } else {
       let { email, password, dateOfBirth, displayName, phone } = account;
       setLoading(true);
@@ -85,7 +83,6 @@ const SignUpPage = () => {
       } else {
         modalRef.current.setMessage("Some thing went wrong! Please try again!");
         modalRef.current.onToggleModal();
-        // setAccount({ ...account, password: "" });
       }
     }
   };

@@ -12,12 +12,19 @@ export const GetAllSavedJob = createAsyncThunk("SavedJob/getall", async () => {
 export const SavedJobSlice = createSlice({
   name: "SavedJob",
   initialState,
-  reducers: {},
+  reducers: {
+    SaveTemporary: (state, action) => {
+      state.listSavedJob = [...state.listSavedJob, action.payload]
+    },
+    UnSaveTemporary: (state, action) => {
+      state.listSavedJob.splice(state.listSavedJob.findIndex((arrow) => arrow.id === action.payload), 1);
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(GetAllSavedJob.fulfilled, (state, action) => {
       state.listSavedJob = action.payload?.data?.objectData?.map((item) => item.jobId);
     });
   },
 });
-
+export const { SaveTemporary, UnSaveTemporary } = SavedJobSlice.actions;
 export default SavedJobSlice.reducer;

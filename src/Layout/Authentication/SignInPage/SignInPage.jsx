@@ -15,7 +15,6 @@ import {
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
@@ -51,7 +50,7 @@ const SignInPage = () => {
 
   const onSignUp = () => {
     dispatch(SetIsPending());
-    dispatch(changeCurrentPage(2));
+    navigate("/SignUp")
   };
 
   const onChangeValueEmail = (e) => {

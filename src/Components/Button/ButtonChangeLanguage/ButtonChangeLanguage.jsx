@@ -11,6 +11,7 @@ const ChangeLanguageButton = (props) => {
   const navigate = useNavigate();
 
   const changeLanguage = () => {
+
     if (i18n.language === "en") {
       i18n.changeLanguage("vn");
       dispatch(changeAcceptLanguage("vi"));
