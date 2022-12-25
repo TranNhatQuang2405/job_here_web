@@ -1,3 +1,14 @@
+.CompanyTop_all-company,
+.CompanyTop_all-company i {
+  color: var(--jh-primary-color);
+  font-size: 16px;
+}
+
+.CompanyTop_all-company:hover,
+.CompanyTop_all-company i:hover {
+  color: var(--jh-primary-color-hover);
+}
+
 .CompanyTop__item {
   height: 100px;
   overflow: hidden;
