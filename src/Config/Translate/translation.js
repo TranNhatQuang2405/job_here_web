@@ -145,8 +145,9 @@ export const en = {
   "apply.placeholder": "Describe yourself to attract recruiter",
   "aplly.nologin": "Login to Apply",
   "saveJob.nologin": "Login to Save",
-  "jobSearch.btn": "Search"
-
+  "jobSearch.btn": "Search",
+  "user.job.search.totalRecord.1": "Have",
+  "user.job.search.totalRecord.2": "matching results",
 };
 
 export const vn = {
@@ -294,8 +295,11 @@ export const vn = {
   "No result": "Không có kết quả",
   "Popular Keyword": "Từ khoá phổ biến",
   "jh-saved-job-page-no-job": "Bạn chưa có việc làm đã lưu nào!",
-  "apply.placeholder": "Viết giới thiệu ngắn gọn về bản thân (điểm mạnh, điểm yếu) và nêu rõ mong muốn, lý do làm việc tại công ty này. Đây là cách gây ấn tượng với nhà tuyển dụng nếu bạn có chưa có kinh nghiệm làm việc (hoặc CV không tốt).",
+  "apply.placeholder":
+    "Viết giới thiệu ngắn gọn về bản thân (điểm mạnh, điểm yếu) và nêu rõ mong muốn, lý do làm việc tại công ty này. Đây là cách gây ấn tượng với nhà tuyển dụng nếu bạn có chưa có kinh nghiệm làm việc (hoặc CV không tốt).",
   "aplly.nologin": "Đăng nhập để ứng tuyển",
   "saveJob.nologin": "Đăng nhập để lưu công việc",
-  "jobSearch.btn": "Tìm kiếm"
+  "jobSearch.btn": "Tìm kiếm",
+  "user.job.search.totalRecord.1": "Có",
+  "user.job.search.totalRecord.2": "kết quả trùng khớp",
 };
