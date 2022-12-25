@@ -11,7 +11,8 @@ import { GetAllSavedJob, SaveTemporary, UnSaveTemporary } from "Config/Redux/Sli
 
 const JobItemSmall = ({ jobData = {} }) => {
 	const dispatch = useDispatch();
-	let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
+	const savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
+	const sessionInfo = useSelector((state) => state.User.sessionInfo);
 
 	let tagData = [
 		{
@@ -67,19 +68,21 @@ const JobItemSmall = ({ jobData = {} }) => {
 						</Link>
 					</div>
 					<div className="JobItemSmall__col-like">
-						<ButtonPrimary
-							onClick={onSaveJob}
-							secondary
-							style={{ padding: "4px", height: "25px", overflow: "hidden" }}
-						>
-							<i
-								className={
-									savedJobList.includes(jobData.jobId)
-										? "bi bi-heart-fill"
-										: "bi bi-heart"
-								}
-							/>
-						</ButtonPrimary>
+						{sessionInfo ?
+							<ButtonPrimary
+								onClick={onSaveJob}
+								secondary
+								style={{ padding: "4px", height: "25px", overflow: "hidden" }}
+							>
+								<i
+									className={
+										savedJobList.includes(jobData.jobId)
+											? "bi bi-heart-fill"
+											: "bi bi-heart"
+									}
+								/>
+							</ButtonPrimary> : <></>
+						}
 					</div>
 				</div>
 				<div className="col-job-info">

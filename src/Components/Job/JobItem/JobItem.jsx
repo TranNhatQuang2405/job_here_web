@@ -12,7 +12,8 @@ import { GetAllSavedJob, SaveTemporary, UnSaveTemporary } from "Config/Redux/Sli
 const JobItem = ({ jobData = {}, applied = false }) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
+    const savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
+    const sessionInfo = useSelector((state) => state.User.sessionInfo);
 
     let tagData = [
         {
@@ -100,19 +101,20 @@ const JobItem = ({ jobData = {}, applied = false }) => {
                         <TagList tagData={tagData} />
                     </div>
                     <div className="JobItem__save-job ms-auto mt-0 text-center">
-                        <ButtonPrimary
-                            onClick={onSaveJob}
-                            secondary
-                            style={{ padding: "4px", height: "26px", overflow: "hidden" }}
-                        >
-                            <i
-                                className={
-                                    savedJobList.includes(jobData.jobId)
-                                        ? "bi bi-heart-fill"
-                                        : "bi bi-heart"
-                                }
-                            />
-                        </ButtonPrimary>
+                        {sessionInfo ?
+                            <ButtonPrimary
+                                onClick={onSaveJob}
+                                secondary
+                                style={{ padding: "4px", height: "26px", overflow: "hidden" }}
+                            >
+                                <i
+                                    className={
+                                        savedJobList.includes(jobData.jobId)
+                                            ? "bi bi-heart-fill"
+                                            : "bi bi-heart"
+                                    }
+                                />
+                            </ButtonPrimary> : <></>}
                     </div>
                 </div>
             </div>

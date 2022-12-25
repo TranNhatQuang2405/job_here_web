@@ -122,9 +122,9 @@ const JobSearch = () => {
     return (
         <div className="JobSearch__container">
             <div className="jh-container">
-                <div className="p-0 m-0">
+                <div className="px-3 m-0">
                     <form method="get" onSubmit={onSearch}>
-                        <div className="d-flex justify-content-between">
+                        <div className="JobSearch__bound">
                             <div className="JobSearch__input-data JobSearch__search-input">
                                 <input
                                     className="form-control JobSearch__input jh-box-input"
@@ -196,9 +196,9 @@ const JobSearch = () => {
                                     ))}
                                 </select>
                             </div>
-                            <div className="JobSearch__input-data search-submit">
+                            <div className="JobSearch__input-data JobSearch__btn">
                                 <ButtonPrimary style={{ paddingLeft: "20px", paddingRight: "20px" }}>
-                                    <i className="bi bi-search" /> Tìm kiếm
+                                    <i className="bi bi-search" /> {t("jobSearch.btn")}
                                 </ButtonPrimary>
                             </div>
                         </div>

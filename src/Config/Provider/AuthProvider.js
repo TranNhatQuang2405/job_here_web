@@ -6,6 +6,7 @@ import { changeSession, LogOut } from "Config/Redux/Slice/UserSlice";
 import { GetAllSavedJob } from "Config/Redux/Slice/SavedJobSlice";
 import { LoadingPage } from "Layout/Common";
 import { SetIsNotPending, SetIsPending } from "Config/Redux/Slice/UserSlice";
+import { GetAllData } from "Config/Redux/Slice/MasterDataSlice";
 const listAuthPath = ["/SignIn", "/SignUp", "/ResetPassword", "/AuthCode"];
 
 const AuthProvider = ({ children }) => {
@@ -32,8 +33,8 @@ const AuthProvider = ({ children }) => {
             } else {
                 dispatch(LogOut());
             }
+            dispatch(GetAllData());
             dispatch(SetIsNotPending());
-
         };
         if (isSubscribed) {
             unsubscribed();

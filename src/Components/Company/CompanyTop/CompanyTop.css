@@ -20,6 +20,10 @@
   height: 70%;
 }
 
-.CompanyTop__item-logo p {
+.CompanyTop__item-text {
   font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 8px;
 }
