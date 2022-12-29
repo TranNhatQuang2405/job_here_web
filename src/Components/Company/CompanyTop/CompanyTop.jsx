@@ -12,6 +12,7 @@ const CompanyTop = () => {
   const { t } = useTranslation();
   const [companyList, setCompanyList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const limit = 16;
 
   useEffect(() => {
     getData();
@@ -21,7 +22,9 @@ const CompanyTop = () => {
     setLoading(true);
     let result = await companyBusiness.GetListTopCompany();
     if (result.data.httpCode === 200) {
-      setCompanyList(result.data.objectData);
+      let _companyList = result?.data?.objectData ?? [];
+      if (_companyList.length > limit) _companyList = _companyList.slice(-limit);
+      setCompanyList(_companyList);
     }
     setLoading(false);
   };
