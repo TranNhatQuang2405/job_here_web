@@ -3,6 +3,11 @@
   background-color: var(--jh-white-background);
 }
 
+.JobSearch__container .ant-select-selector {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 .JobSearch__bound {
   display: flex;
   flex-wrap: wrap;
@@ -46,7 +51,7 @@
   z-index: 1;
 }
 
-.JobSearch__input-icon>i {
+.JobSearch__input-icon > i {
   color: var(--jh-primary-color);
   font-size: 14px;
 }
