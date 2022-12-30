@@ -7,6 +7,7 @@ import { dropdownBusiness, userBusiness } from "Business";
 import { useTranslation } from "react-i18next";
 import Pagination from "react-bootstrap/Pagination";
 import { LoadingSpinner } from "Components/Loading";
+import { Select } from "antd";
 
 const JobSearch = () => {
   const [data, setData] = useState([]);
@@ -36,11 +37,28 @@ const JobSearch = () => {
       prepare.push(dropdownBusiness.CityDropdown());
       let results = await Promise.all(prepare);
       if (!results.find((x) => x.data.httpCode !== 200)) {
-        let industry = results[0].data.objectData;
-        let skill = results[1].data.objectData;
-        let city = results[2].data.objectData;
+        // Industry Dropdown
+        let _industry = _.map(results[0].data.objectData, (item) => ({
+          value: item.industryId,
+          label: item.industryName,
+        }));
+        _industry.push({ value: "", label: " " + t("All industry") });
 
-        setDropdownData({ industry: industry, skill: skill, city: city });
+        // Skill Dropdown
+        let _skill = _.map(results[1].data.objectData, (item) => ({
+          value: item.skillId,
+          label: item.skillName,
+        }));
+        _skill.push({ value: "", label: " " + t("All skill") });
+
+        // City Dropdown
+        let _city = _.map(results[2].data.objectData, (item) => ({
+          value: item.cityId,
+          label: item.cityName,
+        }));
+        _city.push({ value: "", label: " " + t("All location") });
+
+        setDropdownData({ industry: _industry, skill: _skill, city: _city });
       }
     };
     getDropdownData();
@@ -91,24 +109,24 @@ const JobSearch = () => {
     });
   };
 
-  const onChangeIndustryField = (e) => {
+  const onChangeIndustryField = (value) => {
     setSearchData({
       ...searchData,
-      industryField: e.target.value,
+      industryField: value,
     });
   };
 
-  const onChangeSkillField = (e) => {
+  const onChangeSkillField = (value) => {
     setSearchData({
       ...searchData,
-      skillField: e.target.value,
+      skillField: value,
     });
   };
 
-  const onChangeCityField = (e) => {
+  const onChangeCityField = (value) => {
     setSearchData({
       ...searchData,
-      cityField: e.target.value,
+      cityField: value,
     });
   };
 
@@ -122,6 +140,14 @@ const JobSearch = () => {
       setCurrentPage(page);
     }
   };
+
+  const _filterOption = (input, option) =>
+    (option?.label?.toLowerCase() ?? "").includes(input?.toLowerCase());
+
+  const _filterSort = (optionA, optionB) =>
+    (optionA?.label ?? "")
+      .toLowerCase()
+      .localeCompare((optionB?.label ?? "").toLowerCase());
 
   return (
     <div className="JobSearch__container">
@@ -142,63 +168,49 @@ const JobSearch = () => {
                 <span className="JobSearch__input-icon">
                   <i className="bi bi-briefcase-fill" />
                 </span>
-                <select
-                  id="category"
+                <Select
+                  showSearch
+                  defaultValue={""}
                   className="form-control JobSearch__input jh-box-input"
-                  tabIndex="-1"
-                  aria-hidden="true"
-                  aria-controls="joketypes"
-                  aria-expanded="false"
-                  value={searchData.industryField}
-                  onChange={onChangeIndustryField}
-                >
-                  <option value="">{t("All industry")}</option>
-                  {_.map(dropdownData.industry, (item) => (
-                    <option key={item.industryId} value={item.industryId}>
-                      {item.industryName}
-                    </option>
-                  ))}
-                </select>
+                  placeholder=""
+                  optionFilterProp="children"
+                  filterOption={_filterOption}
+                  filterSort={_filterSort}
+                  onSelect={onChangeIndustryField}
+                  options={dropdownData.industry}
+                />
               </div>
               <div className="JobSearch__input-data JobSearch__search-select-company">
                 <span className="JobSearch__input-icon">
                   <i className="bi bi-building" />
                 </span>
-                <select
-                  id="company-field-advanced"
+                <Select
+                  showSearch
+                  defaultValue={""}
                   className="form-control JobSearch__input jh-box-input"
-                  value={searchData.skillField}
-                  onChange={onChangeSkillField}
-                  tabIndex="-1"
-                  aria-hidden="true"
-                >
-                  <option value="">{t("All skill")}</option>
-                  {_.map(dropdownData.skill, (item) => (
-                    <option key={item.skillId} value={item.skillId}>
-                      {item.skillName}
-                    </option>
-                  ))}
-                </select>
+                  placeholder=""
+                  optionFilterProp="children"
+                  filterOption={_filterOption}
+                  filterSort={_filterSort}
+                  onSelect={onChangeSkillField}
+                  options={dropdownData.skill}
+                />
               </div>
               <div className="JobSearch__input-data JobSearch__search-select">
                 <span className="JobSearch__input-icon">
                   <i className="bi bi-geo-alt-fill" />
                 </span>
-                <select
+                <Select
+                  showSearch
+                  defaultValue={""}
                   className="form-control JobSearch__input jh-box-input"
-                  id="city"
-                  value={searchData.cityField}
-                  onChange={onChangeCityField}
-                  tabIndex="-1"
-                  aria-hidden="true"
-                >
-                  <option value="">{t("All location")}</option>
-                  {_.map(dropdownData.city, (item) => (
-                    <option key={item.cityId} value={item.cityId}>
-                      {item.cityName}
-                    </option>
-                  ))}
-                </select>
+                  placeholder=""
+                  optionFilterProp="children"
+                  filterOption={_filterOption}
+                  filterSort={_filterSort}
+                  onSelect={onChangeCityField}
+                  options={dropdownData.city}
+                />
               </div>
               <div className="JobSearch__input-data JobSearch__btn">
                 <ButtonPrimary style={{ paddingLeft: "20px", paddingRight: "20px" }}>
