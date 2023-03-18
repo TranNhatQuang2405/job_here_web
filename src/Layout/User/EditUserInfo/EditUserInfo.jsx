@@ -10,9 +10,9 @@ import {
   FormControl,
   FormLabel,
   FormGroup,
-  Button,
   Spinner,
 } from "react-bootstrap";
+import user_img from "Assets/Images/user.png";
 import { useTranslation } from "react-i18next";
 import { authBusiness, userBusiness, dropdownBusiness, uploadBusiness } from "Business";
 import { ValidateUTF8Name, ValidateDateOfBirth, ValidatePhone } from "Config/Validate";
@@ -22,6 +22,7 @@ import { Avatar } from "Components/Image";
 import { PencilSquare } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { changeSession } from "Config/Redux/Slice/UserSlice";
+import { ButtonPrimary } from "Components/Button";
 
 const EditUserInfo = () => {
   const { t } = useTranslation();
@@ -169,7 +170,7 @@ const EditUserInfo = () => {
             />
             <Avatar
               width="150px"
-              url={account.imageUrl}
+              url={account.imageUrl || user_img}
               className="EditUserInfo__header-avatar"
             >
               <div>
@@ -315,9 +316,9 @@ const EditUserInfo = () => {
                   </InputGroup>
                 </FormGroup>
 
-                <Button className="EditUserInfo__button mt-3 w-100" type="submit">
+                <ButtonPrimary className="mt-3 w-100" type="submit">
                   {t("Update Infomation")}
-                </Button>
+                </ButtonPrimary>
               </Form>
             </Card.Body>
           </Card>

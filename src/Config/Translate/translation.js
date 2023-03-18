@@ -148,6 +148,7 @@ export const en = {
   "jobSearch.btn": "Search",
   "user.job.search.totalRecord.1": "Have",
   "user.job.search.totalRecord.2": "matching results",
+  "header.btn.changeLanguage.toolTip": "Change to Vietnamese"
 };
 
 export const vn = {
@@ -302,4 +303,5 @@ export const vn = {
   "jobSearch.btn": "Tìm kiếm",
   "user.job.search.totalRecord.1": "Có",
   "user.job.search.totalRecord.2": "kết quả trùng khớp",
+  "header.btn.changeLanguage.toolTip": "Đổi sang tiếng Anh"
 };

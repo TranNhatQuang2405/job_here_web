@@ -8,16 +8,15 @@ import {
   FormControl,
   FormLabel,
   FormGroup,
-  Button,
   Spinner,
 } from "react-bootstrap";
 import "./SignUpPage.css";
 import { useDispatch } from "react-redux";
 import { changeXAuthToken } from "Config/Redux/Slice/HeaderRequestSlice";
-import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
 import { WarningModal } from "Components/Modal";
+import { ButtonPrimary } from "Components/Button";
 import {
   ValidateEmail,
   ValidateUTF8Name,
@@ -79,7 +78,7 @@ const SignUpPage = () => {
       if (signUp.data.httpCode === 200) {
         var xAuthToken = signUp.headers["x-auth-token"];
         dispatch(changeXAuthToken(xAuthToken));
-        dispatch(changeCurrentPage(4));
+        navigate("/AuthCode")
       } else {
         modalRef.current.setMessage("Some thing went wrong! Please try again!");
         modalRef.current.onToggleModal();
@@ -217,13 +216,13 @@ const SignUpPage = () => {
                     </InputGroup>
                   </FormGroup>
 
-                  <Button className="SignUp__button w-100" type="submit">
+                  <ButtonPrimary className="w-100" type="submit">
                     {loading ? (
                       <Spinner animation="border" variant="light" />
                     ) : (
                       t("Sign Up")
                     )}
-                  </Button>
+                  </ButtonPrimary>
 
                   <div className="mt-3 mb-2 text-center">
                     <p className="text-muted mb-0">

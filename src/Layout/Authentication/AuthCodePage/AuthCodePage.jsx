@@ -8,10 +8,10 @@ import {
   FormControl,
   FormLabel,
   FormGroup,
-  Button,
   Alert,
   Spinner,
 } from "react-bootstrap";
+import { ButtonPrimary } from "Components/Button";
 import "./AuthCodePage.css";
 import { useDispatch } from "react-redux";
 import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
@@ -56,7 +56,7 @@ const AuthCodePage = () => {
     }
   };
 
-  const onResend = () => {};
+  const onResend = () => { };
 
   return (
     <div className="AuthCode">
@@ -105,13 +105,13 @@ const AuthCodePage = () => {
                     </FormGroup>
 
                     <div className="d-grid">
-                      <Button className="authCode__button" type="submit">
+                      <ButtonPrimary className="w-100" type="submit">
                         {loading ? (
                           <Spinner animation="border" variant="light" />
                         ) : (
                           t("Submit")
                         )}
-                      </Button>
+                      </ButtonPrimary>
                     </div>
                   </Form>
                 </div>

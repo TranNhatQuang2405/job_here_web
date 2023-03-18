@@ -8,10 +8,10 @@ import {
   FormControl,
   FormLabel,
   FormGroup,
-  Button,
   Spinner,
   Container,
 } from "react-bootstrap";
+import { ButtonPrimary } from "Components/Button";
 import "./SignInPage.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -126,25 +126,17 @@ const SignInPage = () => {
                     />
                   </InputGroup>
                 </FormGroup>
-                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <FormCheck
-                    className="SignIn__form-check"
-                    type="checkbox"
-                    label={t("Remember Me")}
-                  />
-                </Form.Group> */}
-
-                <Button
+                <ButtonPrimary
                   variant="primary"
                   type="submit"
-                  className="SignIn__btn-signin w-100"
+                  className="w-100"
                 >
                   {loading ? (
                     <Spinner animation="border" variant="light" />
                   ) : (
                     t("Sign In")
                   )}
-                </Button>
+                </ButtonPrimary>
               </Form>
             </Card.Body>
           </Card>

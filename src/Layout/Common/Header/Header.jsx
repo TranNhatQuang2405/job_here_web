@@ -14,6 +14,7 @@ import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { LogOut } from "Config/Redux/Slice/UserSlice";
 import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { ButtonPrimary } from "Components/Button";
+import { Avatar } from "Components/Image";
 
 const Header = (props) => {
 	const navigate = useNavigate();
@@ -91,11 +92,9 @@ const Header = (props) => {
 								<NavDropdown
 									title={
 										<div className="d-flex flex-row align-items-center">
-											<img
-												alt=""
-												src={sessionInfo?.imageUrl ?? user_img}
-												width="40"
-												height="40"
+											<Avatar
+												url={sessionInfo?.imageUrl || user_img}
+												width="40px"
 												className="d-inline-block rounded-circle"
 											/>
 											<p className="mb-0 ms-2 Header__layout-text">

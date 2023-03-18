@@ -4,11 +4,15 @@ import en_icon from "Assets/Images/en_icon.png";
 import { changeAcceptLanguage } from "Config/Redux/Slice/HeaderRequestSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
+import "./ButtonChangeLanguage.css";
 
 const ChangeLanguageButton = (props) => {
   const { i18n } = props;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const changeLanguage = () => {
 
@@ -23,14 +27,22 @@ const ChangeLanguageButton = (props) => {
   };
 
   return (
-    <div onClick={changeLanguage} style={{ width: 40, alignSelf: "center" }}>
+    <OverlayTrigger
+      placement="bottom"
+      overlay={
+        <Tooltip>
+          {t("header.btn.changeLanguage.toolTip")}
+        </Tooltip>
+      }
+    >
       <img
-        alt={i18n.language === "en" ? "Tiếng Việt" : "English"}
-        src={i18n.language === "en" ? vi_icon : en_icon}
-        className="d-inline-block cur-pointer"
-        style={{ height: "100%", width: "100%" }}
+        onClick={changeLanguage}
+        alt={i18n.language === "en" ? "English" : "Tiếng Việt"}
+        src={i18n.language === "en" ? en_icon : vi_icon}
+        className="btn_changeLanguage-img cur-pointer"
       />
-    </div>
+    </OverlayTrigger>
+
   );
 };
 
