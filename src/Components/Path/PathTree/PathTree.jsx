@@ -41,7 +41,7 @@ const PathTree = ({ lastPath = "" }) => {
   };
 
   return (
-    <div className="d-flex mt-3 mb-3">
+    <div className="PathTree__bound mt-3 mb-3">
       <div className="PathTree__path">
         <Link to="/Home">{t("Home Page")}</Link>
       </div>

@@ -2,6 +2,15 @@
   margin-right: 20px;
 }
 
+.PathTree__path:first-child {
+  margin-left: 0;
+}
+
+.PathTree__path,
+.PathTree__last-path {
+  display: contents;
+}
+
 .PathTree__last-path a,
 .PathTree__last-path i {
   font-weight: 600;
@@ -10,7 +19,8 @@
 
 .PathTree__path i,
 .PathTree__last-path i {
-  margin-right: 20px;
+  margin-right: 16px;
+  margin-left: 16px;
 }
 
 .PathTree__last-path a:hover {
