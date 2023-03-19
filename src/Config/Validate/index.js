@@ -33,6 +33,6 @@ export const ValidatePhone = (phone) => {
 };
 
 export const ValidateAuthCode = (code) => {
-  const regex = /^[0-9]{1,6}$/;
+  const regex = /^[0-9]{6}$/;
   return regex.test(code);
 };

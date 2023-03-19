@@ -51,8 +51,10 @@ const Header = (props) => {
 							<Logo isDark />
 						</NavLink>
 					</Navbar.Brand>
+					<Nav className="header__btn-language-smallSizeScreen d-block d-lg-none">
+						<ButtonChangeLanguage />
+					</Nav>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
-
 					<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
 						{sessionInfo && (
 							<Nav className="me-auto">
@@ -115,13 +117,12 @@ const Header = (props) => {
 								</NavDropdown>
 							</Nav>
 						)}
-
-						<Nav className="justify-content-end">
+						<Nav className="justify-content-end d-none d-lg-block">
 							<ButtonChangeLanguage />
 						</Nav>
 						{!sessionInfo && checkLocation() &&
 							<Nav className="justify-content-end ms-3" onClick={goSignIn}>
-								<ButtonPrimary>{t("Sign In")}</ButtonPrimary>
+								<ButtonPrimary style={{ maxWidth: 120, alignSelf: "flex-end" }}>{t("Sign In")}</ButtonPrimary>
 							</Nav>
 						}
 					</Navbar.Collapse>

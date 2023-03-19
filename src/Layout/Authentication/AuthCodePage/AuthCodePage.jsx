@@ -8,50 +8,62 @@ import {
   FormControl,
   FormLabel,
   FormGroup,
-  Alert,
   Spinner,
 } from "react-bootstrap";
 import { ButtonPrimary } from "Components/Button";
 import "./AuthCodePage.css";
 import { useDispatch } from "react-redux";
-import { changeCurrentPage } from "Config/Redux/Slice/CurrentPageSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
 import { WarningModal } from "Components/Modal";
 import { ValidateAuthCode } from "Config/Validate";
-import { SetIsPending } from "Config/Redux/Slice/UserSlice";
+import { SetIsNotPending, SetIsPending } from "Config/Redux/Slice/UserSlice";
+import { success, warning, custom } from "Config/Redux/Slice/AlertSlice";
+import { useNavigate } from "react-router-dom";
 
 const AuthCodePage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [code, setCode] = useState("");
-  const [alert, setAlert] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const modalRef = useRef();
 
   const onChangeCode = (e) => {
     setCode(e.target.value);
   };
 
+  const onAuthSuccess = () => {
+    dispatch(SetIsPending());
+    navigate("/SignIn")
+    dispatch(SetIsNotPending());
+
+  }
+
   const onAuthCode = async (e) => {
     e.preventDefault();
     if (!ValidateAuthCode(code)) {
-      modalRef.current.setMessage("Invalid Email!");
-      modalRef.current.onToggleModal();
-      // setCode("")
+      dispatch(warning({
+        message: t("authCode.validate.wrong"),
+        title: t("authCode.validate.title"),
+      }))
     } else {
       setLoading(true);
       let authCode = await authBusiness.AuthCode(parseInt(code));
       setLoading(false);
       if (authCode.data.httpCode === 200) {
-        dispatch(SetIsPending());
-        dispatch(changeCurrentPage(1));
+        dispatch(success({
+          message: authCode.data.message,
+          title: t("authCode.result.title"),
+          onHide: onAuthSuccess
+        }));
       } else {
-        modalRef.current.setMessage(
-          authCode.data.message || "Some thing went wrong! Please try again!"
-        );
-        modalRef.current.onToggleModal();
-        // setCode("")
+        dispatch(custom({
+          message: authCode.data.message,
+          title: t("authCode.result.title"),
+          httpCode: authCode.data.httpCode
+        }))
       }
     }
   };
@@ -68,21 +80,13 @@ const AuthCodePage = () => {
               <h4 className="AuthCode__title">{t("Authentication Code")}</h4>
               <p className="text-muted mb-1">
                 {t(
-                  "Final step to treate your account. An Authentication Code has been sent to your email!"
+                  "authCode.subTitle"
                 )}
               </p>
             </div>
             <Card className="AuthCode__card mt-2">
               <Card.Body className="p-4">
                 <div className="p-3">
-                  {alert ? (
-                    <Alert variant="danger" dismissible onClose={() => setAlert(false)}>
-                      {t("Your authentication code is invalid!")}
-                    </Alert>
-                  ) : (
-                    <></>
-                  )}
-
                   <Form onSubmit={onAuthCode}>
                     <FormGroup className="mb-4">
                       <FormLabel className="AuthCode__form-label">

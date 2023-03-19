@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Col,
   Row,
@@ -15,7 +15,6 @@ import { useDispatch } from "react-redux";
 import { changeXAuthToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
-import { WarningModal } from "Components/Modal";
 import { ButtonPrimary } from "Components/Button";
 import {
   ValidateEmail,
@@ -26,6 +25,7 @@ import {
 } from "Config/Validate";
 import { SetIsPending } from "Config/Redux/Slice/UserSlice";
 import { useNavigate } from "react-router-dom";
+import { error, warning } from "Config/Redux/Slice/AlertSlice";
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
@@ -40,7 +40,6 @@ const SignUpPage = () => {
     phone: "",
   });
   const [loading, setLoading] = useState(false);
-  const modalRef = useRef();
 
   const onSignIn = () => {
     dispatch(SetIsPending());
@@ -50,20 +49,30 @@ const SignUpPage = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (!ValidateEmail(account.email)) {
-      modalRef.current.setMessage(t("Invalid Email!"));
-      modalRef.current.onToggleModal();
+      dispatch(warning({
+        message: t("Invalid Email!"),
+        title: t("Sign Up")
+      }))
     } else if (!ValidateUTF8Name(account.displayName)) {
-      modalRef.current.setMessage(t("Invalid Display Name!"));
-      modalRef.current.onToggleModal();
+      dispatch(warning({
+        message: t(t("Invalid Display Name!")),
+        title: t("Sign Up")
+      }))
     } else if (!ValidatePassword(account.password)) {
-      modalRef.current.setMessage(t("jh-invalid-password"));
-      modalRef.current.onToggleModal();
+      dispatch(warning({
+        message: t("jh-invalid-password"),
+        title: t("Sign Up")
+      }))
     } else if (!ValidateDateOfBirth(account.dateOfBirth)) {
-      modalRef.current.setMessage(t("Invalid Date Of Birth!"));
-      modalRef.current.onToggleModal();
+      dispatch(warning({
+        message: t("Invalid Date Of Birth!"),
+        title: t("Sign Up")
+      }))
     } else if (!ValidatePhone(account.phone)) {
-      modalRef.current.setMessage(t("Invalid Phone Number!"));
-      modalRef.current.onToggleModal();
+      dispatch(warning({
+        message: t("Invalid Phone Number!"),
+        title: t("Sign Up")
+      }))
     } else {
       let { email, password, dateOfBirth, displayName, phone } = account;
       setLoading(true);
@@ -80,8 +89,10 @@ const SignUpPage = () => {
         dispatch(changeXAuthToken(xAuthToken));
         navigate("/AuthCode")
       } else {
-        modalRef.current.setMessage("Some thing went wrong! Please try again!");
-        modalRef.current.onToggleModal();
+        dispatch(error({
+          message: signUp.data.message,
+          title: t("Sign Up")
+        }))
       }
     }
   };
@@ -108,7 +119,6 @@ const SignUpPage = () => {
 
   return (
     <div className="SignUp">
-      <WarningModal ref={modalRef} title={t("Sign Up")} />
       <div className="SignUp__account-pages pt-3">
         <Row className="justify-content-center">
           <Col lg={4} xs={11}>

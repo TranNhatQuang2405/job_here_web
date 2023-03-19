@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { dropdownBusiness } from "Business";
 
 const initialState = {
     listSkill: [],
@@ -9,14 +8,15 @@ const initialState = {
 };
 
 export const GetAllData = createAsyncThunk("Unit/getAllData", async () => {
-    let prepare = [];
-    prepare.push(dropdownBusiness.IndustryDropdown());
-    prepare.push(dropdownBusiness.AllSkillDropdown());
-    prepare.push(dropdownBusiness.UnitDropdown());
-    prepare.push(dropdownBusiness.CityDropdown())
-    let result = await Promise.all(prepare);
-    if (result && result.length > 0)
-        return result.map(x => (x?.data?.objectData || []))
+    // let prepare = [];
+    // prepare.push(dropdownBusiness.IndustryDropdown());
+    // prepare.push(dropdownBusiness.AllSkillDropdown());
+    // prepare.push(dropdownBusiness.UnitDropdown());
+    // prepare.push(dropdownBusiness.CityDropdown())
+    // let result = await Promise.all(prepare);
+    // if (result && result.length > 0)
+    //     return result.map(x => (x?.data?.objectData || []))
+    return []
 });
 
 export const MasterDataSlice = createSlice({

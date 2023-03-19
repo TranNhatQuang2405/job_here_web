@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   Col,
   Row,
@@ -18,10 +18,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { useTranslation } from "react-i18next";
 import { authBusiness } from "Business";
-import { WarningModal } from "Components/Modal";
 import { SetIsPending } from "Config/Redux/Slice/UserSlice";
 import { finishLogin } from "Config/Redux/Slice/CurrentPathSlice";
-
+import { error } from "Config/Redux/Slice/AlertSlice";
 const SignInPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,7 +30,6 @@ const SignInPage = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-  const modalRef = useRef();
   const path = useSelector((state) => state.CurrentPath.path) || "/Home";
 
   const onSignIn = async (e) => {
@@ -45,8 +43,10 @@ const SignInPage = () => {
       dispatch(SetIsPending());
       navigate(path);
     } else {
-      modalRef.current.setMessage(signIn?.data?.message ?? "");
-      modalRef.current.onToggleModal();
+      dispatch(error({
+        message: signIn.data.message,
+        title: t("Sign In")
+      }))
       setAccount({ email: account.email, password: "" });
     }
   };
@@ -71,7 +71,6 @@ const SignInPage = () => {
 
   return (
     <Container className="SignIn pt-3">
-      <WarningModal ref={modalRef} title={t("Sign In")} />
       <Row className="justify-content-center">
         <Col lg={6} xs={11}>
           <div className="text-center mb-4">

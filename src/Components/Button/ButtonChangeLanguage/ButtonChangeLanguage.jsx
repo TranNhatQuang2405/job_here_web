@@ -5,7 +5,7 @@ import { changeAcceptLanguage } from "Config/Redux/Slice/HeaderRequestSlice.js";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Tooltip, OverlayTrigger } from "react-bootstrap";
+import { Tooltip, OverlayTrigger, Image } from "react-bootstrap";
 import "./ButtonChangeLanguage.css";
 
 const ChangeLanguageButton = (props) => {
@@ -35,12 +35,17 @@ const ChangeLanguageButton = (props) => {
         </Tooltip>
       }
     >
-      <img
+      <div
+        className="btn_changeLanguage-bound cur-pointer"
         onClick={changeLanguage}
-        alt={i18n.language === "en" ? "English" : "Tiếng Việt"}
-        src={i18n.language === "en" ? en_icon : vi_icon}
-        className="btn_changeLanguage-img cur-pointer"
-      />
+      >
+        <Image
+          src={i18n.language === "en" ? en_icon : vi_icon}
+          alt="Language"
+          roundedCircle
+          className="btn_changeLanguage-img"
+        ></Image>
+      </div>
     </OverlayTrigger>
 
   );

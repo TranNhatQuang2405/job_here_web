@@ -8,6 +8,7 @@
   top: 0;
   z-index: 1000;
 }
+
 .Header__layout {
   padding: 8px 48px;
 }
@@ -29,4 +30,9 @@
 .dropdown-item a,
 .dropdown-item a.active {
   color: #dee2e6;
+}
+
+.header__btn-language-smallSizeScreen {
+  margin-left: auto;
+  margin-right: 16px;
 }

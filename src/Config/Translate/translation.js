@@ -56,6 +56,7 @@ export const en = {
   "Date Of Birth": "Date Of Birth",
   "Phone Number": "Phone Number",
   "Enter Phone Number": "Enter Phone Number",
+  "authCode.subTitle": "Final step to create your account. An Authentication Code has been sent to your email",
   "Authentication Code": "Authentication Code",
   "Final step to treate your account.": "Final step to treate your account.",
   "Your authentication code is invalid!": "Your authentication code is invalid!",
@@ -148,7 +149,10 @@ export const en = {
   "jobSearch.btn": "Search",
   "user.job.search.totalRecord.1": "Have",
   "user.job.search.totalRecord.2": "matching results",
-  "header.btn.changeLanguage.toolTip": "Change to Vietnamese"
+  "header.btn.changeLanguage.toolTip": "Change to Vietnamese",
+  "authCode.validate.wrong": "Invalid authentication code, it must have 6 digits",
+  "authCode.validate.title": "Authentication Code Error",
+  "authCode.result.title": "Result of Authenication"
 };
 
 export const vn = {
@@ -208,6 +212,7 @@ export const vn = {
   "Date Of Birth": "Ngày Sinh",
   "Phone Number": "Số Điện Thoại",
   "Enter Phone Number": "Nhập Số Điện Thoại",
+  "authCode.subTitle": "Bước cuối cùng để tạo tài khoản. Một mã code đã được gửi đến email của bạn",
   "Authentication Code": "Mã Xác Thực",
   "Final step to treate your account.": "Bước cuối cùng để tạo tài khoản của bạn.",
   "Your authentication code is invalid!": "Mã xác thực của bạn không hợp lệ!",
@@ -303,5 +308,8 @@ export const vn = {
   "jobSearch.btn": "Tìm kiếm",
   "user.job.search.totalRecord.1": "Có",
   "user.job.search.totalRecord.2": "kết quả trùng khớp",
-  "header.btn.changeLanguage.toolTip": "Đổi sang tiếng Anh"
+  "header.btn.changeLanguage.toolTip": "Đổi sang tiếng Anh",
+  "authCode.validate.wrong": "Mã code không hợp lệ phải là chuỗi gồm 6 số",
+  "authCode.validate.title": "Lỗi mã xác thực",
+  "authCode.result.title": "Kết quả xác thực"
 };
