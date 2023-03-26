@@ -9,6 +9,7 @@ import { LoadingSpinner } from "Components/Loading";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { companyBusiness, dropdownBusiness } from "Business";
+import { Rate } from "antd";
 import company_default_background from "Assets/Images/company_default_background.jpg";
 
 const CompanyPage = () => {
@@ -142,6 +143,11 @@ const CompanyPage = () => {
 								</div>
 							</Col>
 							<Col md={4}>
+								<div className="CompanyPage_rating jh-box-item">
+									<h4>{t("companyPage.rating.title")}</h4>
+									<Rate allowHalf className="CompanyPage_rating-start" defaultValue={3} value={2.5} />
+
+								</div>
 								<div className="CompanyPage__box-address jh-box-item mb-3">
 									<h4>{t("Company address")}</h4>
 									<p className="pt-3">

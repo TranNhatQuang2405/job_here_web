@@ -152,7 +152,8 @@ export const en = {
   "header.btn.changeLanguage.toolTip": "Change to Vietnamese",
   "authCode.validate.wrong": "Invalid authentication code, it must have 6 digits",
   "authCode.validate.title": "Authentication Code Error",
-  "authCode.result.title": "Result of Authenication"
+  "authCode.result.title": "Result of Authenication",
+  "companyPage.rating.title": "Rating of Company"
 };
 
 export const vn = {
@@ -311,5 +312,6 @@ export const vn = {
   "header.btn.changeLanguage.toolTip": "Đổi sang tiếng Anh",
   "authCode.validate.wrong": "Mã code không hợp lệ phải là chuỗi gồm 6 số",
   "authCode.validate.title": "Lỗi mã xác thực",
-  "authCode.result.title": "Kết quả xác thực"
+  "authCode.result.title": "Kết quả xác thực",
+  "companyPage.rating.title": "Điểm đánh giá của công ty"
 };

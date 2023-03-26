@@ -71,7 +71,8 @@
 }
 
 .CompanyPage__company-info h4,
-.CompanyPage__company-job h4 {
+.CompanyPage__company-job h4,
+.CompanyPage_rating h4 {
   border-left: 5px solid var(--jh-primary-color);
   padding-left: 8px;
   color: var(--jh-primary-text-color);
@@ -83,6 +84,7 @@
 
 .CompanyPage__company-job {
   padding: 24px 24px 8px;
+  margin-bottom: 16px;
 }
 
 .CompanyPage__box-address {
@@ -106,6 +108,18 @@
   color: var(--jh-primary-color);
 }
 
-.CompanyPage__description{
+.CompanyPage__description {
   text-align: justify;
+}
+
+.CompanyPage_rating {
+  padding: 24px 24px 8px;
+  margin-bottom: 16px;
+}
+
+.CompanyPage_rating-start {
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+  font-size: xx-large;
 }
