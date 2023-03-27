@@ -111,15 +111,3 @@
 .CompanyPage__description {
   text-align: justify;
 }
-
-.CompanyPage_rating {
-  padding: 24px 24px 8px;
-  margin-bottom: 16px;
-}
-
-.CompanyPage_rating-start {
-  width: 100%;
-  text-align: center;
-  margin-top: 8px;
-  font-size: xx-large;
-}
