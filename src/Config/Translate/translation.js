@@ -153,7 +153,8 @@ export const en = {
   "authCode.validate.wrong": "Invalid authentication code, it must have 6 digits",
   "authCode.validate.title": "Authentication Code Error",
   "authCode.result.title": "Result of Authenication",
-  "companyPage.rating.title": "Rating of Company"
+  "companyPage.rating.title": "Rating of Company",
+  "companyPage.rating.content": "Recommend working here to a friend"
 };
 
 export const vn = {
@@ -313,5 +314,6 @@ export const vn = {
   "authCode.validate.wrong": "Mã code không hợp lệ phải là chuỗi gồm 6 số",
   "authCode.validate.title": "Lỗi mã xác thực",
   "authCode.result.title": "Kết quả xác thực",
-  "companyPage.rating.title": "Điểm đánh giá của công ty"
+  "companyPage.rating.title": "Điểm đánh giá của công ty",
+  "companyPage.rating.content": "Khuyến khích làm việc tại đây"
 };

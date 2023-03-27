@@ -75,7 +75,16 @@
   --bs-input-card-bg: rgba(230, 235, 245, 0.25);
 }
 
-* {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+span,
+div {
   color: black;
 }
 
