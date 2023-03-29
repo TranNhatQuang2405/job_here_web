@@ -36,6 +36,7 @@ const App = () => {
               <Route path="/CVManage" element={<ManageCVPage />} />
               <Route path="/Company" element={<CompanyListPage />} />
               <Route path="/Company/:id" element={<CompanyPage />} />
+              <Route path="/Company/rating/:id" element={<div>Helo</div>} />
               <Route path="/EditInfomation" element={<EditUserInfo />} />
               <Route path="/ChangePassword" element={<ChangePasswordPage />} />
               <Route path="*" element={<Navigate to="/Home" />} />

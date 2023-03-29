@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./CompanyPage.css";
-import _ from "underscore";
 import { Row, Col } from "react-bootstrap";
 import { CompanyLogo } from "Components/Company";
-import { JobItem, JobShare } from "Components/Job";
+import { JobShare } from "Components/Job";
 import { PathTree } from "Components/Path";
+import { Tab } from "Components/Navigation";
 import { LoadingSpinner } from "Components/Loading";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { companyBusiness, dropdownBusiness } from "Business";
-import { CompanyRating } from "./Component";
+import { CompanyRatingOveral, CompanyRating, CompanyAboutAndJob } from "./Component";
 import company_default_background from "Assets/Images/company_default_background.jpg";
 
 const CompanyPage = () => {
@@ -17,6 +17,8 @@ const CompanyPage = () => {
 	const location = useLocation();
 	const [companyData, setCompanyData] = useState({});
 	const [loading, setLoading] = useState(true);
+	const [currentTab, setCurrentTab] = useState(0)
+	const tabNames = [t("tabName.company.about"), t("tabName.company.reviews")]
 
 	useEffect(() => {
 		let isSubscribed = true;
@@ -120,30 +122,20 @@ const CompanyPage = () => {
 						</div>
 					</div>
 					<div className="CompanyPage__detail jh-container mb-3">
+						<Tab data={tabNames} currentTab={currentTab} setCurrentTab={setCurrentTab} />
 						<Row>
 							<Col md={8}>
-								<div className="CompanyPage__company-info jh-box-item">
-									<h4>{t("Company introduction")}</h4>
-									<div className="CompanyPage__company-body pt-3">
-										<div
-											dangerouslySetInnerHTML={{
-												__html: companyData.description || t("No Desription"),
-											}}
-											className="CompanyPage__description"
-										/>
-									</div>
-								</div>
-								<div className="CompanyPage__company-job pt-3 jh-box-item">
-									<h4>{t("Recruit")}</h4>
-									<div className="pt-3">
-										{_.map(companyData.companyJobs, (item) => {
-											return <JobItem key={item.jobId} jobData={item} />;
-										})}
-									</div>
-								</div>
+								{currentTab === 0 ?
+									<CompanyAboutAndJob companyData={companyData} />
+									:
+									<CompanyRating />
+								}
 							</Col>
 							<Col md={4}>
-								<CompanyRating />
+								<CompanyRatingOveral
+									currentTab={currentTab}
+									companyId={companyData.companyId}
+									goToRating={() => setCurrentTab(1)} />
 								<div className="CompanyPage__box-address jh-box-item mb-3">
 									<h4>{t("Company address")}</h4>
 									<p className="pt-3">

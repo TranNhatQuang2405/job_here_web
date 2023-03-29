@@ -154,7 +154,14 @@ export const en = {
   "authCode.validate.title": "Authentication Code Error",
   "authCode.result.title": "Result of Authenication",
   "companyPage.rating.title": "Rating of Company",
-  "companyPage.rating.content": "Recommend working here to a friend"
+  "companyPage.rating.content": "Recommend working here to a friend",
+  "companyPage.rating.btnSeeAll": "See all ratings and reviews",
+  "companyPage.rating.btnCreateReview": "Write review",
+  "tabName.company.about": "About company and Job",
+  "tabName.company.reviews": "Reviews",
+  "companyRating.header": "Member have reviewed",
+  "companyRating.like": "Recommend",
+  "companyRating.dislike": "Not Recommend"
 };
 
 export const vn = {
@@ -315,5 +322,12 @@ export const vn = {
   "authCode.validate.title": "Lỗi mã xác thực",
   "authCode.result.title": "Kết quả xác thực",
   "companyPage.rating.title": "Điểm đánh giá của công ty",
-  "companyPage.rating.content": "Khuyến khích làm việc tại đây"
+  "companyPage.rating.content": "Khuyến khích làm việc tại đây",
+  "companyPage.rating.btnSeeAll": "Xem tất cả đánh giá và bình luận tại đây",
+  "companyPage.rating.btnCreateReview": "Viết bình luận",
+  "tabName.company.about": "Về công ty và công việc",
+  "tabName.company.reviews": "Các bình luận",
+  "companyRating.header": "Thành viên đã gửi bình luận",
+  "companyRating.like": "Đề xuất",
+  "companyRating.dislike": "Không đề xuất"
 };

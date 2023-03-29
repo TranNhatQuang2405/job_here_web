@@ -1,43 +1,39 @@
-.CompanyPage_rating {
-    padding: 24px 24px 8px;
+.CompanyRating__child {
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    padding: 12px;
     margin-bottom: 16px;
 }
 
-.CompanyPage_rating-start-box {
-    display: flex;
-    align-items: center;
-    margin-top: 8px;
-    column-gap: 16px;
-    width: 100%;
-    justify-content: center;
-
-}
-
-.CompanyPage_rating-start {
-    text-align: center;
-    font-size: xx-large;
-    margin-bottom: 8px;
-}
-
-.CompanyPage_rating-start div {
-    color: var(--jh-primary-color);
-}
-
-.CompanyPage_rating-number {
-    font-size: 32px;
+.CompanyRating__child-title {
+    font-size: 20px;
     font-weight: 600;
-    padding: 4px;
-    border: 2px solid var(--jh-primary-color);
-    border-radius: 50%;
-    width: 57px;
-    height: 57px;
-    text-align: center;
 }
 
-.CompanyPage_rating-recommend-box {
+.CompanyRating__child-start {
+    font-size: 20px;
+    margin-right: 16px;
+    align-self: center;
+    margin-top: 4px;
+}
+
+.CompanyRating__child-react {
     display: flex;
+    justify-content: center;
     align-items: center;
-    column-gap: 16px;
+    color: #444444;
+    font-style: italic;
+    font-weight: 500;
 }
 
-.CompanyPage_rating-recommend-text {}
+.CompanyRating__child-like {
+    color: green;
+    font-size: 20px;
+    margin-right: 6px;
+}
+
+.CompanyRating__child-dislike {
+    color: red;
+    font-size: 20px;
+    margin-right: 6px;
+}
