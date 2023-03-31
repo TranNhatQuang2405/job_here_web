@@ -2,13 +2,25 @@ import React from 'react'
 import { Rate, Progress } from "antd";
 import { useTranslation } from 'react-i18next';
 import { ButtonPrimary } from 'Components/Button';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { changeCurrentPath } from 'Config/Redux/Slice/CurrentPathSlice';
 import "./CompanyRatingOveral.css"
 
 function CompanyRating({ companyId, goToRating, currentTab }) {
 
+    const sessionInfo = useSelector((state) => state.User.sessionInfo);
     const { t } = useTranslation();
+    const location = useLocation();
+    const dispatch = useDispatch();
+
     const handleGoToRatingPage = () => {
         goToRating()
+    }
+
+    const goToSignIn = () => {
+        let path = location.pathname
+        dispatch(changeCurrentPath(path))
     }
 
     return (
@@ -26,10 +38,25 @@ function CompanyRating({ companyId, goToRating, currentTab }) {
                 </div>
             </div>
             <hr />
-            {currentTab === 0 ?
-                <ButtonPrimary onClick={handleGoToRatingPage} className="CompanyPage_rating-btn">{t("companyPage.rating.btnSeeAll")}</ButtonPrimary>
-                :
-                <ButtonPrimary className="CompanyPage_rating-btn">{t("companyPage.rating.btnCreateReview")}</ButtonPrimary>
+            {
+                currentTab === 0 ?
+                    <ButtonPrimary
+                        onClick={handleGoToRatingPage}
+                        className="CompanyPage_rating-btn">
+                        {t("companyPage.rating.btnSeeAll")}
+                    </ButtonPrimary>
+                    :
+                    sessionInfo ?
+                        <ButtonPrimary
+                            className="CompanyPage_rating-btn">
+                            {t("companyPage.rating.btnCreateReview")}
+                        </ButtonPrimary>
+                        :
+                        <ButtonPrimary
+                            onClick={goToSignIn} 
+                            className="CompanyPage_rating-btn">
+                            {t("companyPage.rating.btnLogin")}
+                        </ButtonPrimary>
             }
         </div>
     )

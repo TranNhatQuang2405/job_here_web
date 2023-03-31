@@ -157,11 +157,22 @@ export const en = {
   "companyPage.rating.content": "Recommend working here to a friend",
   "companyPage.rating.btnSeeAll": "See all ratings and reviews",
   "companyPage.rating.btnCreateReview": "Write review",
+  "companyPage.rating.btnLogin": "Login to write review",
   "tabName.company.about": "About company and Job",
   "tabName.company.reviews": "Reviews",
   "companyRating.header": "Member have reviewed",
   "companyRating.like": "Recommend",
-  "companyRating.dislike": "Not Recommend"
+  "companyRating.dislike": "Not Recommend",
+  "nav.item.allJob": "All Job",
+  "nav.home": "Home",
+  "nav.blog": "Blogs",
+  "nav.item.allBlog": "Blog Page",
+  "nav.item.yourBlog": "Your Blogs",
+  "mainPage.topBody.title": "Find a comfortable job for you",
+  "quickBox.createCV.title": "Create or Upload your own CV",
+  "quickBox.goToBlog.title": "See the tips to interact recruiter",
+  "quickBox.createCV.content": "We have many styles for you to create your CV",
+  "quickBox.goToBlog.content": "You can see the tips from other member or you can contribute your idea"
 };
 
 export const vn = {
@@ -325,9 +336,20 @@ export const vn = {
   "companyPage.rating.content": "Khuyến khích làm việc tại đây",
   "companyPage.rating.btnSeeAll": "Xem tất cả đánh giá và bình luận tại đây",
   "companyPage.rating.btnCreateReview": "Viết bình luận",
+  "companyPage.rating.btnLogin": "Đăng nhập để viết bình luận",
   "tabName.company.about": "Về công ty và công việc",
   "tabName.company.reviews": "Các bình luận",
   "companyRating.header": "Thành viên đã gửi bình luận",
   "companyRating.like": "Đề xuất",
-  "companyRating.dislike": "Không đề xuất"
+  "companyRating.dislike": "Không đề xuất",
+  "nav.item.allJob": "Tất cả công việc",
+  "nav.home": "Trang chủ",
+  "nav.blog": "Bài viết",
+  "nav.item.allBlog": "Các bài viết",
+  "nav.item.yourBlog": "Bài viết của bạn",
+  "mainPage.topBody.title": "Tìm kiếm công việc phù hợp với bạn",
+  "quickBox.createCV.title": "Tạo hoặc upload CV của bạn",
+  "quickBox.goToBlog.title": "Học các tip để thu hút nhà tuyển dụng",
+  "quickBox.createCV.content": "Chúng tôi có rất nhiều lựa chọn để bạn thiết kế mẫu CV cho chính mình",
+  "quickBox.goToBlog.content": "Bạn có thể tham khảo các tip từ các thành viên trước hoặc có thể đóng góp ý tưởng của riêng bạn"
 };

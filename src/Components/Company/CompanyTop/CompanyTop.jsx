@@ -3,6 +3,7 @@ import "./CompanyTop.css";
 import _ from "underscore";
 import { Row, Col } from "react-bootstrap";
 import { LoadingSpinner } from "Components/Loading";
+import { Avatar } from "Components/Image";
 import { useTranslation } from "react-i18next";
 import { companyBusiness } from "Business";
 import { Link } from "react-router-dom";
@@ -42,14 +43,17 @@ const CompanyTop = () => {
       ) : (
         <div>
           <div>
-            <Row>
+            <Row style={{rowGap: 16}}>
               {_.map(companyList, (companyItem) => (
                 <Col md={3} sm={6} key={companyItem.companyId}>
                   <div className="CompanyTop__item mb-3">
                     <Link to={`/Company/${companyItem.companyId}`}>
                       <div className="CompanyTop__item-logo">
-                        <img
-                          src={companyItem?.avatarUrl || default_company_avatar}
+                        <Avatar
+                          className="CompanyTop__item-img"
+                          width="60%"
+                          roundedCircle={false}
+                          url={companyItem?.avatarUrl || default_company_avatar}
                           alt={companyItem.companyName}
                         />
                         <p className="CompanyTop__item-text">{companyItem.companyName}</p>

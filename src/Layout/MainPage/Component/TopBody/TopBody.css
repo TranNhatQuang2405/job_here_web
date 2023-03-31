@@ -1,0 +1,25 @@
+.mainPage__topBody {
+    background: rgba(238, 174, 202, 0.3);
+    background: radial-gradient(circle, rgba(238, 174, 202, 0.3) 0%, rgba(148, 187, 233, 0.3) 100%);
+    border-radius: 10px;
+    padding: 0 16px;
+    padding-bottom: 16px;
+}
+
+.mainPage__topBody-img{
+    width: 100%;
+}
+
+.mainPage__topBody-input{
+    display: flex;
+    column-gap: 16px;
+}
+
+.mainPage__topBody-content{
+   padding: 32px 16px;
+}
+
+.mainPage__topBody-title{
+    font-weight: 700;
+    color: #333333;
+}

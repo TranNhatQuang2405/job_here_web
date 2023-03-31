@@ -10,12 +10,12 @@
 }
 
 .CompanyTop__item {
-  height: 100px;
   overflow: hidden;
   border: 1px solid var(--jh-secondary-border-color);
   border-radius: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
+  height: 100%;
 }
 
 .CompanyTop__item:hover {
@@ -27,14 +27,13 @@
   text-align: center;
 }
 
-.CompanyTop__item-logo img {
-  height: 70%;
+.CompanyTop__item-img{
+  margin: 0 auto;
 }
 
 .CompanyTop__item-text {
-  font-size: 13px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 16px;
   margin: 0 8px;
+  font-weight: 600;
+  cursor: pointer;
 }

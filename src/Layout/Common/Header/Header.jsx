@@ -1,7 +1,7 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { ButtonChangeLanguage } from "Components/Button";
 import { useNavigate, useLocation } from "react-router-dom";
 import user_img from "Assets/Images/user.png";
@@ -54,28 +54,24 @@ const Header = (props) => {
 					<Nav className="header__btn-language-smallSizeScreen d-block d-lg-none">
 						<ButtonChangeLanguage />
 					</Nav>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
+
 					<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+						{/* Đã đăng nhập */}
 						{sessionInfo && (
 							<Nav className="me-auto">
+								<Nav.Item>
+									<Nav.Link as={Link} to="/Home" >{t("nav.home")}</Nav.Link>
+								</Nav.Item>
 								<NavDropdown title={t("Jobs")} id="basic-nav-dropdown" menuVariant="dark">
+									<NavDropdown.Item as="div">
+										<NavLink to="/Job">{t("nav.item.allJob")}</NavLink>
+									</NavDropdown.Item>
 									<NavDropdown.Item as="div">
 										<NavLink to="/AppliedJob">{t("Applied Jobs")}</NavLink>
 									</NavDropdown.Item>
 									<NavDropdown.Item as="div">
 										<NavLink to="/SavedJob">{t("SavedJob")}</NavLink>
 									</NavDropdown.Item>
-									{/* <NavDropdown.Item>{t("Matched Jobs")}</NavDropdown.Item> */}
-								</NavDropdown>
-								<NavDropdown
-									title={t("Profile & CV")}
-									id="basic-nav-dropdown"
-									menuVariant="dark"
-								>
-									<NavDropdown.Item as="div">
-										<NavLink to="/CVManage">{t("CV Manage")}</NavLink>
-									</NavDropdown.Item>
-									{/* <NavDropdown.Item>{t("CV Template")}</NavDropdown.Item> */}
 								</NavDropdown>
 								<NavDropdown
 									title={t("Companies")}
@@ -85,7 +81,58 @@ const Header = (props) => {
 									<NavDropdown.Item as="div">
 										<NavLink to="/Company">{t("Company List")}</NavLink>
 									</NavDropdown.Item>
-									{/* <NavDropdown.Item>{t("Top Company")}</NavDropdown.Item> */}
+								</NavDropdown>
+								<NavDropdown
+									title={t("Profile & CV")}
+									id="basic-nav-dropdown"
+									menuVariant="dark"
+								>
+									<NavDropdown.Item as="div">
+										<NavLink to="/CVManage">{t("CV Manage")}</NavLink>
+									</NavDropdown.Item>
+								</NavDropdown>
+								<NavDropdown
+									title={t("nav.blog")}
+									id="basic-nav-dropdown"
+									menuVariant="dark"
+								>
+									<NavDropdown.Item as="div">
+										<NavLink to="/Blog">{t("nav.item.allBlog")}</NavLink>
+									</NavDropdown.Item>
+									<NavDropdown.Item as="div">
+										<NavLink to="/YourBlog">{t("nav.item.yourBlog")}</NavLink>
+									</NavDropdown.Item>
+								</NavDropdown>
+							</Nav>
+						)}
+						{/* Chưa đăng nhập */}
+						{!sessionInfo && (
+							<Nav className="me-auto">
+								<Nav.Item>
+									<Nav.Link as={Link} to="/Home" >{t("nav.home")}</Nav.Link>
+								</Nav.Item>
+								<NavDropdown title={t("Jobs")} id="basic-nav-drop		down" menuVariant="dark">
+									<NavDropdown.Item as="div">
+										<NavLink to="/Job">{t("nav.item.allJob")}</NavLink>
+									</NavDropdown.Item>
+								</NavDropdown>
+								<NavDropdown
+									title={t("Companies")}
+									id="basic-nav-dropdown"
+									menuVariant="dark"
+								>
+									<NavDropdown.Item as="div">
+										<NavLink to="/Company">{t("Company List")}</NavLink>
+									</NavDropdown.Item>
+								</NavDropdown>
+								<NavDropdown
+									title={t("nav.blog")}
+									id="basic-nav-dropdown"
+									menuVariant="dark"
+								>
+									<NavDropdown.Item as="div">
+										<NavLink to="/Blog">{t("nav.item.allBlog")}</NavLink>
+									</NavDropdown.Item>
 								</NavDropdown>
 							</Nav>
 						)}

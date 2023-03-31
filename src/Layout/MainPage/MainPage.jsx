@@ -1,12 +1,14 @@
 import React from "react";
-import { JobInteresting, JobNew, JobSearch } from "Components/Job";
+import { JobInteresting, JobNew } from "Components/Job";
+import { TopBody, QuickBox } from "./Component";
 import { Keyword } from "Components/Keyword";
 import { CompanyTop } from "Components/Company";
 
 const MainPage = () => {
   return (
     <div>
-      <JobSearch />
+      <TopBody />
+      <QuickBox />
       <JobNew />
       <JobInteresting />
       <Keyword />

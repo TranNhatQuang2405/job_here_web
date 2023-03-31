@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Rate } from 'antd'
 import { LikeFilled, DislikeFilled } from '@ant-design/icons'
 import "./CompanyRating.css"
+
 function CompanyRating() {
     const { t } = useTranslation()
 

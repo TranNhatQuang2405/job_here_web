@@ -10,7 +10,8 @@ import {
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
 import { ChangePasswordPage, EditUserInfo } from "Layout/User";
-import { JobAppliedPage, JobPage, JobSavedPage } from "Layout/Job";
+import { AllJobPage, JobAppliedPage, JobPage, JobSavedPage } from "Layout/Job";
+import { AllBlogPage } from "Layout/Blog";
 import { ManageCVPage } from "Layout/CV";
 import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -29,14 +30,14 @@ const App = () => {
               <Route path="/ResetPassword" element={<ResetPasswordPage />} />
               <Route path="/AuthCode" element={<AuthCodePage />} />
               <Route path="/Home" element={<MainPage />} />
-              <Route path="/Job" element={<MainPage />} />
+              <Route path="/Job" element={<AllJobPage />} />
               <Route path="/Job/:id" element={<JobPage />} />
               <Route path="/AppliedJob" element={<JobAppliedPage />} />
               <Route path="/SavedJob" element={<JobSavedPage />} />
               <Route path="/CVManage" element={<ManageCVPage />} />
               <Route path="/Company" element={<CompanyListPage />} />
               <Route path="/Company/:id" element={<CompanyPage />} />
-              <Route path="/Company/rating/:id" element={<div>Helo</div>} />
+              <Route path="/Blog" element={<AllBlogPage />} />
               <Route path="/EditInfomation" element={<EditUserInfo />} />
               <Route path="/ChangePassword" element={<ChangePasswordPage />} />
               <Route path="*" element={<Navigate to="/Home" />} />

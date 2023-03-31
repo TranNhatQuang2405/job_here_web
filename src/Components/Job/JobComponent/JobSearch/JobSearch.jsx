@@ -227,7 +227,6 @@ const JobSearch = () => {
           <LoadingSpinner />
         ) : data.length === 0 ? (
           <div className="pt-3 d-flex justify-content-center">
-            <p>{t("No result")}!</p>
           </div>
         ) : (
           <div>
