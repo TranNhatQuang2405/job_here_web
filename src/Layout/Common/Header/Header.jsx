@@ -54,7 +54,7 @@ const Header = (props) => {
 					<Nav className="header__btn-language-smallSizeScreen d-block d-lg-none">
 						<ButtonChangeLanguage />
 					</Nav>
-
+					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
 						{/* Đã đăng nhập */}
 						{sessionInfo && (

@@ -1,0 +1,1 @@
+export { default as BlogChild } from "./BlogChild/BlogChild"

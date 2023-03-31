@@ -1,8 +1,15 @@
 import React from 'react'
+import { BlogChild } from './Component'
+import "./AllBlogPage.css"
 
 function AllBlogPage() {
   return (
-    <div>AllBlogPage</div>
+    <div>
+      <BlogChild />
+      <BlogChild />
+      <BlogChild />
+      <BlogChild />
+    </div>
   )
 }
 

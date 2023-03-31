@@ -1,9 +1,10 @@
 import React from "react";
 import company_default_img from "Assets/Images/company_default_img.jpg";
 
-const CompanyLogo = ({ src, alt = "", style = {}, size = 44 }) => {
+const CompanyLogo = ({ src, alt = "", style = {}, size = 44, className = "" }) => {
   return (
     <div
+      className={className}
       style={{
         ...style,
         width: `${size}px`,
