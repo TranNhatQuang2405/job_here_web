@@ -15,7 +15,7 @@ const CompanyList = () => {
   const [loading, setLoading] = useState(true);
   const [activePage, setActivePage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
-  const pageSize = 6;
+  const pageSize = 9;
 
   useEffect(() => {
     async function getData() {

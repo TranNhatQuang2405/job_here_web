@@ -52,23 +52,21 @@ const JobInteresting = () => {
 
   return (
     <div className="JobInteresting__container jh-container jh-box-item mt-3 mb-3 p-3">
-      <div className="JobInteresting__box-smart-box">
-        <div className="JobInteresting__box-label">
-          <div>
-            <div className="JobInteresting__dot" />
-            {t("Recommended by JobHere AI")}
-          </div>
+      <div className="JobInteresting__box-label">
+        <div>
+          <div className="JobInteresting__dot" />
+          {t("Recommended by JobHere AI")}
         </div>
       </div>
       <div className="JobInteresting__box-header d-flex">
-        <h2>{t("Interesting Job")}</h2>
+        <h4>{t("Interesting Job")}</h4>
       </div>
       {loading ? (
         <LoadingSpinner />
       ) : (
         <div>
           <JobListSmall data={data} />
-          <div className="d-flex justify-content-center align-items-center">
+          <div className="d-flex justify-content-center align-items-center mb-1">
             {totalPage > 0 && (
               <Pagination>
                 <Pagination.First onClick={onChangePage(0)} />

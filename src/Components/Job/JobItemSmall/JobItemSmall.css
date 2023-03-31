@@ -1,7 +1,7 @@
 .JobItemSmall__container {
   padding-right: 6px;
   padding-left: 6px;
-  padding-bottom: 4px;
+  padding-bottom: 16px;
 }
 
 .JobItemSmall__feature-job-item {
@@ -34,10 +34,16 @@
   white-space: nowrap !important;
 }
 
-.JobItemSmall__title > strong {
+.JobItemSmall__title>strong {
   color: #212f3f;
 }
 
 .JobItemSmall__company {
-  color: var(--jh-dark-gray-color);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--bs-body-color);
+}
+
+.JobItemSmall__company:hover {
+  color: var(--jh-primary-color);
 }

@@ -36,13 +36,13 @@ const JobNew = () => {
 
   return (
     <div className="JobNew__container jh-container mt-3 pt-2 pb-4">
-      <h4 className="ps-3">{t("New Job")}</h4>
+      <h4 className="ps-3 JobNew__container-title">{t("New Job")}</h4>
       {loading ? (
         <LoadingSpinner />
       ) : (
         <Slider {...settings}>
           {_.map(data, (item) => {
-            return <JobHeader key={item.jobId} jobData={item} />;
+            return <JobHeader className="JobNew__item" key={item.jobId} jobData={item} />;
           })}
         </Slider>
       )}

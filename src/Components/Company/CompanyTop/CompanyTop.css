@@ -1,7 +1,13 @@
+.CompanyTop__bound {
+  border-radius: 10px;
+}
+
 .CompanyTop_all-company,
 .CompanyTop_all-company i {
   color: var(--jh-primary-color);
   font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
 }
 
 .CompanyTop_all-company:hover,
@@ -20,6 +26,12 @@
 
 .CompanyTop__item:hover {
   border-color: var(--jh-primary-color);
+  background: radial-gradient(circle, rgba(98, 174, 100, 0.1) 0%, rgba(148, 134, 123, 0.1) 100%);
+}
+
+.CompanyTop__title {
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .CompanyTop__item-logo {
@@ -27,7 +39,7 @@
   text-align: center;
 }
 
-.CompanyTop__item-img{
+.CompanyTop__item-img {
   margin: 0 auto;
 }
 

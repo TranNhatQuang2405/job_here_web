@@ -6,7 +6,7 @@ import { Row } from "react-bootstrap";
 
 const JobListSmall = ({ data = [] }) => {
   return (
-    <div className="jh-container">
+    <div className="jh-container JobListSmall__bound">
       <Row>
         {_.map(data, (item) => {
           return <JobItemSmall key={item.jobId} jobData={item} />;

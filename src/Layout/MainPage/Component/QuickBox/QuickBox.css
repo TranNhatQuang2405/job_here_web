@@ -1,12 +1,13 @@
-.QuickBox__body{
-    margin: 16px 16px;
+.QuickBox__body {
+    margin: 16px 12px;
 }
-.QuickBox__bound{
+
+.QuickBox__bound {
     column-gap: 32px;
     flex-wrap: wrap;
 }
 
-.QuickBox__createCV{
+.QuickBox__createCV {
     cursor: pointer;
     padding: 16px 24px;
     border-radius: 10px;
@@ -14,11 +15,12 @@
     background: rgba(238, 154, 167, 0.3);
     background: radial-gradient(circle, rgba(98, 174, 123, 0.3) 0%, rgba(148, 134, 123, 0.3) 100%);
 }
-.QuickBox__createCV:hover{
+
+.QuickBox__createCV:hover {
     background: radial-gradient(circle, rgba(98, 174, 123, 0.5) 0%, rgba(148, 134, 123, 0.5) 100%);
 }
 
-.QuickBox__goToBlog{
+.QuickBox__goToBlog {
     cursor: pointer;
     padding: 16px 24px;
     border-radius: 10px;
@@ -27,28 +29,30 @@
     background: radial-gradient(circle, rgba(154, 223, 255, 0.3) 0%, rgba(148, 134, 212, 0.3) 100%);
 }
 
-.QuickBox__goToBlog:hover{
+.QuickBox__goToBlog:hover {
     background: radial-gradient(circle, rgba(154, 223, 255, 0.5) 0%, rgba(148, 134, 212, 0.5) 100%);
 }
 
-.QuickBox__item-title{
+.QuickBox__item-title {
     font-size: 24px;
     font-weight: 700;
     color: var(--jh-primary-color);
 }
-.QuickBox__item-content{
+
+.QuickBox__item-content {
     font-style: italic;
     font-weight: 600;
     color: #555;
     margin-top: 16px;
 }
-.QuickBox__item-img{
+
+.QuickBox__item-img {
     height: 180px;
     margin-left: auto;
 }
 
 @media screen and (max-width: 992px) {
-    .QuickBox__item-title{
+    .QuickBox__item-title {
         font-size: 16px;
     }
 }

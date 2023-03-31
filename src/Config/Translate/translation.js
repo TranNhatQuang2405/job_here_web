@@ -170,7 +170,7 @@ export const en = {
   "nav.item.yourBlog": "Your Blogs",
   "mainPage.topBody.title": "Find a comfortable job for you",
   "quickBox.createCV.title": "Create or Upload your own CV",
-  "quickBox.goToBlog.title": "See the tips to interact recruiter",
+  "quickBox.goToBlog.title": "See the tips to attract recruiter",
   "quickBox.createCV.content": "We have many styles for you to create your CV",
   "quickBox.goToBlog.content": "You can see the tips from other member or you can contribute your idea"
 };
@@ -348,7 +348,7 @@ export const vn = {
   "nav.item.allBlog": "Các bài viết",
   "nav.item.yourBlog": "Bài viết của bạn",
   "mainPage.topBody.title": "Tìm kiếm công việc phù hợp với bạn",
-  "quickBox.createCV.title": "Tạo hoặc upload CV của bạn",
+  "quickBox.createCV.title": "Tạo hoặc tải lên CV của bạn",
   "quickBox.goToBlog.title": "Học các tip để thu hút nhà tuyển dụng",
   "quickBox.createCV.content": "Chúng tôi có rất nhiều lựa chọn để bạn thiết kế mẫu CV cho chính mình",
   "quickBox.goToBlog.content": "Bạn có thể tham khảo các tip từ các thành viên trước hoặc có thể đóng góp ý tưởng của riêng bạn"

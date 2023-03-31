@@ -31,10 +31,10 @@ const CompanyTop = () => {
   };
 
   return (
-    <div className="jh-box-item p-3 mt-3 mb-3">
+    <div className="jh-box-item p-3 mt-3 mb-3 CompanyTop__bound">
       <div className="d-flex justify-content-between">
-        <h4>{t("Top Company")}</h4>
-        <Link to="/Company" target="_blank" className="CompanyTop_all-company">
+        <h4 className="CompanyTop__title">{t("Top Company")}</h4>
+        <Link to="/Company" className="CompanyTop_all-company">
           See all company <i className="bi bi-arrow-right" />
         </Link>
       </div>
@@ -43,7 +43,7 @@ const CompanyTop = () => {
       ) : (
         <div>
           <div>
-            <Row style={{rowGap: 16}}>
+            <Row style={{ rowGap: 16 }}>
               {_.map(companyList, (companyItem) => (
                 <Col md={3} sm={6} key={companyItem.companyId}>
                   <div className="CompanyTop__item mb-3">

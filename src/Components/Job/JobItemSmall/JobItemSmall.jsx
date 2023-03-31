@@ -50,7 +50,6 @@ const JobItemSmall = ({ jobData = {} }) => {
 					<div className="JobItemSmall__col-title flex-grow-1">
 						<Link
 							to={`/Job/${jobData?.jobId ?? 0}`}
-							target="_blank"
 							rel="noreferrer"
 							className="JobItemSmall__title d-block w-100"
 						>
@@ -60,7 +59,6 @@ const JobItemSmall = ({ jobData = {} }) => {
 						</Link>
 						<Link
 							to={`/Company/${jobData?.companyId ?? 0}`}
-							target="_blank"
 							rel="noreferrer"
 							className="JobItemSmall__company d-block w-100"
 						>

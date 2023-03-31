@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { GetAllSavedJob, SaveTemporary, UnSaveTemporary } from "Config/Redux/Slice/SavedJobSlice";
 import { changeCurrentPath } from "Config/Redux/Slice/CurrentPathSlice";
 
-const JobHeader = ({ jobData = {} }) => {
+const JobHeader = ({ jobData = {}, className }) => {
     const { t } = useTranslation();
     const applyJobRef = useRef();
     const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const JobHeader = ({ jobData = {} }) => {
     };
 
     return (
-        <div className="JobHeader__container jh-box-item">
+        <div className={"JobHeader__container jh-box-item" + (className ? " " + className : "")}>
             <ModalApplyJob ref={applyJobRef} jobData={jobData} />
             <div className="JobHeader_job-box-header d-flex align-items-center">
                 <Link

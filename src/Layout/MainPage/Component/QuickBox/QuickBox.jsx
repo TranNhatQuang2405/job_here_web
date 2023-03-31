@@ -3,15 +3,27 @@ import { Row, Col } from 'react-bootstrap'
 import { useTranslation } from 'react-i18next'
 import QuickBox_blog from "Assets/Images/QuickBox_blog.png"
 import QuickBox_CV from "Assets/Images/QuickBox_CV.png"
+import { useNavigate } from 'react-router-dom'
 import "./QuickBox.css"
 
 function QuickBox() {
     const { t } = useTranslation()
+    const navigate = useNavigate()
+
+    const goToCreateCV = () => {
+        navigate("/CV")
+    }
+
+    const goToBlog = () => {
+        navigate("/Blog")
+    }
 
     return (
         <div className="QuickBox__body">
             <Row className="QuickBox__bound">
-                <Col className="QuickBox__createCV">
+                <Col
+                    onClick={goToCreateCV}
+                    className="QuickBox__createCV">
                     <div className="QuickBox__item-title">
                         {t("quickBox.createCV.title")}
                     </div>
@@ -23,7 +35,9 @@ function QuickBox() {
                     </div>
 
                 </Col>
-                <Col className="QuickBox__goToBlog">
+                <Col
+                    onClick={goToBlog}
+                    className="QuickBox__goToBlog">
                     <div className="QuickBox__item-title">
                         {t("quickBox.goToBlog.title")}
                     </div>
