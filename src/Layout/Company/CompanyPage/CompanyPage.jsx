@@ -114,7 +114,7 @@ const CompanyPage = () => {
 									)}
 									{!!companyData.size && (
 										<p className="CompanyPage__company-size">
-											<i className="bi bi-people-fill" /> {companyData.size} {t("People")}
+											<i className="bi bi-people-fill" /> {companyData.size} {t("Employee")}
 										</p>
 									)}
 								</div>

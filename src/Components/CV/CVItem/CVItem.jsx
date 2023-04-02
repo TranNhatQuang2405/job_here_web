@@ -2,15 +2,18 @@ import React from "react";
 import { Document, Page, pdfjs } from 'react-pdf';
 import "./CVItem.css";
 import { useTranslation } from "react-i18next";
+import { TrashFill } from "react-bootstrap-icons";
 import Moment from "moment";
-const CVItem = ({ cvData = {} }) => {
+const CVItem = ({ cvData = {}, handleDeleteCV }) => {
     const { t } = useTranslation();
-
     pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
     return (
         <div className="CVItem__container mb-2 px-3 pt-3">
-            <div>
+            <div onClick={() => handleDeleteCV(cvData.cvId)} className="CVItem__remove">
+                <TrashFill />
+            </div>
+            <div className="mt-3">
                 <Document
                     error={<div className="CVItem__error"></div>}
                     file={cvData.cvUrl}

@@ -1,19 +1,29 @@
-import React from "react";
-import { Alert } from "react-bootstrap";
+import React, { useState } from "react";
+import { Alert, Spinner } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { clearContentAlert } from "Config/Redux/Slice/AlertSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./AlertModal.css"
+import { useTranslation } from "react-i18next";
+import { ButtonPrimary } from "Components/Button";
 
 const AlertModal = () => {
 
     const dispatch = useDispatch()
-
+    const { t } = useTranslation()
+    const [loading, setLoading] = useState(false)
     const alertData = useSelector((state) => state.AlertState.alertData);
     const onHideParent = () => {
         dispatch(clearContentAlert())
         if (alertData.onHide)
             alertData.onHide()
+    }
+
+    const onConfirmParent = async () => {
+        setLoading(true)
+        await alertData.onConfirm()
+        setLoading(false)
+        dispatch(clearContentAlert())
     }
 
     const listHttpCode = [
@@ -51,7 +61,29 @@ const AlertModal = () => {
                 <Alert.Heading>{alertData.title}</Alert.Heading>
                 <hr className="AlertModel__line" />
                 {alertData.message}
+                {
+                    alertData.confirm ?
+                        <>
+                            <hr className="AlertModel__line" />
+                            <div className="AlertModal__bound-btn">
+                                <ButtonPrimary
+                                    onClick={onConfirmParent}
+                                >
+                                    {loading ? <Spinner animation="border" variant="light" />
+                                        : t("alert.ok")}
+                                </ButtonPrimary>
+                                <ButtonPrimary
+                                    onClick={onHideParent}
+                                    secondary={true}>
+                                    {t("alert.no")}
+                                </ButtonPrimary>
+                            </div>
+                        </>
+                        :
+                        <></>
+                }
             </Alert>
+
         </Modal>
     );
 };

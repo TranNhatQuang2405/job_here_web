@@ -36,3 +36,10 @@
 .AlertModel__line {
     width: calc(100% + 32px)
 }
+
+.AlertModal__bound-btn {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 16px;
+    margin-right: -32px;
+}

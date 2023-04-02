@@ -129,6 +129,7 @@ export const en = {
   Skills: "Skills",
   Region: "Region",
   CVManage: "CV Manage",
+  "CV Name": "CV Name",
   "Enter CV Name": "Enter CV Name",
   "Choose CV File (Pdf)": "Choose CV File (Pdf)",
   "All your CV": "All your CV",
@@ -143,6 +144,7 @@ export const en = {
   "No result": "No result",
   "Popular Keyword": "Popular Keyword",
   "jh-saved-job-page-no-job": "You have no saved job!",
+  "Employee": "Employees",
   "apply.placeholder": "Describe yourself to attract recruiter",
   "aplly.nologin": "Login to Apply",
   "saveJob.nologin": "Login to Save",
@@ -172,7 +174,11 @@ export const en = {
   "quickBox.createCV.title": "Create or Upload your own CV",
   "quickBox.goToBlog.title": "See the tips to attract recruiter",
   "quickBox.createCV.content": "We have many styles for you to create your CV",
-  "quickBox.goToBlog.content": "You can see the tips from other member or you can contribute your idea"
+  "quickBox.goToBlog.content": "You can see the tips from other member or you can contribute your idea",
+  "cv.delete": "Delete CV",
+  "cv.delete.confirm": "Do you want to delete this CV ?",
+  "alert.ok": "Yes",
+  "alert.no": "No"
 };
 
 export const vn = {
@@ -306,6 +312,7 @@ export const vn = {
   Skills: "Kỹ năng",
   Region: "Khu vực",
   CVManage: "Quản lý CV",
+  "CV Name": "Tên CV",
   "Enter CV Name": "Nhập tên CV",
   "Choose CV File (Pdf)": "Chọn file CV (Pdf)",
   "All your CV": "Tất cả CV của bạn",
@@ -321,6 +328,7 @@ export const vn = {
   "No result": "Không có kết quả",
   "Popular Keyword": "Từ khoá phổ biến",
   "jh-saved-job-page-no-job": "Bạn chưa có việc làm đã lưu nào!",
+  "Employee": "Nhân viên",
   "apply.placeholder":
     "Viết giới thiệu ngắn gọn về bản thân (điểm mạnh, điểm yếu) và nêu rõ mong muốn, lý do làm việc tại công ty này. Đây là cách gây ấn tượng với nhà tuyển dụng nếu bạn có chưa có kinh nghiệm làm việc (hoặc CV không tốt).",
   "aplly.nologin": "Đăng nhập để ứng tuyển",
@@ -351,5 +359,9 @@ export const vn = {
   "quickBox.createCV.title": "Tạo hoặc tải lên CV của bạn",
   "quickBox.goToBlog.title": "Học các tip để thu hút nhà tuyển dụng",
   "quickBox.createCV.content": "Chúng tôi có rất nhiều lựa chọn để bạn thiết kế mẫu CV cho chính mình",
-  "quickBox.goToBlog.content": "Bạn có thể tham khảo các tip từ các thành viên trước hoặc có thể đóng góp ý tưởng của riêng bạn"
+  "quickBox.goToBlog.content": "Bạn có thể tham khảo các tip từ các thành viên trước hoặc có thể đóng góp ý tưởng của riêng bạn",
+  "cv.delete": "Xoá CV",
+  "cv.delete.confirm": "Bạn có muốn xoá CV này không ?",
+  "alert.ok": "Đồng ý",
+  "alert.no": "Không"
 };

@@ -5,7 +5,9 @@ const initialState = {
         message: "",
         title: "",
         httpCode: 200,
-        onHide: () => { }
+        confirm: false,
+        onHide: () => { },
+        onConfirm: () => { }
     }
 }
 
@@ -21,6 +23,17 @@ export const AlertSlice = createSlice({
                 ...state.alertData,
                 show: true,
                 onHide: action.payload.onHide || (() => { }),
+                ...action.payload
+            }
+        },
+        confirm: (state, action) => {
+            state.alertData = {
+                ...state.alertData,
+                httpCode: 401,
+                show: true,
+                confirm: true,
+                onHide: action.payload.onHide || (() => { }),
+                onConfirm: action.payload.onConfirm || (() => { }),
                 ...action.payload
             }
         },
@@ -57,12 +70,14 @@ export const AlertSlice = createSlice({
                 message: "",
                 title: "",
                 httpCode: 200,
-                onHide: () => { }
+                confirm: false,
+                onHide: () => { },
+                onConfirm: () => { }
             }
         },
     },
 });
 
-export const { changeContentAlert, custom, warning, error, success, clearContentAlert } = AlertSlice.actions;
+export const { changeContentAlert, confirm, custom, warning, error, success, clearContentAlert } = AlertSlice.actions;
 
 export default AlertSlice.reducer;

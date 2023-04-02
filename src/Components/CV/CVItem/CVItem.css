@@ -9,14 +9,38 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding-top: 32px !important;
 }
 
-.CVItem__iframe{
+.CVItem__remove {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 20px;
+  background-color: var(--jh-primary-color);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  color: antiquewhite;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+
+.CVItem__remove:hover {
+  background-color: var(--jh-primary-color-hover);
+  color: var(--jh-white-color)
+}
+
+.CVItem__iframe {
   width: 100%;
 }
 
-.CVItem__iframe body{
-	overflow: hidden;
+.CVItem__iframe body {
+  overflow: hidden;
 }
 
 .CVItem__container:hover {
@@ -32,14 +56,14 @@
 }
 
 .react-pdf__Page__canvas {
-    margin: 0 auto;
-    width: 100% !important;
-    height: 100% !important;
-	max-height: 300px !important;
-	border: 1px solid #666;
+  margin: 0 auto;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 300px !important;
+  border: 1px solid #666;
 }
 
-.CVItem__cv-name-href{
+.CVItem__cv-name-href {
   display: block;
   width: 100%;
   white-space: nowrap;
@@ -67,12 +91,12 @@
 }
 
 
-.CVItem__cv-content{
-	margin-top: auto;
+.CVItem__cv-content {
+  margin-top: auto;
 }
 
-.CVItem__error{
-	background-color: #777;
-	width: 100%;
-	height: 300px;
+.CVItem__error {
+  background-color: #777;
+  width: 100%;
+  height: 300px;
 }

@@ -6,6 +6,7 @@ import {
   saveCVURL,
   applyJobURL,
   findJobURL,
+  deleteCV
 } from "Config/Api/ConfigURL";
 
 class UserBusiness extends Service {
@@ -61,6 +62,11 @@ class UserBusiness extends Service {
     );
     return result;
   };
+
+  DeleteCV = async (cvId) => {
+    let result = await this.post(`${deleteCV}/${cvId}`);
+    return result;
+  }
 }
 
 const userBusiness = new UserBusiness();

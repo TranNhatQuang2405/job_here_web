@@ -11,3 +11,17 @@
 .ManageCVPage__form-data:focus {
   border-color: var(--jh-secondary-border-color) !important;
 }
+
+.ManageCVPage_form {
+  border: 1px solid #aaa;
+  padding: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.ManageCVPage_form-btn {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  justify-content: flex-end;
+}

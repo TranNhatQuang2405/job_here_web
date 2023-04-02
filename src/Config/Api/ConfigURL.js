@@ -11,6 +11,7 @@ export const getAppliedJobURL = "/user/getListApplicationHistory";
 export const saveCVURL = "/user/uploadCV";
 export const applyJobURL = "/user/applyJob";
 export const findJobURL = "/job/findJob";
+export const deleteCV = "/user/deleteCV"
 
 // Dropdown
 export const genderDropdownURL = "/dropdown/gender";
