@@ -44,3 +44,6 @@ export const getListCompanyURL = "/company/getListCompany";
 export const getCompanyInfoURL = "/company/getCompanyInfo";
 export const getJobOfCompanyURL = "/company/getAllJobOfCompany";
 export const getTopCompanyURL = "/company/getListTopCompanyHome";
+export const getCompanyScore = "/company/getCompanyScore";
+export const getListComment = "/company/getListComment";
+export const addComment = "/company/addComment"

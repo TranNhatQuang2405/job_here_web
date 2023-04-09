@@ -178,7 +178,21 @@ export const en = {
   "cv.delete": "Delete CV",
   "cv.delete.confirm": "Do you want to delete this CV ?",
   "alert.ok": "Yes",
-  "alert.no": "No"
+  "alert.no": "No",
+  "company.addComment.btn": "Add comment",
+  "company.addComment.close": "Cancel",
+  "company.addComment.title": "Add Comment",
+  "company.addComment.label.title": "Title",
+  "company.addComment.label.content": "Content",
+  "company.addComment.label.start": "Score",
+  "company.addComment.placeholder.title": "Fill title...",
+  "company.addComment.placeholder.content": "Fill content...",
+  "company.addComment.label.isRecommend": "Recommend this company",
+  "company.addComment.error": "Something went wrong",
+  "company.addComment.error.title": "Title must be at least 6 character",
+  "company.addComment.error.content": "Content must be at least 10 character",
+  "company.addComment.error.rateScore": "Score must be greater or equal to 1 start",
+  "company.addComment": "Add comment"
 };
 
 export const vn = {
@@ -363,5 +377,19 @@ export const vn = {
   "cv.delete": "Xoá CV",
   "cv.delete.confirm": "Bạn có muốn xoá CV này không ?",
   "alert.ok": "Đồng ý",
-  "alert.no": "Không"
+  "alert.no": "Không",
+  "company.addComment.btn": "Viết đánh giá",
+  "company.addComment.close": "Huỷ",
+  "company.addComment.title": "Đánh giá",
+  "company.addComment.label.title": "Tiêu đề",
+  "company.addComment.label.content": "Nội dung",
+  "company.addComment.label.start": "Điểm đánh giá",
+  "company.addComment.placeholder.title": "Điền tiêu đề...",
+  "company.addComment.placeholder.content": "Đều nội dung...",
+  "company.addComment.label.isRecommend": "Đề xuất công ty này",
+  "company.addComment.error": "Có lỗi xảy ra",
+  "company.addComment.error.title": "Tiêu đề phải có tối thiểu 6 ký tự",
+  "company.addComment.error.content": "Nội dung phải có tối thiểu 10 ký tự",
+  "company.addComment.error.rateScore": "Điểm đánh giá phải từ 1 sao trở lên",
+  "company.addComment": "Thêm đánh giá"
 };

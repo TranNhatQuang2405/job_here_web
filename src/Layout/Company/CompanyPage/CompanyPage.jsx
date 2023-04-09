@@ -8,6 +8,7 @@ import { Tab } from "Components/Navigation";
 import { LoadingSpinner } from "Components/Loading";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { companyBusiness, dropdownBusiness } from "Business";
 import { CompanyRatingOveral, CompanyRating, CompanyAboutAndJob } from "./Component";
 import company_default_background from "Assets/Images/company_default_background.jpg";
@@ -16,8 +17,18 @@ const CompanyPage = () => {
 	const { t } = useTranslation();
 	const location = useLocation();
 	const [companyData, setCompanyData] = useState({});
+	const [searchParams, setSearchParams] = useSearchParams();
 	const [loading, setLoading] = useState(true);
-	const [currentTab, setCurrentTab] = useState(0)
+
+	const getCurrentTab = () => {
+		let tab = searchParams.get("tab") * 1;
+		if (Number.isInteger(tab)) {
+			return tab
+		}
+		return 0
+	}
+
+	const [currentTab, setCurrentTab] = useState(getCurrentTab)
 	const tabNames = [t("tabName.company.about"), t("tabName.company.reviews")]
 
 	useEffect(() => {
@@ -63,6 +74,12 @@ const CompanyPage = () => {
 
 		return newUrl;
 	};
+
+	const onChangeTab = (index) => {
+		searchParams.set("tab", index);
+		setSearchParams(searchParams)
+		setCurrentTab(index)
+	}
 
 	return (
 		<div className="CompanyPage__container">
@@ -122,13 +139,13 @@ const CompanyPage = () => {
 						</div>
 					</div>
 					<div className="CompanyPage__detail jh-container mb-3">
-						<Tab data={tabNames} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+						<Tab data={tabNames} currentTab={currentTab} setCurrentTab={onChangeTab} />
 						<Row>
 							<Col md={8}>
 								{currentTab === 0 ?
 									<CompanyAboutAndJob companyData={companyData} />
 									:
-									<CompanyRating />
+									<CompanyRating companyId={companyData.companyId} />
 								}
 							</Col>
 							<Col md={4}>
