@@ -192,7 +192,8 @@ export const en = {
   "company.addComment.error.title": "Title must be at least 6 character",
   "company.addComment.error.content": "Content must be at least 10 character",
   "company.addComment.error.rateScore": "Score must be greater or equal to 1 start",
-  "company.addComment": "Add comment"
+  "company.addComment": "Add comment",
+  "blog.blogMenu.title": "Menu"
 };
 
 export const vn = {
@@ -391,5 +392,6 @@ export const vn = {
   "company.addComment.error.title": "Tiêu đề phải có tối thiểu 6 ký tự",
   "company.addComment.error.content": "Nội dung phải có tối thiểu 10 ký tự",
   "company.addComment.error.rateScore": "Điểm đánh giá phải từ 1 sao trở lên",
-  "company.addComment": "Thêm đánh giá"
+  "company.addComment": "Thêm đánh giá",
+  "blog.blogMenu.title": "Mục lục"
 };

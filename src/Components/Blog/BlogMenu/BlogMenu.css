@@ -1,0 +1,21 @@
+.BlogMenu__box{
+    padding: 16px;
+    margin: 16px 0;
+    background-color: rgba(239,239,239,0.95);
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.BlogMenu__item{
+    display: block;
+}
+
+.BlogMenu__item:hover{
+    color: var(--jh-primary-color);
+}
+
+.BlogMenu__title{
+    font-size: 20px;
+    margin-bottom: 12px;
+}

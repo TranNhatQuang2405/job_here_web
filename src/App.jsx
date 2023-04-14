@@ -11,7 +11,7 @@ import {
 import MainPage from "Layout/MainPage/MainPage.jsx";
 import { ChangePasswordPage, EditUserInfo } from "Layout/User";
 import { AllJobPage, JobAppliedPage, JobPage, JobSavedPage } from "Layout/Job";
-import { AllBlogPage } from "Layout/Blog";
+import { AllBlogPage, BlogPage, CreateBlog, YourBlog } from "Layout/Blog";
 import { ManageCVPage } from "Layout/CV";
 import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -38,6 +38,9 @@ const App = () => {
               <Route path="/Company" element={<CompanyListPage />} />
               <Route path="/Company/:id" element={<CompanyPage />} />
               <Route path="/Blog" element={<AllBlogPage />} />
+              <Route path="/Blog/:id" element={<BlogPage />} />
+              <Route path="/YourBlog" element={<YourBlog />} />
+              <Route path="/CreateBlog" element={<CreateBlog />} />
               <Route path="/EditInfomation" element={<EditUserInfo />} />
               <Route path="/ChangePassword" element={<ChangePasswordPage />} />
               <Route path="*" element={<Navigate to="/Home" />} />

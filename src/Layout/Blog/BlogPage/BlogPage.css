@@ -1,0 +1,18 @@
+.BlogPage__box{
+    padding: 16px 64px;
+}
+
+.BlogPage__box > * {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.BlogPage__mainContent{
+    text-align: justify;
+}
+
+@media screen and (width < 768px) {
+    .BlogPage__box{
+        padding: 16px 8px;
+    }
+}
