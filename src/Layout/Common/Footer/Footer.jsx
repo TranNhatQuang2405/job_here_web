@@ -1,6 +1,7 @@
 import React from "react";
 import { Nav, Col, Row } from "react-bootstrap";
 import { Logo } from "..";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import { useTranslation } from "react-i18next";
 
@@ -54,19 +55,19 @@ const Footer = () => {
         </div>
         <Nav className="flex-column">
           <Nav.Item>
-            <Nav.Link href="#" className="Footer__item-text">
+            <Link to="/AboutUs" className="Footer__item-text">
               {t("About Us")}
-            </Nav.Link>
+            </Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#" className="Footer__item-text">
+            <Link to="/TermOfService" className="Footer__item-text">
               {t("Terms of Service")}
-            </Nav.Link>
+            </Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="#" className="Footer__item-text">
+            <Link to="/PrivacyPolicy" className="Footer__item-text">
               {t("Privacy Policy")}
-            </Nav.Link>
+            </Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link href="#" className="Footer__item-text">

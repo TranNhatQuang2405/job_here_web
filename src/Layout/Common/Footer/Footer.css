@@ -27,7 +27,8 @@
   margin-bottom: 5px;
 }
 
-.Footer__layout .nav-link:hover {
+.Footer__layout .nav-link:hover,
+.Footer__layout a.Footer__item-text:hover {
   color: #e34c31;
 }
 
