@@ -9,7 +9,13 @@ import {
   AuthCodePage,
 } from "Layout/Authentication";
 import MainPage from "Layout/MainPage/MainPage.jsx";
-import { ChangePasswordPage, EditUserInfo } from "Layout/User";
+import {
+  AboutUsPage,
+  ChangePasswordPage,
+  EditUserInfo,
+  PrivacyPolicyPage,
+  TermOfServicePage,
+} from "Layout/User";
 import { AllJobPage, JobAppliedPage, JobPage, JobSavedPage } from "Layout/Job";
 import { AllBlogPage, BlogPage, CreateBlog, YourBlog } from "Layout/Blog";
 import { ManageCVPage } from "Layout/CV";
@@ -45,6 +51,9 @@ const App = () => {
               <Route path="/EditInfomation" element={<EditUserInfo />} />
               <Route path="/ChangePassword" element={<ChangePasswordPage />} />
               <Route path="/Chat" element={<Chat />} />
+              <Route path="/TermOfService" element={<TermOfServicePage />} />
+              <Route path="/PrivacyPolicy" element={<PrivacyPolicyPage />} />
+              <Route path="/AboutUs" element={<AboutUsPage />} />
               <Route path="*" element={<Navigate to="/Home" />} />
             </Routes>
           </PageTemplate>
