@@ -15,6 +15,7 @@ import { LogOut } from "Config/Redux/Slice/UserSlice";
 import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { ButtonPrimary } from "Components/Button";
 import { Avatar } from "Components/Image";
+import { ChatDotsFill } from "react-bootstrap-icons";
 
 const Header = (props) => {
 	const navigate = useNavigate();
@@ -138,6 +139,9 @@ const Header = (props) => {
 						)}
 						{sessionInfo && (
 							<Nav className="justify-content-end">
+								<Nav.Item>
+									<Nav.Link className="Header__icon-chat" as={Link} to="/Chat" ><ChatDotsFill /></Nav.Link>
+								</Nav.Item>
 								<NavDropdown
 									title={
 										<div className="d-flex flex-row align-items-center">

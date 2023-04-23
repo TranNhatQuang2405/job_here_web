@@ -1,3 +1,2 @@
-const host = process.env.REACT_APP_SERVER_URL;
-
-export default host;
+export const HOST = process.env.REACT_APP_SERVER_URL;
+export const SOCKET_URL = process.env.REACT_APP_SOCKET_SERVER_URL

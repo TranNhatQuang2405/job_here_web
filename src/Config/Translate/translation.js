@@ -193,7 +193,12 @@ export const en = {
   "company.addComment.error.content": "Content must be at least 10 character",
   "company.addComment.error.rateScore": "Score must be greater or equal to 1 start",
   "company.addComment": "Add comment",
-  "blog.blogMenu.title": "Menu"
+  "blog.blogMenu.title": "Menu",
+  "time.hour": "hours ago",
+  "time.minute": "minutes ago",
+  "time.month": "months ago",
+  "time.year": "years ago",
+  "time.day": "days ago"
 };
 
 export const vn = {
@@ -393,5 +398,10 @@ export const vn = {
   "company.addComment.error.content": "Nội dung phải có tối thiểu 10 ký tự",
   "company.addComment.error.rateScore": "Điểm đánh giá phải từ 1 sao trở lên",
   "company.addComment": "Thêm đánh giá",
-  "blog.blogMenu.title": "Mục lục"
+  "blog.blogMenu.title": "Mục lục",
+  "time.hour": "giờ trước",
+  "time.minute": "phút trước",
+  "time.month": "tháng trước",
+  "time.year": "năm trước",
+  "time.day": "ngày trước"
 };

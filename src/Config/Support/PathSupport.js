@@ -1,0 +1,1 @@
+export const TOPIC_MESSAGES_USER = "/topic/user"

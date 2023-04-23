@@ -17,6 +17,7 @@ import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 import PathProvider from "Config/Provider/PathProvider";
+import Chat from "Layout/Chat/Chat";
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
               <Route path="/CreateBlog" element={<CreateBlog />} />
               <Route path="/EditInfomation" element={<EditUserInfo />} />
               <Route path="/ChangePassword" element={<ChangePasswordPage />} />
+              <Route path="/Chat" element={<Chat />} />
               <Route path="*" element={<Navigate to="/Home" />} />
             </Routes>
           </PageTemplate>

@@ -1,10 +1,10 @@
 import axios from "axios";
-import host from "./Host";
+import { HOST } from "./Host";
 import { store } from "Config/Redux/store";
 import { LogOut } from "Config/Redux/Slice/UserSlice";
 class Service {
   post = async (suburl, params = {}, header = {}) => {
-    let url = host + suburl;
+    let url = HOST + suburl;
     var headerStorage = localStorage.getItem("header");
     headerStorage = headerStorage ? JSON.parse(headerStorage) : {};
     let result = await axios.post(url, params, {
@@ -16,7 +16,7 @@ class Service {
   };
 
   get = async (suburl, params = {}, header = {}) => {
-    let url = host + suburl;
+    let url = HOST + suburl;
     var headerStorage = localStorage.getItem("header");
     headerStorage = headerStorage ? JSON.parse(headerStorage) : {};
     let result = await axios.get(url, {
@@ -29,7 +29,7 @@ class Service {
   };
 
   upload = async (suburl, params = {}, header = {}) => {
-    let url = host + suburl;
+    let url = HOST + suburl;
     var headerStorage = localStorage.getItem("header");
     headerStorage = headerStorage ? JSON.parse(headerStorage) : {};
     let result = await axios.post(url, params, {

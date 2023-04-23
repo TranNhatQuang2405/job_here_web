@@ -1,10 +1,13 @@
 .body__layout {
-  padding: 8px 60px;
+  padding: 0px 60px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
   background-color: var(--bs-body-bg);
 }
 
 @media screen and (width < 768px) {
   .body__layout {
-    padding: 8px 4px;
+    padding: 0px 4px;
   }
 }

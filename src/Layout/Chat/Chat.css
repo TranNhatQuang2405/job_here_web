@@ -1,0 +1,18 @@
+.Chat__menu {
+    padding: 10px 0px;
+    height: 100%;
+    overflow-y: auto;
+    max-height: 400px;
+    background-color: #f0f3f9;
+}
+
+.Chat__content {
+    padding: 10px 0px;
+    height: 100%;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.Chat__box {
+    height: 100%;
+}

@@ -46,4 +46,7 @@ export const getJobOfCompanyURL = "/company/getAllJobOfCompany";
 export const getTopCompanyURL = "/company/getListTopCompanyHome";
 export const getCompanyScore = "/company/getCompanyScore";
 export const getListComment = "/company/getListComment";
-export const addComment = "/company/addComment"
+export const addComment = "/company/addComment";
+
+//Message
+export const getListMessage = "/chat";
