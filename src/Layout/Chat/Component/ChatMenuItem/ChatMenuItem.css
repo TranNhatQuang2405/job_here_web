@@ -9,6 +9,7 @@
     align-items: center;
 }
 
+.ChatMenuItem__box.active,
 .ChatMenuItem__box:hover {
     background-color: rgba(210, 210, 210, 0.6);
 }
