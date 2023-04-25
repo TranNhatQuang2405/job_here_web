@@ -50,3 +50,4 @@ export const addComment = "/company/addComment";
 
 //Message
 export const getListMessage = "/chat";
+export const chat = "/chat/send";

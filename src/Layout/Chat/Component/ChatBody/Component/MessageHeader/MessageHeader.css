@@ -1,3 +1,17 @@
 .MessageHeader__box {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+    height: fit-content;
+    border-bottom: 1px solid #aaa;
+    width: 100%;
     padding: 8px;
+}
+
+.MessageHeader__name {
+    font-size: 24px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

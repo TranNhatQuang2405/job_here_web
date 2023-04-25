@@ -173,7 +173,7 @@ const Header = (props) => {
 						</Nav>
 						{!sessionInfo && checkLocation() &&
 							<Nav className="justify-content-end ms-3" onClick={goSignIn}>
-								<ButtonPrimary style={{ maxWidth: 120, alignSelf: "flex-end" }}>{t("Sign In")}</ButtonPrimary>
+								<ButtonPrimary style={{ maxWidth: "fix-content", alignSelf: "flex-end" }}>{t("Sign In")}</ButtonPrimary>
 							</Nav>
 						}
 					</Navbar.Collapse>

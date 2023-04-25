@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next'
 
 
 
-function ChatMenuItem({ messageData }) {
+function ChatMenuItem({ messageData, onClick, currentMessage }) {
 
     const { t } = useTranslation()
-
+    const className = (currentMessage === messageData.messageId ? "ChatMenuItem__box active" : "ChatMenuItem__box")
 
     return (
-        <div className="ChatMenuItem__box">
+        <div className={className} onClick={onClick}>
             <div className="ChatMenuItem__time">
                 {convertToTimeString(messageData.createdDate, t)}
             </div>
@@ -27,7 +27,6 @@ function ChatMenuItem({ messageData }) {
                     </div>
                 )
             }
-
         </div>
     )
 }
