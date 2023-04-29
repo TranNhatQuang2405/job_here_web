@@ -22,6 +22,7 @@ function MessageInput({ messageData }) {
                 content: message
             }
             await messageBusiness.chat(params)
+            setMessage("")
             setPending(false)
         }
     }
