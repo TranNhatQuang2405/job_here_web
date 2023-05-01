@@ -54,15 +54,24 @@ const Header = (props) => {
 					</Navbar.Brand>
 
 					{sessionInfo && (
-						<Nav className="d-lg-none d-block header__btn-language-smallSizeScreen">
-							<Nav.Link className="Header__icon-chat" as={Link} to="/Chat" >
-								<IconChat />
-							</Nav.Link>
+						<>
+							<Nav className="d-lg-none d-block header__btn-language-smallSizeScreen">
+								<Nav.Link className="Header__icon-chat" as={Link} to="/Chat" >
+									<IconChat />
+								</Nav.Link>
+							</Nav>
+							<Nav className="d-block d-lg-none">
+								<ButtonChangeLanguage />
+							</Nav>
+						</>
+					)}
+
+					{!sessionInfo && (
+						<Nav className="d-block d-lg-none header__btn-language-smallSizeScreen">
+							<ButtonChangeLanguage />
 						</Nav>
 					)}
-					<Nav className="d-block d-lg-none">
-						<ButtonChangeLanguage />
-					</Nav>
+
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
 					<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
 						{/* Đã đăng nhập */}

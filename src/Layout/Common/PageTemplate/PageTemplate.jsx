@@ -11,7 +11,7 @@ const PageTemplate = ({ children }) => {
       <Header />
       <Body>
         <AlertModal />
-        <Outlet />
+        {children}
       </Body>
       <Footer />
     </Container>
