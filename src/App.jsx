@@ -29,9 +29,9 @@ const App = () => {
   return (
     <I18nextProvider i18n={i18n}>
       <AuthProvider>
-        <PathProvider>
-          <Routes>
-            <Route path="/" element={<PageTemplate />}>
+        <PageTemplate>
+          <PathProvider>
+            <Routes>
               <Route path="/SignUp" element={<SignUpPage />} />
               <Route path="/SignIn" element={<SignInPage />} />
               <Route path="/ResetPassword" element={<ResetPasswordPage />} />
@@ -55,9 +55,9 @@ const App = () => {
               <Route path="/PrivacyPolicy" element={<PrivacyPolicyPage />} />
               <Route path="/AboutUs" element={<AboutUsPage />} />
               <Route path="*" element={<Navigate to="/Home" />} />
-            </Route>
-          </Routes>
-        </PathProvider>
+            </Routes>
+          </PathProvider>
+        </PageTemplate>
       </AuthProvider>
     </I18nextProvider>
   );
