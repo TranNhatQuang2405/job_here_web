@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import SockJsClient from 'react-stomp';
 import "./Chat.css"
 import { Row, Col } from 'react-bootstrap';
@@ -10,13 +10,14 @@ import { TOPIC_MESSAGES_USER } from 'Config/Support/PathSupport';
 
 function Chat() {
     const email = useSelector(state => state.User.sessionInfo?.email)
+    const [pending, setPending] = useState(false)
     const [messages, setMessages] = useState([])
     const [hasChange, setHasChange] = useState(false)
     const [hasNewMessage, setHasNewMessage] = useState(false)
     const [currentMessage, setCurrentMessage] = useState(null)
     const [childMessages, setChildMessages] = useState([])
     const topicMessages = `${TOPIC_MESSAGES_USER}/${email}`
-
+    const prevMessage = useRef(currentMessage)
     let onMessageReceived = (msg) => {
         setHasChange(prev => !prev)
         if (currentMessage && msg && msg.messageId === currentMessage.messageId)
@@ -29,13 +30,19 @@ function Chat() {
 
     useEffect(() => {
         const fetchData = async () => {
+            if (currentMessage !== prevMessage.current)
+                setPending(true)
             let result = await messageBusiness.getListChildMessage(currentMessage.messageId)
+            await messageBusiness.viewAllMessage(currentMessage.messageId)
             if (result?.data?.httpCode === 200) {
                 setChildMessages(result?.data?.objectData || [])
             }
+            if (currentMessage !== prevMessage)
+                setPending(false)
+            prevMessage.current = currentMessage
         }
         if (currentMessage)
-            fetchData()
+            fetchData(currentMessage)
     }, [currentMessage, hasNewMessage])
 
 
@@ -68,7 +75,10 @@ function Chat() {
                 ))}
             </Col>
             <Col xs={8} className="p-0 Chat__content">
-                <ChatBody currentMessage={currentMessage} childMessages={childMessages} />
+                <ChatBody
+                    currentMessage={currentMessage}
+                    childMessages={childMessages}
+                    pending={pending} />
             </Col>
         </Row>
     )

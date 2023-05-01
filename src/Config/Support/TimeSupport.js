@@ -1,4 +1,9 @@
 import moment from "moment"
+export const converTimeToDate = (time) => {
+    let timeReceived = moment(time)
+    return timeReceived.format("HH:mm DD/MM/YYYY")
+}
+
 export const convertToTimeString = (time, t) => {
     let timeReceived = moment(time)
     let currentTime = moment()

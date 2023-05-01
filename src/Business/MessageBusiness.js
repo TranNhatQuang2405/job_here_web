@@ -1,5 +1,5 @@
 import Service from "Config/Api/Service";
-import { chat, getListMessage } from "Config/Api/ConfigURL";
+import { chat, getListMessage, countUnreadMessage, viewAllMessage } from "Config/Api/ConfigURL";
 
 class MessageBusiness extends Service {
     getListMessage = async () => {
@@ -14,6 +14,16 @@ class MessageBusiness extends Service {
 
     chat = async (params) => {
         let result = await this.post(chat, params);
+        return result;
+    }
+
+    countUnreadMessage = async () => {
+        let result = await this.get(countUnreadMessage);
+        return result;
+    }
+
+    viewAllMessage = async (messageId) => {
+        let result = await this.post(`${viewAllMessage}/${messageId}`);
         return result;
     }
 }

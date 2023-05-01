@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import { Footer, Header, Body } from "..";
 import { AlertModal } from "Components/Modal/";
 import "./PageTemplate.css";
+import { Outlet } from "react-router-dom";
 
 const PageTemplate = ({ children }) => {
   return (
@@ -10,11 +11,11 @@ const PageTemplate = ({ children }) => {
       <Header />
       <Body>
         <AlertModal />
-        {children}
+        <Outlet />
       </Body>
       <Footer />
     </Container>
   );
 };
 
-export default PageTemplate;
+export default React.memo(PageTemplate);
