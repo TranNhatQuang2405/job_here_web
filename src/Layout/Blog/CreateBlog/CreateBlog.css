@@ -1,3 +1,24 @@
-.CreateBlog__box{
+.CreateBlog__box {
     padding: 16px;
+    min-height: 100%;
+}
+
+.CreateBlog__boxBtn {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 16px;
+}
+
+.CreateBlog__title {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.CreateBlog__box .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.CreateBlog__content>.ql-container {
+    min-height: 300px;
 }

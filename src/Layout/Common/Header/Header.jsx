@@ -60,7 +60,7 @@ const Header = (props) => {
 									<IconChat />
 								</Nav.Link>
 							</Nav>
-							<Nav className="d-block d-lg-none">
+							<Nav className="d-block d-lg-none me-3">
 								<ButtonChangeLanguage />
 							</Nav>
 						</>
