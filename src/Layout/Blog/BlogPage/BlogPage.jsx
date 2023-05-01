@@ -1,29 +1,70 @@
 import React from 'react'
 import "./BlogPage.css"
 import { PathTree } from 'Components/Path'
-import { useState } from 'react'
-import { BlogSection, BlogMenu } from 'Components/Blog'
+import { useState, useEffect } from 'react'
+import { blogBusiness } from 'Business'
+import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { converTimeToDate } from 'Config/Support/TimeSupport'
+import { LoadingPage } from 'Layout/Common'
+import { BlogRef } from './Component'
+import { useTranslation } from 'react-i18next'
+import { Col, Row } from 'react-bootstrap'
 
 
-
-function BlogPage({ blogId }) {
+function BlogPage() {
+    const { blogId } = useParams()
+    const [pending, setPending] = useState(true)
+    const { t } = useTranslation()
+    const navigate = useNavigate()
     const [blogData, setBlogData] = useState({
-        blogTitle: "Làm sao để thu hút nhà tuyển dụng",
-        content: "Flutter hiện nay đang là một hướng phát triển nghề nghiệp đầy tiềm năng dành cho các lập trình viên ứng dụng mobile. Là một framework hỗ trợ build ứng dụng cross-platform cùng với sự hỗ trợ từ ông lớn Google, Flutter đang dần trở thành ưu tiên lựa chọn của các nhà phát hành sản phẩm. Cũng vì thế mà vị trí lập trình viên Flutter cũng đang được tuyển dụng nhiều hơn với các đãi ngộ hấp dẫn. Để chuẩn bị cho buổi phỏng vấn sắp tới, hôm nay chúng ta cùng nhau tìm hiểu top 10 câu hỏi dành cho Flutter Developer thường gặp nhé."
-
+        blogId: "",
+        blogName: "",
+        content: "",
+        description: "",
+        createdDate: "",
+        userName: "",
+        industryName: "",
+        industryId: 1,
+        blogRefs: []
     })
+    useEffect(() => {
+        const fetchData = async () => {
+            let result = await blogBusiness.getBlogById(blogId, true);
+            if (result.data.httpCode === 200) {
+                setBlogData(result.data.objectData)
+            } else {
+                navigate("/Home")
+            }
+            setPending(false)
+        }
+        if (pending)
+            fetchData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
-        <>
-            <div className="BlogPage__box jh-box-item">
-                <PathTree lastPath={blogData.blogTitle} />
-                <h1 className="my-3">{blogData.blogTitle}</h1>
-                <div dangerouslySetInnerHTML={{ __html: blogData.content || "" }}></div>
-
-            </div>
-            <div className="mt-2 jh-box-item">
-
-            </div>
-        </>
+        pending ? <LoadingPage /> :
+            <>
+                <div className="BlogPage__box jh-box-item">
+                    <PathTree lastPath={blogData.blogName} />
+                    <div className="BlogPage__industry">{blogData.industryName}</div>
+                    <div className="BlogPage__name">{blogData.blogName}</div>
+                    <div className="BlogPage__time">{converTimeToDate(blogData.createdDate)}</div>
+                    <div className="BlogPage__description">{blogData.description}</div>
+                    <div className="BlogPage__mainContent" dangerouslySetInnerHTML={{ __html: blogData.content || "" }}></div>
+                    <div className="BlogPage__author">{blogData.userName}</div>
+                </div>
+                {
+                    blogData.blogRefs.length > 0 ?
+                        <Row className="mt-2 jh-box-item BlogPage__ref">
+                            <Col className="BlogPage__refTitle" xs={12}>{t("blogPage.refTitle")}</Col>
+                            {blogData.blogRefs.map(blog => (
+                                <BlogRef blog={blog} key={blog.blogId} />
+                            ))}
+                        </Row> : <></>
+                }
+            </>
     )
 }
 

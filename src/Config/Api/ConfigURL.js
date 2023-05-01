@@ -51,3 +51,11 @@ export const addComment = "/company/addComment";
 //Message
 export const getListMessage = "/chat";
 export const chat = "/chat/send";
+export const countUnreadMessage = "/chat/count"
+export const viewAllMessage = "/chat/view/user"
+
+//Blog
+export const getBlogById = "/blog"
+export const addBlog = "/blog"
+export const blogSearch = "/blog/search"
+export const getOwnerBlog = "/blog/getOwnerBlogs"

@@ -15,7 +15,7 @@ import { LogOut } from "Config/Redux/Slice/UserSlice";
 import { changeToken } from "Config/Redux/Slice/HeaderRequestSlice";
 import { ButtonPrimary } from "Components/Button";
 import { Avatar } from "Components/Image";
-import { ChatDotsFill } from "react-bootstrap-icons";
+import { IconChat } from "Components/Icon";
 
 const Header = (props) => {
 	const navigate = useNavigate();
@@ -52,7 +52,15 @@ const Header = (props) => {
 							<Logo isDark />
 						</NavLink>
 					</Navbar.Brand>
-					<Nav className="header__btn-language-smallSizeScreen d-block d-lg-none">
+
+					{sessionInfo && (
+						<Nav className="d-lg-none d-block header__btn-language-smallSizeScreen">
+							<Nav.Link className="Header__icon-chat" as={Link} to="/Chat" >
+								<IconChat />
+							</Nav.Link>
+						</Nav>
+					)}
+					<Nav className="d-block d-lg-none">
 						<ButtonChangeLanguage />
 					</Nav>
 					<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -112,7 +120,7 @@ const Header = (props) => {
 								<Nav.Item>
 									<Nav.Link as={Link} to="/Home" >{t("nav.home")}</Nav.Link>
 								</Nav.Item>
-								<NavDropdown title={t("Jobs")} id="basic-nav-drop		down" menuVariant="dark">
+								<NavDropdown title={t("Jobs")} id="basic-nav-dropdown" menuVariant="dark">
 									<NavDropdown.Item as="div">
 										<NavLink to="/Job">{t("nav.item.allJob")}</NavLink>
 									</NavDropdown.Item>
@@ -139,8 +147,10 @@ const Header = (props) => {
 						)}
 						{sessionInfo && (
 							<Nav className="justify-content-end">
-								<Nav.Item>
-									<Nav.Link className="Header__icon-chat" as={Link} to="/Chat" ><ChatDotsFill /></Nav.Link>
+								<Nav.Item className="d-none d-lg-block">
+									<Nav.Link className="Header__icon-chat" as={Link} to="/Chat" >
+										<IconChat />
+									</Nav.Link>
 								</Nav.Item>
 								<NavDropdown
 									title={

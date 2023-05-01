@@ -20,7 +20,7 @@ const PathTree = ({ lastPath = "" }) => {
       let isNumeric =
         typeof lastVar === "number" ||
         (typeof lastVar === "string" && lastVar.trim() !== "" && !isNaN(lastVar));
-      if (isNumeric) {
+      if (isNumeric || lastPath) {
         tmpPath[tmpPath.length - 1].pathName = lastPath || tmpPath[tmpPath.length - 1];
       }
     }
