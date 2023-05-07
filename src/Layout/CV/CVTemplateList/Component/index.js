@@ -1,0 +1,1 @@
+export { default as CVTemplateListChild } from "./CVTemplateListChild/CVTemplateListChild.jsx"

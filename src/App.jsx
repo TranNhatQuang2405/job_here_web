@@ -18,7 +18,7 @@ import {
 } from "Layout/User";
 import { AllJobPage, JobAppliedPage, JobPage, JobSavedPage } from "Layout/Job";
 import { AllBlogPage, BlogPage, CreateBlog, YourBlog } from "Layout/Blog";
-import { ManageCVPage } from "Layout/CV";
+import { ManageCVPage, CVTemplateList, CVTemplatePage } from "Layout/CV";
 import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
@@ -42,6 +42,8 @@ const App = () => {
               <Route path="/AppliedJob" element={<JobAppliedPage />} />
               <Route path="/SavedJob" element={<JobSavedPage />} />
               <Route path="/CVManage" element={<ManageCVPage />} />
+              <Route path="/CVTemplate" element={<CVTemplateList />} />
+              <Route path="/CVTemplate/:templateId" element={<CVTemplatePage />} />
               <Route path="/Company" element={<CompanyListPage />} />
               <Route path="/Company/:id" element={<CompanyPage />} />
               <Route path="/Blog" element={<AllBlogPage />} />

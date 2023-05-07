@@ -108,6 +108,9 @@ const Header = (props) => {
 									<NavDropdown.Item as="div">
 										<NavLink to="/CVManage">{t("CV Manage")}</NavLink>
 									</NavDropdown.Item>
+									<NavDropdown.Item as="div">
+										<NavLink to="/CVTemplate">{t("nav.item.cvTemplate")}</NavLink>
+									</NavDropdown.Item>
 								</NavDropdown>
 								<NavDropdown
 									title={t("nav.blog")}

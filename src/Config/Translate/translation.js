@@ -170,6 +170,7 @@ export const en = {
   "nav.blog": "Blogs",
   "nav.item.allBlog": "Blog Page",
   "nav.item.yourBlog": "Your Blogs",
+  "nav.item.cvTemplate": "CV Template",
   "mainPage.topBody.title": "Find a comfortable job for you",
   "quickBox.createCV.title": "Create or Upload your own CV",
   "quickBox.goToBlog.title": "See the tips to attract recruiter",
@@ -216,7 +217,16 @@ export const en = {
   "time.minute": "minutes ago",
   "time.month": "months ago",
   "time.year": "years ago",
-  "time.day": "days ago"
+  "time.day": "days ago",
+  "cv.title.overall": "Objective",
+  "cv.title.skill": "Skill",
+  "cv.title.contact": "Contact Information",
+  "cv.title.experience": "Experience",
+  "cv.title.education": "Education",
+  "cv.title.hobby": "Hobby",
+  "cv.title.award": "Achivement",
+  "cvTemplate.btn.close": "Close",
+  "cvTemplate.btn.useTemplate": "Use this template"
 };
 
 export const vn = {
@@ -393,6 +403,7 @@ export const vn = {
   "nav.blog": "Bài viết",
   "nav.item.allBlog": "Các bài viết",
   "nav.item.yourBlog": "Bài viết của bạn",
+  "nav.item.cvTemplate": "Các mẫu CV",
   "mainPage.topBody.title": "Tìm kiếm công việc phù hợp với bạn",
   "quickBox.createCV.title": "Tạo hoặc tải lên CV của bạn",
   "quickBox.goToBlog.title": "Học các tip để thu hút nhà tuyển dụng",
@@ -439,5 +450,14 @@ export const vn = {
   "time.minute": "phút trước",
   "time.month": "tháng trước",
   "time.year": "năm trước",
-  "time.day": "ngày trước"
+  "time.day": "ngày trước",
+  "cv.title.overall": "Mục tiêu nghề nghiệp",
+  "cv.title.skill": "Kỹ năng",
+  "cv.title.contact": "Thông tin liên hệ",
+  "cv.title.experience": "Kinh nghiệm làm việc",
+  "cv.title.education": "Học vấn",
+  "cv.title.hobby": "Sở thích",
+  "cv.title.award": "Thành tựu",
+  "cvTemplate.btn.close": "Quay lại",
+  "cvTemplate.btn.useTemplate": "Dùng mẫu CV này"
 };
