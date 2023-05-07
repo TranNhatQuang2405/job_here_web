@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./CompanyPage.css";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Modal } from "react-bootstrap";
+import { Input } from "antd";
 import { CompanyLogo } from "Components/Company";
 import { JobShare } from "Components/Job";
 import { PathTree } from "Components/Path";
 import { Tab } from "Components/Navigation";
 import { LoadingSpinner } from "Components/Loading";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
-import { companyBusiness, dropdownBusiness } from "Business";
+import { useSelector } from "react-redux";
+import { useLocation, useSearchParams } from "react-router-dom";
+import { companyBusiness, dropdownBusiness, messageBusiness } from "Business";
 import { CompanyRatingOveral, CompanyRating, CompanyAboutAndJob } from "./Component";
 import company_default_background from "Assets/Images/company_default_background.jpg";
+import { Messenger } from "react-bootstrap-icons";
+import { ButtonPrimary } from "Components/Button";
 
 const CompanyPage = () => {
 	const { t } = useTranslation();
@@ -19,7 +22,8 @@ const CompanyPage = () => {
 	const [companyData, setCompanyData] = useState({});
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [loading, setLoading] = useState(true);
-
+	const [show, setShow] = useState(false)
+	const [chatMessage, setChatMessage] = useState("")
 	const getCurrentTab = () => {
 		let tab = searchParams.get("tab") * 1;
 		if (Number.isInteger(tab)) {
@@ -27,9 +31,22 @@ const CompanyPage = () => {
 		}
 		return 0
 	}
-
 	const [currentTab, setCurrentTab] = useState(getCurrentTab)
 	const tabNames = [t("tabName.company.about"), t("tabName.company.reviews")]
+	const sessionInfo = useSelector(state => state.User.sessionInfo)
+
+	const handleOpenChat = () => {
+		setShow(true)
+	}
+
+	const handleChangeMessage = (e) => {
+		setChatMessage(e.target.value)
+	}
+
+	const handleHide = () => {
+		setChatMessage("")
+		setShow(false)
+	}
 
 	useEffect(() => {
 		let isSubscribed = true;
@@ -81,8 +98,42 @@ const CompanyPage = () => {
 		setCurrentTab(index)
 	}
 
+	const handleSend = async () => {
+		if (chatMessage.trim() !== "") {
+			let params = {
+				userId: sessionInfo.userId,
+				companyId: companyData.companyId,
+				fromUser: true,
+				content: chatMessage
+			}
+			await messageBusiness.chat(params)
+			setShow(false)
+			setChatMessage("")
+		}
+	}
+
 	return (
 		<div className="CompanyPage__container">
+			<Modal className='modal__custom-bg'
+				size="md"
+				fullscreen='lg-down'
+				centered show={show} onHide={handleHide}>
+				<Modal.Header closeButton>
+					<Modal.Title>{t("companyPage.message.title")}</Modal.Title>
+				</Modal.Header>
+				<Modal.Body>
+					<Input
+						value={chatMessage}
+						onChange={handleChangeMessage}
+						size="large"
+						placeholder={t("companyPage.message.placeholder")}
+					/>
+				</Modal.Body>
+				<Modal.Footer>
+					<ButtonPrimary onClick={handleHide} secondary={true}>{t("companyPage.message.close")}</ButtonPrimary>
+					<ButtonPrimary onClick={handleSend}>{t("companyPage.message.send")}</ButtonPrimary>
+				</Modal.Footer>
+			</Modal>
 			<div className="jh-container">
 				<PathTree lastPath={companyData.companyName || t("Company introduction")} />
 			</div>
@@ -136,6 +187,13 @@ const CompanyPage = () => {
 									)}
 								</div>
 							</div>
+							{
+								sessionInfo &&
+								<ButtonPrimary secondary={true} onClick={handleOpenChat}>
+									<Messenger className="CompanyPage__messageIcon" />
+									{t("companyPage.sendMessage")}
+								</ButtonPrimary>
+							}
 						</div>
 					</div>
 					<div className="CompanyPage__detail jh-container mb-3">

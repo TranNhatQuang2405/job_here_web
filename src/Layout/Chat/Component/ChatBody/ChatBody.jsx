@@ -3,14 +3,14 @@ import { MessageHeader, MessageInput, MessageLeft, MessageRight } from './Compon
 import "./ChatBody.css"
 import { Spinner } from 'react-bootstrap'
 
-function ChatBody({ currentMessage, childMessages, pending }) {
+function ChatBody({ setCurrentMessage, currentMessage, childMessages, pending }) {
 
     if (!currentMessage)
         return <></>
     else
         return (
             <div className="ChatBody__box">
-                <MessageHeader messageData={currentMessage} />
+                <MessageHeader messageData={currentMessage} setCurrentMessage={setCurrentMessage} />
                 <div className="ChatBody__listMessage fix_scroll">
                     {
                         pending ? <div className="ChatBody__loading"><Spinner animation='border' variant='danger' /></div> : (

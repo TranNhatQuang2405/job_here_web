@@ -1,5 +1,5 @@
 import Service from "Config/Api/Service";
-import { chat, getListMessage, countUnreadMessage, viewAllMessage } from "Config/Api/ConfigURL";
+import { chat, getListMessage, countUnreadMessage, viewAllMessage, deleteMessage } from "Config/Api/ConfigURL";
 
 class MessageBusiness extends Service {
     getListMessage = async () => {
@@ -24,6 +24,11 @@ class MessageBusiness extends Service {
 
     viewAllMessage = async (messageId) => {
         let result = await this.post(`${viewAllMessage}/${messageId}`);
+        return result;
+    }
+
+    deleteMessage = async (messageId) => {
+        let result = await this.post(`${deleteMessage}/${messageId}`);
         return result;
     }
 }

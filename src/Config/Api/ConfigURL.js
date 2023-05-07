@@ -53,6 +53,7 @@ export const getListMessage = "/chat";
 export const chat = "/chat/send";
 export const countUnreadMessage = "/chat/count"
 export const viewAllMessage = "/chat/view/user"
+export const deleteMessage = "/chat/delete"
 
 //Blog
 export const getBlogById = "/blog"

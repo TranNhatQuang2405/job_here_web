@@ -111,3 +111,10 @@
 .CompanyPage__description {
   text-align: justify;
 }
+
+.CompanyPage__messageIcon {
+  font-size: 24px;
+  color: var(--jh-primary-color);
+  cursor: pointer;
+  margin-right: 8px;
+}

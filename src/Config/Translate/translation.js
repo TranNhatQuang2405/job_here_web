@@ -226,7 +226,16 @@ export const en = {
   "cv.title.hobby": "Hobby",
   "cv.title.award": "Achivement",
   "cvTemplate.btn.close": "Close",
-  "cvTemplate.btn.useTemplate": "Use this template"
+  "cvTemplate.btn.useTemplate": "Use this template",
+  "chat.message.noMessage": "No message has found",
+  "chat.message.noCurrentMessage": "Please choose one message",
+  "chat.delete.confirm": "Do you want to delete this message ?",
+  "chat.delete.title": "Delete Message",
+  "companyPage.sendMessage": "Send message",
+  "companyPage.message.title": "Write message",
+  "companyPage.message.placeholder": "Your message...",
+  "companyPage.message.send": "Send",
+  "companyPage.message.close": "Close"
 };
 
 export const vn = {
@@ -459,5 +468,14 @@ export const vn = {
   "cv.title.hobby": "Sở thích",
   "cv.title.award": "Thành tựu",
   "cvTemplate.btn.close": "Quay lại",
-  "cvTemplate.btn.useTemplate": "Dùng mẫu CV này"
+  "cvTemplate.btn.useTemplate": "Dùng mẫu CV này",
+  "chat.message.noMessage": "Không có tin nhắn nào",
+  "chat.message.noCurrentMessage": "Hãy chọn một tin nhắn",
+  "chat.delete.confirm": "Bạn có muốn xoá tin nhắn này",
+  "chat.delete.title": "Xoá tin nhắn",
+  "companyPage.sendMessage": "Gửi tin nhắn",
+  "companyPage.message.title": "Soạn tin nhắn để gửi",
+  "companyPage.message.placeholder": "Tin nhắn muốn gửi ...",
+  "companyPage.message.send": "Gửi",
+  "companyPage.message.close": "Đóng"
 };
