@@ -20,6 +20,7 @@ function Chat() {
     const [childMessages, setChildMessages] = useState([])
     const topicMessages = `${TOPIC_MESSAGES_USER}/${email}`
     const prevMessage = useRef(currentMessage)
+    const currentSocket = useRef()
     let onMessageReceived = (msg) => {
         setHasChange(prev => !prev)
         if (currentMessage && msg && msg.messageId === currentMessage.messageId)
@@ -58,15 +59,15 @@ function Chat() {
         fetchData()
     }, [hasChange])
 
-
     return (
         <Row className="Chat__box ">
-            <SockJsClient
+            {email && <SockJsClient
                 url={SOCKET_URL}
                 topics={[topicMessages]}
                 onMessage={msg => onMessageReceived(msg)}
                 debug={false}
-            />
+                ref={currentSocket}
+            />}
             <Col className="Chat__menu fix_scroll" xs={4}>
                 {messages.length === 0 ? <div className="Chat__noMessage">{t("chat.message.noMessage")}</div> : <></>}
                 {messages.map((message, index) => (

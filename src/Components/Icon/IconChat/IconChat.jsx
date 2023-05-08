@@ -33,12 +33,14 @@ function IconChat() {
 
     return (
         <div className="IconChat__box">
-            <SockJsClient
-                url={SOCKET_URL}
-                topics={[topicMessages]}
-                onMessage={msg => onMessageReceived(msg)}
-                debug={false}
-            />
+            {email &&
+                <SockJsClient
+                    url={SOCKET_URL}
+                    topics={[topicMessages]}
+                    onMessage={msg => onMessageReceived(msg)}
+                    debug={false}
+                />
+            }
             <ChatDotsFill />
             {count > 0 || count === "9+" ?
                 <div className="IconChat__num">

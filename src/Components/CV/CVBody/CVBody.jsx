@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CVContact, CVHobby, CVExperience, CVSkill, CVTitle, CVImage, CVOverall, CVEducation, CVAward, } from '..'
 import "./CVBody.css"
+import data from "./CVBodyDefaultData.json"
 import { Col, Row } from 'react-bootstrap'
 const CVBody = React.forwardRef((props, ref) => {
     const scaleCV = () => {
@@ -15,88 +16,7 @@ const CVBody = React.forwardRef((props, ref) => {
         let percent = scaleCV()
         return 1123 * percent + 16
     }
-    const [cvData, setCvData] = useState([
-        {
-            cvDetailType: "IMAGE",
-            left: true,
-            content: ""
-        },
-        {
-            cvDetailType: "OVERALL",
-            left: true,
-            content: "High-performance salesman with X years of experience in areas A, B, C. Strong skills include prospecting, closing sales and communicating. In the past, it has achieved over 15% KPI of the year. Currently looking for an opportunity to become a salesperson and contribute to company X's revenue growth."
-        },
-        {
-            cvDetailType: "SKILL",
-            left: true,
-            content: [
-                "Bán hàng trắng",
-                "Mua thuốc lậu",
-                "Trộm cướp",
-                "Tàng trữ ma tuý"
-            ]
-        },
-        {
-            cvDetailType: "HOBBY",
-            left: true,
-            content: "Teambuilding, tham gia các câu lạc bộ, ca hát, văn nghệ, chơi thể thao"
-        },
-        {
-            cvDetailType: "AWARD",
-            left: true,
-            content: [
-                "SCPS™ - Chuyên viên bán hàng chuyên nghiệp quốc tế",
-                "TOEIC 700"
-            ]
-        },
-        {
-            cvDetailType: "TITLE",
-            left: false,
-            content: {
-                name: "Nguyen Van A",
-                title: "FullStack Developer"
-            }
-        },
-        {
-            cvDetailType: "CONTACT",
-            left: false,
-            content: {
-                email: "email@gmail.com",
-                phone: "0909123123",
-                dateOfBirth: "2022/12/12",
-            }
-        },
-        {
-            cvDetailType: "EXPERIENCE",
-            left: false,
-            content: [
-                {
-                    companyName: "Công ty A",
-                    timeWork: "08/2021 - 08/2022",
-                    title: "Nhân viên",
-                    description: "Phục vụ nhóm 20 khách hàng lớn đem về doanh thu 5-10 tỉ mỗi năm cho công ty.Đánh giá nhu cầu khách hàng dựa trên mục tiêu công ty, cung và cầu của thị trường."
-                },
-                {
-                    companyName: "Công ty B",
-                    timeWork: "08/2022 - 08/2023",
-                    title: "Quản lý",
-                    description: "Phục vụ nhóm 20 khách hàng lớn đem về doanh thu 5-10 tỉ mỗi năm cho công ty.Đánh giá nhu cầu khách hàng dựa trên mục tiêu công ty, cung và cầu của thị trường."
-                }
-            ]
-        },
-
-        {
-            cvDetailType: "EDUCATION",
-            left: false,
-            content: [
-                {
-                    schoolName: "DH Tôn Đức Thắng",
-                    year: "2016 - 2022",
-                    major: "Information Technology"
-                }
-            ]
-        },
-    ])
+    const [cvData, setCvData] = useState(data)
 
     const getExactElement = (value, index) => {
         switch (value.cvDetailType) {
