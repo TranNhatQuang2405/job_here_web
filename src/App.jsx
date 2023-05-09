@@ -24,6 +24,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 import PathProvider from "Config/Provider/PathProvider";
 import Chat from "Layout/Chat/Chat";
+import EditBlog from "Layout/Blog/EditBlog/EditBlog";
 
 const App = () => {
   return (
@@ -48,6 +49,7 @@ const App = () => {
               <Route path="/Company/:id" element={<CompanyPage />} />
               <Route path="/Blog" element={<AllBlogPage />} />
               <Route path="/Blog/:blogId" element={<BlogPage />} />
+              <Route path="/Blog/edit/:blogId" element={<EditBlog />} />
               <Route path="/YourBlog" element={<YourBlog />} />
               <Route path="/CreateBlog" element={<CreateBlog />} />
               <Route path="/EditInfomation" element={<EditUserInfo />} />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ButtonPrimary } from 'Components/Button'
 import { useTranslation } from 'react-i18next'
-import { Col, Form, Row } from 'react-bootstrap'
+import { Col, Form, Row, Spinner } from 'react-bootstrap'
 import { blogBusiness, dropdownBusiness } from 'Business'
 import { Select } from 'antd'
 import "./CreateBlog.css"
@@ -16,6 +16,7 @@ function CreateBlog() {
 	const { t } = useTranslation()
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
+	const [pending, setPending] = useState(false)
 	const [params, setParams] = useState({
 		blogName: "",
 		description: "",
@@ -76,7 +77,9 @@ function CreateBlog() {
 		} else if (params.content.length < 300) {
 			dispatch(warning({ "title": title, "message": t("createBlog.warning.content") }))
 		} else {
+			setPending(true)
 			let result = await blogBusiness.addBlog(params)
+			setPending(false)
 			if (result.data.httpCode === 200) {
 				dispatch(success({ "title": title, "message": result.data.message, "onHide": handleClose }))
 			} else {
@@ -89,7 +92,11 @@ function CreateBlog() {
 		<div className="CreateBlog__box jh-box-item">
 			<div className="CreateBlog__boxBtn">
 				<ButtonPrimary onClick={handleClose} className="me-3" secondary={true}>{t("createBlog.btn.cancel")}</ButtonPrimary>
-				<ButtonPrimary onClick={handleSubmit}>{t("createBlog.btn.create")}</ButtonPrimary>
+				<ButtonPrimary onClick={handleSubmit}>
+					{pending ? <Spinner animation='border' size='sm' /> :
+						t("createBlog.btn.create")
+					}
+				</ButtonPrimary>
 			</div>
 			<Form>
 				<Row>
