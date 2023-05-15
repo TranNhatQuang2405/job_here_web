@@ -22,3 +22,7 @@
     font-weight: 600;
     color: var(--jh-primary-color);
 }
+
+.tab50 {
+    width: 50%;
+}

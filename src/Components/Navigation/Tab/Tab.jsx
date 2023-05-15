@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import "./Tab.css"
 
-function Tab({ data, currentTab, setCurrentTab }) {
+function Tab({ data, currentTab, setCurrentTab, isHalf = false }) {
     return (
         <Row>
             <Col>
@@ -10,7 +10,11 @@ function Tab({ data, currentTab, setCurrentTab }) {
                     {data && data.length > 0 && data.map((tabName, index) =>
                         <div key={index}
                             onClick={() => setCurrentTab(index)}
-                            className={"Tab_child" + (currentTab === index ? " currentTab" : "")}>
+                            className={
+                                "Tab_child"
+                                + (currentTab === index ? " currentTab" : "")
+                                + (isHalf ? " tab50" : "")
+                            }>
                             {tabName}
                         </div>
                     )}

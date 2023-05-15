@@ -13,22 +13,22 @@
         "cvDetailType": "SKILL",
         "left": true,
         "content": [
-            "Bán hàng trắng",
-            "Mua thuốc lậu",
-            "Trộm cướp",
-            "Tàng trữ ma tuý"
+            "Search for potential customers",
+            "Sales closing",
+            "Knowledge of a, b, c areas",
+            "Maintain customer relationship"
         ]
     },
     {
         "cvDetailType": "HOBBY",
         "left": true,
-        "content": "Teambuilding, tham gia các câu lạc bộ, ca hát, văn nghệ, chơi thể thao"
+        "content": "Teambuilding, joining clubs, singing, performing arts, playing sports"
     },
     {
         "cvDetailType": "AWARD",
         "left": true,
         "content": [
-            "SCPS™ - Chuyên viên bán hàng chuyên nghiệp quốc tế",
+            "SCPS International Sales Professional",
             "TOEIC 700"
         ]
     },
@@ -37,7 +37,7 @@
         "left": false,
         "content": {
             "name": "Nguyen Van A",
-            "title": "FullStack Developer"
+            "title": "SALES STAFF"
         }
     },
     {
@@ -54,16 +54,16 @@
         "left": false,
         "content": [
             {
-                "companyName": "Công ty A",
+                "companyName": "ABC Company",
                 "timeWork": "08/2021 - 08/2022",
-                "title": "Nhân viên",
-                "description": "Phục vụ nhóm 20 khách hàng lớn đem về doanh thu 5-10 tỉ mỗi năm cho công ty.Đánh giá nhu cầu khách hàng dựa trên mục tiêu công ty, cung và cầu của thị trường."
+                "title": "Sales Staff",
+                "description": "Support a group of 20 large customers bringing in revenue of 5-10 billion per year for the company. Assess customer needs based on company goals, market supply and demand."
             },
             {
-                "companyName": "Công ty B",
+                "companyName": "BCD Company",
                 "timeWork": "08/2022 - 08/2023",
-                "title": "Quản lý",
-                "description": "Phục vụ nhóm 20 khách hàng lớn đem về doanh thu 5-10 tỉ mỗi năm cho công ty.Đánh giá nhu cầu khách hàng dựa trên mục tiêu công ty, cung và cầu của thị trường."
+                "title": "Manager",
+                "description": "Take care of 500 old customers, develop 200 new customers. Consulting 1000+ customers about the company's products and services"
             }
         ]
     },
@@ -72,9 +72,9 @@
         "left": false,
         "content": [
             {
-                "schoolName": "DH Tôn Đức Thắng",
+                "schoolName": "Jobhere University",
                 "year": "2016 - 2022",
-                "major": "Information Technology"
+                "major": "Business Administration"
             }
         ]
     }
