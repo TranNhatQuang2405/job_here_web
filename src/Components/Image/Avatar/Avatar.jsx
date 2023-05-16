@@ -1,6 +1,6 @@
 import React from "react";
 import { Image } from "react-bootstrap";
-import default_image from "Assets/Images/avatar_jobhere.png";
+import default_image from "Assets/Images/user.png";
 import "./Avatar.css";
 
 const Avatar = ({ width, url, className, children, roundedCircle = true }) => {

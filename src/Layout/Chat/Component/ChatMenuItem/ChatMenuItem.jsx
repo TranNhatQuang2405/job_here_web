@@ -4,10 +4,7 @@ import { Avatar } from 'Components/Image'
 import { convertToTimeString } from 'Config/Support/TimeSupport'
 import { useTranslation } from 'react-i18next'
 
-
-
 function ChatMenuItem({ messageData, onClick, currentMessage }) {
-
     const { t } = useTranslation()
     const className = (currentMessage === messageData.messageId ? "ChatMenuItem__box active" : "ChatMenuItem__box")
 
