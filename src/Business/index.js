@@ -7,3 +7,4 @@ export { default as uploadBusiness } from "./UploadBusiness";
 export { default as userBusiness } from "./UserBusiness";
 export { default as messageBusiness } from "./MessageBusiness";
 export { default as blogBusiness } from "./BlogService";
+export { default as notificationBusiness } from "./NotificationBusiness"
