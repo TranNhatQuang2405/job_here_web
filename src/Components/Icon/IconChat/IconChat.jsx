@@ -21,7 +21,7 @@ function IconChat() {
         const fetchData = async () => {
             let result = await messageBusiness.countUnreadMessage()
             if (result.data.httpCode === 200) {
-                if (count > 9)
+                if ((result.data.objectData * 1) > 9)
                     setCount("9+")
                 else
                     setCount(result.data.objectData)

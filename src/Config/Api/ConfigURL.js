@@ -62,3 +62,9 @@ export const blogSearch = "/blog/search"
 export const getOwnerBlog = "/blog/getOwnerBlogs"
 export const deleteBlog = "/blog/deleteBlog"
 export const editBlog = "/blog/edit"
+
+//Notification
+export const countNotification = "/notification/user"
+export const getLastsNotificationOfUser = "/notification/all/user"
+export const viewNotification = "/notification/view"
+export const viewNotificationOfUser = "/notification/view/user"
