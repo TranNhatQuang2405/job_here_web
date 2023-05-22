@@ -57,16 +57,18 @@ function IconNotification() {
         }
         fetchData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [hasChange])
+    }, [hasChange, email])
 
     return (
         <div className="IconChat__box" onClick={() => setShow(prev => !prev)}>
-            <SockJsClient
-                url={SOCKET_URL}
-                topics={[topicMessages]}
-                onMessage={msg => onMessageReceived(msg)}
-                debug={false}
-            />
+            {email ?
+                <SockJsClient
+                    url={SOCKET_URL}
+                    topics={[topicMessages]}
+                    onMessage={msg => onMessageReceived(msg)}
+                    debug={false}
+                /> : <></>
+            }
             <BellFill />
             {count > 0 || count === "9+" ?
                 <div className="IconChat__num">

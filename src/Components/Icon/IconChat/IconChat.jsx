@@ -29,17 +29,17 @@ function IconChat() {
         }
         fetchData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [hasChange])
+    }, [hasChange, email])
 
     return (
         <div className="IconChat__box">
-            {email &&
+            {email ?
                 <SockJsClient
                     url={SOCKET_URL}
                     topics={[topicMessages]}
                     onMessage={msg => onMessageReceived(msg)}
                     debug={false}
-                />
+                /> : <></>
             }
             <ChatDotsFill />
             {count > 0 || count === "9+" ?
