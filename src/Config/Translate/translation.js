@@ -241,7 +241,8 @@ export const en = {
   "companyPage.message.title": "Write message",
   "companyPage.message.placeholder": "Your message...",
   "companyPage.message.send": "Send",
-  "companyPage.message.close": "Close"
+  "companyPage.message.close": "Close",
+  "createCV.title": "Fill your information"
 };
 
 export const vn = {
@@ -489,5 +490,6 @@ export const vn = {
   "companyPage.message.title": "Soạn tin nhắn để gửi",
   "companyPage.message.placeholder": "Tin nhắn muốn gửi ...",
   "companyPage.message.send": "Gửi",
-  "companyPage.message.close": "Đóng"
+  "companyPage.message.close": "Đóng",
+  "createCV.title": "Điền thông tin của bạn"
 };

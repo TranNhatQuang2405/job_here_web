@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default `
 <h1>Chính Sách Bảo Mật</h1>
 <p>Chính sách quyền riêng tư này mô tả các chính sách và quy trình của chúng tôi về việc thu thập, sử dụng và tiết lộ thông tin của bạn khi bạn sử dụng Dịch vụ và cho bạn biết về quyền riêng tư của bạn và cách luật bảo vệ bạn.</p>

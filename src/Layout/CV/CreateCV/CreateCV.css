@@ -1,0 +1,43 @@
+.CreateCV__box {
+    padding: 16px;
+    min-height: 100%;
+}
+
+.CreateCV__title{
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 16px;
+}
+
+.CreateCV__childBox {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(200, 200, 200, 0.5);
+}
+
+.CreateCV__titleBox{
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.CreateCV__input {
+    background: var(--jh-white-background);
+    border: 1px solid var(--jh-primary-border-color);
+    border-radius: 5px;
+    transition: 0.4s;
+    font-size: 14px;
+    font-weight: 400;
+    height: 40px;
+}
+
+
+.CreateCV__input-textarea {
+    background: var(--jh-white-background);
+    border: 1px solid var(--jh-primary-border-color);
+    border-radius: 5px;
+    transition: 0.4s;
+    font-size: 14px;
+    font-weight: 400;
+    resize: none;
+}

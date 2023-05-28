@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default `
 <h1>Điều Khoản Dịch Vụ</h1>
 <p>Vui lòng đọc kỹ các điều khoản và điều kiện này trước khi sử dụng Dịch vụ của chúng tôi.</p>

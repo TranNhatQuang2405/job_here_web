@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default `
 <h1>Term Of Service</h1>
 <p>Please read these terms and conditions carefully before using Our Service.</p>
