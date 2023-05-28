@@ -1,15 +1,15 @@
-[
-    {
+{
+    "IMAGE": {
         "cvDetailType": "IMAGE",
         "left": true,
         "content": ""
     },
-    {
+    "OVERALL": {
         "cvDetailType": "OVERALL",
         "left": true,
         "content": "High-performance salesman with X years of experience in areas A, B, C. Strong skills include prospecting, closing sales and communicating. In the past, it has achieved over 15% KPI of the year. Currently looking for an opportunity to become a salesperson and contribute to company X's revenue growth."
     },
-    {
+    "SKILL":  {
         "cvDetailType": "SKILL",
         "left": true,
         "content": [
@@ -19,12 +19,12 @@
             "Maintain customer relationship"
         ]
     },
-    {
+    "HOBBY":  {
         "cvDetailType": "HOBBY",
         "left": true,
         "content": "Teambuilding, joining clubs, singing, performing arts, playing sports"
     },
-    {
+    "AWARD":  {
         "cvDetailType": "AWARD",
         "left": true,
         "content": [
@@ -32,7 +32,7 @@
             "TOEIC 700"
         ]
     },
-    {
+    "TITLE":   {
         "cvDetailType": "TITLE",
         "left": false,
         "content": {
@@ -40,7 +40,7 @@
             "title": "SALES STAFF"
         }
     },
-    {
+    "CONTACT":  {
         "cvDetailType": "CONTACT",
         "left": false,
         "content": {
@@ -49,7 +49,7 @@
             "dateOfBirth": "2022/12/12"
         }
     },
-    {
+    "EXPERIENCE":  {
         "cvDetailType": "EXPERIENCE",
         "left": false,
         "content": [
@@ -67,7 +67,7 @@
             }
         ]
     },
-    {
+    "EDUCATION":  {
         "cvDetailType": "EDUCATION",
         "left": false,
         "content": [
@@ -78,5 +78,5 @@
             }
         ]
     }
-]
+}
 
