@@ -10,7 +10,7 @@ function CVExperience({ cvData }) {
             <div className="CV__title">{t("cv.title.experience")}</div>
             <div className="CV__content">
                 {
-                    cvData.content.map((value, index) => (
+                    cvData.map((value, index) => (
                         <div className="CVExperience__content" key={index}>
                             <BriefcaseFill className="CV__icon" />
                             <div className="CVExperience__content-companyName">{value.companyName}</div>

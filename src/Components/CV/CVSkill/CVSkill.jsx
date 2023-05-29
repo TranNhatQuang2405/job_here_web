@@ -11,7 +11,7 @@ function CVSkill({ cvData }) {
             <div className="CV__title">{t("cv.title.skill")}</div>
             <div className="CV__content">
                 {
-                    cvData.content.map((value, index) => (
+                    cvData.map((value, index) => (
                         <div className="CVSkill__content" key={index}>
                             <CircleFill className="CV__icon"></CircleFill>
                             <div className="CV__contentIcon">{value}</div>

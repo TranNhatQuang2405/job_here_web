@@ -4,7 +4,7 @@ import "./CVImage.css"
 function CVImage({ cvData }) {
     return (
         <div className="CVImage__box">
-            <Avatar url={cvData.content} width="6cm">
+            <Avatar url={cvData} width="6cm">
             </Avatar>
         </div>
 

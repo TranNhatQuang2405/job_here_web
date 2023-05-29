@@ -1,8 +1,9 @@
 .IconPlusAndMinus__box{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 100%;
+    row-gap: 16px;
     font-size: 24px;
 }
 .IconPlusAndMinus__box svg {
@@ -11,4 +12,11 @@
 
 .IconPlusAndMinus__box svg:hover{
     color: var(--jh-primary-color);
+}
+
+@media screen and (max-width: 991.9999px) {
+    .IconPlusAndMinus__box{
+        flex-direction: column;
+        column-gap: 16px;
+    }
 }

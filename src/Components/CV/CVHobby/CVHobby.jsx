@@ -9,7 +9,7 @@ function CVHobby({ cvData }) {
         <div className="CVHobby__box">
             <div className="CV__title">{t("cv.title.hobby")}</div>
             <div className="CV__content">
-                {cvData.content}
+                {cvData}
             </div>
         </div>
     )
