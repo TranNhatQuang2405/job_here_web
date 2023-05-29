@@ -9,7 +9,7 @@ function CVOverall({ cvData }) {
         <div className="CVOverall__box">
             <div className="CV__title">{t("cv.title.overall")}</div>
             <div className="CV__content">
-                {cvData.content}
+                {cvData}
             </div>
         </div>
     )

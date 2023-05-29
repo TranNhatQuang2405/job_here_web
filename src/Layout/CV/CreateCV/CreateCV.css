@@ -12,18 +12,19 @@
 .CreateCV__childBox {
     padding: 8px 16px;
     border-radius: 10px;
-    border: 1px solid rgba(200, 200, 200, 0.5);
+    border: 1px solid rgba(200, 200, 200, 0.9);
 }
 
 .CreateCV__titleBox{
     font-weight: 500;
     font-size: 16px;
+    margin-top: 8px;
     margin-bottom: 8px;
 }
 
 .CreateCV__input {
     background: var(--jh-white-background);
-    border: 1px solid var(--jh-primary-border-color);
+    border: 1px solid rgba(200, 200, 200, 0.8);
     border-radius: 5px;
     transition: 0.4s;
     font-size: 14px;
@@ -34,7 +35,7 @@
 
 .CreateCV__input-textarea {
     background: var(--jh-white-background);
-    border: 1px solid var(--jh-primary-border-color);
+    border: 1px solid rgba(200, 200, 200, 0.8);
     border-radius: 5px;
     transition: 0.4s;
     font-size: 14px;

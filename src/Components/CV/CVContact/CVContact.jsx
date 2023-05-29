@@ -11,15 +11,15 @@ function CVContact({ cvData }) {
             <div className="CV__content">
                 <div className="CVContact__content">
                     <EnvelopeAtFill className="CV__icon" />
-                    <div className="CVContact__content-text">{cvData.content.email}</div>
+                    <div className="CVContact__content-text">{cvData.email}</div>
                 </div>
                 <div className="CVContact__content">
                     <TelephoneFill className="CV__icon" />
-                    <div className="CVContact__content-text">{cvData.content.phone}</div>
+                    <div className="CVContact__content-text">{cvData.phone}</div>
                 </div>
                 <div className="CVContact__content">
                     <Calendar2CheckFill className="CV__icon" />
-                    <div className="CVContact__content-text">{cvData.content.dateOfBirth}</div>
+                    <div className="CVContact__content-text">{cvData.dateOfBirth}</div>
                 </div>
             </div>
         </div>

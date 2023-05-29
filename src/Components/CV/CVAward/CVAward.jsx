@@ -9,7 +9,7 @@ function CVAward({ cvData }) {
         <div>
             <div className="CV__title">{t("cv.title.award")}</div>
             <div className="CV__content">
-                {cvData.content.map((value, index) => (
+                {cvData.map((value, index) => (
                     <div className="CVSkill__content" key={index}>
                         <Award className="CV__icon" />
                         <div className="CV__contentIcon">{value}</div>

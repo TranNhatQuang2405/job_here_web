@@ -10,7 +10,7 @@ function CVEducation({ cvData }) {
             <div className="CV__title">{t("cv.title.education")}</div>
             <div className="CV__content">
                 {
-                    cvData.content.map((value, index) => (
+                    cvData.map((value, index) => (
                         <div className="CVEducation__content" key={index}>
                             <MortarboardFill className="CV__icon" />
                             <div className="CVEducation__content-schoolName">{value.schoolName}</div>
