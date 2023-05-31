@@ -1,7 +1,9 @@
-import React from 'react'
-import { Row, Col, Form } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Row, Col, Form, Spinner } from 'react-bootstrap'
 import { Avatar } from 'Components/Image'
 import { useTranslation } from 'react-i18next'
+import { PencilSquare } from 'react-bootstrap-icons'
+import { uploadBusiness } from 'Business'
 
 function CreateCVOverall({
     imageData,
@@ -15,6 +17,18 @@ function CreateCVOverall({
 }) {
 
     const { t } = useTranslation()
+    const [pendingAvatar, setPendingAvatar] = useState(false)
+
+    const handleChangeAvatar = async (e) => {
+        if (e.target.files.length > 0) {
+            setPendingAvatar(true);
+            let result = await uploadBusiness.UploadImage(e.target.files[0]);
+            if (result && result.data.httpCode === 200) {
+                changeImageData(result.data.objectData.url);
+            }
+            setPendingAvatar(false);
+        }
+    }
 
     return (
         <Row>
@@ -22,11 +36,35 @@ function CreateCVOverall({
                 <div className="CreateCV__titleBox">
                     {t("createCV.title.image")}
                 </div>
+                <input
+                    type="file"
+                    className="d-none"
+                    id="avatar"
+                    name="avatar"
+                    onChange={handleChangeAvatar}
+                />
                 <Avatar
                     width="180px"
                     roundedCircle={false}
                     url={imageData}
-                />
+                >
+                    <div>
+                        <Form.Label htmlFor="avatar" className="EditUserInfo__lableAvatar">
+                            <PencilSquare size="25" color="black" />
+                        </Form.Label>
+                    </div>
+                    {pendingAvatar ? (
+                        <div className="EditUserInfo__loadingAvatar">
+                            <Spinner
+                                animation="border"
+                                variant="light"
+                                className="EditUserInfo__loadingAvatar-child"
+                            />
+                        </div>
+                    ) : (
+                        <></>
+                    )}
+                </Avatar>
             </Col>
             <Col xs={12} lg={10}>
                 <div className="CreateCV__titleBox">
@@ -101,6 +139,7 @@ function CreateCVOverall({
                                 <Form.Control
                                     as="textarea"
                                     rows={4}
+                                    id="overall"
                                     className="CreateCV__input-textarea"
                                     placeholder={t("createCV.info.overall.placeHolder")}
                                     value={overallData}

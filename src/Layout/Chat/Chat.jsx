@@ -8,7 +8,6 @@ import { messageBusiness } from 'Business';
 import { useSelector } from 'react-redux';
 import { TOPIC_MESSAGES_USER } from 'Config/Support/PathSupport';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 
 function Chat() {
     const { t } = useTranslation()
@@ -19,7 +18,6 @@ function Chat() {
     const [hasNewMessage, setHasNewMessage] = useState(false)
     const [currentMessage, setCurrentMessage] = useState(null)
     const [childMessages, setChildMessages] = useState([])
-    const navigate = useNavigate()
     const topicMessages = `${TOPIC_MESSAGES_USER}/${email}`
     const prevMessage = useRef(currentMessage)
     const currentSocket = useRef()
@@ -33,13 +31,6 @@ function Chat() {
     const handleChangeMessage = (e) => {
         setCurrentMessage(e)
     }
-
-    useEffect(() => {
-        if(!email) {
-            navigate("/Home")
-        }  
-    })
-    
 
     useEffect(() => {
         const fetchData = async () => {

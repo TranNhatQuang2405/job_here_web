@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CreateCVEducation, CreateCVExperience, CreateCVOverall, CreateCVSkill } from './Component'
 import "./CreateCV.css"
+import { cvBusiness } from 'Business'
+import { useParams, useNavigate } from 'react-router-dom'
+import { CVBody } from 'Components/CV'
 
 function CreateCV() {
-
+    let { templateId } = useParams()
+    const navigate = useNavigate()
     const { t } = useTranslation()
+    const [templateData, setTemplateData] = useState({})
     const [cvData, setCvData] = useState({
         "IMAGE": "",
         "OVERALL": "High-performance salesman with X years of experience in areas A, B, C. Strong skills include prospecting, closing sales and communicating. In the past, it has achieved over 15% KPI of the year. Currently looking for an opportunity to become a salesperson and contribute to company X's revenue growth.",
@@ -52,6 +57,22 @@ function CreateCV() {
         ]
     })
 
+    useEffect(() => {
+        const fetchData = async () => {
+            let result = await cvBusiness.getCVTemplate(templateId)
+            if (result.data.httpCode === 200) {
+                setTemplateData({ ...result.data.objectData })
+            } else {
+                navigate("/Home")
+            }
+        }
+        fetchData()
+        return () => {
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [templateId])
+
+
     const changeImageData = (url) => {
         setCvData(prev => ({
             ...prev,
@@ -59,10 +80,10 @@ function CreateCV() {
         }))
     }
 
-    const changeOverallData = (overall) => {
+    const changeOverallData = (e) => {
         setCvData(prev => ({
             ...prev,
-            "OVERALL": overall
+            "OVERALL": e.target.value
         }))
     }
 
@@ -85,6 +106,84 @@ function CreateCV() {
         }))
     }
 
+    const addDataInList = (index, PARENT, pureData) => {
+        let datas = cvData[PARENT]
+        datas.splice(index + 1, 0, pureData)
+        setCvData(prev => ({
+            ...prev,
+            [PARENT]: [...datas],
+        }))
+    }
+
+    const deleteDataInList = (index, PARENT) => {
+        let datas = cvData[PARENT]
+        if (datas && datas.length > 1 && index < datas.length) {
+            datas.splice(index, 1)
+        }
+        setCvData(prev => ({
+            ...prev,
+            [datas]: [...datas],
+        }))
+    }
+
+    const changeDataInList = (e, PARENT) => {
+        try {
+            let index = e.target.name * 1
+            let key = e.target.id
+            let value = e.target.value
+            let educations = cvData[PARENT]
+            if (key && key.trim() !== '')
+                educations[index][key] = value
+            else
+                educations[index] = value
+            setCvData(prev => ({
+                ...prev,
+                [PARENT]: [...educations],
+            }))
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    const addSkill = (index) => {
+        addDataInList(index, "SKILL", "")
+    }
+
+    const deleteSkill = (index) => {
+        deleteDataInList(index, "SKILL")
+    }
+
+    const addEducation = (index) => {
+        addDataInList(index, "EDUCATION", {
+            "schoolName": "",
+            "year": "",
+            "major": ""
+        })
+    }
+
+    const deleteEducation = (index) => {
+        deleteDataInList(index, "EDUCATION")
+    }
+
+    const addAchievement = (index) => {
+        addDataInList(index, "AWARD", "")
+    }
+    const deleteAchievement = (index) => {
+        deleteDataInList(index, "AWARD")
+    }
+
+    const addExperience = (index) => {
+        addDataInList(index, "EXPERIENCE", {
+            "companyName": "",
+            "timeWork": "",
+            "title": "",
+            "description": ""
+        },)
+    }
+    const deleteExperience = (index) => {
+        deleteDataInList(index, "EXPERIENCE")
+    }
+
     return (
         <div className="jh-box-item CreateCV__box">
             <div className="CreateCV__title">{t("createCV.title")}</div>
@@ -100,13 +199,29 @@ function CreateCV() {
             />
             <CreateCVEducation
                 educationData={cvData.EDUCATION}
+                addEducation={addEducation}
+                deleteEducation={deleteEducation}
+                changeEducationData={(e) => changeDataInList(e, "EDUCATION")}
             />
             <CreateCVSkill
                 skillData={cvData.SKILL}
+                addSkill={addSkill}
+                deleteSkill={deleteSkill}
+                changeSkillData={(e) => changeDataInList(e, "SKILL")}
+                achievementData={cvData.AWARD}
+                addAchievement={addAchievement}
+                deleteAchievement={deleteAchievement}
+                changeAchievemenData={(e) => changeDataInList(e, "AWARD")}
+
             />
             <CreateCVExperience
                 experienceData={cvData.EXPERIENCE}
+                addExperience={addExperience}
+                deleteExperience={deleteExperience}
+                changeExperienceData={(e) => changeDataInList(e, "EXPERIENCE")}
             />
+
+            <CVBody templateData={templateData} cvData={cvData}></CVBody>
         </div>
     )
 }

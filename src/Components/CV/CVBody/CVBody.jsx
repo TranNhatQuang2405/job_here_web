@@ -9,18 +9,18 @@ const CVBody = React.forwardRef((props, ref) => {
 
     const [templateData, setTemplateData] = useState({})
     const [pending, setPending] = useState(true)
-
+    console.log(props)
     useEffect(() => {
-        if(props?.templateData?.structure) {
-            const templateDataRe =  props?.templateData;
+        if (props?.templateData?.structure) {
+            const templateDataRe = props?.templateData;
             templateDataRe.structure = JSON.parse(templateDataRe.structure || {})
             setTemplateData(templateDataRe)
             setPending(false)
-        }    
-      return () => {
-      }
+        }
+        return () => {
+        }
     }, [props.templateData])
-    
+
     const scaleCV = () => {
         let widthScreen = window.innerWidth
         let widthCV = 794
@@ -33,7 +33,7 @@ const CVBody = React.forwardRef((props, ref) => {
         let percent = scaleCV()
         return 1123 * percent + 16
     }
-    const [cvData, setCvData] = useState(data)
+    const [cvData, setCvData] = useState(props.cvData || data)
 
     const getExactElement = (cvDetailType, index) => {
         switch (cvDetailType) {
@@ -59,7 +59,7 @@ const CVBody = React.forwardRef((props, ref) => {
                 return <span className='d-none' key={index}></span>
         }
     }
-    if(pending) {
+    if (pending) {
         return <LoadingSpinner />
     }
     return (
