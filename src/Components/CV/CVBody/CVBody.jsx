@@ -8,8 +8,8 @@ import { LoadingSpinner } from 'Components/Loading'
 const CVBody = React.forwardRef((props, ref) => {
 
     const [templateData, setTemplateData] = useState({})
+    const [cvData, setCvData] = useState(props.cvData || data)
     const [pending, setPending] = useState(true)
-    console.log(props)
     useEffect(() => {
         if (props?.templateData?.structure) {
             const templateDataRe = props?.templateData;
@@ -33,7 +33,13 @@ const CVBody = React.forwardRef((props, ref) => {
         let percent = scaleCV()
         return 1123 * percent + 16
     }
-    const [cvData, setCvData] = useState(props.cvData || data)
+
+    useEffect(() => {
+        if (props.cvData) {
+            setCvData(props.cvData)
+        }
+    }, [props.cvData])
+
 
     const getExactElement = (cvDetailType, index) => {
         switch (cvDetailType) {

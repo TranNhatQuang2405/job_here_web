@@ -3,13 +3,16 @@ import { useTranslation } from 'react-i18next'
 import { CreateCVEducation, CreateCVExperience, CreateCVOverall, CreateCVSkill } from './Component'
 import "./CreateCV.css"
 import { cvBusiness } from 'Business'
+import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom'
 import { CVBody } from 'Components/CV'
+import { ButtonPrimary } from 'Components/Button'
 
 function CreateCV() {
     let { templateId } = useParams()
-    const navigate = useNavigate()
+    const email = useSelector(state => state.User.sessionInfo?.email)
     const { t } = useTranslation()
+    const navigate = useNavigate()
     const [templateData, setTemplateData] = useState({})
     const [cvData, setCvData] = useState({
         "IMAGE": "",
@@ -71,6 +74,28 @@ function CreateCV() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [templateId])
+
+    useEffect(() => {
+        if (email && templateId) {
+            let data = localStorage.getItem(`createCV/${email}/${templateId}`);
+            if (data) {
+                let storageCVData = JSON.parse(data);
+                setCvData(storageCVData)
+            }
+        }
+    }, [email, templateId])
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (email && templateId) {
+                localStorage.setItem(`createCV/${email}/${templateId}`, JSON.stringify(cvData))
+            }
+        }, 5000);
+        return () => {
+            clearInterval(interval)
+        }
+    })
+
 
 
     const changeImageData = (url) => {
@@ -220,8 +245,12 @@ function CreateCV() {
                 deleteExperience={deleteExperience}
                 changeExperienceData={(e) => changeDataInList(e, "EXPERIENCE")}
             />
-
+            <div className="CreateCV__title mt-3">{t("createCV.review")}</div>
             <CVBody templateData={templateData} cvData={cvData}></CVBody>
+            <div className="CreateCV__btn">
+                <ButtonPrimary secondary={true}>{t("createCV.btn.cancel")}</ButtonPrimary>
+                <ButtonPrimary>{t("createCV.btn.create")}</ButtonPrimary>
+            </div>
         </div>
     )
 }

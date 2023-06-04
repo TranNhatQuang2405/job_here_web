@@ -42,3 +42,13 @@
     font-weight: 400;
     resize: none;
 }
+
+.CreateCV__btn {
+    width: 100%;
+    display: flex;
+    column-gap: 16px;
+}
+
+.CreateCV__btn > button:first-child {
+    margin-left: auto;
+}

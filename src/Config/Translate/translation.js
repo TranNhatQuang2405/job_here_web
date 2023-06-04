@@ -268,7 +268,8 @@ export const en = {
   "createCV.info.experience.companyName.placeHolder": "Fill company's name",
   "createCV.info.experience.timeWork.placeHolder": "Fill work's time",
   "createCV.info.experience.title.placeHolder": "Fill position in work",
-  "createCV.info.description.placeHolder": "Fill job's description"
+  "createCV.info.description.placeHolder": "Fill job's description",
+  "createCV.review": "Review your CV"
 };
 
 export const vn = {
@@ -543,5 +544,6 @@ export const vn = {
   "createCV.info.experience.companyName.placeHolder": "Nhập tên công ty",
   "createCV.info.experience.timeWork.placeHolder": "Nhập khoảng thời gian làm việc",
   "createCV.info.experience.title.placeHolder": "Nhập vị trí công việc",
-  "createCV.info.description.placeHolder": "Nhập mô tả công việc"
+  "createCV.info.description.placeHolder": "Nhập mô tả công việc",
+  "createCV.review": "Xem lại CV của bạn"
 };
