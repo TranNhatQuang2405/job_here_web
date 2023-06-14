@@ -36,6 +36,7 @@ export const getAllSavedJobId = "/user/getAllSavedJobId";
 export const getListCVURL = "/cv/getListOwnerCV";
 export const getListCVTemplate = "/cv/getListCVTemplate";
 export const getCVTemplate = "/cv";
+export const createCV = "/cv";
 
 
 // Upload

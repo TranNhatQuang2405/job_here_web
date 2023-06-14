@@ -25,6 +25,7 @@ function IconNotification() {
         })
         setNotifications(list)
         await notificationBusiness.viewNotificationOfUser();
+        setCount(0)
     }
 
     const viewNoti = async (notiId) => {
@@ -35,6 +36,7 @@ function IconNotification() {
         })
         setNotifications(list)
         await notificationBusiness.viewNotification(notiId)
+        setCount(prev => prev - 1)
     }
 
     const onMessageReceived = (msg) => {

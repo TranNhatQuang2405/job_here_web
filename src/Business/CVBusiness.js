@@ -1,5 +1,5 @@
 import Service from "Config/Api/Service";
-import { getListCVURL, getListCVTemplate, getCVTemplate } from "Config/Api/ConfigURL";
+import { getListCVURL, getListCVTemplate, getCVTemplate, createCV } from "Config/Api/ConfigURL";
 
 class CVBusiness extends Service {
   GetListCV = async () => {
@@ -14,6 +14,11 @@ class CVBusiness extends Service {
 
   getCVTemplate = async (templateId) => {
     let result = await this.get(`${getCVTemplate}/${templateId}`)
+    return result;
+  }
+
+  createCV = async (data) => {
+    let result = await this.post(createCV, data)
     return result;
   }
 }

@@ -269,7 +269,13 @@ export const en = {
   "createCV.info.experience.timeWork.placeHolder": "Fill work's time",
   "createCV.info.experience.title.placeHolder": "Fill position in work",
   "createCV.info.description.placeHolder": "Fill job's description",
-  "createCV.review": "Review your CV"
+  "createCV.review": "Review your CV",
+  "createCV.btn.cancel": "Cancel",
+  "createCV.btn.create": "Create",
+  "createCV.submit.title": "Create CV",
+  "createCV.cvName.alert": "CV's name can't be empty",
+  "createCV.cvName.placeHolder": "Fill CV's name"
+
 };
 
 export const vn = {
@@ -545,5 +551,10 @@ export const vn = {
   "createCV.info.experience.timeWork.placeHolder": "Nhập khoảng thời gian làm việc",
   "createCV.info.experience.title.placeHolder": "Nhập vị trí công việc",
   "createCV.info.description.placeHolder": "Nhập mô tả công việc",
-  "createCV.review": "Xem lại CV của bạn"
+  "createCV.review": "Xem lại CV của bạn",
+  "createCV.btn.cancel": "Huỷ bỏ",
+  "createCV.btn.create": "Tạo CV",
+  "createCV.submit.title": "Tạo CV",
+  "createCV.cvName.alert": "Tên CV không được để trống",
+  "createCV.cvName.placeHolder": "Điền tên của CV"
 };

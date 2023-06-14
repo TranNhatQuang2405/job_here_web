@@ -47,8 +47,11 @@
     width: 100%;
     display: flex;
     column-gap: 16px;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
 }
 
-.CreateCV__btn > button:first-child {
-    margin-left: auto;
+.CreateCV__cvName {
+    min-width: 250px;
 }

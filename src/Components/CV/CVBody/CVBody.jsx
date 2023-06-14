@@ -9,6 +9,8 @@ const CVBody = React.forwardRef((props, ref) => {
 
     const [templateData, setTemplateData] = useState({})
     const [cvData, setCvData] = useState(props.cvData || data)
+    const [changeWidth, setChangeWidth] = useState(props.parentWidth || window.innerWidth)
+    const [scale, setScale] = useState(1)
     const [pending, setPending] = useState(true)
     useEffect(() => {
         if (props?.templateData?.structure) {
@@ -22,17 +24,28 @@ const CVBody = React.forwardRef((props, ref) => {
     }, [props.templateData])
 
     const scaleCV = () => {
-        let widthScreen = window.innerWidth
+        let widthScreen = props.parentWidth || window.innerWidth
         let widthCV = 794
         if (widthScreen >= widthCV)
-            return 1
+            setScale(1)
         else
-            return (widthScreen - 16) / widthCV
+            setScale((widthScreen - 16) / widthCV)
     }
     const heighBoundCV = () => {
-        let percent = scaleCV()
+        let percent = scale
         return 1123 * percent + 16
     }
+
+    useEffect(() => {
+        scaleCV()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [changeWidth])
+
+    useEffect(() => {
+        setChangeWidth(props.parentWidth || window.innerWidth)
+        console.log(props.parentWidth)
+    }, [props.parentWidth])
+
 
     useEffect(() => {
         if (props.cvData) {
@@ -70,7 +83,7 @@ const CVBody = React.forwardRef((props, ref) => {
     }
     return (
         <div style={{ height: heighBoundCV() }}>
-            <div className="CVBody__box" ref={ref} style={{ transform: `scale(${scaleCV()})` }}>
+            <div className="CVBody__box" ref={ref} style={{ transform: `scale(${scale})` }}>
                 <Row className="CVBody__row">
                     <Col xs={5} className={`CVBody__left ${templateData?.className}`}>
                         {

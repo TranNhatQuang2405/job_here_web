@@ -1,7 +1,6 @@
 import axios from "axios";
 import { HOST } from "./Host";
-import { store } from "Config/Redux/store";
-import { LogOut } from "Config/Redux/Slice/UserSlice";
+
 class Service {
   post = async (suburl, params = {}, header = {}) => {
     let url = HOST + suburl;

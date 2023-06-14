@@ -69,7 +69,7 @@ const AlertModal = () => {
                                 <ButtonPrimary
                                     onClick={onConfirmParent}
                                 >
-                                    {loading ? <Spinner animation="border" variant="light" />
+                                    {loading ? <Spinner animation="border" variant="light" size="sm" />
                                         : t("alert.ok")}
                                 </ButtonPrimary>
                                 <ButtonPrimary

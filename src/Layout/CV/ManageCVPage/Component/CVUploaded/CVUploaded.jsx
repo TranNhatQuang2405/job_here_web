@@ -33,7 +33,8 @@ function CVUploaded() {
     const getCVData = async () => {
         let result = await cvBusiness.GetListCV();
         if (result.data.httpCode === 200) {
-            setListCV(result.data.objectData);
+            let listCV = result.data?.objectData || []
+            setListCV(listCV.filter(x => x.cvType === "UPLOADED"));
         }
         setLoading(false);
     };
