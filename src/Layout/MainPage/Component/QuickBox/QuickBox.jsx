@@ -11,7 +11,7 @@ function QuickBox() {
     const navigate = useNavigate()
 
     const goToCreateCV = () => {
-        navigate("/CV")
+        navigate("/CVManage")
     }
 
     const goToBlog = () => {

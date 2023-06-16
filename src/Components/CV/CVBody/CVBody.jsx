@@ -63,9 +63,7 @@ const CVBody = React.forwardRef((props, ref) => {
                     return <CVOverall key={index} cvData={cvData["OVERALL"]} />
                 return <span className='d-none' key={index}></span>
             case "IMAGE":
-                if (cvData["IMAGE"])
-                    return <CVImage key={index} cvData={cvData["IMAGE"]} />
-                return <span className='d-none' key={index}></span>
+                return <CVImage key={index} cvData={cvData["IMAGE"]} />
             case "EXPERIENCE":
                 if (cvData["EXPERIENCE"])
                     return <CVExperience key={index} cvData={cvData["EXPERIENCE"]} />
