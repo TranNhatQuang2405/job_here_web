@@ -16,8 +16,8 @@ function CVTemplatePage() {
     useEffect(() => {
         const fetchData = async () => {
             let result = await cvBusiness.getCVTemplate(templateId)
-            if(result.data.httpCode === 200) {
-                setTemplateData({...result.data.objectData})
+            if (result.data.httpCode === 200) {
+                setTemplateData({ ...result.data.objectData })
             } else {
                 navigate("/Home")
             }
@@ -25,7 +25,7 @@ function CVTemplatePage() {
         fetchData()
         return () => {
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [templateId])
 
 
@@ -33,7 +33,7 @@ function CVTemplatePage() {
         navigate(`/CVManage/CreateCV/${templateId}`)
     }
     return (
-        <div>
+        <div className="jh-box-item p-3">
             <div className="CVTemplatePage__btn">
                 <ButtonPrimary secondary={true}>{t("cvTemplate.btn.close")}</ButtonPrimary>
                 <ButtonPrimary onClick={handleUseTemplate}>{t("cvTemplate.btn.useTemplate")}</ButtonPrimary>

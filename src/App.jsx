@@ -17,14 +17,13 @@ import {
   TermOfServicePage,
 } from "Layout/User";
 import { AllJobPage, JobAppliedPage, JobPage, JobSavedPage } from "Layout/Job";
-import { AllBlogPage, BlogPage, CreateBlog, YourBlog } from "Layout/Blog";
-import { ManageCVPage, CVTemplateList, CVTemplatePage, CreateCV } from "Layout/CV";
+import { AllBlogPage, BlogPage, CreateBlog, YourBlog, EditBlog } from "Layout/Blog";
+import { ManageCVPage, CVTemplateList, CVTemplatePage, CreateCV, ViewCV } from "Layout/CV";
 import { CompanyListPage, CompanyPage } from "Layout/Company";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "Config/Provider";
 import PathProvider from "Config/Provider/PathProvider";
 import Chat from "Layout/Chat/Chat";
-import EditBlog from "Layout/Blog/EditBlog/EditBlog";
 
 const App = () => {
   return (
@@ -46,6 +45,7 @@ const App = () => {
               <Route path="/CVManage/CreateCV/:templateId" element={<CreateCV />} />
               <Route path="/CVTemplate" element={<CVTemplateList />} />
               <Route path="/CVTemplate/:templateId" element={<CVTemplatePage />} />
+              <Route path="/ViewCV/:cvId" element={<ViewCV />} />
               <Route path="/Company" element={<CompanyListPage />} />
               <Route path="/Company/:id" element={<CompanyPage />} />
               <Route path="/Blog" element={<AllBlogPage />} />

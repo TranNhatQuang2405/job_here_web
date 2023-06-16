@@ -37,6 +37,7 @@ export const getListCVURL = "/cv/getListOwnerCV";
 export const getListCVTemplate = "/cv/getListCVTemplate";
 export const getCVTemplate = "/cv";
 export const createCV = "/cv";
+export const getCVContent = "/cv/getCVContent";
 
 
 // Upload

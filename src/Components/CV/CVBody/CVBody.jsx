@@ -6,7 +6,6 @@ import { Col, Row } from 'react-bootstrap'
 import { LoadingSpinner } from 'Components/Loading'
 
 const CVBody = React.forwardRef((props, ref) => {
-
     const [templateData, setTemplateData] = useState({})
     const [cvData, setCvData] = useState(props.cvData || data)
     const [changeWidth, setChangeWidth] = useState(props.parentWidth || window.innerWidth)
@@ -15,7 +14,7 @@ const CVBody = React.forwardRef((props, ref) => {
     useEffect(() => {
         if (props?.templateData?.structure) {
             const templateDataRe = props?.templateData;
-            templateDataRe.structure = JSON.parse(templateDataRe.structure || {})
+            templateDataRe.structure = JSON.parse(templateDataRe?.structure || {})
             setTemplateData(templateDataRe)
             setPending(false)
         }
@@ -43,7 +42,6 @@ const CVBody = React.forwardRef((props, ref) => {
 
     useEffect(() => {
         setChangeWidth(props.parentWidth || window.innerWidth)
-        console.log(props.parentWidth)
     }, [props.parentWidth])
 
 
@@ -57,23 +55,41 @@ const CVBody = React.forwardRef((props, ref) => {
     const getExactElement = (cvDetailType, index) => {
         switch (cvDetailType) {
             case "CONTACT":
-                return <CVContact key={index} cvData={cvData["CONTACT"]} />
+                if (cvData["CONTACT"])
+                    return <CVContact key={index} cvData={cvData["CONTACT"]} />
+                return <span className='d-none' key={index}></span>
             case "OVERALL":
-                return <CVOverall key={index} cvData={cvData["OVERALL"]} />
+                if (cvData["OVERALL"])
+                    return <CVOverall key={index} cvData={cvData["OVERALL"]} />
+                return <span className='d-none' key={index}></span>
             case "IMAGE":
-                return <CVImage key={index} cvData={cvData["IMAGE"]} />
+                if (cvData["IMAGE"])
+                    return <CVImage key={index} cvData={cvData["IMAGE"]} />
+                return <span className='d-none' key={index}></span>
             case "EXPERIENCE":
-                return <CVExperience key={index} cvData={cvData["EXPERIENCE"]} />
+                if (cvData["EXPERIENCE"])
+                    return <CVExperience key={index} cvData={cvData["EXPERIENCE"]} />
+                return <span className='d-none' key={index}></span>
             case "SKILL":
-                return <CVSkill key={index} cvData={cvData["SKILL"]} />
+                if (cvData["SKILL"])
+                    return <CVSkill key={index} cvData={cvData["SKILL"]} />
+                return <span className='d-none' key={index}></span>
             case "EDUCATION":
-                return <CVEducation key={index} cvData={cvData["EDUCATION"]} />
+                if (cvData["EDUCATION"])
+                    return <CVEducation key={index} cvData={cvData["EDUCATION"]} />
+                return <span className='d-none' key={index}></span>
             case "TITLE":
-                return <CVTitle key={index} cvData={cvData["TITLE"]} />
+                if (cvData["TITLE"])
+                    return <CVTitle key={index} cvData={cvData["TITLE"]} />
+                return <span className='d-none' key={index}></span>
             case "HOBBY":
-                return <CVHobby key={index} cvData={cvData["HOBBY"]} />
+                if (cvData["HOBBY"])
+                    return <CVHobby key={index} cvData={cvData["HOBBY"]} />
+                return <span className='d-none' key={index}></span>
             case "AWARD":
-                return <CVAward key={index} cvData={cvData["AWARD"]} />
+                if (cvData["AWARD"])
+                    return <CVAward key={index} cvData={cvData["AWARD"]} />
+                return <span className='d-none' key={index}></span>
             default:
                 return <span className='d-none' key={index}></span>
         }

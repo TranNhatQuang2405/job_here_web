@@ -100,3 +100,10 @@
   width: 100%;
   height: 300px;
 }
+
+.CVItem__cvCreated {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+}

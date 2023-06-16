@@ -1,17 +1,18 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Document, Page, pdfjs } from 'react-pdf';
 import "./CVItem.css";
 import { useTranslation } from "react-i18next";
 import { TrashFill } from "react-bootstrap-icons";
 import Moment from "moment";
 import { CVBody } from "..";
+import { useNavigate } from "react-router-dom";
 const CVItem = ({ cvData = {}, handleDeleteCV }) => {
+
     const { t } = useTranslation();
-
+    const cvTemplate = cvData?.cvTemplate
+    const navigate = useNavigate()
+    const [currentWidth, setCurrentWidth] = useState(0)
     const cvRef = useRef()
-
-    pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
-
     const getCvDataForBody = () => {
         try {
             const cvDataForBody = JSON.parse(cvData.cvContent)
@@ -20,8 +21,21 @@ const CVItem = ({ cvData = {}, handleDeleteCV }) => {
             return null
         }
     }
+    pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
-    const cvTemplate = cvData?.cvTemplate
+
+
+    const viewCV = () => {
+        navigate(`/ViewCV/${cvData.cvId}`)
+    }
+
+
+    useEffect(() => {
+        if (cvRef.current) {
+            setCurrentWidth(cvRef?.current?.offsetWidth - 20)
+        }
+    }, [cvRef])
+
 
     if (cvData.cvType === "CREATED") {
         return (
@@ -30,11 +44,16 @@ const CVItem = ({ cvData = {}, handleDeleteCV }) => {
                     <TrashFill />
                 </div>
                 <div className="mt-3">
-                    <CVBody cvData={getCvDataForBody()} templateData={cvTemplate} parentWidth={cvRef?.current?.offsetWidth} />
+                    <div className="CVItem__cvCreated">
+                        <CVBody cvData={getCvDataForBody()} templateData={cvTemplate} parentWidth={currentWidth} />
+                    </div>
                 </div>
                 <div className="CVItem__cv-content">
                     <div className="CVItem__cv-name">
-                        <a className="CVItem__cv-name-href" href={cvData.cvUrl} target="_blank" rel="noreferrer">
+                        <a className="CVItem__cv-name-href"
+                            href={cvData.cvUrl}
+                            onClick={viewCV}
+                        >
                             {cvData.cvName}
                         </a>
                     </div>
@@ -58,8 +77,6 @@ const CVItem = ({ cvData = {}, handleDeleteCV }) => {
                     >
                         <Page className="CVItem__iframe" pageNumber={1} />
                     </Document>
-                    {/* <embed title={cvData.cvName} src={cvData.cvUrl} type="application/pdf" className="CVItem__iframe">
-                </embed> */}
                 </div>
                 <div className="CVItem__cv-content">
                     <div className="CVItem__cv-name">
