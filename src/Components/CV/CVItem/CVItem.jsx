@@ -48,7 +48,7 @@ const CVItem = ({ cvData = {}, handleDeleteCV }) => {
                         <CVBody cvData={getCvDataForBody()} templateData={cvTemplate} parentWidth={currentWidth} />
                     </div>
                 </div>
-                <div className="CVItem__cv-content">
+                <div className="CVItem__cv-content" onClick={viewCV}>
                     <div className="CVItem__cv-name">
                         <a className="CVItem__cv-name-href"
                             href={cvData.cvUrl}

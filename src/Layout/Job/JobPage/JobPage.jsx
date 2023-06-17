@@ -99,14 +99,6 @@ const JobPage = () => {
           </div>
         </div>
       )}
-      {/* <div className="JobPage__job-tab jh-container mt-4">
-        <div className="JobPage__box-job-similar jh-box-item">
-          <h2 className="box-title mb-3">Việc làm liên quan</h2>
-          <JobItem />
-          <JobItem />
-          <JobItem />
-        </div>
-      </div> */}
     </div>
   );
 };

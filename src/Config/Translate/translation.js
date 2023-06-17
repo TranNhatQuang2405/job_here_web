@@ -276,7 +276,12 @@ export const en = {
   "createCV.btn.create": "Create",
   "createCV.submit.title": "Create CV",
   "createCV.cvName.alert": "CV's name can't be empty",
-  "createCV.cvName.placeHolder": "Fill CV's name"
+  "createCV.cvName.placeHolder": "Fill CV's name",
+  "editCV.submit.title": "Edit CV",
+  "createCV.btn.edit": "Save changes",
+  "apply.result.title": "Apply's Result",
+  "apply.btn.back": "Back",
+  "apply.btn.apply": "Apply Job"
 
 };
 
@@ -560,5 +565,10 @@ export const vn = {
   "createCV.btn.create": "Tạo CV",
   "createCV.submit.title": "Tạo CV",
   "createCV.cvName.alert": "Tên CV không được để trống",
-  "createCV.cvName.placeHolder": "Điền tên của CV"
+  "createCV.cvName.placeHolder": "Điền tên của CV",
+  "editCV.submit.title": "Chỉnh sửa CV",
+  "createCV.btn.edit": "Lưu thay đổi",
+  "apply.result.title": "Kết quả ứng tuyển",
+  "apply.btn.back": "Quay lại",
+  "apply.btn.apply": "Ứng tuyển"
 };

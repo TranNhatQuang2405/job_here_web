@@ -38,6 +38,7 @@ export const getListCVTemplate = "/cv/getListCVTemplate";
 export const getCVTemplate = "/cv";
 export const createCV = "/cv";
 export const getCVContent = "/cv/getCVContent";
+export const editCV = "/cv/edit";
 
 
 // Upload

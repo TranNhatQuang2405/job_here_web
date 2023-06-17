@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CreateCVEducation, CreateCVExperience, CreateCVOverall, CreateCVSkill } from './Component'
+import { CreateCVEducation, CreateCVExperience, CreateCVOverall, CreateCVSkill } from '../CreateCV/Component'
 import { cvBusiness } from 'Business'
 import { useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom'
@@ -10,26 +10,33 @@ import { useDispatch } from 'react-redux'
 import { warning, success, error } from 'Config/Redux/Slice/AlertSlice'
 import { IconSpinner } from 'Components/Icon'
 import { Form } from 'react-bootstrap';
-import data from "Components/CV/CVBody/CVBodyDefaultData.json"
-import "./CreateCV.css"
+import "./EditCV.css"
 
-
-function CreateCV() {
-    let { templateId } = useParams()
+function EditCV() {
+    let { cvId } = useParams()
     const email = useSelector(state => state.User.sessionInfo?.email)
     const { t } = useTranslation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [templateData, setTemplateData] = useState({})
     const [pending, setPending] = useState(false)
-    const [createCvData, setCreateCvData] = useState({ cvTemplateId: Number(templateId), cvName: "", cvContent: "" })
-    const [cvData, setCvData] = useState(data)
+    const [editCVData, setEditCVData] = useState({ cvId: null, cvTemplateId: null, cvName: "", cvContent: "" })
+    const [cvData, setCvData] = useState({})
+    const [pendingInit, setPendingInit] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
-            let result = await cvBusiness.getCVTemplate(templateId)
+            let result = await cvBusiness.getCVContent(cvId)
+            setPendingInit(false)
             if (result.data.httpCode === 200) {
-                setTemplateData({ ...result.data.objectData })
+                setTemplateData({ ...result.data?.objectData?.cvTemplate })
+                let cvContent = result.data?.objectData?.cvContent || "{}"
+                setCvData(JSON.parse(cvContent))
+                setEditCVData({
+                    cvId: result.data?.objectData?.cvId,
+                    cvTemplateId: result.data?.objectData?.cvTemplate?.cvTemplateId,
+                    cvName: result.data?.objectData?.cvName
+                })
             } else {
                 navigate("/Home")
             }
@@ -38,22 +45,22 @@ function CreateCV() {
         return () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [templateId])
+    }, [cvId])
 
     useEffect(() => {
-        if (email && templateId) {
-            let data = localStorage.getItem(`createCV/${email}/${templateId}`);
+        if (email && cvId) {
+            let data = localStorage.getItem(`editCV/${email}/${cvId}`);
             if (data) {
                 let storageCVData = JSON.parse(data);
                 setCvData(storageCVData)
             }
         }
-    }, [email, templateId])
+    }, [email, cvId])
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (email && templateId) {
-                localStorage.setItem(`createCV/${email}/${templateId}`, JSON.stringify(cvData))
+            if (email && cvId) {
+                localStorage.setItem(`editCV/${email}/${cvId}`, JSON.stringify(cvData))
             }
         }, 5000);
         return () => {
@@ -175,20 +182,20 @@ function CreateCV() {
     }
 
     const createCV = async () => {
-        if (createCvData && createCvData?.cvName?.trim().length === 0) {
-            dispatch(warning({ message: t("createCV.cvName.alert"), title: t("createCV.submit.title") }))
+        if (editCVData && editCVData?.cvName?.trim().length === 0) {
+            dispatch(warning({ message: t("createCV.cvName.alert"), title: t("editCV.submit.title") }))
         } else {
             setPending(true)
-            let data = createCvData
+            let data = editCVData
             data.cvContent = JSON.stringify(cvData)
-            let result = await cvBusiness.createCV(data)
+            let result = await cvBusiness.editCV(data)
             if (result.data.httpCode === 200) {
-                dispatch(success({ message: result.data.message, title: t("createCV.submit.title") }))
+                dispatch(success({ message: result.data.message, title: t("editCV.submit.title") }))
                 setTimeout(() => {
                     navigate("/CVManage?tab=1")
                 }, 2000)
             } else {
-                dispatch(error({ message: result.data.message, title: t("createCV.submit.title") }))
+                dispatch(error({ message: result.data.message, title: t("editCV.submit.title") }))
             }
             setPending(false)
         }
@@ -199,7 +206,7 @@ function CreateCV() {
     }
 
     const changeCVName = (e) => {
-        setCreateCvData(prev => (
+        setEditCVData(prev => (
             {
                 ...prev,
                 cvName: e.target.value
@@ -207,64 +214,71 @@ function CreateCV() {
         ))
     }
 
-    return (
-        <div className="jh-box-item CreateCV__box">
-            <div className="CreateCV__title">{t("createCV.title")}</div>
-            <CreateCVOverall
-                imageData={cvData.IMAGE}
-                overallData={cvData.OVERALL}
-                titleData={cvData.TITLE}
-                contactData={cvData.CONTACT}
-                changeImageData={changeImageData}
-                changeOverallData={changeOverallData}
-                changeContactData={changeContactData}
-                changeTitleData={changeTitleData}
-            />
-            <CreateCVEducation
-                educationData={cvData.EDUCATION}
-                addEducation={addEducation}
-                deleteEducation={deleteEducation}
-                changeEducationData={(e) => changeDataInList(e, "EDUCATION")}
-            />
-            <CreateCVSkill
-                skillData={cvData.SKILL}
-                addSkill={addSkill}
-                deleteSkill={deleteSkill}
-                changeSkillData={(e) => changeDataInList(e, "SKILL")}
-                achievementData={cvData.AWARD}
-                addAchievement={addAchievement}
-                deleteAchievement={deleteAchievement}
-                changeAchievemenData={(e) => changeDataInList(e, "AWARD")}
-
-            />
-            <CreateCVExperience
-                experienceData={cvData.EXPERIENCE}
-                addExperience={addExperience}
-                deleteExperience={deleteExperience}
-                changeExperienceData={(e) => changeDataInList(e, "EXPERIENCE")}
-            />
-            <div className="CreateCV__title mt-3">{t("createCV.review")}</div>
-            <CVBody templateData={templateData} cvData={cvData}></CVBody>
-            <div className="CreateCV__btn">
-                <Form.Group>
-                    <Form.Control
-                        id="cvName"
-                        value={createCvData.cvName}
-                        onChange={changeCVName}
-                        className="CreateCV__cvName"
-                        placeholder={t("createCV.cvName.placeHolder")}
-                    />
-                </Form.Group>
-                <ButtonPrimary onClick={cancel} secondary={true}>{t("createCV.btn.cancel")}</ButtonPrimary>
-                <ButtonPrimary onClick={createCV}>
-                    {pending ?
-                        <IconSpinner variant="dark" /> :
-                        t("createCV.btn.create")
-                    }
-                </ButtonPrimary>
+    if (pendingInit)
+        return (
+            <div className="jh-box-item CreateCV__box">
+                <IconSpinner />
             </div>
-        </div>
-    )
+        )
+    else
+        return (
+            <div className="jh-box-item CreateCV__box">
+                <div className="CreateCV__title">{t("createCV.title")}</div>
+                <CreateCVOverall
+                    imageData={cvData.IMAGE}
+                    overallData={cvData.OVERALL}
+                    titleData={cvData.TITLE}
+                    contactData={cvData.CONTACT}
+                    changeImageData={changeImageData}
+                    changeOverallData={changeOverallData}
+                    changeContactData={changeContactData}
+                    changeTitleData={changeTitleData}
+                />
+                <CreateCVEducation
+                    educationData={cvData.EDUCATION}
+                    addEducation={addEducation}
+                    deleteEducation={deleteEducation}
+                    changeEducationData={(e) => changeDataInList(e, "EDUCATION")}
+                />
+                <CreateCVSkill
+                    skillData={cvData.SKILL}
+                    addSkill={addSkill}
+                    deleteSkill={deleteSkill}
+                    changeSkillData={(e) => changeDataInList(e, "SKILL")}
+                    achievementData={cvData.AWARD}
+                    addAchievement={addAchievement}
+                    deleteAchievement={deleteAchievement}
+                    changeAchievemenData={(e) => changeDataInList(e, "AWARD")}
+
+                />
+                <CreateCVExperience
+                    experienceData={cvData.EXPERIENCE}
+                    addExperience={addExperience}
+                    deleteExperience={deleteExperience}
+                    changeExperienceData={(e) => changeDataInList(e, "EXPERIENCE")}
+                />
+                <div className="CreateCV__title mt-3">{t("createCV.review")}</div>
+                <CVBody templateData={templateData} cvData={cvData}></CVBody>
+                <div className="CreateCV__btn">
+                    <Form.Group>
+                        <Form.Control
+                            id="cvName"
+                            value={editCVData.cvName}
+                            onChange={changeCVName}
+                            className="CreateCV__cvName"
+                            placeholder={t("createCV.cvName.placeHolder")}
+                        />
+                    </Form.Group>
+                    <ButtonPrimary onClick={cancel} secondary={true}>{t("createCV.btn.cancel")}</ButtonPrimary>
+                    <ButtonPrimary onClick={createCV}>
+                        {pending ?
+                            <IconSpinner variant="dark" /> :
+                            t("createCV.btn.edit")
+                        }
+                    </ButtonPrimary>
+                </div>
+            </div>
+        )
 }
 
-export default CreateCV
+export default EditCV

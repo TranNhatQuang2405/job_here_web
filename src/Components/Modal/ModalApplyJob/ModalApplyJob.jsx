@@ -14,10 +14,15 @@ import { ButtonPrimary } from "Components/Button";
 import { cvBusiness, userBusiness } from "Business";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { error, success } from "Config/Redux/Slice/AlertSlice";
+import { useDispatch } from "react-redux";
+import { IconSpinner } from "Components/Icon";
 
 const ModalApplyJob = forwardRef(({ jobData }, ref) => {
     const [show, setShow] = useState(false);
     const [pending, setPending] = useState(false)
+    const [pendingApply, setPendingApply] = useState(false)
+    const dispatch = useDispatch()
     const [info, setInfo] = useState({
         note: "",
         cv: "",
@@ -59,23 +64,20 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
         setInfo((prev) => ({ ...prev, cv: e.target.value }));
     };
 
-    // const onChangeNote = (e) => {
-    //   setInfo((prev) => ({ ...prev, note: e.target.value }));
-    // };
-
     const onHide = () => {
         setShow(false);
     };
 
     const onApply = async () => {
         if (info.cv) {
+            setPendingApply(true)
             let result = await userBusiness.ApplyJob(info.cv, jobData.jobId, info.note);
-            messRef?.current?.setMessage?.(result?.data?.message ?? "");
-            messRef?.current?.onToggleModal?.();
+            setPendingApply(false)
+            let title = t("apply.result.title")
             if (result.data.httpCode === 200) {
-                setTimeout(() => {
-                    onHide();
-                }, 5000);
+                dispatch(success({ message: result.data.message, title: title, onHide: onHide }))
+            } else {
+                dispatch(error({ message: result.data.message, title: title, onHide: onHide }))
             }
         }
     };
@@ -134,9 +136,11 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
                     </div>
                     <div className="JobApply__footer d-flex justify-content-end pt-4">
                         <ButtonPrimary secondary onClick={onHide} style={{ marginRight: "10px" }}>
-                            {t("Back")}
+                            {t("apply.btn.back")}
                         </ButtonPrimary>
-                        <ButtonPrimary onClick={onApply}>{t("Apply Job")}</ButtonPrimary>
+                        <ButtonPrimary onClick={onApply}>
+                            {pendingApply ? <IconSpinner variant="dark" /> : t("apply.btn.apply")}
+                        </ButtonPrimary>
                     </div>
                 </div>
             </Modal.Body>
