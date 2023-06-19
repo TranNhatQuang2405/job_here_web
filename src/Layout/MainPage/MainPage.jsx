@@ -1,5 +1,5 @@
 import React from "react";
-import { JobInteresting, JobNew } from "Components/Job";
+import { JobByIndustry, JobInteresting, JobNew } from "Components/Job";
 import { TopBody, QuickBox } from "./Component";
 import { Keyword } from "Components/Keyword";
 import { CompanyTop } from "Components/Company";
@@ -12,6 +12,7 @@ const MainPage = () => {
       <JobNew />
       <JobInteresting />
       <Keyword />
+      <JobByIndustry />
       <CompanyTop />
     </div>
   );

@@ -8,3 +8,5 @@ export { default as userBusiness } from "./UserBusiness";
 export { default as messageBusiness } from "./MessageBusiness";
 export { default as blogBusiness } from "./BlogService";
 export { default as notificationBusiness } from "./NotificationBusiness"
+export { default as reportBusiness } from "./ReportBusiness"
+

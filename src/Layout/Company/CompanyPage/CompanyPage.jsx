@@ -15,6 +15,7 @@ import { CompanyRatingOveral, CompanyRating, CompanyAboutAndJob } from "./Compon
 import company_default_background from "Assets/Images/company_default_background.jpg";
 import { Messenger } from "react-bootstrap-icons";
 import { ButtonPrimary } from "Components/Button";
+import { IconSpinner } from "Components/Icon";
 
 const CompanyPage = () => {
 	const { t } = useTranslation();
@@ -24,6 +25,7 @@ const CompanyPage = () => {
 	const [loading, setLoading] = useState(true);
 	const [show, setShow] = useState(false)
 	const [chatMessage, setChatMessage] = useState("")
+	const [pendingSend, setPendingSend] = useState(false)
 	const getCurrentTab = () => {
 		let tab = searchParams.get("tab") * 1;
 		if (Number.isInteger(tab)) {
@@ -100,6 +102,7 @@ const CompanyPage = () => {
 
 	const handleSend = async () => {
 		if (chatMessage.trim() !== "") {
+			setPendingSend(true)
 			let params = {
 				userId: sessionInfo.userId,
 				companyId: companyData.companyId,
@@ -107,6 +110,7 @@ const CompanyPage = () => {
 				content: chatMessage
 			}
 			await messageBusiness.chat(params)
+			setPendingSend(false)
 			setShow(false)
 			setChatMessage("")
 		}
@@ -131,7 +135,11 @@ const CompanyPage = () => {
 				</Modal.Body>
 				<Modal.Footer>
 					<ButtonPrimary onClick={handleHide} secondary={true}>{t("companyPage.message.close")}</ButtonPrimary>
-					<ButtonPrimary onClick={handleSend}>{t("companyPage.message.send")}</ButtonPrimary>
+					<ButtonPrimary onClick={handleSend}>
+						{pendingSend ? <IconSpinner variant="light" /> :
+							t("companyPage.message.send")
+						}
+					</ButtonPrimary>
 				</Modal.Footer>
 			</Modal>
 			<div className="jh-container">

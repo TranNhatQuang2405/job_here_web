@@ -8,6 +8,7 @@
     border-radius: 10px;
     cursor: pointer;
     height: 100%;
+    box-sizing: border-box;
 }
 
 .BlogRef__name {
@@ -16,5 +17,7 @@
 }
 
 .BlogRef__box:hover {
-    background-color: rgba(170, 170, 170, 0.5);
+    /* background-color: rgba(170, 170, 170, 0.5); */
+    border: 1px solid var(--jh-primary-color);
+    padding: 7px;
 }

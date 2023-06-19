@@ -281,7 +281,9 @@ export const en = {
   "createCV.btn.edit": "Save changes",
   "apply.result.title": "Apply's Result",
   "apply.btn.back": "Back",
-  "apply.btn.apply": "Apply Job"
+  "apply.btn.apply": "Apply Job",
+  "jobByIndustry.title": "Top industry",
+  "jobByIndustry.job": "Jobs"
 
 };
 
@@ -570,5 +572,7 @@ export const vn = {
   "createCV.btn.edit": "Lưu thay đổi",
   "apply.result.title": "Kết quả ứng tuyển",
   "apply.btn.back": "Quay lại",
-  "apply.btn.apply": "Ứng tuyển"
+  "apply.btn.apply": "Ứng tuyển",
+  "jobByIndustry.title": "Top ngành nghề nổi bật",
+  "jobByIndustry.job": "việc làm"
 };

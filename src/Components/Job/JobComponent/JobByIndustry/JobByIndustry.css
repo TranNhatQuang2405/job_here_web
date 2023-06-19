@@ -1,0 +1,45 @@
+.JobByIndustry__child {
+    align-items: center;
+    background: #f3f5f7;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 24px;
+    padding: 23px;
+    text-align: center;
+    transition: .3s;
+}
+
+.JobByIndustry__child:hover {
+    background: #fff;
+    border-color: var(--jh-primary-color);
+    box-shadow: 0 10px 30px rgba(14,166,59,.2);
+    cursor: pointer;
+}
+
+.JobByIndustry__child-text {
+    color: #212f3f;
+    font-weight: 600;
+}
+
+.JobByIndustry__child-img {
+   width: 100%;
+}
+
+.JobByIndustry__child-imgBox {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #f3f5f7;
+    padding: 8px;
+}
+
+.JobByIndustry__child-job {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--jh-primary-color);
+    font-weight: 500;
+}

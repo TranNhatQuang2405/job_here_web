@@ -18,18 +18,25 @@ const JobSearch = () => {
 	const [currentPage, setCurrentPage] = useState(0);
 	const [totalPage, setTotalPage] = useState(0);
 
-	const validateQuery = () => {
-		let q = searchParams.get("q") || ""
+	const validateQueryString = (key) => {
+		let q = searchParams.get(key) || ""
 		q = q.replace(/[^a-zA-Z0-9 ]/gi, '');
 		q = q.replace(/\s+/g, ' ').trim();
 		return q
 	}
 
+	const validateQueryNumber = (key) => {
+		let q = searchParams.get(key) || ""
+		q = q.replace(/[^0-9 ]/gi, '');
+		q = q.replace(/\s+/g, ' ').trim();
+		return q * 1
+	}
+
 	const [searchData, setSearchData] = useState({
-		text: validateQuery(),
-		industryField: "",
-		skillField: "",
-		cityField: "",
+		text: validateQueryString("q"),
+		industryField: validateQueryNumber("industryId"),
+		skillField: validateQueryNumber("skillId"),
+		cityField: validateQueryNumber("cityId"),
 	});
 	const [dropdownData, setDropdownData] = useState({
 		industry: [],
@@ -75,7 +82,6 @@ const JobSearch = () => {
 		getDropdownData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
 	useEffect(() => {
 		getData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -85,6 +91,9 @@ const JobSearch = () => {
 		setLoading(true);
 		let { text, industryField, skillField, cityField } = searchData;
 		searchParams.set("q", text)
+		searchParams.set("industryId", industryField)
+		searchParams.set("skillId", skillField)
+		searchParams.set("cityId", cityField)
 		setSearchParams(searchParams)
 		let result = await userBusiness.FindJob(
 			currentPage,
@@ -185,7 +194,7 @@ const JobSearch = () => {
 								</span>
 								<Select
 									showSearch
-									defaultValue={""}
+									defaultValue={searchData.industryField}
 									className="form-control JobSearch__input jh-box-input"
 									placeholder=""
 									optionFilterProp="children"
@@ -201,7 +210,7 @@ const JobSearch = () => {
 								</span>
 								<Select
 									showSearch
-									defaultValue={""}
+									defaultValue={searchData.skillField}
 									className="form-control JobSearch__input jh-box-input"
 									placeholder=""
 									optionFilterProp="children"
@@ -217,7 +226,7 @@ const JobSearch = () => {
 								</span>
 								<Select
 									showSearch
-									defaultValue={""}
+									defaultValue={searchData.cityField}
 									className="form-control JobSearch__input jh-box-input"
 									placeholder=""
 									optionFilterProp="children"
@@ -241,6 +250,13 @@ const JobSearch = () => {
 					<LoadingSpinner />
 				) : data.length === 0 ? (
 					<div className="pt-3 d-flex justify-content-center">
+						<div className="m-3">
+							<p className="mb-0">
+								{t("user.job.search.totalRecord.1")}{" "}
+								<strong className="primary-color">{totalRecord}</strong>{" "}
+								{t("user.job.search.totalRecord.2")}
+							</p>
+						</div>
 					</div>
 				) : (
 					<div>

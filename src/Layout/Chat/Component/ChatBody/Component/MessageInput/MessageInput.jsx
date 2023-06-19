@@ -26,15 +26,23 @@ function MessageInput({ messageData }) {
             setPending(false)
         }
     }
+
+    const handleKeyDown = async (event) => {
+        if (event.key === 'Enter') {
+            await onSubmit()
+        }
+    }
     return (
         <div className="MessageInput__box">
             <Input
                 value={message}
                 onChange={changeMessage}
                 size="large"
+                onKeyDown={handleKeyDown}
+
             />
             <ButtonPrimary onClick={onSubmit}>
-                {pending ? <Spinner animation='border' size='sm' /> : <SendFill size={18} />}
+                {pending ? <Spinner animation='border' size='sm' variant="light" /> : <SendFill size={18} />}
             </ButtonPrimary>
         </div>
     )

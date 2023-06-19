@@ -26,6 +26,7 @@
     background-color: black;
     color: white;
     font-weight: 600;
+    box-sizing: border-box;
 }
 
 .BlogPage__box>* {

@@ -74,3 +74,6 @@ export const countNotification = "/notification/user"
 export const getLastsNotificationOfUser = "/notification/all/user"
 export const viewNotification = "/notification/view"
 export const viewNotificationOfUser = "/notification/view/user"
+
+//Report
+export const getTotalJobByIndustry = "/report/getTotalJobByIndustry"
