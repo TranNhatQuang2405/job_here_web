@@ -29,7 +29,7 @@ const JobSearch = () => {
 		let q = searchParams.get(key) || ""
 		q = q.replace(/[^0-9 ]/gi, '');
 		q = q.replace(/\s+/g, ' ').trim();
-		return q * 1
+		return q * 1 || ""
 	}
 
 	const [searchData, setSearchData] = useState({
