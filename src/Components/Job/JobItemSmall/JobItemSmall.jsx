@@ -44,7 +44,7 @@ const JobItemSmall = ({ jobData = {} }) => {
 		<Col md={4} sm={6} className="JobItemSmall__container">
 			<div className="JobItemSmall__feature-job-item">
 				<div className="d-flex">
-					<Link to={`/Job/${jobData?.jobId ?? 0}`} target="_blank" rel="noreferrer">
+					<Link to={`/Job/${jobData?.jobId ?? 0}`} rel="noreferrer">
 						<CompanyLogo src={jobData?.avatarUrl ?? null} />
 					</Link>
 					<div className="JobItemSmall__col-title flex-grow-1">

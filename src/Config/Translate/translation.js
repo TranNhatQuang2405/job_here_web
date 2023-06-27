@@ -283,8 +283,11 @@ export const en = {
   "apply.btn.back": "Back",
   "apply.btn.apply": "Apply Job",
   "jobByIndustry.title": "Top industry",
-  "jobByIndustry.job": "Jobs"
-
+  "jobByIndustry.job": "Jobs",
+  "jobApllied.accept": "Application is accepted",
+  "jobApllied.deny": "Application is denied",
+  "jobApllied.viewEmail": "View email content",
+  "jobApllied.viewEmail.title": "Email content"
 };
 
 export const vn = {
@@ -574,5 +577,9 @@ export const vn = {
   "apply.btn.back": "Quay lại",
   "apply.btn.apply": "Ứng tuyển",
   "jobByIndustry.title": "Top ngành nghề nổi bật",
-  "jobByIndustry.job": "việc làm"
+  "jobByIndustry.job": "việc làm",
+  "jobApllied.accept": "Đơn ứng tuyển đã được chấp nhận",
+  "jobApllied.deny": "Đơn ứng tuyển bị từ chối",
+  "jobApllied.viewEmail": "Xem nội dung email",
+  "jobApllied.viewEmail.title": "Nội dung email"
 };

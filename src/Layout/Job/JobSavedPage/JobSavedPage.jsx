@@ -15,7 +15,7 @@ const JobSavedPage = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPage, setTotalPage] = useState(0);
   const { t } = useTranslation();
-  const size = 8;
+  const size = 10;
   let savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
 
   useEffect(() => {
@@ -66,7 +66,7 @@ const JobSavedPage = () => {
               <div>
                 <JobList data={data} />
                 <div className="d-flex justify-content-center align-items-center">
-                  {totalPage > 0 && (
+                  {totalPage > 1 && (
                     <Pagination>
                       <Pagination.First onClick={onChangePage(0)} />
                       <Pagination.Prev onClick={onChangePage(currentPage - 1)} />

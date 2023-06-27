@@ -32,8 +32,8 @@ class UserBusiness extends Service {
     return result;
   };
 
-  GetAppliedJob = async (month, year) => {
-    let result = await this.get(`${getAppliedJobURL}?month=${year}-${month}`);
+  GetAppliedJob = async (month) => {
+    let result = await this.get(`${getAppliedJobURL}?month=${month}`);
     return result;
   };
 

@@ -10,6 +10,7 @@ import { jobBusiness } from "Business";
 import { useSelector, useDispatch } from "react-redux";
 import { GetAllSavedJob, SaveTemporary, UnSaveTemporary } from "Config/Redux/Slice/SavedJobSlice";
 import { changeCurrentPath } from "Config/Redux/Slice/CurrentPathSlice";
+import moment from "moment"
 
 const JobHeader = ({ jobData = {}, className }) => {
     const { t } = useTranslation();
@@ -25,6 +26,12 @@ const JobHeader = ({ jobData = {}, className }) => {
     const goToSignIn = () => {
         let path = location.pathname
         dispatch(changeCurrentPath(path))
+    }
+
+    const checkValid = () => {
+        let timeReceived = moment(jobData.endDate)
+        let currentTime = moment()
+        return currentTime.isSameOrBefore(timeReceived)
     }
 
     const onSave = async () => {
@@ -77,36 +84,38 @@ const JobHeader = ({ jobData = {}, className }) => {
                     </div>
                 </div>
                 <div className="JobHeader_box-apply">
-                    <div className="text-center">
-                        <div className="mb-3">
-                            {!sessionInfo ? (
-                                <ButtonPrimary onClick={goToSignIn}>
-                                    <i className="bi bi-send" /> {t("aplly.nologin")}
-                                </ButtonPrimary>
-                            ) : (
-                                <ButtonPrimary onClick={onApply}>
-                                    <i className="bi bi-send" /> {t("APPLY NOW")}
-                                </ButtonPrimary>
-                            )}
-                        </div>
-                        <div>
-                            {!sessionInfo ? (
-                                <ButtonPrimary secondary onClick={goToSignIn} style={{ width: "100%" }}>
-                                    {t("saveJob.nologin")}
-                                </ButtonPrimary>
-                            ) : (
-                                !savedJobList.includes(jobData.jobId) ? (
-                                    <ButtonPrimary secondary onClick={onSave} style={{ width: "100%" }}>
-                                        <i className="bi bi-heart" /> {t("SAVE JOB")}
+                    {checkValid() === true ?
+                        <div className="text-center">
+                            <div className="mb-3">
+                                {!sessionInfo ? (
+                                    <ButtonPrimary onClick={goToSignIn}>
+                                        <i className="bi bi-send" /> {t("aplly.nologin")}
                                     </ButtonPrimary>
                                 ) : (
-                                    <ButtonPrimary onClick={onSave} style={{ width: "100%" }}>
-                                        <i className="bi bi-heart-fill" /> {t("SAVED")}
+                                    <ButtonPrimary onClick={onApply}>
+                                        <i className="bi bi-send" /> {t("APPLY NOW")}
                                     </ButtonPrimary>
-                                )
-                            )}
-                        </div>
-                    </div>
+                                )}
+                            </div>
+                            <div>
+                                {!sessionInfo ? (
+                                    <ButtonPrimary secondary onClick={goToSignIn} style={{ width: "100%" }}>
+                                        {t("saveJob.nologin")}
+                                    </ButtonPrimary>
+                                ) : (
+                                    !savedJobList.includes(jobData.jobId) ? (
+                                        <ButtonPrimary secondary onClick={onSave} style={{ width: "100%" }}>
+                                            <i className="bi bi-heart" /> {t("SAVE JOB")}
+                                        </ButtonPrimary>
+                                    ) : (
+                                        <ButtonPrimary onClick={onSave} style={{ width: "100%" }}>
+                                            <i className="bi bi-heart-fill" /> {t("SAVED")}
+                                        </ButtonPrimary>
+                                    )
+                                )}
+                            </div>
+                        </div> : <></>
+                    }
                 </div>
             </div>
         </div>
