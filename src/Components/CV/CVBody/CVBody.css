@@ -78,3 +78,87 @@
 .CVBody__right.CVTemplate-1 .CV__icon {
     color: rgb(255 177 86 / 100%);
 }
+
+/** CVTemplate-2 */
+.CVBody__left.CVTemplate-2 {
+    background-color: rgba(34, 16, 25, 0.8);
+}
+
+.CVBody__left.CVTemplate-2 * {
+    color: aliceblue;
+}
+
+.CVBody__right.CVTemplate-2 {
+    font-weight: 450;
+}
+
+.CVBody__right.CVTemplate-2 .CV__title {
+    width: 100%;
+    border: 1px solid rgb(216, 40, 40);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.CVBody__right.CVTemplate-2 .CV__icon {
+    color: rgb(216, 40, 40);
+}
+
+
+/** CVTemplate-3 */
+
+.CVBody__right.CVTemplate-3 {
+    font-weight: 450;
+    border-left: 3px solid rgb(3, 8, 36) ;
+}
+.CVBody__left.CVTemplate-3 .CV__title{
+    width: 100%;
+    border-bottom: 3px solid rgb(216, 40, 40);
+    display: flex;
+    justify-content: center;
+}
+
+.CVBody__right.CVTemplate-3 .CV__title {
+    width: 100%;
+    border-bottom: 3px solid rgb(216, 40, 40);
+    display: flex;
+    justify-content: center;
+}
+
+.CVBody__right.CVTemplate-3 .CV__icon {
+    color: rgb(216, 40, 40);
+}
+
+
+/** CVTemplate-4 */
+.CVBody__right.CVTemplate-4 {
+    background-color: rgba(58, 9, 33, 0.8);
+}
+
+.CVBody__right.CVTemplate-4 * {
+    color: aliceblue;
+}
+
+.CVBody__right.CVTemplate-4 {
+    font-weight: 450;
+}
+
+.CVBody__right.CVTemplate-4 .CV__title {
+    width: 100%;
+    border: 1px solid rgb(233, 221, 221);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.CVBody__left.CVTemplate-4 .CV__title {
+    width: 100%;
+    border-bottom: 3px solid rgb(216, 40, 40);
+    display: flex;
+    justify-content: left;
+}
+
+.CVBody__right.CVTemplate-4 .CV__icon {
+    color: rgb(216, 40, 40);
+}
+

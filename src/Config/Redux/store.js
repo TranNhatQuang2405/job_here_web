@@ -6,6 +6,7 @@ import UserSlice from "./Slice/UserSlice";
 import CurrentPathSlice from "./Slice/CurrentPathSlice";
 import MasterDataSlice from "./Slice/MasterDataSlice";
 import AlertSlice from "./Slice/AlertSlice";
+import AppliedJobSlice from "./Slice/AppliedJobSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +16,8 @@ export const store = configureStore({
     User: UserSlice,
     CurrentPath: CurrentPathSlice,
     MasterData: MasterDataSlice,
-    AlertState: AlertSlice
+    AlertState: AlertSlice,
+    AppliedJob: AppliedJobSlice
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

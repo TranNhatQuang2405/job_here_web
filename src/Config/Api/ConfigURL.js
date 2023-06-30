@@ -31,6 +31,8 @@ export const saveJobURL = "/user/saveJob";
 export const unsavedJobURL = "/user/unSaveJob";
 export const getSavedJobURL = "/user/getSavedJob";
 export const getAllSavedJobId = "/user/getAllSavedJobId";
+export const getAllAppliedJob = "/user/getAllAppliedJob";
+
 
 // CV
 export const getListCVURL = "/cv/getListOwnerCV";

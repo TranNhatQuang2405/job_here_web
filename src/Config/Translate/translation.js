@@ -287,7 +287,9 @@ export const en = {
   "jobApllied.accept": "Application is accepted",
   "jobApllied.deny": "Application is denied",
   "jobApllied.viewEmail": "View email content",
-  "jobApllied.viewEmail.title": "Email content"
+  "jobApllied.viewEmail.title": "Email content",
+  "jobHeader.btn.reApplied": "APPLY AGAIN",
+  "jobHeader.btn.haveApplied": "HAVE APPLIED"
 };
 
 export const vn = {
@@ -581,5 +583,7 @@ export const vn = {
   "jobApllied.accept": "Đơn ứng tuyển đã được chấp nhận",
   "jobApllied.deny": "Đơn ứng tuyển bị từ chối",
   "jobApllied.viewEmail": "Xem nội dung email",
-  "jobApllied.viewEmail.title": "Nội dung email"
+  "jobApllied.viewEmail.title": "Nội dung email",
+  "jobHeader.btn.reApplied": "ỨNG TUYỂN LẠI",
+  "jobHeader.btn.haveApplied": "ĐÃ ỨNG TUYỂN"
 };

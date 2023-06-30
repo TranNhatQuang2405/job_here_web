@@ -1,6 +1,9 @@
 .CVTemplateListChild__img {
     width: 97%;
-    object-fit: scale-down;
+    height: 320px;
+    object-fit: fill;
+    border-radius: 10px;
+    border: 1px solid rgba(100, 100, 100, 0.4);
 }
 
 .CVTemplateListChild__box {
@@ -10,11 +13,17 @@
     cursor: pointer;
     padding: 8px;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .CVTemplateListChild__box:hover {
-    background-color: rgba(220, 220, 220, 0.7);
+    border: 1px solid salmon;
+    padding: 7px;
     color: black;
+}
+
+.CVTemplateListChild__box:hover .CVTemplateListChild__img {
+    opacity: 0.9;
 }
 
 .CVTemplateListChild__box:hover>.CVTemplateListChild__name {

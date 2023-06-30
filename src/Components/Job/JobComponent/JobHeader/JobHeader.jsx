@@ -18,6 +18,7 @@ const JobHeader = ({ jobData = {}, className }) => {
     const dispatch = useDispatch();
     const savedJobList = useSelector((state) => state.SavedJob.listSavedJob) || [];
     const sessionInfo = useSelector((state) => state.User.sessionInfo);
+    const appliedJob = useSelector((state) => state.AppliedJob.listAppliedJob) || []
     const location = useLocation();
     const onApply = () => {
         applyJobRef?.current?.onToggleModal?.();
@@ -47,6 +48,16 @@ const JobHeader = ({ jobData = {}, className }) => {
             dispatch(GetAllSavedJob());
         }
     };
+
+    const checkHaveApplied = () => {
+        let job = appliedJob.find(x => x.jobId === jobData.jobId)
+        if (job && job.applicationStatus !== "DENIED")
+            return 1
+        else if (job)
+            return -1
+        else
+            return 0
+    }
 
     return (
         <div className={"JobHeader__container jh-box-item" + (className ? " " + className : "")}>
@@ -87,15 +98,23 @@ const JobHeader = ({ jobData = {}, className }) => {
                     {checkValid() === true ?
                         <div className="text-center">
                             <div className="mb-3">
-                                {!sessionInfo ? (
+                                {!sessionInfo ?
                                     <ButtonPrimary onClick={goToSignIn}>
                                         <i className="bi bi-send" /> {t("aplly.nologin")}
                                     </ButtonPrimary>
-                                ) : (
-                                    <ButtonPrimary onClick={onApply}>
-                                        <i className="bi bi-send" /> {t("APPLY NOW")}
-                                    </ButtonPrimary>
-                                )}
+                                    : checkHaveApplied() === 1 ?
+                                        <ButtonPrimary disable>
+                                            <i className="bi bi-send" /> {t("jobHeader.btn.haveApplied")}
+                                        </ButtonPrimary>
+                                        : checkHaveApplied() === -1 ?
+                                            <ButtonPrimary onClick={onApply}>
+                                                <i className="bi bi-send" /> {t("jobHeader.btn.reApplied")}
+                                            </ButtonPrimary>
+                                            :
+                                            <ButtonPrimary onClick={onApply}>
+                                                <i className="bi bi-send" /> {t("APPLY NOW")}
+                                            </ButtonPrimary>
+                                }
                             </div>
                             <div>
                                 {!sessionInfo ? (

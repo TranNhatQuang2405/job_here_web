@@ -64,6 +64,10 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
         setInfo((prev) => ({ ...prev, cv: e.target.value }));
     };
 
+    const changeNote = (e) => {
+        setInfo((prev) => ({ ...prev, note: e.target.value }));
+    }
+
     const onHide = () => {
         setShow(false);
     };
@@ -132,6 +136,8 @@ const ModalApplyJob = forwardRef(({ jobData }, ref) => {
                             className="form-control jh-box-input"
                             rows="6"
                             placeholder={t("apply.placeholder")}
+                            value={info.note}
+                            onChange={changeNote}
                         ></textarea>
                     </div>
                     <div className="JobApply__footer d-flex justify-content-end pt-4">

@@ -32,10 +32,14 @@ function CVTemplatePage() {
     const handleUseTemplate = () => {
         navigate(`/CVManage/CreateCV/${templateId}`)
     }
+
+    const handleClose = () => {
+        navigate(-1)
+    }
     return (
         <div className="jh-box-item p-3">
             <div className="CVTemplatePage__btn">
-                <ButtonPrimary secondary={true}>{t("cvTemplate.btn.close")}</ButtonPrimary>
+                <ButtonPrimary onClick={handleClose} secondary={true}>{t("cvTemplate.btn.close")}</ButtonPrimary>
                 <ButtonPrimary onClick={handleUseTemplate}>{t("cvTemplate.btn.useTemplate")}</ButtonPrimary>
             </div>
             <CVBody templateData={templateData}></CVBody>

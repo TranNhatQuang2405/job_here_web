@@ -7,6 +7,7 @@ import {
   unsavedJobURL,
   getSavedJobURL,
   getAllSavedJobId,
+  getAllAppliedJob
 } from "Config/Api/ConfigURL";
 
 class JobBusiness extends Service {
@@ -44,6 +45,11 @@ class JobBusiness extends Service {
     let result = await this.get(getAllSavedJobId);
     return result;
   };
+
+  getAllAppliedJob = async () => {
+    let result = await this.get(getAllAppliedJob);
+    return result;
+  }
 }
 
 const jobBusiness = new JobBusiness();

@@ -106,7 +106,7 @@ const CVBody = React.forwardRef((props, ref) => {
                             ))
                         }
                     </Col>
-                    <Col xs={7} className="CVBody__right CVTemplate-1">
+                    <Col xs={7} className={`CVBody__right ${templateData?.className}`}>
                         {
                             templateData?.structure?.right.map((cvDetailType, index) => (
                                 getExactElement(cvDetailType, index)

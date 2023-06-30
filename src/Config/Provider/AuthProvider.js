@@ -7,6 +7,7 @@ import { GetAllSavedJob } from "Config/Redux/Slice/SavedJobSlice";
 import { LoadingPage } from "Layout/Common";
 import { SetIsNotPending, SetIsPending } from "Config/Redux/Slice/UserSlice";
 import { GetAllData } from "Config/Redux/Slice/MasterDataSlice";
+import { getAllAppliedJob } from "Config/Redux/Slice/AppliedJobSlice";
 const listAuthPath = ["/SignIn", "/SignUp", "/ResetPassword", "/AuthCode"];
 const listPathPrivate = ["/Chat", "/CVManage", "/CVManage/CreateCV"]
 
@@ -29,6 +30,7 @@ const AuthProvider = ({ children }) => {
             ) {
                 dispatch(changeSession(session.data.objectData));
                 dispatch(GetAllSavedJob());
+                dispatch(getAllAppliedJob())
                 let path = location.pathname;
                 if (listAuthPath.find((x) => x === path)) navigate("/Home");
             } else {
