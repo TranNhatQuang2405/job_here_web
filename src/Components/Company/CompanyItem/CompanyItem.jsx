@@ -6,7 +6,7 @@ import company_default_background from "Assets/Images/company_default_background
 
 const CompanyItem = ({ companyData = {} }) => {
   let companyURL = `/Company/${companyData.companyId || ""}`;
-
+  let companyNameUpper = companyData?.companyName?.toUpperCase() || ""
   return (
     <div className="CompanyItem__container jh-box-item">
       <div className="CompanyItem__banner">
@@ -14,7 +14,7 @@ const CompanyItem = ({ companyData = {} }) => {
           <div className="CompanyItem__banner-wrapper">
             <img
               src={companyData.backgroundUrl || company_default_background}
-              alt={companyData?.companyName ?? ""}
+              alt={companyNameUpper}
               className=""
             />
           </div>
@@ -27,8 +27,8 @@ const CompanyItem = ({ companyData = {} }) => {
       </div>
       <div className="CompanyItem__info">
         <h3>
-          <Link to={companyURL} className="company-name" target="_blank">
-            {companyData?.companyName ?? ""}
+          <Link to={companyURL} className="company-name">
+            {companyNameUpper}
           </Link>
         </h3>
       </div>

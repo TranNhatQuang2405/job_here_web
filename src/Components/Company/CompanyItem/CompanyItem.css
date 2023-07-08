@@ -4,6 +4,7 @@
   margin-bottom: 24px;
   overflow: hidden;
   transition: all 0.3s;
+  height: 90%;
 }
 
 .CompanyItem__container:hover {

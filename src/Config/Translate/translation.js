@@ -289,7 +289,8 @@ export const en = {
   "jobApllied.viewEmail": "View email content",
   "jobApllied.viewEmail.title": "Email content",
   "jobHeader.btn.reApplied": "APPLY AGAIN",
-  "jobHeader.btn.haveApplied": "HAVE APPLIED"
+  "jobHeader.btn.haveApplied": "HAVE APPLIED",
+  "companyListPage.search.placeholder": "Fill company's name"
 };
 
 export const vn = {
@@ -585,5 +586,6 @@ export const vn = {
   "jobApllied.viewEmail": "Xem nội dung email",
   "jobApllied.viewEmail.title": "Nội dung email",
   "jobHeader.btn.reApplied": "ỨNG TUYỂN LẠI",
-  "jobHeader.btn.haveApplied": "ĐÃ ỨNG TUYỂN"
+  "jobHeader.btn.haveApplied": "ĐÃ ỨNG TUYỂN",
+  "companyListPage.search.placeholder": "Điền tên công ty muốn tìm"
 };

@@ -1,0 +1,4 @@
+.CompanyListPage__searchBox {
+    display: flex;
+    justify-content: flex-end;
+}

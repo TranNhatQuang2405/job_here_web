@@ -10,10 +10,11 @@ import {
 } from "Config/Api/ConfigURL";
 
 class CompanyBusiness extends Service {
-  GetListCompany = async (page, size) => {
+  GetListCompany = async (page, size, companyName) => {
     let params = {
       page: page,
       size: size,
+      companyName: companyName
     };
     let result = await this.get(getListCompanyURL, params);
     return result;
