@@ -1,3 +1,7 @@
+.JobSearch__supportScroll {
+  display: none;
+  margin-top: -12px;
+}
 .JobSearch__container {
   padding: 20px;
   background-color: var(--jh-white-background);

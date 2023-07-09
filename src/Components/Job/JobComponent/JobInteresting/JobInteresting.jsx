@@ -6,6 +6,7 @@ import { dropdownBusiness, jobBusiness } from "Business";
 import { useTranslation } from "react-i18next";
 import Pagination from "react-bootstrap/Pagination";
 import { LoadingSpinner } from "Components/Loading";
+import { genArrayPage } from "Config/Support/PageSupport";
 
 const JobInteresting = () => {
   const [data, setData] = useState([]);
@@ -71,14 +72,15 @@ const JobInteresting = () => {
               <Pagination>
                 <Pagination.First onClick={onChangePage(0)} />
                 <Pagination.Prev onClick={onChangePage(currentPage - 1)} />
-                {_.map([...Array(totalPage)], (item, index) => (
-                  <Pagination.Item
-                    key={index}
-                    active={index === currentPage}
-                    onClick={onChangePage(index)}
-                  >
-                    {index + 1}
-                  </Pagination.Item>
+                {_.map([...genArrayPage(currentPage, totalPage)], (item, index) => (
+                  item.isNumber ?
+                    <Pagination.Item
+                      key={index}
+                      active={item.pageNumber === currentPage}
+                      onClick={onChangePage(item.pageNumber)}
+                    >
+                      {item.pageNumber + 1}
+                    </Pagination.Item> : <Pagination.Ellipsis key={index}></Pagination.Ellipsis>
                 ))}
                 <Pagination.Next onClick={onChangePage(currentPage + 1)} />
                 <Pagination.Last onClick={onChangePage(totalPage - 1)} />

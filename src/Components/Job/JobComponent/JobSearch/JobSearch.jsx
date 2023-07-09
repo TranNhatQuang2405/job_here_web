@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./JobSearch.css";
 import _ from "underscore";
 import { ButtonPrimary } from "Components/Button";
@@ -10,6 +10,7 @@ import { LoadingSpinner } from "Components/Loading";
 import { useSearchParams } from "react-router-dom";
 import { ValidateTextAndNum } from "Config/Validate";
 import { Select } from "antd";
+import { genArrayPage } from "Config/Support/PageSupport";
 
 const JobSearch = () => {
 	const [data, setData] = useState([]);
@@ -17,6 +18,7 @@ const JobSearch = () => {
 	const [totalRecord, setTotalRecord] = useState(0);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [totalPage, setTotalPage] = useState(0);
+	const totalJobRef = useRef();
 
 	const validateQueryString = (key) => {
 		let q = searchParams.get(key) || ""
@@ -162,6 +164,9 @@ const JobSearch = () => {
 	const onChangePage = (page) => () => {
 		if (page >= 0 && page < totalPage) {
 			setCurrentPage(page);
+			if (totalJobRef.current) {
+				totalJobRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+			}
 		}
 	};
 
@@ -174,7 +179,7 @@ const JobSearch = () => {
 			.localeCompare((optionB?.label ?? "").toLowerCase());
 
 	return (
-		<div className="JobSearch__container">
+		<div className="JobSearch__container" ref={totalJobRef}>
 			<div className="jh-container">
 				<div className="px-3 m-0">
 					<form method="get" onSubmit={onSearch}>
@@ -273,14 +278,15 @@ const JobSearch = () => {
 								<Pagination>
 									<Pagination.First onClick={onChangePage(0)} />
 									<Pagination.Prev onClick={onChangePage(currentPage - 1)} />
-									{_.map([...Array(totalPage)], (item, index) => (
-										<Pagination.Item
-											key={index}
-											active={index === currentPage}
-											onClick={onChangePage(index)}
-										>
-											{index + 1}
-										</Pagination.Item>
+									{_.map([...genArrayPage(currentPage, totalPage)], (item, index) => (
+										item.isNumber ?
+											<Pagination.Item
+												key={index}
+												active={item.pageNumber === currentPage}
+												onClick={onChangePage(item.pageNumber)}
+											>
+												{item.pageNumber + 1}
+											</Pagination.Item> : <Pagination.Ellipsis key={index}></Pagination.Ellipsis>
 									))}
 									<Pagination.Next onClick={onChangePage(currentPage + 1)} />
 									<Pagination.Last onClick={onChangePage(totalPage - 1)} />
