@@ -8,18 +8,21 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { store } from "Config/Redux/store";
 import { Provider } from "react-redux";
+import { MantineProvider } from "@mantine/core";
 import reportWebVitals from "./reportWebVitals";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
 import "highlight.js/styles/github.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+        <App />
+      </MantineProvider>
     </BrowserRouter>
   </Provider>
 );
